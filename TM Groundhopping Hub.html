@@ -2,7 +2,7 @@
 <html lang="hu">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <meta name="color-scheme" content="dark">
   <title>TM Groundhopping Központ</title>
   <style>
@@ -274,6 +274,79 @@
       .summary{padding-top:9px}
       .nav-item{min-height:58px}
       .sidebar-note{display:none}
+    }
+
+    /* Mobile shell polish */
+    @media (max-width:900px){
+      body{background:#030812}
+      .app{
+        gap:0;
+        padding:
+          max(5px,env(safe-area-inset-top))
+          max(5px,env(safe-area-inset-right))
+          max(5px,env(safe-area-inset-bottom))
+          max(5px,env(safe-area-inset-left));
+      }
+      .workspace{
+        border-color:rgba(148,177,214,.14);
+        background:#050d19;
+        box-shadow:0 16px 44px rgba(0,0,0,.32);
+      }
+      .toolbar{
+        position:relative;
+        z-index:10;
+        gap:10px;
+        min-height:66px;
+        padding:9px 10px;
+        background:linear-gradient(180deg,rgba(16,36,62,.99),rgba(8,22,40,.98));
+        box-shadow:0 8px 28px rgba(0,0,0,.22);
+      }
+      .menu-button{
+        flex:0 0 44px;
+        width:44px;
+        min-height:44px;
+        border-radius:14px;
+        font-size:19px;
+      }
+      .page-heading h2{font-size:16px;letter-spacing:-.015em}
+      .action.primary{
+        min-height:42px;
+        border-radius:13px;
+        box-shadow:0 8px 20px rgba(0,0,0,.2);
+      }
+      .stage{padding:2px;background:#030812}
+      .frame-stack{border-color:rgba(148,177,214,.12);border-radius:12px}
+      .sidebar{
+        inset:
+          max(7px,env(safe-area-inset-top))
+          auto
+          max(7px,env(safe-area-inset-bottom))
+          max(7px,env(safe-area-inset-left));
+        width:min(326px,calc(100vw - 28px));
+        border-radius:22px;
+        box-shadow:0 26px 80px rgba(0,0,0,.58);
+      }
+      .overlay{backdrop-filter:blur(2px)}
+      .nav-item{min-height:64px;border-radius:15px}
+      .nav-copy strong{font-size:13px;white-space:normal}
+    }
+
+    @media (max-width:560px){
+      .app{padding:0}
+      .workspace{border:0;border-radius:0;box-shadow:none}
+      .toolbar{
+        min-height:62px;
+        padding:
+          max(7px,env(safe-area-inset-top))
+          max(9px,env(safe-area-inset-right))
+          7px
+          max(9px,env(safe-area-inset-left));
+      }
+      .menu-button{flex-basis:42px;width:42px;min-height:42px}
+      .page-heading h2{font-size:15px}
+      .action.primary{min-height:40px;padding:0 11px}
+      .stage{padding:0}
+      .frame-stack{border:0;border-radius:0}
     }
   </style>
 </head>
