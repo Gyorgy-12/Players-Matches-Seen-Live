@@ -1,0 +1,443 @@
+<!doctype html>
+<html lang="hu">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <title>TM Groundhopping Központ</title>
+  <style>
+    :root{
+      --bg:#030812;
+      --panel:#0a172a;
+      --panel-2:#10233d;
+      --line:rgba(148,177,214,.18);
+      --line-strong:rgba(67,197,255,.38);
+      --text:#f5f8ff;
+      --muted:#9fb0c7;
+      --accent:#23d3a5;
+      --accent-2:#43c5ff;
+      --shadow:0 24px 80px rgba(0,0,0,.42);
+      --sidebar:304px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0}
+    body{
+      overflow:hidden;
+      color:var(--text);
+      background:
+        radial-gradient(circle at 8% -10%,rgba(35,211,165,.18),transparent 28rem),
+        radial-gradient(circle at 98% 0,rgba(67,197,255,.16),transparent 34rem),
+        linear-gradient(180deg,#07111f,var(--bg));
+      font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+      font-weight:620;
+    }
+    button,a{font:inherit}
+    button{color:inherit}
+    .app{
+      display:grid;
+      grid-template-columns:var(--sidebar) minmax(0,1fr);
+      height:100%;
+      padding:12px;
+      gap:12px;
+    }
+    .sidebar{
+      position:relative;
+      z-index:20;
+      display:flex;
+      min-height:0;
+      flex-direction:column;
+      overflow:hidden;
+      border:1px solid var(--line);
+      border-radius:24px;
+      background:linear-gradient(160deg,rgba(15,36,61,.97),rgba(7,18,33,.97));
+      box-shadow:var(--shadow);
+    }
+    .brand{
+      padding:24px 22px 19px;
+      border-bottom:1px solid var(--line);
+    }
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      min-height:27px;
+      padding:0 9px;
+      margin-bottom:13px;
+      border:1px solid rgba(35,211,165,.34);
+      border-radius:999px;
+      color:#8cf2d7;
+      background:rgba(35,211,165,.09);
+      font-size:10px;
+      font-weight:900;
+      letter-spacing:.13em;
+      text-transform:uppercase;
+    }
+    .brand h1{margin:0;font-size:25px;line-height:1.02;letter-spacing:-.045em}
+    .brand p{margin:11px 0 0;color:var(--muted);font-size:12px;line-height:1.55}
+    .summary{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:8px;
+      padding:14px 14px 6px;
+    }
+    .summary-card{
+      padding:11px 12px;
+      border:1px solid var(--line);
+      border-radius:14px;
+      background:rgba(16,35,61,.72);
+    }
+    .summary-card span{display:block;color:var(--muted);font-size:9px;font-weight:850;letter-spacing:.08em;text-transform:uppercase}
+    .summary-card strong{display:block;margin-top:4px;font-size:18px;font-variant-numeric:tabular-nums}
+    .nav-label{padding:13px 19px 7px;color:#71859f;font-size:9px;font-weight:900;letter-spacing:.13em;text-transform:uppercase}
+    .page-nav{
+      display:grid;
+      gap:6px;
+      min-height:0;
+      padding:0 10px 14px;
+      overflow:auto;
+      scrollbar-width:thin;
+      scrollbar-color:rgba(67,197,255,.45) transparent;
+    }
+    .nav-item{
+      display:grid;
+      grid-template-columns:43px minmax(0,1fr) 17px;
+      align-items:center;
+      gap:11px;
+      width:100%;
+      min-height:67px;
+      padding:9px 11px;
+      border:1px solid transparent;
+      border-radius:16px;
+      text-align:left;
+      cursor:pointer;
+      background:transparent;
+      transition:transform .16s ease,border-color .16s ease,background .16s ease;
+    }
+    .nav-item:hover{transform:translateX(2px);border-color:var(--line);background:rgba(67,197,255,.055)}
+    .nav-item.active{border-color:rgba(35,211,165,.34);background:linear-gradient(120deg,rgba(35,211,165,.14),rgba(67,197,255,.07))}
+    .nav-icon{
+      display:grid;
+      width:43px;
+      height:43px;
+      place-items:center;
+      border:1px solid var(--line);
+      border-radius:13px;
+      color:#b9ddf0;
+      background:#102640;
+      font-size:11px;
+      font-weight:950;
+      letter-spacing:-.02em;
+    }
+    .nav-item.active .nav-icon{color:#061b15;border-color:transparent;background:linear-gradient(135deg,var(--accent),#70efd0)}
+    .nav-copy{min-width:0}
+    .nav-copy strong{display:block;overflow:hidden;color:#f7fbff;font-size:13px;line-height:1.25;text-overflow:ellipsis;white-space:nowrap}
+    .nav-copy span{display:block;margin-top:4px;color:var(--muted);font-size:10px;line-height:1.3}
+    .nav-arrow{color:#5d7693;font-size:18px}
+    .nav-item.active .nav-arrow{color:#8cf2d7}
+    .sidebar-note{
+      margin-top:auto;
+      padding:14px 18px 17px;
+      border-top:1px solid var(--line);
+      color:#7f93ac;
+      font-size:10px;
+      line-height:1.5;
+    }
+    .workspace{
+      display:grid;
+      grid-template-rows:auto minmax(0,1fr);
+      min-width:0;
+      min-height:0;
+      overflow:hidden;
+      border:1px solid var(--line);
+      border-radius:24px;
+      background:rgba(6,15,28,.88);
+      box-shadow:var(--shadow);
+    }
+    .toolbar{
+      display:flex;
+      align-items:center;
+      gap:14px;
+      min-height:78px;
+      padding:13px 17px;
+      border-bottom:1px solid var(--line);
+      background:linear-gradient(180deg,rgba(16,35,61,.96),rgba(9,23,41,.94));
+    }
+    .menu-button{display:none}
+    .page-heading{min-width:0;margin-right:auto}
+    .page-heading h2{overflow:hidden;margin:0;font-size:19px;line-height:1.2;letter-spacing:-.025em;text-overflow:ellipsis;white-space:nowrap}
+    .page-heading p{overflow:hidden;margin:5px 0 0;color:var(--muted);font-size:11px;text-overflow:ellipsis;white-space:nowrap}
+    .status{
+      display:inline-flex;
+      align-items:center;
+      gap:7px;
+      min-height:34px;
+      padding:0 11px;
+      border:1px solid var(--line);
+      border-radius:999px;
+      color:#adc0d7;
+      background:rgba(7,17,31,.6);
+      font-size:10px;
+      font-weight:850;
+      white-space:nowrap;
+    }
+    .status-dot{width:7px;height:7px;border-radius:50%;background:#f6c75b;box-shadow:0 0 0 4px rgba(246,199,91,.09)}
+    .status.ready .status-dot{background:var(--accent);box-shadow:0 0 0 4px rgba(35,211,165,.09)}
+    .actions{display:flex;gap:8px}
+    .action,.menu-button{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:38px;
+      padding:0 12px;
+      border:1px solid #294664;
+      border-radius:11px;
+      color:#e8f4ff;
+      text-decoration:none;
+      cursor:pointer;
+      background:linear-gradient(180deg,#173454,#10253f);
+      box-shadow:0 7px 18px rgba(0,0,0,.16);
+    }
+    .action:hover,.menu-button:hover{border-color:rgba(67,197,255,.65)}
+    .action.primary{color:#041811;border-color:transparent;background:linear-gradient(135deg,var(--accent),#6cebc9)}
+    .stage{position:relative;min-width:0;min-height:0;padding:9px;background:#030812}
+    .frame-stack{position:relative;width:100%;height:100%;overflow:hidden;border:1px solid var(--line);border-radius:17px;background:#050b16}
+    .page-frame{display:none;width:100%;height:100%;border:0;background:#050b16}
+    .page-frame.active{display:block}
+    .loader{
+      position:absolute;
+      z-index:5;
+      inset:0;
+      display:grid;
+      place-items:center;
+      pointer-events:none;
+      background:rgba(3,8,18,.78);
+      transition:opacity .2s ease,visibility .2s ease;
+    }
+    .loader.hidden{opacity:0;visibility:hidden}
+    .loader-box{text-align:center;color:var(--muted);font-size:11px;font-weight:800}
+    .spinner{
+      width:34px;
+      height:34px;
+      margin:0 auto 11px;
+      border:3px solid rgba(67,197,255,.16);
+      border-top-color:var(--accent);
+      border-radius:50%;
+      animation:spin .8s linear infinite;
+    }
+    .overlay{display:none}
+    @keyframes spin{to{transform:rotate(360deg)}}
+    @media (max-width:900px){
+      .app{grid-template-columns:1fr;padding:7px}
+      .sidebar{
+        position:fixed;
+        inset:7px auto 7px 7px;
+        width:min(315px,calc(100vw - 30px));
+        transform:translateX(calc(-100% - 18px));
+        transition:transform .22s ease;
+      }
+      body.menu-open .sidebar{transform:translateX(0)}
+      .overlay{position:fixed;z-index:15;inset:0;display:block;pointer-events:none;background:rgba(0,0,0,0);transition:background .22s ease}
+      body.menu-open .overlay{pointer-events:auto;background:rgba(0,0,0,.58)}
+      .menu-button{display:inline-flex;width:40px;padding:0;font-size:18px}
+      .workspace{border-radius:20px}
+      .toolbar{min-height:70px;padding:10px}
+      .status{display:none}
+      .action{min-height:37px;padding:0 10px;font-size:11px}
+      .action.secondary{display:none}
+      .stage{padding:6px}
+      .frame-stack{border-radius:14px}
+    }
+    @supports (height:100dvh){
+      .app{height:100dvh}
+    }
+    @media (max-width:560px){
+      .app{padding:4px}
+      .workspace{border-radius:16px}
+      .toolbar{min-height:64px;gap:8px;padding:8px}
+      .page-heading h2{font-size:15px}
+      .page-heading p{display:none}
+      .action{min-height:40px;padding:0 10px}
+      .open-long{display:none}
+      .open-short{display:inline}
+      .stage{padding:4px}
+      .frame-stack{border-radius:12px}
+    }
+    @media (min-width:561px){
+      .open-short{display:none}
+    }
+    @media (max-width:360px){
+      .page-heading h2{font-size:13px}
+      .action{padding:0 8px;font-size:10px}
+    }
+    @media (max-height:670px){
+      .brand{padding:16px 18px 13px}
+      .brand p{display:none}
+      .summary{padding-top:9px}
+      .nav-item{min-height:58px}
+      .sidebar-note{display:none}
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar" id="sidebar" aria-label="Oldalválasztó">
+      <div class="brand">
+        <div class="eyebrow">Groundhopping hub</div>
+        <h1>TM Groundhopping Központ</h1>
+        <p>Az öt statikus HTML egyetlen, közös kezelőfelületen.</p>
+      </div>
+      <div class="summary">
+        <div class="summary-card"><span>Oldalak</span><strong>5</strong></div>
+        <div class="summary-card"><span>Táblázatsor</span><strong>4 225</strong></div>
+      </div>
+      <div class="nav-label">Tartalom</div>
+      <nav class="page-nav" id="pageNav"></nav>
+    </aside>
+
+    <div class="overlay" id="overlay" aria-hidden="true"></div>
+
+    <main class="workspace">
+      <header class="toolbar">
+        <button class="menu-button" id="menuButton" type="button" aria-label="Oldalválasztó megnyitása">☰</button>
+        <div class="page-heading">
+          <h2 id="activeTitle">Összes látott mérkőzés</h2>
+          <p id="activeDescription">86 mérkőzés összehasonlító táblázata</p>
+        </div>
+        <div class="status" id="loadStatus"><span class="status-dot"></span><span id="statusText">Betöltés…</span></div>
+        <div class="actions">
+          <button class="action secondary" id="reloadButton" type="button">Újratöltés</button>
+          <a class="action primary" id="openOriginal" href="All Seen Matches.html" target="_blank" rel="noopener"><span class="open-long">Megnyitás külön</span><span class="open-short">Külön</span></a>
+        </div>
+      </header>
+      <section class="stage">
+        <div class="frame-stack" id="frameStack">
+          <div class="loader" id="loader"><div class="loader-box"><div class="spinner"></div><span>Oldal betöltése…</span></div></div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    (() => {
+      const pages = [
+        { id:'matches', icon:'M', title:'Összes látott mérkőzés', description:'86 mérkőzés összehasonlító táblázata', meta:'86 mérkőzés', file:'All Seen Matches.html' },
+        { id:'top5', icon:'T5', title:'Top-5 látott játékosok', description:'Top-5 ligákban szereplő látott játékosok', meta:'385 sor', file:'TOP 5 players Seen Live.html' },
+        { id:'capped', icon:'V', title:'Válogatott játékosok', description:'Élőben látott, válogatott játékosok', meta:'1 124 sor', file:'Capped Players Seen Live.html' },
+        { id:'tournaments', icon:'EB', title:'EB/VB kerettagok', description:'Látott Európa- és világbajnoki kerettagok', meta:'276 sor', file:'Euro-WC Players Seen Live.html' },
+        { id:'romanian', icon:'RO', title:'Román klubok játékosai', description:'Román klubokban és válogatottként látott játékosok', meta:'2 354 sor', file:'Romanian Club-National Players Seen Live.html' }
+      ];
+
+      const pageNav = document.getElementById('pageNav');
+      const frameStack = document.getElementById('frameStack');
+      const loader = document.getElementById('loader');
+      const loadStatus = document.getElementById('loadStatus');
+      const statusText = document.getElementById('statusText');
+      const activeTitle = document.getElementById('activeTitle');
+      const activeDescription = document.getElementById('activeDescription');
+      const openOriginal = document.getElementById('openOriginal');
+      const reloadButton = document.getElementById('reloadButton');
+      const menuButton = document.getElementById('menuButton');
+      const overlay = document.getElementById('overlay');
+      const frames = new Map();
+      let activeId = '';
+
+      const safeStore = (value) => {
+        try { localStorage.setItem('tmgh-hub-active-page', value); } catch (_) {}
+      };
+
+      const storedPage = () => {
+        try { return localStorage.getItem('tmgh-hub-active-page'); } catch (_) { return null; }
+      };
+
+      const closeMenu = () => document.body.classList.remove('menu-open');
+
+      const setLoading = (loading) => {
+        loader.classList.toggle('hidden', !loading);
+        loadStatus.classList.toggle('ready', !loading);
+        statusText.textContent = loading ? 'Betöltés…' : 'Betöltve';
+      };
+
+      const ensureFrame = (page) => {
+        if (frames.has(page.id)) return frames.get(page.id);
+        const frame = document.createElement('iframe');
+        frame.className = 'page-frame';
+        frame.title = page.title;
+        frame.loading = 'eager';
+        frame.src = page.file;
+        frame.addEventListener('load', () => {
+          frame.dataset.loaded = 'true';
+          if (activeId === page.id) setLoading(false);
+        });
+        frameStack.appendChild(frame);
+        frames.set(page.id, frame);
+        return frame;
+      };
+
+      const selectPage = (id, updateHash = true) => {
+        const page = pages.find((item) => item.id === id) || pages[0];
+        activeId = page.id;
+        setLoading(true);
+        document.querySelectorAll('.nav-item').forEach((button) => {
+          const active = button.dataset.page === page.id;
+          button.classList.toggle('active', active);
+          button.setAttribute('aria-current', active ? 'page' : 'false');
+        });
+        frames.forEach((frame, frameId) => frame.classList.toggle('active', frameId === page.id));
+        const frame = ensureFrame(page);
+        frame.classList.add('active');
+        activeTitle.textContent = page.title;
+        activeDescription.textContent = page.description;
+        openOriginal.href = page.file;
+        document.title = page.title + ' · TM Groundhopping Központ';
+        safeStore(page.id);
+        if (updateHash && location.hash !== '#' + page.id) history.replaceState(null, '', '#' + page.id);
+        closeMenu();
+        if (frame.dataset.loaded === 'true') setLoading(false);
+      };
+
+      pages.forEach((page, index) => {
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.className = 'nav-item';
+        button.dataset.page = page.id;
+        button.innerHTML =
+          '<span class="nav-icon">' + page.icon + '</span>' +
+          '<span class="nav-copy"><strong>' + page.title + '</strong><span>' + page.meta + '</span></span>' +
+          '<span class="nav-arrow">›</span>';
+        button.addEventListener('click', () => selectPage(page.id));
+        button.title = 'Alt+' + (index + 1) + ' · ' + page.title;
+        pageNav.appendChild(button);
+      });
+
+      reloadButton.addEventListener('click', () => {
+        const page = pages.find((item) => item.id === activeId);
+        const frame = frames.get(activeId);
+        if (!page || !frame) return;
+        setLoading(true);
+        frame.src = page.file;
+      });
+
+      menuButton.addEventListener('click', () => document.body.classList.toggle('menu-open'));
+      overlay.addEventListener('click', closeMenu);
+
+      window.addEventListener('hashchange', () => {
+        const id = location.hash.slice(1);
+        if (pages.some((page) => page.id === id)) selectPage(id, false);
+      });
+
+      window.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') closeMenu();
+        if (!event.altKey) return;
+        const index = Number(event.key) - 1;
+        if (pages[index]) {
+          event.preventDefault();
+          selectPage(pages[index].id);
+        }
+      });
+
+      const hashPage = location.hash.slice(1);
+      const initialPage = pages.some((page) => page.id === hashPage) ? hashPage : storedPage();
+      selectPage(initialPage || pages[0].id, false);
+    })();
+  </script>
+</body>
+</html>
