@@ -437,10 +437,13 @@ body .table-wrap{
   touch-action:pan-y pinch-zoom!important;
   will-change:scroll-position!important;
 }
-body .table-wrap.is-dragging{
+body .table-wrap:active,
+body .table-wrap.is-dragging,
+body .table-wrap:active *,
+body .table-wrap.is-dragging *{
   cursor:grabbing!important;
-  user-select:auto!important;
-  -webkit-user-select:auto!important;
+  user-select:none!important;
+  -webkit-user-select:none!important;
 }
 body .table-wrap::-webkit-scrollbar{height:11px!important}
 body .table-wrap::-webkit-scrollbar-track{background:rgba(7,17,31,.78)!important}
