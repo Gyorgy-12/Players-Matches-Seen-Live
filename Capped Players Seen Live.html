@@ -35948,6 +35948,16 @@
       const statPlayers = document.getElementById('stat-players');
       const statRows = document.getElementById('stat-rows');
       const statApps = document.getElementById('stat-apps');
+      const rowData = rows.map(row => ({
+        row,
+        player: String(row.dataset.player || ''),
+        season: row.dataset.season || '',
+        seenClub: row.dataset.seenClub || '',
+        nationalTeams: String(row.dataset.nationalTeams || ''),
+        playerId: row.dataset.playerId || '',
+        totalApps: Number(row.dataset.totalApps || 0)
+      }));
+      let searchTimer = 0;
 
       const normalize = value => String(value || '')
         .normalize('NFD')
@@ -35965,28 +35975,26 @@
         const visiblePlayers = new Map();
         let visibleRows = 0;
 
-        for (const row of rows) {
-          const matchesPlayer = !query || String(row.dataset.player || '').includes(query);
-          const matchesSeason = !season || row.dataset.season === season;
-          const matchesSeenClub = !seenClub || row.dataset.seenClub === seenClub;
+        for (const item of rowData) {
+          const matchesPlayer = !query || item.player.includes(query);
+          const matchesSeason = !season || item.season === season;
+          const matchesSeenClub = !seenClub || item.seenClub === seenClub;
           // Több felnőtt válogatott is kijelölhető; VAGY-logika működik.
-          const leagueTokens = String(row.dataset.nationalTeams || '');
           const matchesLeague =
             selectedLeagues.length === 0 ||
-            selectedLeagues.some(code => leagueTokens.includes('|' + code + '|'));
+            selectedLeagues.some(code => item.nationalTeams.includes('|' + code + '|'));
           const visible =
             matchesPlayer &&
             matchesSeason &&
             matchesSeenClub &&
             matchesLeague;
 
-          row.hidden = !visible;
+          if (item.row.hidden === visible) item.row.hidden = !visible;
 
           if (visible) {
             visibleRows++;
-            const playerId = row.dataset.playerId || '';
-            if (!visiblePlayers.has(playerId)) {
-              visiblePlayers.set(playerId, Number(row.dataset.totalApps || 0));
+            if (!visiblePlayers.has(item.playerId)) {
+              visiblePlayers.set(item.playerId, item.totalApps);
             }
           }
         }
@@ -36001,7 +36009,12 @@
         emptyState.hidden = visibleRows !== 0;
       }
 
-      playerInput.addEventListener('input', applyFilters);
+      function scheduleFilters() {
+        clearTimeout(searchTimer);
+        searchTimer = setTimeout(() => requestAnimationFrame(applyFilters), 90);
+      }
+
+      playerInput.addEventListener('input', scheduleFilters);
       seasonSelect.addEventListener('change', applyFilters);
       seenClubSelect.addEventListener('change', applyFilters);
       function updateLeagueLabel() {
@@ -36050,9 +36063,8 @@
       scroller.classList.add('drag-scroll');
       scroller.tabIndex = scroller.hasAttribute('tabindex') ? scroller.tabIndex : 0;
       const dragSurface = scroller.querySelector(':scope > table');
-      const useCompositorDrag = Boolean(
-        dragSurface && scroller.querySelectorAll('tbody tr').length >= 600
-      );
+      // A natív scrollLeft simább a több ezer soros, nagyon magas táblákon.
+      const useCompositorDrag = false;
       if (useCompositorDrag) dragSurface.classList.add('tmgh-drag-surface');
       if (!scroller.hasAttribute('title')) {
         scroller.title = 'Fogd meg az egérrel, és húzd oldalra a táblázatot';

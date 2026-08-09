@@ -33087,6 +33087,8 @@
       };
       const rows = [...els.tbody.querySelectorAll('tr')];
       const num = (value) => Number(value || 0);
+      let lastSortMode = null;
+      let searchTimer = 0;
 
       function compare(a, b) {
         const mode = els.sort.value;
@@ -33103,6 +33105,14 @@
       }
 
       function apply() {
+        if (lastSortMode !== els.sort.value) {
+          rows.sort(compare);
+          const sortedRows = document.createDocumentFragment();
+          for (const row of rows) sortedRows.appendChild(row);
+          els.tbody.appendChild(sortedRows);
+          lastSortMode = els.sort.value;
+        }
+
         const q=els.q.value.trim().toLowerCase();
         const teamMin=els.teamCountMin.value===''?null:Math.max(1,Number(els.teamCountMin.value));
         const min=els.peakMin.value===''?null:Number(els.peakMin.value)*1e6;
@@ -33127,7 +33137,6 @@
           if (ok) visible.push(row);
         }
 
-        visible.sort(compare).forEach((row) => els.tbody.appendChild(row));
         const players = new Set(visible.map((row) => row.dataset.playerId)).size;
         const clubs = new Set(visible.map((row) => row.dataset.club).filter(Boolean)).size;
         const nationalities = new Set(visible.map((row) => row.dataset.nationality).filter(Boolean)).size;
@@ -33141,8 +33150,15 @@
         document.querySelector('#statCompetitions').textContent=competitions;
       }
 
+      function scheduleSearch() {
+        clearTimeout(searchTimer);
+        searchTimer = setTimeout(() => requestAnimationFrame(apply), 90);
+      }
+
       for (const el of Object.values(els)) {
-        if (el && el!==els.tbody && el!==els.line && el!==els.reset) el.addEventListener('input', apply);
+        if (!el || el===els.tbody || el===els.line || el===els.reset) continue;
+        if (el===els.q) el.addEventListener('input', scheduleSearch);
+        else el.addEventListener(el.tagName==='SELECT' ? 'change' : 'input', apply);
       }
       els.reset.addEventListener('click', () => {
         els.q.value=''; els.type.value=''; els.nationality.value=''; els.club.value=''; els.competition.value=''; els.season.value=''; els.round.value=''; els.status.value='';
@@ -33159,9 +33175,8 @@
       scroller.classList.add('drag-scroll');
       scroller.tabIndex = scroller.hasAttribute('tabindex') ? scroller.tabIndex : 0;
       const dragSurface = scroller.querySelector(':scope > table');
-      const useCompositorDrag = Boolean(
-        dragSurface && scroller.querySelectorAll('tbody tr').length >= 600
-      );
+      // A natív scrollLeft simább a több ezer soros, nagyon magas táblákon.
+      const useCompositorDrag = false;
       if (useCompositorDrag) dragSurface.classList.add('tmgh-drag-surface');
       if (!scroller.hasAttribute('title')) {
         scroller.title = 'Fogd meg az egérrel, és húzd oldalra a táblázatot';

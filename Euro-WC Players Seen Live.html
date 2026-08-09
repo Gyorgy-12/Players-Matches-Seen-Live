@@ -6885,9 +6885,8 @@
       scroller.classList.add('drag-scroll');
       scroller.tabIndex = scroller.hasAttribute('tabindex') ? scroller.tabIndex : 0;
       const dragSurface = scroller.querySelector(':scope > table');
-      const useCompositorDrag = Boolean(
-        dragSurface && scroller.querySelectorAll('tbody tr').length >= 600
-      );
+      // A natív scrollLeft simább a több ezer soros, nagyon magas táblákon.
+      const useCompositorDrag = false;
       if (useCompositorDrag) dragSurface.classList.add('tmgh-drag-surface');
       if (!scroller.hasAttribute('title')) {
         scroller.title = 'Fogd meg az egérrel, és húzd oldalra a táblázatot';
