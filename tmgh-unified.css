@@ -812,6 +812,14 @@ body td[data-label="Mostani klub / státusz"]::before{content:"Mostani klub"!imp
     font-size:15px!important;
     line-height:1.52!important;
   }
+  body thead th,
+  body tbody td,
+  body tbody td > *{
+    white-space:nowrap!important;
+    overflow-wrap:normal!important;
+    word-break:normal!important;
+    hyphens:none!important;
+  }
   body tbody td > span{
     margin-top:6px!important;
     font-size:12px!important;
