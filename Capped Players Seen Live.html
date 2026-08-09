@@ -669,7 +669,7 @@
 <link rel="stylesheet" href="tmgh-unified.css">
 <script src="tmgh-unified.js" defer></script>
 </head>
-<body data-static-export="2026-08-09-cfr-tromso-current-player-data" data-tmgh-mode="capped">
+<body class="tmgh-paginated-pending" data-static-export="2026-08-09-cfr-tromso-current-player-data" data-tmgh-mode="capped">
   <main class="page">
     <section class="hero" data-kicker="VÁLOGATOTT JÁTÉKOSOK">
       <h1>Transfermarkt Groundhopping → Élőben látott válogatott játékosok</h1>
@@ -1044,6 +1044,15 @@
 
     <section class="table-card">
       <div class="table-title">Minden látott meccs külön sor</div>
+      <div class="tmgh-pagination tmgh-pagination-top" data-tmgh-pager aria-label="Táblázat lapozása">
+        <div class="tmgh-page-status" data-page-status aria-live="polite">1–50 / 1131 sor</div>
+        <div class="tmgh-pagination-controls">
+          <button type="button" data-page-action="prev">‹ Előző</button>
+          <span class="tmgh-page-number">Oldal <strong data-page-current>1</strong> / <span data-page-total>23</span></span>
+          <button type="button" data-page-action="next">Következő ›</button>
+        </div>
+        <label class="tmgh-page-size">Sor/oldal <select data-page-size><option value="50">50</option><option value="100">100</option><option value="200">200</option></select></label>
+      </div>
       <div class="table-wrap">
         <table>
           <thead>
@@ -35930,6 +35939,15 @@
         </table>
         <div class="empty" id="empty-state" hidden>Nincs találat ezekkel a szűrőkkel.</div>
       </div>
+      <div class="tmgh-pagination tmgh-pagination-bottom" data-tmgh-pager aria-label="Táblázat lapozása">
+        <div class="tmgh-page-status" data-page-status>1–50 / 1131 sor</div>
+        <div class="tmgh-pagination-controls">
+          <button type="button" data-page-action="prev">‹ Előző</button>
+          <span class="tmgh-page-number">Oldal <strong data-page-current>1</strong> / <span data-page-total>23</span></span>
+          <button type="button" data-page-action="next">Következő ›</button>
+        </div>
+        <label class="tmgh-page-size">Sor/oldal <select data-page-size><option value="50">50</option><option value="100">100</option><option value="200">200</option></select></label>
+      </div>
     </section>
   </main>
 
@@ -35948,6 +35966,8 @@
       const statPlayers = document.getElementById('stat-players');
       const statRows = document.getElementById('stat-rows');
       const statApps = document.getElementById('stat-apps');
+      const tableCard = document.querySelector('.table-card');
+      const pagers = Array.from(document.querySelectorAll('[data-tmgh-pager]'));
       const rowData = rows.map(row => ({
         row,
         player: String(row.dataset.player || ''),
@@ -35958,12 +35978,57 @@
         totalApps: Number(row.dataset.totalApps || 0)
       }));
       let searchTimer = 0;
+      let currentPage = 1;
+      let pageSize = 50;
+      let filteredItems = [];
+      let renderedRows = [];
+      let paginationInitialized = false;
 
       const normalize = value => String(value || '')
         .normalize('NFD')
         .replace(/[\u0300-\u036f]/g, '')
         .toLowerCase()
         .trim();
+
+      function updatePagers(totalRows, startIndex, endIndex) {
+        const totalPages = Math.max(1, Math.ceil(totalRows / pageSize));
+        for (const pager of pagers) {
+          pager.querySelector('[data-page-status]').textContent = totalRows
+            ? (startIndex + 1) + '–' + endIndex + ' / ' + totalRows + ' sor'
+            : '0 találat';
+          pager.querySelector('[data-page-current]').textContent = String(currentPage);
+          pager.querySelector('[data-page-total]').textContent = String(totalPages);
+          pager.querySelector('[data-page-action="prev"]').disabled = currentPage <= 1;
+          pager.querySelector('[data-page-action="next"]').disabled = currentPage >= totalPages || totalRows === 0;
+          pager.querySelector('[data-page-size]').value = String(pageSize);
+        }
+      }
+
+      function renderPage(scrollToTable = false) {
+        if (!paginationInitialized) {
+          for (const item of rowData) item.row.hidden = true;
+          document.body.classList.remove('tmgh-paginated-pending');
+          paginationInitialized = true;
+        } else {
+          for (const row of renderedRows) row.hidden = true;
+        }
+
+        const totalPages = Math.max(1, Math.ceil(filteredItems.length / pageSize));
+        currentPage = Math.min(Math.max(1, currentPage), totalPages);
+        const startIndex = (currentPage - 1) * pageSize;
+        const endIndex = Math.min(startIndex + pageSize, filteredItems.length);
+        renderedRows = filteredItems.slice(startIndex, endIndex).map(item => item.row);
+        for (const row of renderedRows) row.hidden = false;
+        updatePagers(filteredItems.length, startIndex, endIndex);
+        emptyState.hidden = filteredItems.length !== 0;
+
+        if (scrollToTable) {
+          tableCard.scrollIntoView({
+            behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth',
+            block: 'start'
+          });
+        }
+      }
 
       function applyFilters() {
         const query = normalize(playerInput.value);
@@ -35974,6 +36039,7 @@
           .map(input => input.value);
         const visiblePlayers = new Map();
         let visibleRows = 0;
+        filteredItems = [];
 
         for (const item of rowData) {
           const matchesPlayer = !query || item.player.includes(query);
@@ -35989,10 +36055,9 @@
             matchesSeenClub &&
             matchesLeague;
 
-          if (item.row.hidden === visible) item.row.hidden = !visible;
-
           if (visible) {
             visibleRows++;
+            filteredItems.push(item);
             if (!visiblePlayers.has(item.playerId)) {
               visiblePlayers.set(item.playerId, item.totalApps);
             }
@@ -36006,7 +36071,8 @@
         statRows.textContent = String(visibleRows);
         statApps.textContent = String(visibleApps);
         summary.textContent = visiblePlayerCount + ' játékos · ' + visibleRows + ' meccssor';
-        emptyState.hidden = visibleRows !== 0;
+        currentPage = 1;
+        renderPage();
       }
 
       function scheduleFilters() {
@@ -36032,6 +36098,25 @@
         checkbox.addEventListener('change', () => {
           updateLeagueLabel();
           applyFilters();
+        });
+      }
+
+      for (const pager of pagers) {
+        pager.querySelector('[data-page-action="prev"]').addEventListener('click', () => {
+          if (currentPage <= 1) return;
+          currentPage--;
+          renderPage(true);
+        });
+        pager.querySelector('[data-page-action="next"]').addEventListener('click', () => {
+          const totalPages = Math.max(1, Math.ceil(filteredItems.length / pageSize));
+          if (currentPage >= totalPages) return;
+          currentPage++;
+          renderPage(true);
+        });
+        pager.querySelector('[data-page-size]').addEventListener('change', (event) => {
+          pageSize = Number(event.currentTarget.value) || 50;
+          currentPage = 1;
+          renderPage(true);
         });
       }
 
