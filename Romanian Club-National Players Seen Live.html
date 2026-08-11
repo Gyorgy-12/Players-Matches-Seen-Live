@@ -312,7 +312,7 @@
 <link rel="stylesheet" href="tmgh-unified.css">
 <script src="tmgh-unified.js" defer></script>
 </head>
-<body class="tmgh-paginated-pending" data-static-export="2026-08-11-romanian-side-only" data-tmgh-mode="romanian">
+<body class="tmgh-paginated-pending" data-static-export="2026-08-12-typing-search-fixed" data-tmgh-mode="romanian">
   <main class="page">
     <section class="hero" data-kicker="ROMÁN KLUBOK">
       <h1>Transfermarkt Groundhopping → Román klubokban látott játékosok</h1>
@@ -358,8 +358,8 @@
         </div>
         <label class="tmgh-page-size">Sor/oldal <select data-page-size><option value="50">50</option><option value="100">100</option><option value="200">200</option></select></label>
       </div>
-      <div class="table-wrap"><table><thead><tr data-search="157509 kurt zouma legionnaire france cfr cluj romanian cup 2025/26 group a · matchday 1 free-agent 1 35000000 8000000 0 2025-10-28 2025 játékos nemzetiség látáskori román csapat látáskori mv mostani klub / státusz jelenlegi mv all-time peak mv peak mv klub látott meccs / eredmény verseny szezon forduló / fázis / meccsnap kurt zouma 1 különböző látott klub · id: 157509 france légiós cfr cluj román klub vagy román válogatott-oldal a látott meccsen €8.00m snapshot: 25/09/2025 fc palm city — snapshot: 11/07/2026 €35.00m snapshot: 10/12/2019 chelsea fc slatina - cfr cluj 0:4 2025-10-28 romanian cup 2025/26 group a · matchday 1"><th>Játékos</th><th>Nemzetiség</th><th>Látáskori román csapat</th><th>Látáskori MV</th><th>Mostani klub / státusz</th><th>Jelenlegi MV</th><th>All-time Peak MV</th><th>Peak MV klub</th><th>Látott meccs / eredmény</th><th>Verseny</th><th>Szezon</th><th>Forduló / fázis / meccsnap</th></tr></thead><tbody id="tbody">
-<tr data-player-id="157509" data-player="Kurt Zouma" data-type="legionnaire" data-nationality="France" data-club="CFR Cluj" data-competition="Romanian Cup" data-season="2025/26" data-round="Group A · Matchday 1" data-status="free-agent" data-team-count="1" data-peak="35000000" data-seen-mv="8000000" data-current-mv="0" data-date="2025-10-28" data-year="2025">
+      <div class="table-wrap"><table><thead><tr><th>Játékos</th><th>Nemzetiség</th><th>Látáskori román csapat</th><th>Látáskori MV</th><th>Mostani klub / státusz</th><th>Jelenlegi MV</th><th>All-time Peak MV</th><th>Peak MV klub</th><th>Látott meccs / eredmény</th><th>Verseny</th><th>Szezon</th><th>Forduló / fázis / meccsnap</th></tr></thead><tbody id="tbody">
+<tr data-search="157509 kurt zouma legionnaire france cfr cluj romanian cup 2025/26 group a · matchday 1 free-agent 1 35000000 8000000 0 2025-10-28 2025 kurt zouma 1 különböző látott klub · id: 157509 france légiós cfr cluj román klub vagy román válogatott-oldal a látott meccsen €8.00m snapshot: 25/09/2025 fc palm city — snapshot: 11/07/2026 €35.00m snapshot: 10/12/2019 chelsea fc slatina - cfr cluj 0:4 2025-10-28 romanian cup 2025/26 group a · matchday 1" data-player-id="157509" data-player="Kurt Zouma" data-type="legionnaire" data-nationality="France" data-club="CFR Cluj" data-competition="Romanian Cup" data-season="2025/26" data-round="Group A · Matchday 1" data-status="free-agent" data-team-count="1" data-peak="35000000" data-seen-mv="8000000" data-current-mv="0" data-date="2025-10-28" data-year="2025">
           <td class="player-cell" data-label="Játékos"><a href="https://www.transfermarkt.com/kurt-zouma/profil/spieler/157509" target="_blank" rel="noopener"><strong>Kurt Zouma</strong></a><span>1 különböző látott klub · ID: 157509</span></td>
           <td data-label="Nemzetiség"><strong>France</strong><span>légiós</span></td>
           <td data-label="Látáskori román csapat"><strong>CFR Cluj</strong><span>román klub vagy román válogatott-oldal a látott meccsen</span></td>
@@ -33292,7 +33292,8 @@
         const playerIds=new Set(), clubs=new Set(), nationalities=new Set(), competitions=new Set(), seasons=new Set(), rounds=new Set();
 
         for (const row of rows) {
-          const ok = (!q || row.dataset.search.includes(q)) &&
+          const searchText = String(row.dataset.search || row.textContent || '').toLocaleLowerCase('hu');
+          const ok = (!q || searchText.includes(q)) &&
             (!els.type.value || row.dataset.type===els.type.value) &&
             (!els.nationality.value || row.dataset.nationality===els.nationality.value) &&
             (!els.club.value || row.dataset.club===els.club.value) &&
