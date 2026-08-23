@@ -1471,6 +1471,11 @@ border-radius:14px;background:rgba(251,191,36,.08);color:#fde68a;font-size:13px}
       const reset = document.getElementById('reset');
 
       const num = (row, key) => Number(row.dataset[key] || 0);
+      const normalizeSearch = (value) => String(value || '')
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '')
+        .toLocaleLowerCase('hu')
+        .trim();
 
       function metric(row, key) {
         if (key === 'attendance') return num(row, 'attendance');
@@ -1488,12 +1493,12 @@ border-radius:14px;background:rgba(251,191,36,.08);color:#fde68a;font-size:13px}
       }
 
       function apply() {
-        const search = q.value.trim().toLowerCase();
+        const search = normalizeSearch(q.value);
         const teamValue = team.value;
         const stadiumValue = stadium.value;
         const countryValue = country.value;
         const filtered = all.filter((row) =>
-          (!search || row.dataset.teams.includes(search)) &&
+          (!search || normalizeSearch(`${row.dataset.teams || ''} ${row.textContent || ''}`).includes(search)) &&
           (!teamValue || row.dataset.homeTeam === teamValue) &&
           (!stadiumValue || (stadiumValue === '__unknown__' ? !row.dataset.stadium : row.dataset.stadium === stadiumValue)) &&
           (!countryValue || (countryValue === '__unknown__' ? !row.dataset.country : row.dataset.country === countryValue)) &&
