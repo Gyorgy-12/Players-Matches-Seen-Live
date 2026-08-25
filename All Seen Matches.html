@@ -1476,15 +1476,25 @@ border-radius:14px;background:rgba(251,191,36,.08);color:#fde68a;font-size:13px}
         .replace(/[\u0300-\u036f]/g, '')
         .toLocaleLowerCase('hu')
         .trim();
+      const shootoutMatchScores = new Map([
+        ['4897219', '0:0'],
+        ['4568309', '1:1']
+      ]);
+
+      function goalDifference(row) {
+        const href = row.querySelector('a[href*="spielbericht/"]')?.getAttribute('href') || '';
+        const matchId = href.match(/spielbericht\/(\d+)/)?.[1] || '';
+        const displayedScore = row.querySelector('.tmgh-score-value')?.textContent ||
+          row.querySelector('.score')?.textContent || '';
+        const score = shootoutMatchScores.get(matchId) || displayedScore;
+        const match = score.trim().match(/^(\d+)\s*:\s*(\d+)$/);
+        return match ? Math.abs(Number(match[1]) - Number(match[2])) : -1;
+      }
 
       function metric(row, key) {
         if (key === 'attendance') return num(row, 'attendance');
         if (key === 'goals') return num(row, 'goals');
-        if (key === 'goal-difference') {
-          const score = row.querySelector('.score')?.textContent || '';
-          const match = score.match(/(\d+)\s*:\s*(\d+)/);
-          return match ? Math.abs(Number(match[1]) - Number(match[2])) : -1;
-        }
+        if (key === 'goal-difference') return goalDifference(row);
         if (key === 'sheet-total') return num(row, 'sheetTotal');
         if (key === 'strongest-historical') return num(row, 'strongestHistorical');
         return num(row, 'date');
