@@ -305,7 +305,7 @@ border-radius:14px;background:rgba(251,191,36,.08);color:#fde68a;font-size:13px}
 <div class="filter-field"><label for="season">Szezon</label><select id="season"><option value="">Minden szezon</option><option>2026/27</option><option>2025/26</option><option>2024/25</option><option>2023/24</option><option>2022/23</option><option>2021/22</option><option>2020/21</option><option>2019/20</option></select></div>
 <div class="filter-field"><label for="competition">Verseny</label><select id="competition"><option value="">Minden verseny</option><option value="Liga 2">Liga 2</option><option value="Liga 2 Play-Off">Liga 2 Play-Off</option><option value="Romanian Cup">Romanian Cup</option><option value="Romanian SuperLiga">Romanian SuperLiga</option><option value="Romanian SuperLiga - Championship Group">Romanian SuperLiga - Championship Group</option><option value="Romanian SuperLiga - Relegation Group">Romanian SuperLiga - Relegation Group</option><option value="Serie A">Serie A</option><option value="UEFA Champions League Qualifying">UEFA Champions League Qualifying</option><option value="UEFA Conference League">UEFA Conference League</option><option value="UEFA Conference League Qualifying">UEFA Conference League Qualifying</option><option value="UEFA Euro Under-21 qualification">UEFA Euro Under-21 qualification</option><option value="UEFA Europa League Qualifying">UEFA Europa League Qualifying</option><option value="World Cup Qualifiers (Europe)">World Cup Qualifiers (Europe)</option></select></div>
 <div class="filter-field"><label for="location">Románia / külföld</label><select id="location"><option value="">Minden helyszín</option><option value="domestic">Románia</option><option value="foreign">Külföld</option><option value="unknown">Ismeretlen</option></select></div>
-<div class="filter-field"><label for="sort">Rendezési szempont</label><select id="sort"><option value="date">Dátum</option><option value="attendance">Nézőszám</option><option value="goals">Góldússág</option><option value="sheet-total">Meccsnapi összérték</option><option value="strongest-historical">Legértékesebb akkori csapat</option></select></div>
+<div class="filter-field"><label for="sort">Rendezési szempont</label><select id="sort"><option value="date">Dátum</option><option value="attendance">Nézőszám</option><option value="goals">Góldússág</option><option value="goal-difference">Gólkülönbség</option><option value="sheet-total">Meccsnapi összérték</option><option value="strongest-historical">Legértékesebb akkori csapat</option></select></div>
 <div class="filter-field"><label for="direction">Rendezési irány</label><select id="direction"><option value="desc">Csökkenő ↓</option><option value="asc">Növekvő ↑</option></select></div>
 <button id="reset" type="button">Szűrők törlése</button>
 </div><div class="filter-summary" id="count"></div></div></section>
@@ -1480,6 +1480,11 @@ border-radius:14px;background:rgba(251,191,36,.08);color:#fde68a;font-size:13px}
       function metric(row, key) {
         if (key === 'attendance') return num(row, 'attendance');
         if (key === 'goals') return num(row, 'goals');
+        if (key === 'goal-difference') {
+          const score = row.querySelector('.score')?.textContent || '';
+          const match = score.match(/(\d+)\s*:\s*(\d+)/);
+          return match ? Math.abs(Number(match[1]) - Number(match[2])) : -1;
+        }
         if (key === 'sheet-total') return num(row, 'sheetTotal');
         if (key === 'strongest-historical') return num(row, 'strongestHistorical');
         return num(row, 'date');
@@ -1487,7 +1492,7 @@ border-radius:14px;background:rgba(251,191,36,.08);color:#fde68a;font-size:13px}
 
       function isMissingMetric(row, key, value) {
         if (!Number.isFinite(value)) return true;
-        if (key === 'goals') return value < 0;
+        if (key === 'goals' || key === 'goal-difference') return value < 0;
         if (key === 'attendance') return row.dataset.attendanceKnown !== '1';
         return value <= 0;
       }
