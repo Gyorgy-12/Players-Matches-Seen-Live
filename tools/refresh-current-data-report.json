@@ -1,0 +1,15 @@
+{
+  "asOf": "2026-08-30",
+  "counts": {
+    "players": 993,
+    "clubs": 688,
+    "national": 365,
+    "performance": 176
+  },
+  "failures": {
+    "missingPlayers": [],
+    "national": 0,
+    "performance": 0,
+    "missingClubs": []
+  }
+}
