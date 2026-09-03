@@ -1,5 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import { normalizeFilterOptionOrder } from './normalize-filter-options.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const AS_OF = '2026-08-30';
@@ -666,12 +667,13 @@ for (const [name, originalHtml] of updatedHtmlByFile) {
     const clubCount = new Set(playerRows(html).map((row) => getAttr(rowOpen(row), 'data-club')).filter(Boolean)).size;
     html = html.replace(/(<strong id="statClubs">)\d+(<\/strong>)/, `$1${clubCount}$2`);
   }
+  html = normalizeFilterOptionOrder(html);
   updatedHtmlByFile.set(name, html);
   write(name, html);
   console.log(`Frissítve: ${name}`);
 }
 
-write(MATCH_FILE, unifyTeamNames(updateMatchRows(matchHtml, clubs)));
+write(MATCH_FILE, normalizeFilterOptionOrder(unifyTeamNames(updateMatchRows(matchHtml, clubs))));
 console.log(`Frissítve: ${MATCH_FILE}`);
 
 const pageCounts = {
