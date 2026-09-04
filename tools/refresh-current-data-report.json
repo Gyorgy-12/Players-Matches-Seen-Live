@@ -1,8 +1,8 @@
 {
-  "asOf": "2026-08-30",
+  "asOf": "2026-09-01",
   "counts": {
     "players": 1002,
-    "clubs": 746,
+    "clubs": 752,
     "national": 1002,
     "performance": 1002
   },
@@ -10,6 +10,7 @@
     "missingPlayers": [],
     "national": 0,
     "performance": 0,
+    "marketGraphs": 0,
     "newTop5Ids": [],
     "newCappedIds": [],
     "missingClubs": []

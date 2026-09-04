@@ -3,7 +3,7 @@ import path from 'node:path';
 import { normalizeFilterOptionOrder } from './normalize-filter-options.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
-const AS_OF = '2026-08-30';
+const AS_OF = '2026-09-01';
 const PLAYER_FILES = [
   'TOP 5 players Seen Live.html',
   'Capped Players Seen Live.html',
@@ -82,6 +82,23 @@ async function getJson(url, attempts = 5) {
       const json = await response.json();
       if (json?.success === false) throw new Error(json.message || 'API error');
       return json;
+    } catch (error) {
+      last = error;
+      await sleep(700 * (n + 1));
+    }
+  }
+  throw last;
+}
+
+async function getMarketGraph(id, attempts = 4) {
+  let last;
+  for (let n = 0; n < attempts; n += 1) {
+    try {
+      const response = await fetch(`https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/${id}`, {
+        headers: { Accept: 'application/json', 'User-Agent': 'Mozilla/5.0' },
+      });
+      if (!response.ok) throw new Error(`${response.status} ${response.statusText}`);
+      return (await response.json())?.list || [];
     } catch (error) {
       last = error;
       await sleep(700 * (n + 1));
@@ -225,18 +242,25 @@ function clubState(player, clubs) {
   return { name: rawName, status: 'active', clubId: assignment.clubId };
 }
 
-function updateCurrentPlayerRow(row, player, clubs) {
+function updateCurrentPlayerRow(row, player, clubs, marketGraph) {
   if (!player) return row;
   const current = player.marketValueDetails?.current || {};
   const highest = player.marketValueDetails?.highest || {};
   const state = clubState(player, clubs);
-  const oldPeak = Number(getAttr(rowOpen(row), 'data-peak')) || 0;
+  const graph = Array.isArray(marketGraph) ? marketGraph : [];
+  const graphPeakValue = graph.reduce((max, point) => Math.max(max, Number(point?.y) || 0), 0);
+  const peakValue = Number(highest.value) || graphPeakValue;
+  const peakDate = displayDate(highest.determined);
+  const peakPoints = graph.filter((point) => Number(point?.y) === peakValue);
+  const peakPoint = peakPoints.find((point) => point?.datum_mw === peakDate) || peakPoints.at(-1);
   const peakClubInner = cellInner(row, 'Peak MV klub');
   const currentClubInner = `<strong>${esc(state.name)}</strong>`;
   const currentMvInner = `<span class="value">${formatPlayerMoney(current.value)}</span>${current.determined ? `<span>snapshot: ${displayDate(current.determined)}</span>` : ''}`;
-  const peakMvInner = `<span class="value">${formatPlayerMoney(highest.value)}</span>${highest.determined ? `<span>snapshot: ${displayDate(highest.determined)}</span>` : ''}`;
+  const peakMvInner = `<span class="value">${formatPlayerMoney(peakValue)}</span>${peakDate ? `<span>snapshot: ${peakDate}</span>` : peakPoint?.datum_mw ? `<span>snapshot: ${esc(peakPoint.datum_mw)}</span>` : ''}`;
   let peakClub = peakClubInner;
-  if ((!stripHtml(peakClubInner) || (Number(highest.value) > oldPeak && Number(highest.value) === Number(current.value))) && state.status === 'active') {
+  if (peakPoint?.verein) {
+    peakClub = `<strong>${esc(peakPoint.verein)}</strong>`;
+  } else if (!stripHtml(peakClubInner) && peakValue === Number(current.value) && state.status === 'active') {
     peakClub = `<strong>${esc(state.name)}</strong>`;
   }
   row = replaceCell(row, 'Mostani klub / státusz', currentClubInner);
@@ -246,7 +270,7 @@ function updateCurrentPlayerRow(row, player, clubs) {
   let open = rowOpen(row);
   open = setAttr(open, 'data-status', state.status);
   open = setAttr(open, 'data-current-mv', Number(current.value) || 0);
-  open = setAttr(open, 'data-peak', Number(highest.value) || 0);
+  open = setAttr(open, 'data-peak', peakValue || 0);
   return replaceRowOpen(row, open);
 }
 
@@ -595,6 +619,11 @@ const performance = new Map(performanceRaw.filter((x) => x && !x.__error).map((x
 const newTop5Ids = playerIds.filter((id) => !top5Ids.includes(id) && (performance.get(id)?.size || 0) > 0);
 console.log(`Új Top-5 jogosultak a jelenlegi poolban: ${newTop5Ids.length}${newTop5Ids.length ? ` (${newTop5Ids.join(', ')})` : ''}`);
 
+const marketGraphRaw = await parallelMap(playerIds, 8, async (id) => {
+  return { id, graph: await getMarketGraph(id) };
+}, 'Teljes piaciérték-idősor');
+const marketGraphs = new Map(marketGraphRaw.filter((x) => x && !x.__error).map((x) => [x.id, x.graph]));
+
 const currentClubIds = [...players.values()].flatMap((p) => (p.clubAssignments || []).filter((a) => a.type === 'current').map((a) => a.clubId));
 const nationalClubIds = nationalRaw.flatMap((x) => x?.clubIds || []);
 const clubIds = uniq([...matchClubIds, ...currentClubIds, ...nationalClubIds]);
@@ -616,7 +645,7 @@ const updatedHtmlByFile = new Map();
 for (const name of PLAYER_FILES) {
   let html = htmlByFile.get(name);
   html = updateRows(html, (row, id) => {
-    row = updateCurrentPlayerRow(row, players.get(id), clubs);
+    row = updateCurrentPlayerRow(row, players.get(id), clubs, marketGraphs.get(id));
     if (name === TOP5_FILE) row = updateTop5Row(row, performance.get(id));
     if (name === CAPPED_FILE) row = updateCappedRow(row, national.get(id), clubs);
     if (name === 'Romanian Club-National Players Seen Live.html') row = rebuildRomanianSearch(row);
@@ -700,6 +729,7 @@ const failures = {
   missingPlayers: playerIds.filter((id) => !players.has(id)),
   national: nationalRaw.filter((x) => x?.__error).length,
   performance: performanceRaw.filter((x) => x?.__error).length,
+  marketGraphs: marketGraphRaw.filter((x) => x?.__error).length,
   newTop5Ids,
   newCappedIds,
   missingClubs: clubIds.filter((id) => !clubs.has(id)),
