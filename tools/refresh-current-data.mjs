@@ -3,7 +3,7 @@ import path from 'node:path';
 import { normalizeFilterOptionOrder } from './normalize-filter-options.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
-const AS_OF = '2026-09-01';
+const AS_OF = '2026-09-18';
 const PLAYER_FILES = [
   'TOP 5 players Seen Live.html',
   'Capped Players Seen Live.html',
@@ -362,6 +362,25 @@ function convertRomanianRowToTop5(row, stats) {
       </tr>`;
 }
 
+function sortRowsByPeak(html) {
+  const tbody = html.match(/(<tbody\b[^>]*id="results-body"[^>]*>)([\s\S]*?)(<\/tbody>)/i);
+  if (!tbody) return html;
+  const rows = playerRows(tbody[2]);
+  rows.sort((a, b) => {
+    const ao = rowOpen(a); const bo = rowOpen(b);
+    const peak = Number(getAttr(bo, 'data-peak')) - Number(getAttr(ao, 'data-peak'));
+    if (peak) return peak;
+    const apps = Number(getAttr(bo, 'data-total-apps')) - Number(getAttr(ao, 'data-total-apps'));
+    if (apps) return apps;
+    const name = getAttr(ao, 'data-player').localeCompare(getAttr(bo, 'data-player'), 'hu', { sensitivity: 'base' });
+    if (name) return name;
+    const ad = a.match(/\b\d{4}-\d{2}-\d{2}\b/)?.[0] || '';
+    const bd = b.match(/\b\d{4}-\d{2}-\d{2}\b/)?.[0] || '';
+    return ad.localeCompare(bd);
+  });
+  return html.replace(tbody[0], `${tbody[1]}\n${rows.join('\n')}\n${tbody[3]}`);
+}
+
 function addNewTop5Rows(topHtml, cappedHtml, romanianHtml, newIds, performance) {
   const added = [];
   for (const id of newIds) {
@@ -677,6 +696,11 @@ const cappedAddition = addNewCappedRows(
 );
 updatedHtmlByFile.set(CAPPED_FILE, cappedAddition.html);
 console.log(`Új válogatott meccssorok beillesztve: ${cappedAddition.added}`);
+
+// Az értékfrissítés önmagában is módosíthatja a Peak MV szerinti sorrendet,
+// ezért új játékos nélkül is mindig újrarendezzük mindkét érintett táblát.
+updatedHtmlByFile.set(TOP5_FILE, sortRowsByPeak(updatedHtmlByFile.get(TOP5_FILE)));
+updatedHtmlByFile.set(CAPPED_FILE, sortRowsByPeak(updatedHtmlByFile.get(CAPPED_FILE)));
 
 const auditPath = path.join(ROOT, 'tools', 'unlisted-seen-player-audit.json');
 if (fs.existsSync(auditPath)) {
