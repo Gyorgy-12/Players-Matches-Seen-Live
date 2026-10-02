@@ -3,7 +3,7 @@ import path from 'node:path';
 import { normalizeFilterOptionOrder } from './normalize-filter-options.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
-const AS_OF = '2026-09-18';
+const AS_OF = '2026-10-01';
 const PLAYER_FILES = [
   'TOP 5 players Seen Live.html',
   'Capped Players Seen Live.html',
