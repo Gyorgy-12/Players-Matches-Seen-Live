@@ -1,26 +1,15 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import { AS_OF, source } from './source-cache.mjs';
 
 const root = path.resolve(import.meta.dirname, '..');
 const playerFiles = ['TOP 5 players Seen Live.html', 'Capped Players Seen Live.html', 'Euro-WC Players Seen Live.html', 'Romanian Club-National Players Seen Live.html'];
 const known = new Set(playerFiles.flatMap((file) => [...fs.readFileSync(path.join(root, file), 'utf8').matchAll(/data-player-id="(\d+)"/g)].map((m) => m[1])));
 const matchHtml = fs.readFileSync(path.join(root, 'All Seen Matches.html'), 'utf8');
 const matchIds = [...new Set([...matchHtml.matchAll(/spielbericht\/(\d+)/g)].map((m) => m[1]))];
-const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 async function get(url, json = false, attempts = 4) {
-  let last;
-  for (let i = 0; i < attempts; i += 1) {
-    try {
-      const response = await fetch(url, { headers: { Accept: json ? 'application/json' : 'text/html', 'User-Agent': 'Mozilla/5.0', 'Accept-Language': 'en-US,en;q=0.9' } });
-      if (!response.ok) throw new Error(`${response.status} ${response.statusText}`);
-      return json ? response.json() : response.text();
-    } catch (error) {
-      last = error;
-      await sleep(600 * (i + 1));
-    }
-  }
-  throw last;
+  return source(url, json, attempts);
 }
 
 async function mapLimit(items, limit, fn, label) {
@@ -40,6 +29,7 @@ async function mapLimit(items, limit, fn, label) {
 
 console.log(`Meglévő pool: ${known.size}; változatlan meccsek: ${matchIds.length}`);
 const lineupPages = await mapLimit(matchIds, 8, async (gameId) => ({ gameId, html: await get(`https://www.transfermarkt.com/-/aufstellung/spielbericht/${gameId}`) }), 'Keretoldalak');
+if (lineupPages.some(p => p.error)) throw new Error('Hiányos keretoldalak: az audit nem írható felül.');
 const candidates = new Map();
 for (const page of lineupPages) {
   if (!page?.html) continue;
@@ -66,12 +56,14 @@ const perf = await mapLimit(unknown, 10, async (item) => {
   return { ...item, seenGameIds: seen.map((row) => String(row.gameInformation.gameId)), top5Apps: top.length };
 }, 'Hiányzó jelöltek pályára lépése');
 const actual = perf.filter((item) => item && !item.error && item.seenGameIds.length);
+if (perf.some(p => p.error)) throw new Error('Hiányos teljesítményadatok: az audit nem írható felül.');
 
 const national = await mapLimit(actual, 10, async (item) => {
   const json = await get(`https://tmapi.transfermarkt.technology/player/${item.id}/national-career-history`, true);
   return { ...item, nationalHistory: json?.data?.history || [], nationalClubIds: json?.data?.clubIds || [] };
 }, 'Hiányzó játékosok válogatottsága');
 const clubIds = [...new Set(national.flatMap((item) => item.nationalClubIds || []))];
+if (national.some(p => p.error)) throw new Error('Hiányos válogatott adatok: az audit nem írható felül.');
 const clubs = new Map();
 for (let i = 0; i < clubIds.length; i += 45) {
   const query = clubIds.slice(i, i + 45).map((id) => `ids[]=${id}`).join('&');
@@ -82,6 +74,6 @@ const result = national.map((item) => {
   const senior = (item.nationalHistory || []).filter((entry) => Number(entry.gamesPlayed || 0) > 0 && !/\b(?:u\s?1[56789]|u\s?2[013]|under[- ]?(?:17|18|19|20|21|23)|olympic|b team|ii|a2)\b/i.test(clubs.get(String(entry.clubId)) || ''));
   return { id: item.id, slug: item.slug, seenGameIds: item.seenGameIds, top5Apps: item.top5Apps, seniorNationalTeams: senior.map((entry) => ({ name: clubs.get(String(entry.clubId)) || entry.clubId, caps: entry.gamesPlayed, goals: entry.goalsScored })) };
 });
-const report = { knownPlayers: known.size, matchIds: matchIds.length, lineupCandidates: candidates.size, previouslyUnlistedActualPlayers: result.length, eligible: result.filter((item) => item.top5Apps || item.seniorNationalTeams.length) };
+const report = { asOf: AS_OF, knownPlayers: known.size, matchIds: matchIds.length, lineupCandidates: candidates.size, previouslyUnlistedActualPlayers: result.length, eligible: result.filter((item) => item.top5Apps || item.seniorNationalTeams.length) };
 fs.writeFileSync(path.join(root, 'tools', 'unlisted-seen-player-audit.json'), JSON.stringify(report, null, 2));
 console.log(JSON.stringify(report, null, 2));

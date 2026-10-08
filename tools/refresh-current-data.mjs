@@ -1,9 +1,10 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { normalizeFilterOptionOrder } from './normalize-filter-options.mjs';
+import { AS_OF, source } from './source-cache.mjs';
+import { reconcileMetadata } from './reconcile-static-metadata.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
-const AS_OF = '2026-10-01';
 const PLAYER_FILES = [
   'TOP 5 players Seen Live.html',
   'Capped Players Seen Live.html',
@@ -68,43 +69,16 @@ const TEAM_NAME_ALIASES = new Map([
 
 const read = (name) => fs.readFileSync(path.join(ROOT, name), 'utf8');
 const write = (name, text) => fs.writeFileSync(path.join(ROOT, name), text, 'utf8');
-const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 const uniq = (xs) => [...new Set(xs.map(String))];
 const idsFrom = (html) => uniq([...html.matchAll(/data-player-id="(\d+)"/g)].map((m) => m[1]));
 const chunks = (xs, size) => Array.from({ length: Math.ceil(xs.length / size) }, (_, i) => xs.slice(i * size, (i + 1) * size));
 
 async function getJson(url, attempts = 5) {
-  let last;
-  for (let n = 0; n < attempts; n += 1) {
-    try {
-      const response = await fetch(url, { headers: { Accept: 'application/json', 'User-Agent': 'TMGH-static-refresh/1.0' } });
-      if (!response.ok) throw new Error(`${response.status} ${response.statusText}`);
-      const json = await response.json();
-      if (json?.success === false) throw new Error(json.message || 'API error');
-      return json;
-    } catch (error) {
-      last = error;
-      await sleep(700 * (n + 1));
-    }
-  }
-  throw last;
+  return source(url, true, attempts);
 }
 
 async function getMarketGraph(id, attempts = 4) {
-  let last;
-  for (let n = 0; n < attempts; n += 1) {
-    try {
-      const response = await fetch(`https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/${id}`, {
-        headers: { Accept: 'application/json', 'User-Agent': 'Mozilla/5.0' },
-      });
-      if (!response.ok) throw new Error(`${response.status} ${response.statusText}`);
-      return (await response.json())?.list || [];
-    } catch (error) {
-      last = error;
-      await sleep(700 * (n + 1));
-    }
-  }
-  throw last;
+  return (await source(`https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/${id}`, true, attempts))?.list || [];
 }
 
 async function parallelMap(items, concurrency, worker, label) {
@@ -249,10 +223,12 @@ function updateCurrentPlayerRow(row, player, clubs, marketGraph) {
   const state = clubState(player, clubs);
   const graph = Array.isArray(marketGraph) ? marketGraph : [];
   const graphPeakValue = graph.reduce((max, point) => Math.max(max, Number(point?.y) || 0), 0);
-  const peakValue = Number(highest.value) || graphPeakValue;
-  const peakDate = displayDate(highest.determined);
-  const peakPoints = graph.filter((point) => Number(point?.y) === peakValue);
-  const peakPoint = peakPoints.find((point) => point?.datum_mw === peakDate) || peakPoints.at(-1);
+  const peakValue = Math.max(Number(highest.value) || 0, graphPeakValue);
+  // All four userscripts choose the earliest occurrence when the career
+  // maximum is reached repeatedly, not the API's most recent peak date.
+  const peakPoints = graph.filter((point) => Number(point?.y) === peakValue && peakValue > 0).sort((a, b) => Number(a.x) - Number(b.x));
+  const peakPoint = peakPoints[0];
+  const peakDate = peakPoint?.datum_mw || displayDate(highest.determined);
   const peakClubInner = cellInner(row, 'Peak MV klub');
   const currentClubInner = `<strong>${esc(state.name)}</strong>`;
   const currentMvInner = `<span class="value">${formatPlayerMoney(current.value)}</span>${current.determined ? `<span>snapshot: ${displayDate(current.determined)}</span>` : ''}`;
@@ -363,7 +339,7 @@ function convertRomanianRowToTop5(row, stats) {
 }
 
 function sortRowsByPeak(html) {
-  const tbody = html.match(/(<tbody\b[^>]*id="results-body"[^>]*>)([\s\S]*?)(<\/tbody>)/i);
+  const tbody = html.match(/(<tbody\b[^>]*>)([\s\S]*?)(<\/tbody>)/i);
   if (!tbody) return html;
   const rows = playerRows(tbody[2]);
   rows.sort((a, b) => {
@@ -374,9 +350,12 @@ function sortRowsByPeak(html) {
     if (apps) return apps;
     const name = getAttr(ao, 'data-player').localeCompare(getAttr(bo, 'data-player'), 'hu', { sensitivity: 'base' });
     if (name) return name;
-    const ad = a.match(/\b\d{4}-\d{2}-\d{2}\b/)?.[0] || '';
-    const bd = b.match(/\b\d{4}-\d{2}-\d{2}\b/)?.[0] || '';
-    return ad.localeCompare(bd);
+    const ad = cellInner(a, 'Látott meccs / eredmény').match(/\b\d{4}-\d{2}-\d{2}\b/)?.[0] || '';
+    const bd = cellInner(b, 'Látott meccs / eredmény').match(/\b\d{4}-\d{2}-\d{2}\b/)?.[0] || '';
+    const date = ad.localeCompare(bd);
+    if (date) return date;
+    const tournaments = ['euro2016', 'wc2018', 'euro2021', 'wc2022', 'euro2024', 'wc2026'];
+    return tournaments.indexOf(getAttr(ao, 'data-tournament')) - tournaments.indexOf(getAttr(bo, 'data-tournament'));
   });
   return html.replace(tbody[0], `${tbody[1]}\n${rows.join('\n')}\n${tbody[3]}`);
 }
@@ -569,7 +548,7 @@ function rebuildRomanianSearch(row) {
 }
 
 function updateRows(html, updater) {
-  return html.replace(/<tr\b(?=[\s\S]*?data-player-id="\d+")[\s\S]*?<\/tr>/g, (row) => {
+  return html.replace(/<tr\b[^>]*data-player-id="\d+"[^>]*>[\s\S]*?<\/tr>/g, (row) => {
     const id = getAttr(rowOpen(row), 'data-player-id');
     return updater(row, id);
   });
@@ -583,8 +562,8 @@ function updateDates(html) {
 
 function updateAppsSummary(html) {
   const byPlayer = new Map();
-  for (const match of html.matchAll(/<tr\b(?=[\s\S]*?data-player-id="(\d+)")(?=[\s\S]*?data-total-apps="(\d+)")[\s\S]*?<\/tr>/g)) {
-    byPlayer.set(match[1], Number(match[2]) || 0);
+  for (const row of playerRows(html)) {
+    byPlayer.set(getAttr(rowOpen(row), 'data-player-id'), Number(getAttr(rowOpen(row), 'data-total-apps')) || 0);
   }
   const total = [...byPlayer.values()].reduce((sum, value) => sum + value, 0);
   return html.replace(/(<strong id="stat-apps">)\d+(<\/strong>)/, `$1${total}$2`);
@@ -652,6 +631,15 @@ const clubBatches = await parallelMap(chunks(clubIds, 45), 3, async (batch) => {
 }, 'Klubcsomagok');
 const clubs = new Map(clubBatches.flatMap((x) => Array.isArray(x) ? x : []).map((c) => [String(c.id), c]));
 console.log(`Klubadatok rendben: ${clubs.size}/${clubIds.length}`);
+const fetchErrors = playerIds.filter(id => !players.has(id) || !national.has(id) || !performance.has(id) || !marketGraphs.has(id));
+const missingClubIds = clubIds.filter(id => !clubs.has(id));
+if (fetchErrors.length || missingClubIds.length) {
+  throw new Error(`Hiányos forrásadatok, a HTML-ek változatlanok: játékosok=${fetchErrors.join(',')}; klubok=${missingClubIds.join(',')}`);
+}
+if (process.argv.includes('--fetch-only')) {
+  console.log('A teljes friss forráscsomag letöltve; a HTML-ek változatlanok.');
+  process.exit(0);
+}
 const seniorNationalHistory = (id) => (national.get(String(id)) || []).filter((entry) => {
   const name = clubs.get(String(entry.clubId))?.name || '';
   return Number(entry.gamesPlayed || 0) > 0 &&
@@ -665,6 +653,7 @@ for (const name of PLAYER_FILES) {
   let html = htmlByFile.get(name);
   html = updateRows(html, (row, id) => {
     row = updateCurrentPlayerRow(row, players.get(id), clubs, marketGraphs.get(id));
+    if (name === TOP5_FILE || name === CAPPED_FILE) row = replaceRowOpen(row, setAttr(rowOpen(row), 'data-player', normalize(getAttr(rowOpen(row), 'data-player'))));
     if (name === TOP5_FILE) row = updateTop5Row(row, performance.get(id));
     if (name === CAPPED_FILE) row = updateCappedRow(row, national.get(id), clubs);
     if (name === 'Romanian Club-National Players Seen Live.html') row = rebuildRomanianSearch(row);
@@ -701,6 +690,7 @@ console.log(`Új válogatott meccssorok beillesztve: ${cappedAddition.added}`);
 // ezért új játékos nélkül is mindig újrarendezzük mindkét érintett táblát.
 updatedHtmlByFile.set(TOP5_FILE, sortRowsByPeak(updatedHtmlByFile.get(TOP5_FILE)));
 updatedHtmlByFile.set(CAPPED_FILE, sortRowsByPeak(updatedHtmlByFile.get(CAPPED_FILE)));
+for (const name of PLAYER_FILES.slice(2)) updatedHtmlByFile.set(name, sortRowsByPeak(updatedHtmlByFile.get(name)));
 
 const auditPath = path.join(ROOT, 'tools', 'unlisted-seen-player-audit.json');
 if (fs.existsSync(auditPath)) {
@@ -760,3 +750,4 @@ const failures = {
 };
 fs.writeFileSync(path.join(ROOT, 'tools', 'refresh-current-data-report.json'), JSON.stringify({ asOf: AS_OF, counts: { players: players.size, clubs: clubs.size, national: national.size, performance: performance.size }, failures }, null, 2));
 console.log('Kész.', JSON.stringify(failures));
+console.log('Számlálók és szűrők:', reconcileMetadata());

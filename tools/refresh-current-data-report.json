@@ -1,10 +1,10 @@
 {
-  "asOf": "2026-10-01",
+  "asOf": "2026-10-08",
   "counts": {
-    "players": 1002,
-    "clubs": 773,
-    "national": 1002,
-    "performance": 1002
+    "players": 1006,
+    "clubs": 778,
+    "national": 1006,
+    "performance": 1006
   },
   "failures": {
     "missingPlayers": [],

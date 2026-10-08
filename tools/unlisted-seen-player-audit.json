@@ -1,7 +1,8 @@
 {
-  "knownPlayers": 1002,
-  "matchIds": 91,
-  "lineupCandidates": 1461,
+  "asOf": "2026-10-08",
+  "knownPlayers": 1006,
+  "matchIds": 92,
+  "lineupCandidates": 1469,
   "previouslyUnlistedActualPlayers": 119,
   "eligible": []
 }
