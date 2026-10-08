@@ -23,7 +23,7 @@ const leagueNames = { GB1: 'Premier League', ES1: 'LaLiga', IT1: 'Serie A', L1: 
 const lineupUrl = `https://www.transfermarkt.com/-/aufstellung/spielbericht/${GAME}`;
 const sheetUrl = `https://www.transfermarkt.com/spielbericht/index/spielbericht/${GAME}`;
 const cutoffUrl = 'https://www.transfermarkt.com/x/marktwerteverein/wettbewerb/RO1/stichtag/2026-10-01/plus/1';
-const [lineup, sheet, cutoff] = await Promise.all([source(lineupUrl, false), source(sheetUrl, false), source(cutoffUrl, false)]);
+const [lineup, sheet, cutoff] = await Promise.all([source(lineupUrl, false), source(sheetUrl, false, 4, { refresh: true }), source(cutoffUrl, false)]);
 assert.match(strip(sheet), /08\/10\/2026/);
 assert.match(strip(sheet), /1:3\s*\(\s*1:\s*0\)/);
 const headers = [...lineup.matchAll(/<h2\b[^>]*>[\s\S]*?<\/h2>/g)];
@@ -119,6 +119,9 @@ for (const p of roster) {
   p.profile = { marketValueDetails: p.profile.marketValueDetails };
   delete p.nationalHistory;
 }
-const report = { asOf: AS_OF, gameId: GAME, date: DATE, score: '1:3', season: '2026/27', round: 'Matchday 4', competition: 'Romanian SuperLiga', cutoff: '2026-10-01', historical, totals, attendance: null, attendanceNote: 'Transfermarkt match sheet has no attendance at retrieval; LPF result is not published yet.', sources: { lineupUrl, sheetUrl, cutoffUrl }, roster };
+const attendanceText = strip(sheet).match(/\bAttendance:\s*([\d][\d.,\s\u00a0]*)/i)?.[1];
+const attendance = attendanceText ? Number(attendanceText.replace(/\D/g, '')) : null;
+if (attendance !== null) assert.ok(Number.isSafeInteger(attendance) && attendance > 0, 'Érvénytelen nézőszám');
+const report = { asOf: AS_OF, gameId: GAME, date: DATE, score: '1:3', season: '2026/27', round: 'Matchday 4', competition: 'Romanian SuperLiga', cutoff: '2026-10-01', historical, totals, attendance, attendanceNote: attendance !== null ? 'Transfermarkt match sheet: Attendance.' : 'Attendance is not present in the freshly retrieved Transfermarkt match sheet.', sources: { lineupUrl, sheetUrl, cutoffUrl }, roster };
 fs.writeFileSync(path.join(import.meta.dirname, `match-${GAME}.json`), JSON.stringify(report, null, 2));
 console.log(JSON.stringify({ historical, totals, played: roster.filter(p => p.played).map(p => ({ id: p.id, name: p.name, top5: p.top5, senior: p.senior })) }, null, 2));

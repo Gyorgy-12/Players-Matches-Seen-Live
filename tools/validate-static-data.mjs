@@ -68,7 +68,9 @@ for (const [i, file] of files.entries()) {
     assert.equal(currentRows.length, 92);
     assert.equal(game(currentRows[0]), match.gameId);
     assert.equal(attr(currentRows[0], 'data-sheet-total'), '26000000');
-    assert.equal(attr(currentRows[0], 'data-attendance-known'), '0');
+    assert.equal(attr(currentRows[0], 'data-attendance-known'), match.attendance ? '1' : '0');
+    assert.equal(Number(attr(currentRows[0], 'data-attendance')), match.attendance || 0);
+    if (match.attendance) assert.equal(Number(text(cell(currentRows[0], 'Nézőszám')).replace(/\D/g, '')), match.attendance);
     for (const row of currentRows.slice(1)) {
       const old = oldRows.get(key(row));
       for (const label of ['Meccsnapi összérték', 'Hazai akkori MV', 'Vendég akkori MV']) assert.equal(cell(row, label), cell(old, label));

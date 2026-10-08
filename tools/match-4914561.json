@@ -29,8 +29,8 @@
       "unvaluedIds": []
     }
   },
-  "attendance": null,
-  "attendanceNote": "Transfermarkt match sheet has no attendance at retrieval; LPF result is not published yet.",
+  "attendance": 8422,
+  "attendanceNote": "Transfermarkt match sheet: Attendance.",
   "sources": {
     "lineupUrl": "https://www.transfermarkt.com/-/aufstellung/spielbericht/4914561",
     "sheetUrl": "https://www.transfermarkt.com/spielbericht/index/spielbericht/4914561",
