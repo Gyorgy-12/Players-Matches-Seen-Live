@@ -116,6 +116,23 @@ try {
     assert.deepEqual(await page.evaluate(uiSnapshot), referenceStyles.get(width), `${width}/${mode}: közös megjelenés`);
     await assertTableDesign(page, `${width}/${mode}`);
     assert.equal(await page.locator('#statistics-rows tr').count(), 50);
+    if (mode === 'teams') {
+      assert.equal(await page.locator('#sort option[value="penalties"]').count(), 0);
+      assert.equal(await page.locator('td[data-metric="penalties"]').count(), 0);
+      await page.locator('#match').selectOption('3872557');
+      await page.locator('#team').selectOption('4772');
+      await page.locator('#sort').selectOption('penaltyMissesAgainst');
+      assert.equal(await page.locator('[data-metric="penaltiesAgainst"]').textContent(), '2');
+      assert.equal(await page.locator('[data-metric="penaltyGoalsAgainst"]').textContent(), '0');
+      assert.equal(await page.locator('[data-metric="penaltyMissesAgainst"] .selected-metric').textContent(), '2');
+      await assertTableDesign(page, `${width}/teams/büntetők`);
+      await page.locator('#match').selectOption('4914561');
+      await page.locator('#team').selectOption('7769');
+      await page.locator('#sort').selectOption('penaltyGoalsAgainst');
+      assert.equal(await page.locator('[data-metric="penaltyGoalsAgainst"] .selected-metric').textContent(), '1');
+      assert.equal(await page.locator('[data-metric="penaltyMissesAgainst"]').textContent(), '0');
+      await page.locator('#reset').click();
+    }
     assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), `${width}/${mode}: oldalszélesség`);
     for (const control of await page.locator('.filter-card input,.filter-card select').all()) {
       const box = await control.boundingBox();
