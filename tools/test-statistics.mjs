@@ -104,7 +104,12 @@ for (const file of ['Player Statistics.html', 'Team Statistics.html']) {
   assert.equal([...html.matchAll(/class="rank"/g)].length, 50, `${file}: statikus sorszámformázás`);
   const columns = JSON.parse(html.match(/id="statistics-columns">([^<]+)<\/script>/)[1]);
   if (file === 'Team Statistics.html') {
-    assert.deepEqual(columns.slice(7, 13).map(([key]) => key), teamPenaltyColumns);
+    assert.deepEqual(columns.slice(7, 11).map(([key]) => key), ['awarded', 'penaltyGoals', 'penaltiesAgainst', 'penaltyGoalsAgainst']);
+    for (const key of ['penaltyMisses', 'penaltyMissesAgainst']) {
+      assert.ok(!columns.some(([column]) => column === key));
+      assert.ok(!html.includes(`data-metric="${key}"`), `${key}: nincs statikus oszlop`);
+      assert.ok(html.includes(`<option value="${key}">`), `${key}: rendezés megmarad`);
+    }
     assert.ok(!columns.some(([key]) => key === 'penalties'));
     assert.ok(!html.includes('<option value="penalties">'));
     for (const [key, label] of columns) assert.ok(key === 'name' || html.includes(`<option value="${key}">${label}</option>`));

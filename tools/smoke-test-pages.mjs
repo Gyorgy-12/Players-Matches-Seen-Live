@@ -120,17 +120,30 @@ try {
       assert.equal(await page.locator('#sort option[value="penalties"]').count(), 0);
       assert.equal(await page.locator('td[data-metric="penalties"]').count(), 0);
       await page.locator('#match').selectOption('3872557');
+      for (const [key, descOrder] of [['penaltyMisses', ['54585', '4772']], ['penaltyMissesAgainst', ['4772', '54585']]]) {
+        assert.equal(await page.locator(`#sort option[value="${key}"]`).count(), 1);
+        await page.locator('#sort').selectOption(key);
+        for (const direction of ['desc', 'asc']) {
+          await page.locator('#direction').selectOption(direction);
+          assert.deepEqual(await page.locator('#statistics-rows tr').evaluateAll(rows => rows.map(r => r.dataset.statId)), direction === 'desc' ? descOrder : [...descOrder].reverse());
+          assert.equal(await page.locator('[data-metric="penaltyMisses"], [data-metric="penaltyMissesAgainst"]').count(), 0);
+          assert.equal(await page.locator('thead th').count(), 14);
+          assert.equal(await page.locator('#statistics-rows tr').first().locator('td').count(), 14);
+        }
+      }
+      await page.locator('#direction').selectOption('desc');
       await page.locator('#team').selectOption('4772');
       await page.locator('#sort').selectOption('penaltyMissesAgainst');
       assert.equal(await page.locator('[data-metric="penaltiesAgainst"]').textContent(), '2');
       assert.equal(await page.locator('[data-metric="penaltyGoalsAgainst"]').textContent(), '0');
-      assert.equal(await page.locator('[data-metric="penaltyMissesAgainst"] .selected-metric').textContent(), '2');
+      assert.equal(await page.locator('#statistics-rows tr').count(), 1);
+      await page.locator('#sort').selectOption('penaltiesAgainst');
       await assertTableDesign(page, `${width}/teams/büntetők`);
       await page.locator('#match').selectOption('4914561');
       await page.locator('#team').selectOption('7769');
       await page.locator('#sort').selectOption('penaltyGoalsAgainst');
       assert.equal(await page.locator('[data-metric="penaltyGoalsAgainst"] .selected-metric').textContent(), '1');
-      assert.equal(await page.locator('[data-metric="penaltyMissesAgainst"]').textContent(), '0');
+      assert.equal(await page.locator('[data-metric="penaltyMissesAgainst"]').count(), 0);
       await page.locator('#reset').click();
     }
     assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), `${width}/${mode}: oldalszélesség`);
