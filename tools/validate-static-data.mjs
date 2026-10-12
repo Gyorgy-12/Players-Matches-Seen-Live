@@ -32,6 +32,7 @@ for (const [i, file] of files.entries()) {
   for (const row of currentRows) {
     assert.equal([...row.matchAll(/<td\b/g)].length, [11, 14, 14, 15, 12][i], `Oszlopszám: ${file}/${key(row)}`);
     const id = attr(row, 'data-player-id');
+    if (!i && attr(row, 'data-attendance-known') === '1') assert.match(cell(row, 'Nézőszám'), /class="value"/, `Hiányzó nézőszám-kiemelés: ${game(row)}`);
     if (id) {
       if (id === '342229') {
         assert.match(cell(row, 'All-time Peak MV'), /17\/12\/2018/);

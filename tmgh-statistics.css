@@ -6,7 +6,6 @@ body .partial-note[hidden],body .empty[hidden]{display:none!important}
 body .statistics-table{table-layout:auto!important}
 body .statistics-table .stat-teams{white-space:normal!important;overflow-wrap:normal!important;color:var(--tmgh-muted)!important}
 body .statistics-table .rank{display:block!important;margin:4px 0 0!important;color:var(--tmgh-muted)!important;font-size:12px!important}
-body .statistics-table td strong.selected-metric{color:#7cefd0!important}
 body .statistics-table sup{color:var(--tmgh-gold);margin-left:3px}
 body .empty{padding:24px;text-align:center;color:var(--tmgh-muted)}
 body .statistics-note a{color:var(--tmgh-blue)}

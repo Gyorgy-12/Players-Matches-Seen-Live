@@ -6,6 +6,33 @@ import { pathToFileURL } from 'node:url';
 
 const { chromium } = await import(process.env.TMGH_PLAYWRIGHT ? pathToFileURL(process.env.TMGH_PLAYWRIGHT).href : 'playwright');
 const root = path.resolve(import.meta.dirname, '..');
+// Check every row, including rows hidden by pagination: legacy wrappers and
+// freshly imported cells must have identical semantic colors and value sizing.
+const auditTableDesign = () => {
+  const issues = [];
+  const check = (el, expected) => {
+    const actual = getComputedStyle(el);
+    for (const [property, value] of Object.entries(expected)) if (actual[property] !== value) {
+      issues.push(`${el.closest('td')?.dataset.label}/${el.textContent.trim().slice(0, 45)}: ${property}=${actual[property]}, expected ${value}`);
+    }
+  };
+  const values = document.querySelectorAll('tbody td > .value, tbody td > .selected-metric, tbody td[data-label="Nézőszám"] > strong');
+  for (const el of values) check(el, { color: 'rgb(124, 239, 208)', fontSize: '14px', fontWeight: '900', marginTop: '0px', lineHeight: '20.3px' });
+  for (const el of document.querySelectorAll('tbody .tmgh-match-title')) check(el, { color: 'rgb(119, 220, 255)' });
+  for (const el of document.querySelectorAll('tbody .score')) check(el, { color: el.classList.contains('tmgh-penalty-score') ? 'rgb(239, 231, 255)' : 'rgb(255, 230, 166)' });
+  if (innerWidth > 720) for (const el of document.querySelectorAll('thead th')) {
+    const range = document.createRange();
+    range.selectNodeContents(el);
+    const style = getComputedStyle(el);
+    if (range.getBoundingClientRect().width > el.clientWidth - parseFloat(style.paddingLeft) - parseFloat(style.paddingRight) + 1) issues.push(`Levágott oszlopfejléc: ${el.textContent}`);
+  }
+  return { checked: values.length, issues: issues.slice(0, 20) };
+};
+async function assertTableDesign(page, context) {
+  const audit = await page.evaluate(auditTableDesign);
+  assert.ok(audit.checked > 0, `${context}: nincs ellenőrizhető kiemelt érték`);
+  assert.deepEqual(audit.issues, [], `${context}: eltérő táblázatformázás`);
+}
 const server = http.createServer((req, res) => {
   const rel = decodeURIComponent(new URL(req.url, 'http://localhost').pathname).replace(/^\/+/, '') || 'index.html';
   const file = path.resolve(root, rel);
@@ -34,6 +61,7 @@ try {
       await page.goto(base + encodeURIComponent(file), { waitUntil: 'load' });
       assert.equal(await page.locator('tbody tr').count(), expectedRows);
       await page.waitForFunction(() => !document.body.classList.contains('tmgh-paginated-pending'));
+      await assertTableDesign(page, `${width}/${file}`);
       assert.deepEqual(errors, [], `${file}: betöltési hiba`);
       const paginated = await page.locator('[data-page-action="next"]').count() > 0;
       if (paginated) {
@@ -49,6 +77,7 @@ try {
       assert.ok(visible > 0 && (!paginated || visible <= 50));
       const newRow = page.locator('tbody tr:visible').filter({ has: page.locator('a[href*="spielbericht/4914525"]') });
       assert.ok(await newRow.count() > 0, `Új meccs kereshető: ${file}`);
+      await assertTableDesign(page, `${width}/${file}/szűrve`);
       assert.deepEqual(errors, [], `${file}: böngészőhiba`);
       assert.ok(await page.locator('.tmgh-filter-jump').count() > 0);
       console.log(`OK ${width}px: ${file}; keresés: ${visible} találat`);
@@ -85,6 +114,7 @@ try {
     await page.route('**/*', route => route.request().url().startsWith(base) ? route.continue() : route.abort());
     await page.goto(base + encodeURIComponent(file));
     assert.deepEqual(await page.evaluate(uiSnapshot), referenceStyles.get(width), `${width}/${mode}: közös megjelenés`);
+    await assertTableDesign(page, `${width}/${mode}`);
     assert.equal(await page.locator('#statistics-rows tr').count(), 50);
     assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), `${width}/${mode}: oldalszélesség`);
     for (const control of await page.locator('.filter-card input,.filter-card select').all()) {
@@ -104,6 +134,7 @@ try {
     } else assert.equal(await page.locator('[data-page-action="next"]').first().isDisabled(), true);
     await page.locator('#match').selectOption('4914525');
     await page.locator('#sort').selectOption('apps');
+    await assertTableDesign(page, `${width}/${mode}/meccsszám szerinti kiemelés`);
     await page.locator('#page-size').selectOption('50');
     assert.equal(await page.locator('#statistics-rows tr').count(), mode === 'players' ? 30 : 2);
     const totals = await page.locator('[data-metric="goals"]').allTextContents();

@@ -56,5 +56,7 @@ for (const file of ['Player Statistics.html', 'Team Statistics.html']) {
   assert.ok(normalizeFilterOptionOrder(html) === html, `${file}: eltérő szűrősorrend`);
   assert.match(html, /<option value="desc">Csökkenő ↓<\/option><option value="asc">Növekvő ↑<\/option>/);
   assert.equal([...html.matchAll(/data-page-size/g)].length, 2);
+  assert.equal([...html.matchAll(/class="selected-metric"/g)].length, 50, `${file}: statikus számkiemelés`);
+  assert.equal([...html.matchAll(/class="rank"/g)].length, 50, `${file}: statikus sorszámformázás`);
 }
 console.log('OK: teljes pool, nullás statok kizárása, újraszámoló szűrők, összes rendezés, új meccs, lapok, párbajok, hiányos forrás és Siafa ismételt látása.');

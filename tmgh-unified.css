@@ -15,6 +15,7 @@
   --tmgh-text:#f5f8ff;
   --tmgh-muted:#9fb0c7;
   --tmgh-accent:#23d3a5;
+  --tmgh-value:#7cefd0;
   --tmgh-blue:#43c5ff;
   --tmgh-gold:#f6c75b;
   --tmgh-danger:#ff7d93;
@@ -590,6 +591,7 @@ body table{
 }
 body thead th{
   position:sticky!important;
+  max-width:none!important;
   z-index:5!important;
   top:0!important;
   height:48px!important;
@@ -643,7 +645,21 @@ body tbody td > span{
 }
 body tbody a{color:#77dcff!important;font-weight:800!important;text-decoration:none!important;text-underline-offset:3px!important}
 body tbody a:hover{color:#afefff!important;text-decoration:underline!important}
-body .value{color:#7cefd0!important;font-weight:900!important;font-variant-numeric:tabular-nums!important}
+/* The value's role, not a legacy span/strong wrapper, owns its appearance. */
+body .value{color:var(--tmgh-value)!important;font-weight:900!important;font-variant-numeric:tabular-nums!important}
+body tbody td > .value,
+body tbody td > .selected-metric,
+body tbody td[data-label="Nézőszám"] > strong{
+  display:block!important;
+  margin:0!important;
+  color:var(--tmgh-value)!important;
+  font-size:14px!important;
+  font-weight:900!important;
+  line-height:1.45!important;
+  font-variant-numeric:tabular-nums!important;
+}
+/* Both older nested titles and newly imported plain links use the link color. */
+body tbody a .tmgh-match-title{color:inherit!important}
 body .score{
   display:inline-flex!important;
   width:max-content!important;

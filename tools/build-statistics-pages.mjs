@@ -29,7 +29,7 @@ for (const [mode, config] of Object.entries(configs)) {
   const goals = mode === 'players' ? result.reduce((n, r) => n + r.goals, 0) : data.matches.reduce((n, m) => n + m.goalsHome + m.goalsAway, 0);
   const partialMatches = data.coverage.filter(c => !c.complete);
   const completeness = `${data.matches.length - partialMatches.length} / ${data.matches.length}`;
-  const initialRows = result.slice(0, 50).map((r, i) => `<tr data-stat-id="${r.id}">${config.columns.map(([k, label]) => `<td data-label="${label}" data-metric="${k}">${k === 'name' ? `<strong>${esc(r.name)}</strong><span>#${i + 1}</span>` : k === 'teams' ? esc(r.teams.join(' · ')) : `<strong>${r[k]}</strong>`}</td>`).join('')}</tr>`).join('\n');
+  const initialRows = result.slice(0, 50).map((r, i) => `<tr data-stat-id="${r.id}">${config.columns.map(([k, label]) => `<td data-label="${label}" data-metric="${k}">${k === 'name' ? `<strong>${esc(r.name)}</strong><span class="rank">#${i + 1}</span>` : k === 'teams' ? `<span class="stat-teams">${esc(r.teams.join(' · '))}</span>` : `<strong class="${k === 'goals' ? 'selected-metric' : ''}">${r[k].toLocaleString('hu-HU')}</strong>`}</td>`).join('')}</tr>`).join('\n');
   const html = `<!doctype html>
 <html lang="hu"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="dark"><title>${config.title} · TM Groundhopping</title>
 <link rel="stylesheet" href="tmgh-unified.css"><link rel="stylesheet" href="tmgh-statistics.css">

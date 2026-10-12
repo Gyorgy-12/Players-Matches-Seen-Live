@@ -89,7 +89,7 @@ const token = s => s.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCas
 const attrs = { 'data-attendance': match.attendance || 0, 'data-attendance-known': match.attendance ? 1 : 0, 'data-away-team': token(match.away.name), 'data-competition': match.competition, 'data-country': 'romania', 'data-date': Date.parse(match.date), 'data-goals': homeGoals + awayGoals, 'data-goal-difference': Math.abs(homeGoals - awayGoals), 'data-home-team': token(match.home.name), 'data-location': 'domestic', 'data-season': match.season, 'data-sheet-total': total, 'data-stadium': token(match.stadium), 'data-strongest-historical': Math.round(Math.max(...Object.values(match.historical))), 'data-teams': token(match.home.name), 'data-home-club-id': match.home.id, 'data-away-club-id': match.away.id };
 const matchRow = `<tr ${Object.entries(attrs).map(([k, v]) => `${k}="${esc(v)}"`).join(' ')}>
 ${cell('Mérkőzés / eredmény', matchInner.replace(`>${title}</a>`, `><strong>${title}</strong></a>`))}
-${cell('Nézőszám', match.attendance ? strong(match.attendance) : '')}${cell('Meccsnapi összérték', value(total))}
+${cell('Nézőszám', match.attendance ? `<strong class="value">${esc(match.attendance)}</strong>` : '')}${cell('Meccsnapi összérték', value(total))}
 ${cell('Hazai akkori MV', value(match.historical[match.home.id]))}${cell('Hazai jelenlegi MV', '')}
 ${cell('Vendég akkori MV', value(match.historical[match.away.id]))}${cell('Vendég jelenlegi MV', '')}
 ${cell('Verseny', strong(match.competition))}${cell('Szezon', strong(match.season))}${cell('Forduló / fázis / meccsnap', strong(match.round))}
