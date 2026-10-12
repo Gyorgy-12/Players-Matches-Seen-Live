@@ -2,9 +2,10 @@ import fs from 'node:fs';
 import path from 'node:path';
 import assert from 'node:assert/strict';
 import { normalizeFilterOptionOrder } from './normalize-filter-options.mjs';
+import { config } from './match-config.mjs';
 
 const root = path.resolve(import.meta.dirname, '..');
-const match = JSON.parse(fs.readFileSync(path.join(import.meta.dirname, 'match-4914561.json'), 'utf8'));
+const match = { ...config, ...JSON.parse(fs.readFileSync(path.join(import.meta.dirname, `match-${config.gameId}.json`), 'utf8')) };
 const files = ['All Seen Matches.html', 'TOP 5 players Seen Live.html', 'Capped Players Seen Live.html', 'Euro-WC Players Seen Live.html', 'Romanian Club-National Players Seen Live.html'];
 const htmls = new Map(files.map(f => [f, fs.readFileSync(path.join(root, f), 'utf8')]));
 const esc = s => String(s ?? '').replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
@@ -18,9 +19,9 @@ const value = (n, date = '') => `<span class="value">${money(n)}</span>${date ? 
 const cell = (label, inner, cls = '') => `<td${cls ? ` class="${cls}"` : ''} data-label="${esc(label)}">${inner}</td>`;
 const strong = s => `<strong>${esc(s)}</strong>`;
 const displayDate = s => s ? s.slice(0, 10).split('-').reverse().join('/') : '';
-const title = 'CFR Cluj - U Cluj';
+const title = `${match.home.name} - ${match.away.name}`;
 const url = match.sources.sheetUrl;
-const matchInner = `<a href="${url}" target="_blank" rel="noopener">${title}</a><span class="score">1:3</span><span>${match.date}</span>`;
+const matchInner = `<a href="${url}" target="_blank" rel="noopener">${title}</a><span class="score">${match.score}</span><span>${match.date}</span>`;
 const nationalityToken = name => name === 'The Gambia' ? 'gambia' : name.toLowerCase();
 function makePlayerRow(p, mode) {
   const old = rows(htmls.get(files[4])).find(r => attr(r, 'data-player-id') === p.id);
@@ -64,8 +65,8 @@ for (const p of match.roster.filter(p => p.played)) {
     additions.get(files[3]).push(row);
   }
 }
-// The six userscript roster sources were checked: only Chipciu (EURO 2016)
-// and Lukic (WC 2026) are members among this match's actual participants.
+// Checked against the six userscript tournament rosters: Chipciu (EURO 2016)
+// and Lukic (WC 2026); no newly eligible participant in either Cluj fixture.
 assert.equal(additions.get(files[3]).length, 2);
 for (const [file, added] of additions) {
   let html = htmls.get(file);
@@ -83,14 +84,16 @@ for (const [file, added] of additions) {
   htmls.set(file, html);
 }
 const total = Object.values(match.totals).reduce((n, t) => n + t.value, 0);
-const attrs = { 'data-attendance': match.attendance || 0, 'data-attendance-known': match.attendance ? 1 : 0, 'data-away-team': 'u cluj', 'data-competition': match.competition, 'data-country': 'romania', 'data-date': Date.parse(match.date), 'data-goals': 4, 'data-goal-difference': 2, 'data-home-team': 'cfr cluj', 'data-location': 'domestic', 'data-season': match.season, 'data-sheet-total': total, 'data-stadium': 'dr. constantin radulescu', 'data-strongest-historical': Math.round(Math.max(...Object.values(match.historical))), 'data-teams': 'cfr cluj', 'data-home-club-id': '7769', 'data-away-club-id': '6429' };
+const [homeGoals, awayGoals] = match.score.split(':').map(Number);
+const token = s => s.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+const attrs = { 'data-attendance': match.attendance || 0, 'data-attendance-known': match.attendance ? 1 : 0, 'data-away-team': token(match.away.name), 'data-competition': match.competition, 'data-country': 'romania', 'data-date': Date.parse(match.date), 'data-goals': homeGoals + awayGoals, 'data-goal-difference': Math.abs(homeGoals - awayGoals), 'data-home-team': token(match.home.name), 'data-location': 'domestic', 'data-season': match.season, 'data-sheet-total': total, 'data-stadium': token(match.stadium), 'data-strongest-historical': Math.round(Math.max(...Object.values(match.historical))), 'data-teams': token(match.home.name), 'data-home-club-id': match.home.id, 'data-away-club-id': match.away.id };
 const matchRow = `<tr ${Object.entries(attrs).map(([k, v]) => `${k}="${esc(v)}"`).join(' ')}>
 ${cell('Mérkőzés / eredmény', matchInner.replace(`>${title}</a>`, `><strong>${title}</strong></a>`))}
 ${cell('Nézőszám', match.attendance ? strong(match.attendance) : '')}${cell('Meccsnapi összérték', value(total))}
-${cell('Hazai akkori MV', value(match.historical['7769']))}${cell('Hazai jelenlegi MV', '')}
-${cell('Vendég akkori MV', value(match.historical['6429']))}${cell('Vendég jelenlegi MV', '')}
+${cell('Hazai akkori MV', value(match.historical[match.home.id]))}${cell('Hazai jelenlegi MV', '')}
+${cell('Vendég akkori MV', value(match.historical[match.away.id]))}${cell('Vendég jelenlegi MV', '')}
 ${cell('Verseny', strong(match.competition))}${cell('Szezon', strong(match.season))}${cell('Forduló / fázis / meccsnap', strong(match.round))}
-${cell('Stadion / város / ország', `${strong('Dr. Constantin Rădulescu')}<span>Cluj-Napoca · Romania</span>`)}</tr>`;
+${cell('Stadion / város / ország', `${strong(match.stadium)}<span>Cluj-Napoca · Romania</span>`)}</tr>`;
 let all = htmls.get(files[0]).replace(/<tr\b[^>]*data-home-club-id="\d+"[^>]*>[\s\S]*?<\/tr>/g, row => row.includes(`spielbericht/${match.gameId}`) ? '' : row);
 all = all.replace(/(<tbody id="rows">)/, `$1\n${matchRow}`);
 htmls.set(files[0], all);

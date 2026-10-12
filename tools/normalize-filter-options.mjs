@@ -100,6 +100,8 @@ if (invokedDirectly) {
     'Capped Players Seen Live.html',
     'Euro-WC Players Seen Live.html',
     'Romanian Club-National Players Seen Live.html',
+    'Player Statistics.html',
+    'Team Statistics.html',
   ];
   for (const file of files) {
     const fullPath = path.join(root, file);

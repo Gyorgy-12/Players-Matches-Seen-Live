@@ -2,9 +2,12 @@ import fs from 'node:fs';
 import path from 'node:path';
 import assert from 'node:assert/strict';
 import { AS_OF, source } from './source-cache.mjs';
+import { config } from './match-config.mjs';
 
-export const GAME = '4914561';
-export const DATE = '2026-10-08';
+export const GAME = config.gameId;
+export const DATE = config.date;
+const teams = [config.home, config.away];
+const teamIds = teams.map(t => t.id);
 export const strip = s => String(s || '').replace(/<[^>]+>/g, ' ').replace(/&nbsp;/g, ' ').replace(/&amp;/g, '&').replace(/\s+/g, ' ').trim();
 export function elements(html, tag) {
   const re = new RegExp(`<(/?)${tag}\\b[^>]*>`, 'gi');
@@ -21,18 +24,18 @@ const money = text => {
 };
 const leagueNames = { GB1: 'Premier League', ES1: 'LaLiga', IT1: 'Serie A', L1: 'Bundesliga', FR1: 'Ligue 1' };
 const lineupUrl = `https://www.transfermarkt.com/-/aufstellung/spielbericht/${GAME}`;
-const sheetUrl = `https://www.transfermarkt.com/spielbericht/index/spielbericht/${GAME}`;
+const sheetUrl = GAME === '4914525' ? 'https://www.transfermarkt.com/universitatea-cluj_rapid-bukarest/index/spielbericht/4914525' : `https://www.transfermarkt.com/spielbericht/index/spielbericht/${GAME}`;
 const cutoffUrl = 'https://www.transfermarkt.com/x/marktwerteverein/wettbewerb/RO1/stichtag/2026-10-01/plus/1';
 const [lineup, sheet, cutoff] = await Promise.all([source(lineupUrl, false), source(sheetUrl, false, 4, { refresh: true }), source(cutoffUrl, false)]);
-assert.match(strip(sheet), /08\/10\/2026/);
-assert.match(strip(sheet), /1:3\s*\(\s*1:\s*0\)/);
+assert.ok(strip(sheet).includes(DATE.split('-').reverse().join('/')));
+assert.ok(strip(sheet).includes(config.score));
 const headers = [...lineup.matchAll(/<h2\b[^>]*>[\s\S]*?<\/h2>/g)];
 const roster = [];
 for (let i = 0; i < headers.length; i++) {
   const heading = headers[i][0];
   if (!/Starting Line-up|Substitutes/.test(heading)) continue;
   const clubId = heading.match(/\/verein\/(\d+)/)?.[1];
-  assert.ok(['7769', '6429'].includes(clubId));
+  assert.ok(teamIds.includes(clubId));
   const chunk = lineup.slice(headers[i].index + heading.length, headers[i + 1]?.index || lineup.length);
   const table = elements(chunk, 'table')[0];
   for (const row of elements(table, 'tr')) {
@@ -41,14 +44,14 @@ for (let i = 0; i < headers.length; i++) {
     const nationality = row.match(/<img\b[^>]*\/flagge\/[^>]*title="([^"]+)"/s)?.[1];
     const name = row.match(/<a\b[^>]*class="wichtig"[^>]*>([^<]+)<\/a>/)?.[1];
     assert.ok(name && nationality, `Hiányzó játékosadat: ${link[2]}`);
-    roster.push({ id: link[2], name, url: `https://www.transfermarkt.com${link[1]}`, nationality, clubId, club: clubId === '7769' ? 'CFR Cluj' : 'U Cluj', starter: /Starting/.test(heading), lineupValue: money(row) });
+    roster.push({ id: link[2], name, url: `https://www.transfermarkt.com${link[1]}`, nationality, clubId, club: teams.find(t => t.id === clubId).name, starter: /Starting/.test(heading), lineupValue: money(row) });
   }
 }
-assert.equal(roster.length, 46);
-assert.equal(new Set(roster.map(p => p.id)).size, 46);
+assert.ok(roster.length >= 22 && roster.length <= 46);
+assert.equal(new Set(roster.map(p => p.id)).size, roster.length);
 assert.equal(roster.filter(p => p.starter).length, 22);
 const substituteIds = new Set([...sheet.matchAll(/class="sb-aktion-wechsel-ein"([\s\S]*?)<\/a>/g)].map(m => m[1].match(/\/spieler\/(\d+)/)?.[1]));
-assert.equal(substituteIds.size, 10);
+assert.ok(substituteIds.size <= 12);
 const profiles = (await source(`https://tmapi.transfermarkt.technology/players?${roster.map(p => `ids[]=${p.id}`).join('&')}`)).data;
 const profileMap = new Map(profiles.map(p => [String(p.id), p]));
 let next = 0;
@@ -104,13 +107,13 @@ for (const table of elements(cutoff, 'table')) {
   const body = table.match(/<tbody\b[^>]*>([\s\S]*?)<\/tbody>/)?.[1] || '';
   for (const row of elements(body, 'tr')) {
     const clubId = row.match(/\/verein\/(\d+)/)?.[1];
-    if (!['7769', '6429'].includes(clubId)) continue;
+    if (!teamIds.includes(clubId)) continue;
     historical[clubId] = money(elements(row, 'td')[idx]);
   }
 }
-assert.ok(historical['7769'] > 0 && historical['6429'] > 0, 'Hiányzó cutoff érték');
+assert.ok(teamIds.every(id => historical[id] > 0), 'Hiányzó cutoff érték');
 const totals = {};
-for (const clubId of ['7769', '6429']) {
+for (const clubId of teamIds) {
   const players = roster.filter(p => p.clubId === clubId);
   totals[clubId] = { count: players.length, starters: players.filter(p => p.starter).length, played: players.filter(p => p.played).length, value: players.reduce((n, p) => n + (Number(p.atMatch?.y) || 0), 0), unvaluedIds: players.filter(p => !p.atMatch?.y).map(p => p.id) };
 }
@@ -122,6 +125,6 @@ for (const p of roster) {
 const attendanceText = strip(sheet).match(/\bAttendance:\s*([\d][\d.,\s\u00a0]*)/i)?.[1];
 const attendance = attendanceText ? Number(attendanceText.replace(/\D/g, '')) : null;
 if (attendance !== null) assert.ok(Number.isSafeInteger(attendance) && attendance > 0, 'Érvénytelen nézőszám');
-const report = { asOf: AS_OF, gameId: GAME, date: DATE, score: '1:3', season: '2026/27', round: 'Matchday 4', competition: 'Romanian SuperLiga', cutoff: '2026-10-01', historical, totals, attendance, attendanceNote: attendance !== null ? 'Transfermarkt match sheet: Attendance.' : 'Attendance is not present in the freshly retrieved Transfermarkt match sheet.', sources: { lineupUrl, sheetUrl, cutoffUrl }, roster };
+const report = { asOf: AS_OF, ...config, season: '2026/27', competition: 'Romanian SuperLiga', cutoff: '2026-10-01', historical, totals, attendance, attendanceNote: attendance !== null ? 'Transfermarkt match sheet: Attendance.' : 'Attendance is not present in the freshly retrieved Transfermarkt match sheet.', sources: { lineupUrl, sheetUrl, cutoffUrl }, roster };
 fs.writeFileSync(path.join(import.meta.dirname, `match-${GAME}.json`), JSON.stringify(report, null, 2));
 console.log(JSON.stringify({ historical, totals, played: roster.filter(p => p.played).map(p => ({ id: p.id, name: p.name, top5: p.top5, senior: p.senior })) }, null, 2));

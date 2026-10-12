@@ -1,7 +1,7 @@
 /*
   TM Groundhopping · canonical shared interface
   This file is loaded after every page's legacy inline stylesheet.
-  It deliberately owns the visual system of all five modes.
+  It deliberately owns the visual system of all seven modes.
 */
 :root{
   color-scheme:dark;
@@ -541,12 +541,13 @@ body .tmgh-page-size select{
     border:1px solid var(--tmgh-line)!important;
     border-radius:15px!important;
   }
-  body .tmgh-page-status{min-width:0!important;white-space:normal!important}
-  body .tmgh-page-size{min-width:0!important}
+  body .tmgh-page-status{min-width:0!important;white-space:normal!important;grid-column:1!important;grid-row:1!important}
+  body .tmgh-page-size{min-width:0!important;grid-column:2!important;grid-row:1!important}
   body .tmgh-pagination-controls{
     display:grid!important;
     grid-template-columns:minmax(0,1fr) auto minmax(0,1fr)!important;
     grid-column:1 / -1!important;
+    grid-row:2!important;
     width:100%!important;
   }
   body .tmgh-pagination button{width:100%!important;min-height:44px!important;padding:9px 10px!important}
@@ -565,6 +566,15 @@ body table{
 }
 
 @media (min-width:721px){
+  /* Legacy exports switched to cards at 900px. Explicitly restore table
+     semantics above the shared 720px breakpoint instead of mixing modes. */
+  body table{display:table!important;border-collapse:collapse!important;border-spacing:0!important}
+  body thead{display:table-header-group!important}
+  body tbody{display:table-row-group!important}
+  body tbody tr{display:table-row!important;width:auto!important;margin:0!important;border:0!important;border-radius:0!important;box-shadow:none!important}
+  body thead th,
+  body tbody td{display:table-cell!important;width:auto!important}
+  body tbody td::before{display:none!important;content:none!important}
   body .table-wrap > table.tmgh-drag-surface{
     transform:translate3d(0,0,0);
     transform-origin:0 0;

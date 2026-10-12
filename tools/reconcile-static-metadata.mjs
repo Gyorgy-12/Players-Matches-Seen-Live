@@ -20,18 +20,21 @@ function options(html, id, values) {
 export function reconcileMetadata() {
   const files = { matches: 'All Seen Matches.html', top5: 'TOP 5 players Seen Live.html', capped: 'Capped Players Seen Live.html', tournaments: 'Euro-WC Players Seen Live.html', romanian: 'Romanian Club-National Players Seen Live.html' };
   const counts = {};
+  const statisticsPath = path.join(root, 'tools', 'seen-statistics.json');
+  const seenStatistics = fs.existsSync(statisticsPath) ? JSON.parse(fs.readFileSync(statisticsPath, 'utf8')) : null;
   for (const [mode, file] of Object.entries(files)) {
     let html = fs.readFileSync(path.join(root, file), 'utf8');
     const rows = mode === 'matches' ? [...html.matchAll(/<tr\b[^>]*data-home-club-id="\d+"[^>]*>[\s\S]*?<\/tr>/g)].map(m => m[0]) : playerRows(html);
     const players = distinct(rows, 'data-player-id').size;
     counts[mode] = rows.length;
-    html = html.replace(/(data-page-status>)[\s\S]*?(<\/div>)/g, (_, a, b) => `${a}1–${Math.min(50, rows.length)} / ${rows.length} sor${b}`)
+    html = html.replace(/(data-page-status\b[^>]*>)[\s\S]*?(<\/div>)/g, (_, a, b) => `${a}1–${Math.min(50, rows.length)} / ${rows.length} sor${b}`)
       .replace(/(data-page-total>)\d+(<\/span>)/g, (_, a, b) => a + Math.max(1, Math.ceil(rows.length / 50)) + b);
     if (mode === 'matches') {
       const stats = { 'Mérkőzések': rows.length, 'Nézőszám ismert': rows.filter(r => attr(r, 'data-attendance-known') === '1').length, 'Mindkét akkori MV ismert': rows.filter(r => /€/.test(cell(r, 'Hazai akkori MV')) && /€/.test(cell(r, 'Vendég akkori MV'))).length, 'Stadionországok': distinct(rows, 'data-country').size };
       for (const [label, n] of Object.entries(stats)) html = html.replace(new RegExp(`(<span>${label}<\\/span><strong[^>]*>)\\d+(<\\/strong>)`), (_, a, b) => a + n + b);
     } else if (mode === 'top5' || mode === 'capped') {
       html = setStat(setStat(html, 'stat-players', players), 'stat-rows', rows.length);
+      if (seenStatistics) html = setStat(html, 'stat-pool', new Set(seenStatistics.appearances.map(a => a.player)).size);
       html = html.replace(/(<div class="filter-summary" id="filter-summary">)[\s\S]*?(<\/div>)/, (_, a, b) => `${a}${players} játékos · ${rows.length} meccssor${b}`);
       for (const [id, key] of [['filter-season', 'data-season'], ['filter-seen-club', 'data-seen-club'], ['filter-nationality', 'data-nationality'], ['filter-competition', 'data-competition']]) html = options(html, id, distinct(rows, key));
     } else if (mode === 'romanian') {
@@ -54,10 +57,13 @@ export function reconcileMetadata() {
     }
     fs.writeFileSync(path.join(root, file), normalizeFilterOptionOrder(html));
   }
+  for (const [mode, file] of [['playerstats', 'Player Statistics.html'], ['teamstats', 'Team Statistics.html']]) {
+    if (fs.existsSync(path.join(root, file))) counts[mode] = Number(fs.readFileSync(path.join(root, file), 'utf8').match(/data-stat-count="(\d+)"/)?.[1] || 0);
+  }
   for (const hubFile of ['index.html', 'TM Groundhopping Hub.html']) {
     let html = fs.readFileSync(path.join(root, hubFile), 'utf8');
     html = html.replace(/(<div class="summary-card"><span>Táblázatsor<\/span><strong>)[\d\s]+(<\/strong>)/, (_, a, b) => a + Object.values(counts).reduce((n, c) => n + c, 0).toLocaleString('hu-HU', { useGrouping: 'always' }) + b);
-    for (const [mode, n] of Object.entries(counts)) html = html.replace(new RegExp(`(id:'${mode}'[\\s\\S]*?meta:')[\\d\\s]+ (sor|mérkőzés)'`), (_, a, unit) => a + n.toLocaleString('hu-HU', { useGrouping: 'always' }) + ' ' + unit + "'");
+    for (const [mode, n] of Object.entries(counts)) html = html.replace(new RegExp(`(id:'${mode}'[\\s\\S]*?meta:')[\\d\\s]+ (sor|mérkőzés|játékos|csapat)'`), (_, a, unit) => a + n.toLocaleString('hu-HU', { useGrouping: 'always' }) + ' ' + unit + "'");
     fs.writeFileSync(path.join(root, hubFile), html);
   }
   return counts;

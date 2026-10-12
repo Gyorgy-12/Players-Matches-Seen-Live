@@ -2,7 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { createHash } from 'node:crypto';
 
-export const AS_OF = process.env.TMGH_AS_OF || '2026-10-08';
+export const AS_OF = process.env.TMGH_AS_OF || '2026-10-12';
 export const cacheDir = path.join(import.meta.dirname, '.cache', AS_OF);
 export async function source(url, json = true, attempts = 4, { refresh = false } = {}) {
   fs.mkdirSync(cacheDir, { recursive: true });

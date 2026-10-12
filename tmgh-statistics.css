@@ -1,0 +1,20 @@
+body .statistics-note{margin:0;color:var(--tmgh-muted);font-size:12px;line-height:1.6}
+body .statistics-note summary{cursor:pointer;color:var(--tmgh-text);padding:10px 0;font-weight:750}
+body .statistics-note p{margin:4px 0 8px}
+body .partial-note{padding:10px 14px;color:var(--tmgh-gold);font-size:12px}
+body .partial-note[hidden],body .empty[hidden]{display:none!important}
+body .statistics-table{table-layout:auto!important}
+body .statistics-table .stat-teams{white-space:normal!important;overflow-wrap:normal!important;color:var(--tmgh-muted)!important}
+body .statistics-table .rank{display:block!important;margin:4px 0 0!important;color:var(--tmgh-muted)!important;font-size:12px!important}
+body .statistics-table td strong.selected-metric{color:#7cefd0!important}
+body .statistics-table sup{color:var(--tmgh-gold);margin-left:3px}
+body .empty{padding:24px;text-align:center;color:var(--tmgh-muted)}
+body .statistics-note a{color:var(--tmgh-blue)}
+body .statistics-table-wrap:focus-visible{outline:2px solid var(--tmgh-blue);outline-offset:-2px}
+/* Mobile cards inherit the same label/value layout and 720px breakpoint
+   as every existing view; only desktop column sizing is page-specific. */
+@media(min-width:721px){
+  body .statistics-table{min-width:1500px!important}
+  body .statistics-table td:first-child{min-width:190px!important}
+  body .statistics-table td[data-metric="teams"]{min-width:160px!important;max-width:400px!important}
+}
