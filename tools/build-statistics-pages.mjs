@@ -3,6 +3,7 @@ import path from 'node:path';
 import '../tmgh-statistics-core.js';
 import { reconcileMetadata } from './reconcile-static-metadata.mjs';
 import { normalizeFilterOptionOrder } from './normalize-filter-options.mjs';
+import { writeGenerated } from './write-generated.mjs';
 
 const root = path.resolve(import.meta.dirname, '..');
 const data = JSON.parse(fs.readFileSync(path.join(import.meta.dirname, 'seen-statistics.json'), 'utf8'));
@@ -64,7 +65,7 @@ ${pagination()}<div class="table-wrap statistics-table-wrap" tabindex="0" role="
 <div class="empty" id="empty" hidden>Nincs a szűrésnek megfelelő ${config.entity}.</div>${pagination(true)}</section>
 <noscript>A szűréshez és lapozáshoz engedélyezd a JavaScriptet. Minden adat előre be van ágyazva, internetes adatlekérés nincs.</noscript></main>
 <script type="application/json" id="statistics-data">${json(data)}</script><script type="application/json" id="statistics-columns">${json(columns)}</script></body></html>`;
-  fs.writeFileSync(path.join(root, config.file), normalizeFilterOptionOrder(html));
+  writeGenerated(path.join(root, config.file), normalizeFilterOptionOrder(html));
 }
 let hub = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
 const hasAllPlayers = fs.existsSync(path.join(root, 'All Players Seen Live.html'));
@@ -75,6 +76,6 @@ if (!hub.includes("id:'playerstats'")) hub = hub.replace(/(file:'Romanian Club-N
         { id:'playerstats', icon:'J', title:'Játékosstatisztikák', description:'Gólok, gólpasszok, lapok és látott pályára lépések', meta:'${counts.players} játékos', file:'Player Statistics.html' },
         { id:'teamstats', icon:'CS', title:'Csapatstatisztikák', description:'Lőtt és kapott gólok, lapok és büntetők', meta:'${counts.teams} csapat', file:'Team Statistics.html' }`);
 hub = hub.replace("new Set(['capped', 'romanian'])", "new Set(['capped', 'romanian', 'playerstats', 'teamstats'])");
-for (const f of ['index.html', 'TM Groundhopping Hub.html']) fs.writeFileSync(path.join(root, f), hub);
+for (const f of ['index.html', 'TM Groundhopping Hub.html']) writeGenerated(path.join(root, f), hub);
 reconcileMetadata();
 console.log('Új statikus fülek:', counts);

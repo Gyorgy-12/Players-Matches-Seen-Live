@@ -4,6 +4,8 @@ import { fileURLToPath } from 'node:url';
 import { normalizeFilterOptionOrder } from './normalize-filter-options.mjs';
 import { AS_OF, source } from './source-cache.mjs';
 import { reconcileMetadata } from './reconcile-static-metadata.mjs';
+import { verifiedMarketHistory } from './verified-market-history.mjs';
+import { writeGenerated } from './write-generated.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const PLAYER_FILES = [
@@ -11,6 +13,7 @@ const PLAYER_FILES = [
   'Capped Players Seen Live.html',
   'Euro-WC Players Seen Live.html',
   'Romanian Club-National Players Seen Live.html',
+  'All Players Seen Live.html',
 ];
 const TOP5_FILE = PLAYER_FILES[0];
 const CAPPED_FILE = PLAYER_FILES[1];
@@ -69,17 +72,13 @@ const TEAM_NAME_ALIASES = new Map([
 ]);
 
 const read = (name) => fs.readFileSync(path.join(ROOT, name), 'utf8');
-const write = (name, text) => fs.writeFileSync(path.join(ROOT, name), text, 'utf8');
+const write = (name, text) => writeGenerated(path.join(ROOT, name), text);
 const uniq = (xs) => [...new Set(xs.map(String))];
 const idsFrom = (html) => uniq([...html.matchAll(/data-player-id="(\d+)"/g)].map((m) => m[1]));
 const chunks = (xs, size) => Array.from({ length: Math.ceil(xs.length / size) }, (_, i) => xs.slice(i * size, (i + 1) * size));
 
 async function getJson(url, attempts = 5) {
-  return source(url, true, attempts);
-}
-
-async function getMarketGraph(id, attempts = 4) {
-  return (await source(`https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/${id}`, true, attempts))?.list || [];
+  return source(url, true, attempts, { refresh: process.argv.includes('--fresh') });
 }
 
 async function parallelMap(items, concurrency, worker, label) {
@@ -422,13 +421,13 @@ function convertTop5RowToCapped(row, entries, clubs) {
   return replaceRowOpen(row, open);
 }
 
-function addNationalFilterOptions(html, teams) {
+function addNationalFilterOptions(html, teams, replace = false) {
   const additions = new Map((teams || []).map((team) => [`name:${filterTeamToken(team)}`, team]));
   if (!additions.size) return html;
   const match = html.match(/(<div class="multi-options">)([\s\S]*?)(<\/div>)/i);
   if (!match) return html;
   const options = new Map();
-  for (const item of match[2].matchAll(/<label class="multi-option">[\s\S]*?<input type="checkbox" value="([^"]+)">[\s\S]*?<span>([\s\S]*?)<\/span>[\s\S]*?<\/label>/gi)) {
+  for (const item of (replace ? '' : match[2]).matchAll(/<label class="multi-option">[\s\S]*?<input type="checkbox" value="([^"]+)">[\s\S]*?<span>([\s\S]*?)<\/span>[\s\S]*?<\/label>/gi)) {
     options.set(item[1].replace(/&#039;/g, "'"), stripHtml(item[2]));
   }
   for (const [token, team] of additions) if (!options.has(token)) options.set(token, team);
@@ -443,7 +442,7 @@ function addNewCappedRows(cappedHtml, topHtml, romanianHtml, newIds, national, c
   const added = [];
   const teams = [];
   for (const id of newIds) {
-    const entries = seniorNationalHistory(id);
+    const entries = seniorEntries(national.get(id), clubs);
     if (!entries.length) continue;
     const top = playerRows(topHtml, id);
     const fallbackTop = playerRows(romanianHtml, id).map((row) => convertRomanianRowToTop5(row, performance.get(id) || new Map()));
@@ -542,6 +541,23 @@ function updateCappedRow(row, history, clubs) {
   return replaceRowOpen(row, open);
 }
 
+function seniorEntries(history, clubs) {
+  // Same exclusions as isDisallowedNationalSelectionLabel in the userscript.
+  const disallowed = /(?:\bunder\s*[- ]?(?:15|16|17|18|19|20|21|22|23)\b|\bu\s*[- ]?(?:15|16|17|18|19|20|21|22|23)\b|\b(?:youth|junior|olympic|olympics|reserve|reserves|amateur|amateurs)\b|\b(?:b\s*team|b-team|b\s*selection|b-nationalmannschaft|reserve\s*team)\b|(?:^|[\s./_-])(?:b|ii|a2)\s*$)/i;
+  return (history || []).filter(entry => {
+    const name = clubs.get(String(entry.clubId))?.name || '';
+    return name && Number(entry.gamesPlayed || 0) > 0 && !disallowed.test(name);
+  });
+}
+
+function addMissingAppearances(html, allHtml, eligibleIds, convert) {
+  const key = row => `${getAttr(rowOpen(row), 'data-player-id')}|${row.match(/spielbericht\/(\d+)/)?.[1]}`;
+  const existing = new Set(playerRows(html).map(key));
+  const eligible = new Set(eligibleIds);
+  const added = playerRows(allHtml).filter(row => eligible.has(getAttr(rowOpen(row), 'data-player-id')) && !existing.has(key(row))).map(convert);
+  return { html: html.replace(/<\/tbody>/i, added.join('\n') + '\n</tbody>'), added: added.length };
+}
+
 function rebuildRomanianSearch(row) {
   let open = rowOpen(row);
   const attrs = ['data-player-id', 'data-player', 'data-type', 'data-nationality', 'data-club', 'data-competition', 'data-season', 'data-round', 'data-status', 'data-team-count', 'data-peak', 'data-seen-mv', 'data-current-mv', 'data-date', 'data-year'];
@@ -592,11 +608,12 @@ function updateMatchRows(html, clubs) {
 export {
   unifyTeamNames, updateCurrentPlayerRow, sortRowsByPeak, rebuildRomanianSearch,
   updateAppsSummary, updateTop5Row, updateCappedRow, updateMatchRows,
+  aggregateTop5, seniorEntries,
 };
 
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
 const htmlByFile = new Map(PLAYER_FILES.map((name) => [name, read(name)]));
-const playerIds = uniq(PLAYER_FILES.flatMap((name) => idsFrom(htmlByFile.get(name))));
+const playerIds = uniq(PLAYER_FILES.flatMap((name) => idsFrom(htmlByFile.get(name)))).sort((a, b) => Number(a) - Number(b));
 const top5Ids = idsFrom(htmlByFile.get(TOP5_FILE));
 const cappedIds = idsFrom(htmlByFile.get(CAPPED_FILE));
 const matchHtml = read(MATCH_FILE);
@@ -620,20 +637,27 @@ const national = new Map(nationalRaw.filter((x) => x && !x.__error).map((x) => [
 // ellenőrizzük: a teljes ismert látott játékospool új jogosultjait is keressük.
 const performanceRaw = await parallelMap(playerIds, 8, async (id) => {
   const data = (await getJson(`https://tmapi.transfermarkt.technology/player/${id}/performance-game`, 4)).data;
-  return { id, stats: aggregateTop5(data?.performance || []) };
+  if (!Array.isArray(data?.performance)) throw new Error(`Hiányos szereplési adat: ${id}`);
+  const unused = data.performance.filter(game =>
+    game.statistics?.generalStatistics?.participationState === 'in squad' &&
+    !(Number(game.statistics?.playingTimeStatistics?.playedMinutes) > 0) &&
+    !(Number(game.statistics?.goalStatistics?.goalsScoredTotal) > 0)
+  ).map(game => String(game.gameInformation.gameId));
+  return { id, stats: aggregateTop5(data.performance), unused };
 }, 'Teljes Top-5 jogosultságvizsgálat');
 const performance = new Map(performanceRaw.filter((x) => x && !x.__error).map((x) => [x.id, x.stats]));
+const unusedAppearances = new Set(performanceRaw.flatMap(item => (item?.unused || []).map(game => `${item.id}|${game}`)));
 const newTop5Ids = playerIds.filter((id) => !top5Ids.includes(id) && (performance.get(id)?.size || 0) > 0);
 console.log(`Új Top-5 jogosultak a jelenlegi poolban: ${newTop5Ids.length}${newTop5Ids.length ? ` (${newTop5Ids.join(', ')})` : ''}`);
 
 const marketGraphRaw = await parallelMap(playerIds, 8, async (id) => {
-  return { id, graph: await getMarketGraph(id) };
-}, 'Teljes piaciérték-idősor');
+  return { id, ...verifiedMarketHistory(id, players.get(id)) };
+}, 'Csúcsértékek és történeti értékek ellenőrzése');
 const marketGraphs = new Map(marketGraphRaw.filter((x) => x && !x.__error).map((x) => [x.id, x.graph]));
 
 const currentClubIds = [...players.values()].flatMap((p) => (p.clubAssignments || []).filter((a) => a.type === 'current').map((a) => a.clubId));
 const nationalClubIds = nationalRaw.flatMap((x) => x?.clubIds || []);
-const clubIds = uniq([...matchClubIds, ...currentClubIds, ...nationalClubIds]);
+const clubIds = uniq([...matchClubIds, ...currentClubIds, ...nationalClubIds]).sort((a, b) => Number(a) - Number(b));
 const clubBatches = await parallelMap(chunks(clubIds, 45), 3, async (batch) => {
   const query = batch.map((id) => `ids[]=${encodeURIComponent(id)}`).join('&');
   return (await getJson(`https://tmapi.transfermarkt.technology/clubs?${query}`)).data || [];
@@ -649,23 +673,35 @@ if (process.argv.includes('--fetch-only')) {
   console.log('A teljes friss forráscsomag letöltve; a HTML-ek változatlanok.');
   process.exit(0);
 }
-const seniorNationalHistory = (id) => (national.get(String(id)) || []).filter((entry) => {
-  const name = clubs.get(String(entry.clubId))?.name || '';
-  return Number(entry.gamesPlayed || 0) > 0 &&
-    !/\b(?:u\s?1[56789]|u\s?2[013]|under[- ]?(?:17|18|19|20|21|23)|olympic|b team|ii|a2)\b/i.test(name);
-});
+const seniorNationalHistory = (id) => seniorEntries(national.get(String(id)), clubs);
 const newCappedIds = playerIds.filter((id) => !cappedIds.includes(id) && seniorNationalHistory(id).length > 0);
 console.log(`Új felnőtt válogatott jogosultak a jelenlegi poolban: ${newCappedIds.length}${newCappedIds.length ? ` (${newCappedIds.join(', ')})` : ''}`);
 
 const updatedHtmlByFile = new Map();
+const removedUnusedRows = [];
+const removedIneligibleRows = [];
 for (const name of PLAYER_FILES) {
   let html = htmlByFile.get(name);
   html = updateRows(html, (row, id) => {
+    const game = row.match(/spielbericht\/(\d+)/)?.[1];
+    if (unusedAppearances.has(`${id}|${game}`)) {
+      removedUnusedRows.push({ file: name, player: id, match: game });
+      return '';
+    }
+    if ((name === CAPPED_FILE && !seniorNationalHistory(id).length) ||
+        (name === TOP5_FILE && !performance.get(id)?.size)) {
+      removedIneligibleRows.push({ file: name, player: id, match: game });
+      return '';
+    }
     row = updateCurrentPlayerRow(row, players.get(id), clubs, marketGraphs.get(id));
     if (name === TOP5_FILE || name === CAPPED_FILE) row = replaceRowOpen(row, setAttr(rowOpen(row), 'data-player', normalize(getAttr(rowOpen(row), 'data-player'))));
     if (name === TOP5_FILE) row = updateTop5Row(row, performance.get(id));
-    if (name === CAPPED_FILE) row = updateCappedRow(row, national.get(id), clubs);
-    if (name === 'Romanian Club-National Players Seen Live.html') row = rebuildRomanianSearch(row);
+    if (name === CAPPED_FILE) {
+      const badge = nationalBadgeData(seniorNationalHistory(id), clubs);
+      row = replaceCell(row, 'Válogatott / meccs / gól', badge.html);
+      row = replaceRowOpen(row, setAttr(setAttr(rowOpen(row), 'data-total-apps', badge.total), 'data-national-teams', `|${badge.tokens.join('|')}|`));
+    }
+    if (name === 'Romanian Club-National Players Seen Live.html' || name === 'All Players Seen Live.html') row = rebuildRomanianSearch(row);
     return row;
   });
   html = updateDates(html);
@@ -673,26 +709,27 @@ for (const name of PLAYER_FILES) {
   updatedHtmlByFile.set(name, html);
 }
 
-const top5Addition = addNewTop5Rows(
+const top5Addition = addMissingAppearances(
   updatedHtmlByFile.get(TOP5_FILE),
-  updatedHtmlByFile.get(CAPPED_FILE),
-  updatedHtmlByFile.get('Romanian Club-National Players Seen Live.html'),
-  newTop5Ids,
-  performance,
+  updatedHtmlByFile.get('All Players Seen Live.html'),
+  playerIds.filter(id => performance.get(id)?.size > 0),
+  row => convertRomanianRowToTop5(row, performance.get(getAttr(rowOpen(row), 'data-player-id'))),
 );
 updatedHtmlByFile.set(TOP5_FILE, top5Addition.html);
 console.log(`Új Top-5 meccssorok beillesztve: ${top5Addition.added}`);
 
-const cappedAddition = addNewCappedRows(
+const cappedAddition = addMissingAppearances(
   updatedHtmlByFile.get(CAPPED_FILE),
-  updatedHtmlByFile.get(TOP5_FILE),
-  updatedHtmlByFile.get('Romanian Club-National Players Seen Live.html'),
-  newCappedIds,
-  national,
-  clubs,
-  performance,
+  updatedHtmlByFile.get('All Players Seen Live.html'),
+  playerIds.filter(id => seniorNationalHistory(id).length > 0),
+  row => {
+    const id = getAttr(rowOpen(row), 'data-player-id');
+    return convertTop5RowToCapped(convertRomanianRowToTop5(row, performance.get(id) || new Map()), seniorNationalHistory(id), clubs);
+  },
 );
-updatedHtmlByFile.set(CAPPED_FILE, cappedAddition.html);
+updatedHtmlByFile.set(CAPPED_FILE, addNationalFilterOptions(cappedAddition.html, playerIds.flatMap(id => nationalBadgeData(seniorNationalHistory(id), clubs).teams), true));
+updatedHtmlByFile.set(TOP5_FILE, updateAppsSummary(top5Addition.html));
+updatedHtmlByFile.set(CAPPED_FILE, updateAppsSummary(updatedHtmlByFile.get(CAPPED_FILE)));
 console.log(`Új válogatott meccssorok beillesztve: ${cappedAddition.added}`);
 
 // Az értékfrissítés önmagában is módosíthatja a Peak MV szerinti sorrendet,
@@ -753,11 +790,15 @@ const failures = {
   national: nationalRaw.filter((x) => x?.__error).length,
   performance: performanceRaw.filter((x) => x?.__error).length,
   marketGraphs: marketGraphRaw.filter((x) => x?.__error).length,
-  newTop5Ids,
-  newCappedIds,
   missingClubs: clubIds.filter((id) => !clubs.has(id)),
 };
-fs.writeFileSync(path.join(ROOT, 'tools', 'refresh-current-data-report.json'), JSON.stringify({ asOf: AS_OF, counts: { players: players.size, clubs: clubs.size, national: national.size, performance: performance.size }, failures }, null, 2));
+const historicalSources = Object.fromEntries(marketGraphRaw.map(item => [item.id, { asOf: item.date, source: item.source }]));
+fs.writeFileSync(path.join(ROOT, 'tools', 'refresh-current-data-report.json'), JSON.stringify({
+  asOf: AS_OF, sourceMode: process.argv.includes('--fresh') ? 'live' : 'same-day-cache',
+  counts: { players: players.size, clubs: clubs.size, matchClubs: matchClubIds.length, national: national.size, performance: performance.size },
+  eligibility: { newTop5Ids, newCappedIds, addedTop5Rows: top5Addition.added, addedCappedRows: cappedAddition.added, removedUnusedRows, removedIneligibleRows },
+  historicalSources, failures,
+}, null, 2));
 console.log('Kész.', JSON.stringify(failures));
 console.log('Számlálók és szűrők:', reconcileMetadata());
 }

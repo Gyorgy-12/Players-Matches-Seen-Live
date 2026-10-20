@@ -6,6 +6,8 @@ import { archivedSource } from './archived-source.mjs';
 import { unifyTeamNames, updateCurrentPlayerRow, sortRowsByPeak, rebuildRomanianSearch } from './refresh-current-data.mjs';
 import { normalizeFilterOptionOrder } from './normalize-filter-options.mjs';
 import { reconcileMetadata } from './reconcile-static-metadata.mjs';
+import { verifiedMarketHistory } from './verified-market-history.mjs';
+import { writeGenerated } from './write-generated.mjs';
 
 const root = path.resolve(import.meta.dirname, '..');
 const read = f => fs.readFileSync(path.join(root, f), 'utf8');
@@ -30,7 +32,7 @@ for (const name of ['Romanian Club-National Players Seen Live.html', 'Capped Pla
 const matchRows = new Map([...read('All Seen Matches.html').matchAll(/<tr\b[^>]*data-home-club-id="\d+"[^>]*>[\s\S]*?<\/tr>/g)].map(([r]) => [r.match(/spielbericht\/(\d+)/)[1], r]));
 const matchMap = new Map(data.matches.map(m => [m.id, m]));
 const people = new Map(data.players.map(p => [p.id, p]));
-const ids = [...new Set(data.appearances.map(a => a.player))];
+const ids = [...new Set(data.appearances.map(a => a.player))].sort((a, b) => Number(a) - Number(b));
 const nationality = new Map(ids.map(id => [id, attr(old.get(id) || '', 'data-nationality') || people.get(id)?.nationality || '']));
 // Extract primary flags from the archived complete roster rows, including
 // the foreign opponent. Inner layout tables must not truncate the outer row.
@@ -65,22 +67,10 @@ for (let i = 0; i < clubIds.length; i += 45) {
   for (const c of batch) clubs.set(String(c.id), c);
 }
 assert.equal(clubs.size, clubIds.length, 'Hiányos klubadatok');
-const verified = {};
-for (const name of ['market-history-2026-10-20.json', 'all-player-history-2026-10-20.json']) {
-  Object.assign(verified, JSON.parse(read(`tools/sources/${name}`)).players);
-}
 const graphs = new Map(), missing = [];
 for (const id of ids) {
-  const profile = profiles.get(id);
-  const graph = Object.hasOwn(verified, id)
-    ? verified[id].map(([x, y, datum_mw, verein]) => ({ x, y, datum_mw, verein }))
-    : archivedSource(`https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/${id}`, true, AS_OF)?.data?.list;
-  if (!graph) { missing.push(id); continue; }
-  const peak = Math.max(0, ...graph.map(p => Number(p.y) || 0));
-  // Old timelines are valid historical sources, but a new career maximum
-  // needs a newly verified peak-club/date before exporting.
-  if (Number(profile.marketValueDetails?.highest?.value || 0) > peak) { missing.push(id); continue; }
-  graphs.set(id, graph);
+  try { graphs.set(id, verifiedMarketHistory(id, profiles.get(id)).graph); }
+  catch { missing.push(id); }
 }
 assert.deepEqual(missing, [], `Friss értéktörténetet igénylő játékosok: ${missing.join(', ')}`);
 assert.ok(ids.every(id => nationality.get(id)), `Hiányzó nemzetiségek: ${ids.filter(id => !nationality.get(id)).join(', ')}`);
@@ -135,7 +125,7 @@ let html = template.replace(/(<tbody\b[^>]*>)[\s\S]*?(<\/tbody>)/, (_, a, b) => 
   .replace("if (mode==='date-asc')", "if (mode==='appearances-desc') return num(b.dataset.appearanceCount)-num(a.dataset.appearanceCount) || an.localeCompare(bn,'hu') || ad.localeCompare(bd);\n        if (mode==='appearances-asc') return num(a.dataset.appearanceCount)-num(b.dataset.appearanceCount) || an.localeCompare(bn,'hu') || ad.localeCompare(bd);\n        if (mode==='date-asc')");
 html = normalizeFilterOptionOrder(sortRowsByPeak(html));
 assert.ok(!html.includes('els.type'), 'A román játékostípus-szűrő nem maradhat az összesített nézetben');
-fs.writeFileSync(path.join(root, file), html);
+writeGenerated(path.join(root, file), html);
 // Shared players must show the same current club and valuation in every mode.
 // Historical match/tournament cells are intentionally left unchanged.
 for (const name of ['Romanian Club-National Players Seen Live.html', 'Capped Players Seen Live.html', 'TOP 5 players Seen Live.html', 'Euro-WC Players Seen Live.html']) {
@@ -146,15 +136,16 @@ for (const name of ['Romanian Club-National Players Seen Live.html', 'Capped Pla
     if (name.startsWith('Romanian')) row = rebuildRomanianSearch(row);
     return row;
   }).replace(/jelenlegi játékosadatok frissítve:\s*\d{4}-\d{2}-\d{2}/g, `jelenlegi játékosadatok frissítve: ${AS_OF}`);
-  fs.writeFileSync(path.join(root, name), normalizeFilterOptionOrder(unifyTeamNames(sortRowsByPeak(existing))));
+  writeGenerated(path.join(root, name), normalizeFilterOptionOrder(unifyTeamNames(sortRowsByPeak(existing))));
 }
 for (const hubFile of ['index.html', 'TM Groundhopping Hub.html']) {
   let hub = read(hubFile);
-  if (!hub.includes("id:'allplayers'")) hub = hub.replace(/(\{ id:'matches'[^\n]+\},)/, `$1\n        { id:'allplayers', icon:'ÖJ', title:'Minden látott játékos', description:'Az összes csapat pályára lépett játékosai', meta:'${rows.length} sor', file:'${file}' },`);
+  hub = hub.replace(/^[ \t]*\{ id:'allplayers'[^\n]+\},?\r?\n/m, '');
+  hub = hub.replace(/(\{ id:'romanian'[^\n]+\},)/, `$1\n        { id:'allplayers', icon:'ÖJ', title:'Minden látott játékos', description:'Az összes csapat pályára lépett játékosai', meta:'${rows.length} sor', file:'${file}' },`);
   hub = hub.replace(/A hét statikus HTML/, 'A nyolc statikus HTML')
     .replace(/(<span>Oldalak<\/span><strong>)\d+(<\/strong>)/, '$18$2')
     .replace("new Set(['capped', 'romanian', 'playerstats', 'teamstats'])", "new Set(['capped', 'romanian', 'allplayers', 'playerstats', 'teamstats'])");
-  fs.writeFileSync(path.join(root, hubFile), hub);
+  writeGenerated(path.join(root, hubFile), hub);
 }
 console.log('Minden látott játékos:', ids.length, 'egyedi játékos,', rows.length, 'meccssor.');
 console.log(reconcileMetadata());

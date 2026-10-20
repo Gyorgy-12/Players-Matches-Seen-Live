@@ -2,8 +2,12 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { normalizeFilterOptionOrder } from './normalize-filter-options.mjs';
+import { writeGenerated } from './write-generated.mjs';
 
 const root = path.resolve(import.meta.dirname, '..');
+function writeIfChanged(file, html) {
+  writeGenerated(path.join(root, file), html);
+}
 const decode = s => String(s || '').replace(/&amp;/g, '&').replace(/&#0*39;|&#x27;/gi, "'").replace(/&quot;/g, '"');
 const esc = s => decode(s).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
 const attr = (s, k) => decode(s.match(new RegExp(`\\b${k}="([^"]*)"`))?.[1] || '');
@@ -56,7 +60,7 @@ export function reconcileMetadata() {
       for (const [i, n] of [stats.all.uniquePlayers, stats.all.uniqueMemberships, rows.length, Object.keys(stats).length - 1].entries()) html = setStat(html, `stat-value-${i + 1}`, n);
       for (const [id, key] of [['season-filter', 'data-season'], ['club-filter', 'data-seen-club'], ['nationality-filter', 'data-nationality']]) html = options(html, id, distinct(rows, key));
     }
-    fs.writeFileSync(path.join(root, file), normalizeFilterOptionOrder(html));
+    writeIfChanged(file, normalizeFilterOptionOrder(html));
   }
   for (const [mode, file] of [['playerstats', 'Player Statistics.html'], ['teamstats', 'Team Statistics.html']]) {
     if (fs.existsSync(path.join(root, file))) counts[mode] = Number(fs.readFileSync(path.join(root, file), 'utf8').match(/data-stat-count="(\d+)"/)?.[1] || 0);
@@ -66,7 +70,7 @@ export function reconcileMetadata() {
     html = html.replace(/(<span>Oldalak<\/span><strong>)\d+(<\/strong>)/, (_, a, b) => a + Object.keys(counts).length + b);
     html = html.replace(/(<div class="summary-card"><span>Táblázatsor<\/span><strong>)[\d\s]+(<\/strong>)/, (_, a, b) => a + Object.values(counts).reduce((n, c) => n + c, 0).toLocaleString('hu-HU', { useGrouping: 'always' }) + b);
     for (const [mode, n] of Object.entries(counts)) html = html.replace(new RegExp(`(id:'${mode}'[\\s\\S]*?meta:')[\\d\\s]+ (sor|mérkőzés|játékos|csapat)'`), (_, a, unit) => a + n.toLocaleString('hu-HU', { useGrouping: 'always' }) + ' ' + unit + "'");
-    fs.writeFileSync(path.join(root, hubFile), html);
+    writeIfChanged(hubFile, html);
   }
   return counts;
 }

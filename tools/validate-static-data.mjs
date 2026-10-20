@@ -15,7 +15,12 @@ const key = r => [attr(r, 'data-player-id'), attr(r, 'data-tournament'), game(r)
 const text = s => s.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
 const match = JSON.parse(read('tools/match-4914606.json'));
 const report = JSON.parse(read('tools/refresh-current-data-report.json'));
-assert.equal(report.asOf, '2026-10-12');
+assert.equal(report.asOf, '2026-10-20');
+assert.ok(['live', 'same-day-cache'].includes(report.sourceMode));
+assert.equal(report.counts.players, 1136);
+assert.equal(report.counts.performance, 1136);
+assert.equal(report.counts.national, 1136);
+assert.equal(report.counts.matchClubs, 50);
 for (const [name, value] of Object.entries(report.failures)) assert.equal(Array.isArray(value) ? value.length : value, 0, name);
 const expectedAdds = [1, 3, 9, 2, 31];
 const players = new Map();
@@ -28,7 +33,12 @@ for (const [i, file] of files.entries()) {
   const keys = currentRows.map(key);
   assert.equal(new Set(keys).size, keys.length, `Dupla meccssor: ${file}`);
   assert.equal(currentRows.filter(r => game(r) === match.gameId).length, expectedAdds[i], file);
-  for (const oldKey of oldRows.keys()) assert.ok(keys.includes(oldKey), `Elveszett régi sor: ${file}/${oldKey}`);
+  for (const oldKey of oldRows.keys()) {
+    // The fresh match record confirms that this was an unused substitute.
+    const correctedUnused = i === 3 && oldKey === '457738|wc2026|4843516';
+    const correctedBTeam = i === 2 && oldKey.startsWith('308828|');
+    assert.ok(correctedUnused || correctedBTeam ? !keys.includes(oldKey) : keys.includes(oldKey), `Elveszett vagy hibás régi sor: ${file}/${oldKey}`);
+  }
   for (const row of currentRows) {
     assert.equal([...row.matchAll(/<td\b/g)].length, [11, 14, 14, 15, 12][i], `Oszlopszám: ${file}/${key(row)}`);
     const id = attr(row, 'data-player-id');
@@ -81,7 +91,7 @@ for (const [i, file] of files.entries()) {
   for (const [j, script] of [...html.matchAll(/<script\b[^>]*>([\s\S]*?)<\/script>/g)].entries()) new vm.Script(script[1], { filename: `${file}:script${j}` });
   console.log(`OK: ${file}: ${currentRows.length} sor`);
 }
-assert.equal(players.size, 1017);
+assert.equal(players.size, 1016);
 const allHtml = read('All Players Seen Live.html');
 const allRows = rows(allHtml);
 const stats = JSON.parse(read('tools/seen-statistics.json'));
@@ -90,6 +100,7 @@ assert.equal(new Set(allRows.map(r => attr(r, 'data-player-id'))).size, 1136);
 assert.deepEqual(new Set(allRows.map(r => `${attr(r, 'data-player-id')}|${game(r)}`)), new Set(stats.appearances.map(a => `${a.player}|${a.match}`)));
 assert.ok(allRows.some(r => attr(r, 'data-club') === 'SK Brann'));
 assert.ok(allRows.some(r => attr(r, 'data-club') === 'Tromsø IL'));
+assert.ok(allRows.some(r => attr(r, 'data-player-id') === '308828' && attr(r, 'data-club') === 'NK Maribor'), 'Rok Sirk az általános játékosfülön megmarad');
 const datesByPlayer = new Map();
 for (const [i, row] of allRows.entries()) {
   const id = attr(row, 'data-player-id');
@@ -105,6 +116,8 @@ for (const [j, script] of [...allHtml.matchAll(/<script\b[^>]*>([\s\S]*?)<\/scri
 assert.ok(!allHtml.includes('data-statistics-mode'));
 assert.ok(!allRows.some(r => attr(r, 'data-player-id') === '457738' && game(r) === '4843516'), 'Csak pad nem látott szereplés');
 assert.equal(read('index.html'), read('TM Groundhopping Hub.html'));
+assert.deepEqual([...read('index.html').matchAll(/\{ id:'([^']+)'/g)].map(m => m[1]), ['matches', 'top5', 'capped', 'tournaments', 'romanian', 'allplayers', 'playerstats', 'teamstats']);
+assert.ok(!read('Capped Players Seen Live.html').match(/<span class="badge">(?:Portugal B|Romania B|.* U\d\d) ·/));
 const totalRows = files.reduce((n, f) => n + rows(read(f)).length, allRows.length) + ['Player Statistics.html', 'Team Statistics.html'].reduce((n, f) => n + Number(read(f).match(/data-stat-count="(\d+)"/)[1]), 0);
 assert.ok(read('index.html').includes(totalRows.toLocaleString('hu-HU', { useGrouping: 'always' })));
 assert.equal(Object.values(match.totals).reduce((n, t) => n + t.count, 0), 41);

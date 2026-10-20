@@ -51,8 +51,8 @@ try {
   const cases = [
     ['All Seen Matches.html', '#teamSearch', 'U Cluj', '#season', 94],
     ['TOP 5 players Seen Live.html', '#filter-player', 'Poulolo', '#filter-season', 423],
-    ['Capped Players Seen Live.html', '#filter-player', 'Poulolo', '#filter-season', 1192],
-    ['Euro-WC Players Seen Live.html', '#player-search', 'Jovo', '#season-filter', 285],
+    ['Capped Players Seen Live.html', '#filter-player', 'Poulolo', '#filter-season', 1191],
+    ['Euro-WC Players Seen Live.html', '#player-search', 'Jovo', '#season-filter', 284],
     ['Romanian Club-National Players Seen Live.html', '#q', 'Oucasse', '#season', 2551],
     ['All Players Seen Live.html', '#q', 'Oucasse', '#season', 2885],
   ];
@@ -242,6 +242,7 @@ try {
   const sourceCounts = ['Player Statistics.html', 'Team Statistics.html'].reduce((n, f) => n + Number(fs.readFileSync(path.join(root, f), 'utf8').match(/data-stat-count="(\d+)"/)[1]), cases.reduce((n, c) => n + c[4], 0));
   assert.equal(Number((await hub.locator('.summary-card strong').last().textContent()).replace(/\s/g, '')), sourceCounts);
   assert.equal(await hub.locator('.nav-item').count(), 8);
+  assert.deepEqual(await hub.locator('.nav-item').evaluateAll(items => items.map(item => item.dataset.page)), ['matches', 'top5', 'capped', 'tournaments', 'romanian', 'allplayers', 'playerstats', 'teamstats']);
   assert.equal(await hub.locator('.summary-card strong').first().textContent(), '8');
   for (const mode of ['playerstats', 'teamstats', 'allplayers', 'matches']) {
     await hub.locator(`.nav-item[data-page="${mode}"]`).click();
