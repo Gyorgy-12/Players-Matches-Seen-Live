@@ -1,5 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { normalizeFilterOptionOrder } from './normalize-filter-options.mjs';
 import { AS_OF, source } from './source-cache.mjs';
 import { reconcileMetadata } from './reconcile-static-metadata.mjs';
@@ -234,9 +235,11 @@ function updateCurrentPlayerRow(row, player, clubs, marketGraph) {
   const currentMvInner = `<span class="value">${formatPlayerMoney(current.value)}</span>${current.determined ? `<span>snapshot: ${displayDate(current.determined)}</span>` : ''}`;
   const peakMvInner = `<span class="value">${formatPlayerMoney(peakValue)}</span>${peakDate ? `<span>snapshot: ${peakDate}</span>` : peakPoint?.datum_mw ? `<span>snapshot: ${esc(peakPoint.datum_mw)}</span>` : ''}`;
   let peakClub = peakClubInner;
-  if (peakPoint?.verein) {
+  if (!peakValue) {
+    peakClub = '';
+  } else if (peakPoint?.verein) {
     peakClub = `<strong>${esc(peakPoint.verein)}</strong>`;
-  } else if (!stripHtml(peakClubInner) && peakValue === Number(current.value) && state.status === 'active') {
+  } else if (peakValue > 0 && !stripHtml(peakClubInner) && peakValue === Number(current.value) && state.status === 'active') {
     peakClub = `<strong>${esc(state.name)}</strong>`;
   }
   row = replaceCell(row, 'Mostani klub / státusz', currentClubInner);
@@ -586,6 +589,12 @@ function updateMatchRows(html, clubs) {
     .replace(/egységes statikus export:\s*\d{4}-\d{2}-\d{2}/g, `egységes statikus export: ${AS_OF}`);
 }
 
+export {
+  unifyTeamNames, updateCurrentPlayerRow, sortRowsByPeak, rebuildRomanianSearch,
+  updateAppsSummary, updateTop5Row, updateCappedRow, updateMatchRows,
+};
+
+if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
 const htmlByFile = new Map(PLAYER_FILES.map((name) => [name, read(name)]));
 const playerIds = uniq(PLAYER_FILES.flatMap((name) => idsFrom(htmlByFile.get(name))));
 const top5Ids = idsFrom(htmlByFile.get(TOP5_FILE));
@@ -751,3 +760,4 @@ const failures = {
 fs.writeFileSync(path.join(ROOT, 'tools', 'refresh-current-data-report.json'), JSON.stringify({ asOf: AS_OF, counts: { players: players.size, clubs: clubs.size, national: national.size, performance: performance.size }, failures }, null, 2));
 console.log('Kész.', JSON.stringify(failures));
 console.log('Számlálók és szűrők:', reconcileMetadata());
+}

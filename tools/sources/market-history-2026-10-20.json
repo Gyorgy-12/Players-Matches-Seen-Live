@@ -1,0 +1,15 @@
+{
+  "verifiedAt": "2026-10-20",
+  "source": "https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/",
+  "method": "Rendered public JSON in browser; selected peak points and latest valuation, not a complete history",
+  "players": {
+    "510260": [[1741734000000,300000,"12/03/2025","EA Guingamp"],[1748815200000,300000,"02/06/2025","EA Guingamp"],[1790028000000,250000,"22/09/2026","ACSC FC Arges"]],
+    "573111": [[1743544800000,600000,"02/04/2025","Sakaryaspor"],[1750802400000,600000,"25/06/2025","Sakaryaspor"],[1780264800000,450000,"01/06/2026","Istanbulspor"]],
+    "635803": [[1747951200000,600000,"23/05/2025","Asteras Aktor"],[1780524000000,600000,"04/06/2026","Asteras Aktor"]],
+    "645195": [[1749506400000,1000000,"10/06/2025","FC Hermannstadt"],[1780524000000,750000,"04/06/2026","Mantova 1911"]],
+    "938509": [[1760565600000,700000,"16/10/2025","CD Mirandés"],[1767049200000,700000,"30/12/2025","CD Mirandés"],[1782079200000,500000,"22/06/2026","CD Mirandés"]],
+    "1038445": [[1780869600000,250000,"08/06/2026","AFC Unirea 04 Slobozia"]],
+    "1264865": [[1780869600000,300000,"08/06/2026","SC Otelul Galati"]],
+    "1345660": []
+  }
+}

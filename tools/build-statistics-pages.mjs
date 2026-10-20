@@ -67,7 +67,9 @@ ${pagination()}<div class="table-wrap statistics-table-wrap" tabindex="0" role="
   fs.writeFileSync(path.join(root, config.file), normalizeFilterOptionOrder(html));
 }
 let hub = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
-hub = hub.replace('Az öt statikus HTML', 'A hét statikus HTML').replace(/(<span>Oldalak<\/span><strong>)\d+(<\/strong>)/, '$17$2');
+const hasAllPlayers = fs.existsSync(path.join(root, 'All Players Seen Live.html'));
+hub = hub.replace(/(?:Az öt|A hét|A nyolc) statikus HTML/, hasAllPlayers ? 'A nyolc statikus HTML' : 'A hét statikus HTML')
+  .replace(/(<span>Oldalak<\/span><strong>)\d+(<\/strong>)/, (_, a, b) => a + (hasAllPlayers ? 8 : 7) + b);
 hub = hub.replace(/description:'\d+ mérkőzés összehasonlító táblázata'/, `description:'${data.matches.length} mérkőzés összehasonlító táblázata'`);
 if (!hub.includes("id:'playerstats'")) hub = hub.replace(/(file:'Romanian Club-National Players Seen Live.html' \})/, `$1,
         { id:'playerstats', icon:'J', title:'Játékosstatisztikák', description:'Gólok, gólpasszok, lapok és látott pályára lépések', meta:'${counts.players} játékos', file:'Player Statistics.html' },

@@ -3,6 +3,7 @@ import path from 'node:path';
 import assert from 'node:assert/strict';
 import { AS_OF, source } from './source-cache.mjs';
 import { config } from './match-config.mjs';
+import { archivedSource } from './archived-source.mjs';
 
 export const GAME = config.gameId;
 export const DATE = config.date;
@@ -24,13 +25,24 @@ const money = text => {
 };
 const leagueNames = { GB1: 'Premier League', ES1: 'LaLiga', IT1: 'Serie A', L1: 'Bundesliga', FR1: 'Ligue 1' };
 const lineupUrl = `https://www.transfermarkt.com/-/aufstellung/spielbericht/${GAME}`;
-const sheetUrl = GAME === '4914525' ? 'https://www.transfermarkt.com/universitatea-cluj_rapid-bukarest/index/spielbericht/4914525' : `https://www.transfermarkt.com/spielbericht/index/spielbericht/${GAME}`;
+const snapshotFile = path.join(import.meta.dirname, 'sources', `match-${GAME}.json`);
+const snapshot = fs.existsSync(snapshotFile) ? JSON.parse(fs.readFileSync(snapshotFile, 'utf8')) : null;
+const sheetUrl = snapshot?.sheetUrl || (GAME === '4914525' ? 'https://www.transfermarkt.com/universitatea-cluj_rapid-bukarest/index/spielbericht/4914525' : `https://www.transfermarkt.com/spielbericht/index/spielbericht/${GAME}`);
 const cutoffUrl = 'https://www.transfermarkt.com/x/marktwerteverein/wettbewerb/RO1/stichtag/2026-10-01/plus/1';
-const [lineup, sheet, cutoff] = await Promise.all([source(lineupUrl, false), source(sheetUrl, false, 4, { refresh: true }), source(cutoffUrl, false)]);
-assert.ok(strip(sheet).includes(DATE.split('-').reverse().join('/')));
-assert.ok(strip(sheet).includes(config.score));
+const [lineup, sheet, cutoff] = snapshot ? ['', '', ''] : await Promise.all([source(lineupUrl, false), source(sheetUrl, false, 4, { refresh: true }), source(cutoffUrl, false)]);
+if (snapshot) {
+  assert.equal(snapshot.gameId, GAME);
+  assert.equal(snapshot.date, DATE);
+  assert.equal(snapshot.score, config.score);
+  assert.equal(snapshot.cutoff, '2026-10-01');
+} else {
+  assert.ok(strip(sheet).includes(DATE.split('-').reverse().join('/')));
+  assert.ok(strip(sheet).includes(config.score));
+}
 const headers = [...lineup.matchAll(/<h2\b[^>]*>[\s\S]*?<\/h2>/g)];
-const roster = [];
+const roster = snapshot ? snapshot.groups.flatMap(group => group.players.map(([id, nationality]) => ({
+  id, nationality, clubId: group.clubId, club: teams.find(t => t.id === group.clubId).name, starter: group.starter,
+}))) : [];
 for (let i = 0; i < headers.length; i++) {
   const heading = headers[i][0];
   if (!/Starting Line-up|Substitutes/.test(heading)) continue;
@@ -50,10 +62,37 @@ for (let i = 0; i < headers.length; i++) {
 assert.ok(roster.length >= 22 && roster.length <= 46);
 assert.equal(new Set(roster.map(p => p.id)).size, roster.length);
 assert.equal(roster.filter(p => p.starter).length, 22);
-const substituteIds = new Set([...sheet.matchAll(/class="sb-aktion-wechsel-ein"([\s\S]*?)<\/a>/g)].map(m => m[1].match(/\/spieler\/(\d+)/)?.[1]));
+const substituteIds = new Set(snapshot?.substituteIds || [...sheet.matchAll(/class="sb-aktion-wechsel-ein"([\s\S]*?)<\/a>/g)].map(m => m[1].match(/\/spieler\/(\d+)/)?.[1]));
 assert.ok(substituteIds.size <= 12);
 const profiles = (await source(`https://tmapi.transfermarkt.technology/players?${roster.map(p => `ids[]=${p.id}`).join('&')}`)).data;
 const profileMap = new Map(profiles.map(p => [String(p.id), p]));
+const historySnapshotPath = path.join(import.meta.dirname, 'sources', `market-history-${AS_OF}.json`);
+const historySnapshot = fs.existsSync(historySnapshotPath) ? JSON.parse(fs.readFileSync(historySnapshotPath, 'utf8')).players : {};
+for (const p of roster) {
+  assert.ok(profileMap.has(p.id), `Hiányzó profil: ${p.id}`);
+  p.name ||= profileMap.get(p.id).name;
+  p.url ||= `https://www.transfermarkt.com${profileMap.get(p.id).relativeUrl}`;
+  profileMap.get(p.id).marketValueDetails ||= { current: {}, highest: {} };
+}
+async function historyFor(p) {
+  const current = profileMap.get(p.id).marketValueDetails.current;
+  const peak = profileMap.get(p.id).marketValueDetails.highest;
+  if (Object.hasOwn(historySnapshot, p.id)) {
+    p.historySource = { date: AS_OF, method: 'browser-verified selected points' };
+    return { list: historySnapshot[p.id].map(([x, y, datum_mw, verein]) => ({ x, y, datum_mw, verein })) };
+  }
+  const url = `https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/${p.id}`;
+  const cached = archivedSource(url, true, AS_OF);
+  const points = cached?.data?.list || [];
+  const last = [...points].sort((a, b) => a.x - b.x).at(-1);
+  // A current API profile confirms that this archived timeline's latest
+  // valuation and peak have not changed since it was collected.
+  if (last && last.y === current.value && last.datum_mw === current.determined?.split('-').reverse().join('/') && Math.max(...points.map(p => p.y)) === peak.value) {
+    p.historySource = { date: cached.date, method: 'archived history, latest and peak verified against current API' };
+    return cached.data;
+  }
+  return source(url);
+}
 let next = 0;
 await Promise.all(Array.from({ length: 6 }, async () => {
   while (next < roster.length) {
@@ -61,7 +100,7 @@ await Promise.all(Array.from({ length: 6 }, async () => {
     const [perf, national, graph] = await Promise.all([
       source(`https://tmapi.transfermarkt.technology/player/${p.id}/performance-game`),
       source(`https://tmapi.transfermarkt.technology/player/${p.id}/national-career-history`),
-      source(`https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/${p.id}`),
+      historyFor(p),
     ]);
     const game = perf.data.performance.find(g => String(g.gameInformation.gameId) === GAME);
     p.played = p.starter || substituteIds.has(p.id);
@@ -87,7 +126,7 @@ await Promise.all(Array.from({ length: 6 }, async () => {
     console.log(`${p.played ? 'Játszott' : 'Csak pad'}: ${p.name} (${p.minutes}p)`);
   }
 }));
-const clubIds = [...new Set(roster.flatMap(p => [...p.nationalHistory.map(n => n.clubId), ...p.profile.clubAssignments.filter(a => a.type === 'current').map(a => a.clubId)]))];
+const clubIds = [...new Set([...teamIds, ...roster.flatMap(p => [...p.nationalHistory.map(n => n.clubId), ...p.profile.clubAssignments.filter(a => a.type === 'current').map(a => a.clubId)])])];
 const clubs = new Map();
 for (let i = 0; i < clubIds.length; i += 40) {
   const data = (await source(`https://tmapi.transfermarkt.technology/clubs?${clubIds.slice(i, i + 40).map(id => `ids[]=${id}`).join('&')}`)).data;
@@ -97,7 +136,7 @@ for (const p of roster) {
   p.senior = p.nationalHistory.filter(n => Number(n.gamesPlayed) > 0 && !/\b(?:u\s?1[56789]|u\s?2[013]|under[- ]?(?:17|18|19|20|21|23)|olympic|b team|ii|a2)\b/i.test(clubs.get(String(n.clubId))?.name || '')).map(n => ({ ...n, name: clubs.get(String(n.clubId))?.name }));
   p.currentClub = clubs.get(String(p.profile.clubAssignments.find(a => a.type === 'current')?.clubId))?.name || 'Free agent';
 }
-const historical = {};
+const historical = { ...snapshot?.historical };
 for (const table of elements(cutoff, 'table')) {
   if (!/Value.*01\/10\/2026/s.test(strip(table))) continue;
   const head = table.match(/<thead\b[^>]*>([\s\S]*?)<\/thead>/)?.[1] || '';
@@ -123,8 +162,9 @@ for (const p of roster) {
   delete p.nationalHistory;
 }
 const attendanceText = strip(sheet).match(/\bAttendance:\s*([\d][\d.,\s\u00a0]*)/i)?.[1];
-const attendance = attendanceText ? Number(attendanceText.replace(/\D/g, '')) : null;
+const attendance = snapshot?.attendance ?? (attendanceText ? Number(attendanceText.replace(/\D/g, '')) : null);
 if (attendance !== null) assert.ok(Number.isSafeInteger(attendance) && attendance > 0, 'Érvénytelen nézőszám');
 const report = { asOf: AS_OF, ...config, season: '2026/27', competition: 'Romanian SuperLiga', cutoff: '2026-10-01', historical, totals, attendance, attendanceNote: attendance !== null ? 'Transfermarkt match sheet: Attendance.' : 'Attendance is not present in the freshly retrieved Transfermarkt match sheet.', sources: { lineupUrl, sheetUrl, cutoffUrl }, roster };
+report.currentTeamValues = Object.fromEntries(teamIds.map(id => [id, clubs.get(id)?.squadDetails?.currentMarketValue?.value ?? null]));
 fs.writeFileSync(path.join(import.meta.dirname, `match-${GAME}.json`), JSON.stringify(report, null, 2));
 console.log(JSON.stringify({ historical, totals, played: roster.filter(p => p.played).map(p => ({ id: p.id, name: p.name, top5: p.top5, senior: p.senior })) }, null, 2));

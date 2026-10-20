@@ -1,0 +1,39 @@
+{
+  "gameId": "4914606",
+  "verifiedAt": "2026-10-20",
+  "method": "Transfermarkt rendered line-ups, match sheet and dated club-value table, read in browser",
+  "date": "2026-10-19",
+  "score": "2:2",
+  "attendance": 4336,
+  "lineupUrl": "https://www.transfermarkt.com/-/aufstellung/spielbericht/4914606",
+  "sheetUrl": "https://www.transfermarkt.com/fc-universitatea-cluj_acsc-fc-arges/index/spielbericht/4914606",
+  "cutoffUrl": "https://www.transfermarkt.com/x/marktwerteverein/wettbewerb/RO1/stichtag/2026-10-01/plus/1",
+  "cutoff": "2026-10-01",
+  "historical": {"6429": 16600000, "41278": 14280000},
+  "substituteIds": ["331971", "699171", "271763", "477923", "510260", "1038445", "296585", "635803", "573111"],
+  "groups": [
+    {"clubId": "6429", "starter": true, "players": [
+      ["935015", "Romania"], ["600151", "Martinique"], ["238947", "Uganda"],
+      ["64126", "Romania"], ["229625", "Croatia"], ["220816", "Romania"],
+      ["798972", "Cote d'Ivoire"], ["685795", "Romania"], ["399551", "The Gambia"],
+      ["859536", "France"], ["457738", "Bosnia-Herzegovina"]
+    ]},
+    {"clubId": "41278", "starter": true, "players": [
+      ["938509", "Montenegro"], ["482364", "Kosovo"], ["520084", "Brazil"],
+      ["603327", "Romania"], ["394481", "Romania"], ["451331", "Romania"],
+      ["556116", "Romania"], ["645195", "Portugal"], ["992822", "Romania"],
+      ["319231", "Romania"], ["535958", "Portugal"]
+    ]},
+    {"clubId": "6429", "starter": false, "players": [
+      ["935028", "Romania"], ["416359", "Cyprus"], ["331971", "Romania"],
+      ["992826", "Romania"], ["1040558", "Romania"], ["1028313", "Nigeria"],
+      ["699171", "Portugal"], ["880840", "Romania"], ["477923", "Serbia"],
+      ["1345660", "Romania"], ["271763", "Sweden"]
+    ]},
+    {"clubId": "41278", "starter": false, "players": [
+      ["315442", "Romania"], ["635803", "Nigeria"], ["296585", "Romania"],
+      ["1038445", "Romania"], ["365449", "Belgium"], ["573111", "Senegal"],
+      ["510260", "France"], ["1264865", "Romania"]
+    ]}
+  ]
+}

@@ -5,7 +5,7 @@ import { normalizeFilterOptionOrder } from './normalize-filter-options.mjs';
 const data = JSON.parse(fs.readFileSync(new URL('./seen-statistics.json', import.meta.url), 'utf8'));
 const { aggregate } = globalThis.TMGHStatistics;
 const players = aggregate(data, 'players', { sort: 'apps' }), teams = aggregate(data, 'teams');
-assert.equal(players.length, 1130);
+assert.equal(players.length, 1136);
 assert.equal(teams.length, 50);
 assert.equal(players.reduce((n, r) => n + r.apps, 0), data.appearances.length);
 assert.equal(teams.reduce((n, r) => n + r.apps, 0), 2 * data.matches.length);
@@ -64,6 +64,22 @@ for (const key of ['goals', 'apps', 'assists', 'yellow', 'red', 'penaltyGoals', 
   assert.ok(rows.every((r, i) => !i || (direction === 'desc' ? rows[i - 1][key] >= r[key] : rows[i - 1][key] <= r[key])));
 }
 const game = { match: '4914525', sort: 'apps' };
+const argesGame = { match: '4914606', sort: 'apps' };
+const argesPlayers = aggregate(data, 'players', argesGame);
+assert.equal(argesPlayers.length, 31);
+assert.equal(argesPlayers.reduce((n, r) => n + r.goals, 0), 3, 'Az öngól nem saját játékosgól');
+assert.equal(argesPlayers.find(r => r.id === '603327').goals, 0);
+assert.equal(argesPlayers.find(r => r.id === '535958').penaltyGoals, 1);
+assert.equal(argesPlayers.find(r => r.id === '798972').assists, 1);
+assert.equal(argesPlayers.find(r => r.id === '1038445').assists, 1);
+assert.equal(data.appearances.find(a => a.match === argesGame.match && a.player === '603327').ownGoals, 1);
+assert.equal(aggregate(data, 'players', { ...argesGame, sort: 'goals' }).length, 3);
+for (const id of ['6429', '41278']) {
+  const t = aggregate(data, 'teams', { ...argesGame, team: id })[0];
+  assert.deepEqual([t.goals, t.goalsAgainst, t.draws], [2, 2, 1]);
+  assert.equal(t.yellow, id === '6429' ? 3 : 4);
+}
+assert.equal(aggregate(data, 'teams', { ...argesGame, team: '6429' })[0].penaltyGoalsAgainst, 1);
 const newPlayers = aggregate(data, 'players', game), newTeams = aggregate(data, 'teams', game);
 assert.equal(newPlayers.length, 30);
 assert.equal(newPlayers.reduce((n, r) => n + r.goals, 0), 7);

@@ -13,11 +13,11 @@ const cell = (r, k) => r.match(new RegExp(`<td[^>]*data-label="${k}"[^>]*>([\\s\
 const game = r => r.match(/spielbericht\/(\d+)/)?.[1] || '';
 const key = r => [attr(r, 'data-player-id'), attr(r, 'data-tournament'), game(r)].join('|');
 const text = s => s.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
-const match = JSON.parse(read('tools/match-4914525.json'));
+const match = JSON.parse(read('tools/match-4914606.json'));
 const report = JSON.parse(read('tools/refresh-current-data-report.json'));
 assert.equal(report.asOf, '2026-10-12');
 for (const [name, value] of Object.entries(report.failures)) assert.equal(Array.isArray(value) ? value.length : value, 0, name);
-const expectedAdds = [1, 5, 14, 2, 30];
+const expectedAdds = [1, 3, 9, 2, 31];
 const players = new Map();
 const changes = { currentValues: new Set(), currentClubs: new Set(), peaks: new Set(), nationalStats: new Set(), top5Stats: new Set() };
 for (const [i, file] of files.entries()) {
@@ -49,10 +49,10 @@ for (const [i, file] of files.entries()) {
       }
     }
     if (game(row) === match.gameId) {
-      assert.match(cell(row, i ? 'Látott meccs / eredmény' : 'Mérkőzés / eredmény'), /3:4/);
-      assert.match(row, /2026-10-12/);
+      assert.match(cell(row, i ? 'Látott meccs / eredmény' : 'Mérkőzés / eredmény'), /2:2/);
+      assert.match(row, /2026-10-19/);
       assert.equal(attr(row, 'data-season'), '2026/27');
-      assert.match(row, /Matchday 11/);
+      assert.match(row, /Matchday 12/);
       if (id) assert.ok(match.roster.some(p => p.id === id && p.played), `Nem pályára lépett játékos: ${id}`);
     }
   }
@@ -66,10 +66,10 @@ for (const [i, file] of files.entries()) {
       byPlayerDates.set(id, date);
     }
   } else {
-    assert.equal(currentRows.length, 93);
+    assert.equal(currentRows.length, 94);
     assert.equal(game(currentRows[0]), match.gameId);
-    assert.equal(attr(currentRows[0], 'data-sheet-total'), '41250000');
-    assert.equal(match.attendance, 9577);
+    assert.equal(attr(currentRows[0], 'data-sheet-total'), '23400000');
+    assert.equal(match.attendance, 4336);
     assert.equal(attr(currentRows[0], 'data-attendance-known'), match.attendance ? '1' : '0');
     assert.equal(Number(attr(currentRows[0], 'data-attendance')), match.attendance || 0);
     if (match.attendance) assert.equal(Number(text(cell(currentRows[0], 'Nézőszám')).replace(/\D/g, '')), match.attendance);
@@ -81,11 +81,33 @@ for (const [i, file] of files.entries()) {
   for (const [j, script] of [...html.matchAll(/<script\b[^>]*>([\s\S]*?)<\/script>/g)].entries()) new vm.Script(script[1], { filename: `${file}:script${j}` });
   console.log(`OK: ${file}: ${currentRows.length} sor`);
 }
-assert.equal(players.size, 1011);
+assert.equal(players.size, 1017);
+const allHtml = read('All Players Seen Live.html');
+const allRows = rows(allHtml);
+const stats = JSON.parse(read('tools/seen-statistics.json'));
+assert.equal(allRows.length, 2885);
+assert.equal(new Set(allRows.map(r => attr(r, 'data-player-id'))).size, 1136);
+assert.deepEqual(new Set(allRows.map(r => `${attr(r, 'data-player-id')}|${game(r)}`)), new Set(stats.appearances.map(a => `${a.player}|${a.match}`)));
+assert.ok(allRows.some(r => attr(r, 'data-club') === 'SK Brann'));
+assert.ok(allRows.some(r => attr(r, 'data-club') === 'Tromsø IL'));
+const datesByPlayer = new Map();
+for (const [i, row] of allRows.entries()) {
+  const id = attr(row, 'data-player-id');
+  assert.equal([...row.matchAll(/<td\b/g)].length, 12);
+  if (i) assert.ok(Number(attr(allRows[i - 1], 'data-peak')) >= Number(attr(row, 'data-peak')));
+  assert.ok(attr(row, 'data-date') >= (datesByPlayer.get(id) || ''));
+  datesByPlayer.set(id, attr(row, 'data-date'));
+  if (players.has(id)) assert.deepEqual(
+    [...['data-status', 'data-current-mv', 'data-peak'].map(k => attr(row, k)), ...['Mostani klub / státusz', 'Jelenlegi MV', 'All-time Peak MV', 'Peak MV klub'].map(k => text(cell(row, k)))],
+    players.get(id), `Eltérő adatok az új fülön: ${id}`);
+}
+for (const [j, script] of [...allHtml.matchAll(/<script\b[^>]*>([\s\S]*?)<\/script>/g)].entries()) new vm.Script(script[1], { filename: `allplayers:script${j}` });
+assert.ok(!allHtml.includes('data-statistics-mode'));
+assert.ok(!allRows.some(r => attr(r, 'data-player-id') === '457738' && game(r) === '4843516'), 'Csak pad nem látott szereplés');
 assert.equal(read('index.html'), read('TM Groundhopping Hub.html'));
-const totalRows = files.reduce((n, f) => n + rows(read(f)).length, 0) + ['Player Statistics.html', 'Team Statistics.html'].reduce((n, f) => n + Number(read(f).match(/data-stat-count="(\d+)"/)[1]), 0);
+const totalRows = files.reduce((n, f) => n + rows(read(f)).length, allRows.length) + ['Player Statistics.html', 'Team Statistics.html'].reduce((n, f) => n + Number(read(f).match(/data-stat-count="(\d+)"/)[1]), 0);
 assert.ok(read('index.html').includes(totalRows.toLocaleString('hu-HU', { useGrouping: 'always' })));
-assert.equal(Object.values(match.totals).reduce((n, t) => n + t.count, 0), 46);
-assert.equal(Object.values(match.totals).reduce((n, t) => n + t.played, 0), 30);
+assert.equal(Object.values(match.totals).reduce((n, t) => n + t.count, 0), 41);
+assert.equal(Object.values(match.totals).reduce((n, t) => n + t.played, 0), 31);
 console.log('Frissült régi játékosadatok:', Object.fromEntries(Object.entries(changes).map(([k, v]) => [k, v.size])));
 console.log('Minden adatintegritási ellenőrzés sikeres.');

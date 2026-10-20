@@ -2,6 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import assert from 'node:assert/strict';
 import { AS_OF, source } from './source-cache.mjs';
+import { archivedSource } from './archived-source.mjs';
 
 const root = path.resolve(import.meta.dirname, '..');
 const read = file => fs.readFileSync(path.join(root, file), 'utf8');
@@ -44,7 +45,15 @@ async function parallel(items, fn, label, limit = 8) {
   return out;
 }
 await parallel(matches, async m => {
-  const html = await source(`https://www.transfermarkt.com/-/aufstellung/spielbericht/${m.id}`, false);
+  const snapshotPath = path.join(import.meta.dirname, 'sources', `match-${m.id}.json`);
+  if (fs.existsSync(snapshotPath)) {
+    const snapshot = JSON.parse(fs.readFileSync(snapshotPath, 'utf8'));
+    for (const g of snapshot.groups) for (const [id, nationality] of g.players) candidates.set(id, { ...candidates.get(id), id, nationality });
+    return;
+  }
+  const url = `https://www.transfermarkt.com/-/aufstellung/spielbericht/${m.id}`;
+  const html = archivedSource(url, false, AS_OF)?.data || await source(url, false);
+  assert.ok(/\/profil\/spieler\/\d+/.test(html), `Hiányos keretoldal: ${m.id}`);
   for (const [, slug, id] of html.matchAll(/href="\/([^"/]+)\/profil\/spieler\/(\d+)"/g)) if (!candidates.has(id)) candidates.set(id, { id, slug });
 }, 'Meccskeretek');
 const appearances = [];
@@ -105,5 +114,11 @@ const coverage = matches.map(m => {
   return { match: m.id, players: a.length, unknown: a.filter(a => !a.known).length, homeGoals, awayGoals, expected: [m.goalsHome, m.goalsAway], complete: home.length >= 11 && away.length >= 11 && a.every(a => a.known) && homeGoals === m.goalsHome && awayGoals === m.goalsAway };
 });
 const data = { asOf: AS_OF, matches, players, teams, appearances, benchCards, coverage };
+// Parallel responses must not make the embedded export order nondeterministic.
+const order = new Map(matches.map((m, i) => [m.id, i]));
+const byAppearance = (a, b) => order.get(a.match) - order.get(b.match) || Number(a.player) - Number(b.player);
+appearances.sort(byAppearance);
+benchCards.sort(byAppearance);
+players.sort((a, b) => Number(a.id) - Number(b.id));
 fs.writeFileSync(path.join(import.meta.dirname, 'seen-statistics.json'), JSON.stringify(data, null, 2));
 console.log(JSON.stringify({ players: players.length, appearances: appearances.length, teams: Object.keys(teams).length, benchCards: benchCards.length, rawCardKeys: [...rawCardKeys], incomplete: coverage.filter(c => !c.complete) }, null, 2));

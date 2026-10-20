@@ -454,6 +454,7 @@ body .table-wrap::-webkit-scrollbar-thumb{
   background:linear-gradient(90deg,var(--tmgh-accent),var(--tmgh-blue))!important;
 }
 body.tmgh-paginated-pending[data-tmgh-mode="capped"] #results-body > tr:nth-child(n+51),
+body.tmgh-paginated-pending[data-tmgh-mode="allplayers"] #tbody > tr:nth-child(n+51),
 body.tmgh-paginated-pending[data-tmgh-mode="romanian"] #tbody > tr:nth-child(n+51){
   display:none!important;
 }
@@ -583,6 +584,7 @@ body table{
     will-change:transform;
   }
   body[data-tmgh-mode="romanian"] tbody tr,
+  body[data-tmgh-mode="allplayers"] tbody tr,
   body[data-tmgh-mode="capped"] tbody tr{
     content-visibility:auto;
     contain-intrinsic-block-size:auto 62px;
@@ -917,7 +919,8 @@ body td[data-label="Mostani klub / státusz"]::before{content:"Mostani klub"!imp
   body[data-tmgh-mode="tournaments"] table{
     min-width:2720px!important;
   }
-  body[data-tmgh-mode="romanian"] table{
+  body[data-tmgh-mode="romanian"] table,
+  body[data-tmgh-mode="allplayers"] table{
     min-width:2420px!important;
   }
   body[data-tmgh-mode="matches"] table{

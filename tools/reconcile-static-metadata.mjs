@@ -19,6 +19,7 @@ function options(html, id, values) {
 }
 export function reconcileMetadata() {
   const files = { matches: 'All Seen Matches.html', top5: 'TOP 5 players Seen Live.html', capped: 'Capped Players Seen Live.html', tournaments: 'Euro-WC Players Seen Live.html', romanian: 'Romanian Club-National Players Seen Live.html' };
+  if (fs.existsSync(path.join(root, 'All Players Seen Live.html'))) files.allplayers = 'All Players Seen Live.html';
   const counts = {};
   const statisticsPath = path.join(root, 'tools', 'seen-statistics.json');
   const seenStatistics = fs.existsSync(statisticsPath) ? JSON.parse(fs.readFileSync(statisticsPath, 'utf8')) : null;
@@ -37,7 +38,7 @@ export function reconcileMetadata() {
       if (seenStatistics) html = setStat(html, 'stat-pool', new Set(seenStatistics.appearances.map(a => a.player)).size);
       html = html.replace(/(<div class="filter-summary" id="filter-summary">)[\s\S]*?(<\/div>)/, (_, a, b) => `${a}${players} játékos · ${rows.length} meccssor${b}`);
       for (const [id, key] of [['filter-season', 'data-season'], ['filter-seen-club', 'data-seen-club'], ['filter-nationality', 'data-nationality'], ['filter-competition', 'data-competition']]) html = options(html, id, distinct(rows, key));
-    } else if (mode === 'romanian') {
+    } else if (mode === 'romanian' || mode === 'allplayers') {
       for (const [id, n] of Object.entries({ statPlayers: players, statRows: rows.length, statClubs: distinct(rows, 'data-club').size, statCompetitions: distinct(rows, 'data-competition').size })) html = setStat(html, id, n);
       for (const key of ['nationality', 'club', 'competition', 'season', 'round']) html = options(html, key, distinct(rows, `data-${key}`));
     } else {
@@ -62,6 +63,7 @@ export function reconcileMetadata() {
   }
   for (const hubFile of ['index.html', 'TM Groundhopping Hub.html']) {
     let html = fs.readFileSync(path.join(root, hubFile), 'utf8');
+    html = html.replace(/(<span>Oldalak<\/span><strong>)\d+(<\/strong>)/, (_, a, b) => a + Object.keys(counts).length + b);
     html = html.replace(/(<div class="summary-card"><span>Táblázatsor<\/span><strong>)[\d\s]+(<\/strong>)/, (_, a, b) => a + Object.values(counts).reduce((n, c) => n + c, 0).toLocaleString('hu-HU', { useGrouping: 'always' }) + b);
     for (const [mode, n] of Object.entries(counts)) html = html.replace(new RegExp(`(id:'${mode}'[\\s\\S]*?meta:')[\\d\\s]+ (sor|mérkőzés|játékos|csapat)'`), (_, a, unit) => a + n.toLocaleString('hu-HU', { useGrouping: 'always' }) + ' ' + unit + "'");
     fs.writeFileSync(path.join(root, hubFile), html);

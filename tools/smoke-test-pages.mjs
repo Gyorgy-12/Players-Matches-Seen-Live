@@ -6,6 +6,9 @@ import { pathToFileURL } from 'node:url';
 
 const { chromium } = await import(process.env.TMGH_PLAYWRIGHT ? pathToFileURL(process.env.TMGH_PLAYWRIGHT).href : 'playwright');
 const root = path.resolve(import.meta.dirname, '..');
+const seenData = JSON.parse(fs.readFileSync(path.join(root, 'tools', 'seen-statistics.json'), 'utf8'));
+const qa = path.join(root, 'tools', '.cache', 'qa');
+fs.mkdirSync(qa, { recursive: true });
 // Check every row, including rows hidden by pagination: legacy wrappers and
 // freshly imported cells must have identical semantic colors and value sizing.
 const auditTableDesign = () => {
@@ -46,11 +49,12 @@ try {
   browser = await chromium.launch({ headless: true, ...(process.env.TMGH_BROWSER_CHANNEL ? { channel: process.env.TMGH_BROWSER_CHANNEL } : {}) });
   const base = `http://127.0.0.1:${server.address().port}/`;
   const cases = [
-    ['All Seen Matches.html', '#teamSearch', 'U Cluj', '#season', 93],
-    ['TOP 5 players Seen Live.html', '#filter-player', 'Stojilkovic', '#filter-season', 420],
-    ['Capped Players Seen Live.html', '#filter-player', 'Morutan', '#filter-season', 1183],
-    ['Euro-WC Players Seen Live.html', '#player-search', 'Jovo', '#season-filter', 283],
-    ['Romanian Club-National Players Seen Live.html', '#q', 'Oucasse', '#season', 2520],
+    ['All Seen Matches.html', '#teamSearch', 'U Cluj', '#season', 94],
+    ['TOP 5 players Seen Live.html', '#filter-player', 'Poulolo', '#filter-season', 423],
+    ['Capped Players Seen Live.html', '#filter-player', 'Poulolo', '#filter-season', 1192],
+    ['Euro-WC Players Seen Live.html', '#player-search', 'Jovo', '#season-filter', 285],
+    ['Romanian Club-National Players Seen Live.html', '#q', 'Oucasse', '#season', 2551],
+    ['All Players Seen Live.html', '#q', 'Oucasse', '#season', 2885],
   ];
   for (const width of [1440, 820, 390]) {
     for (const [file, input, search, season, expectedRows] of cases) {
@@ -72,20 +76,40 @@ try {
       }
       await page.locator(input).fill(search);
       await page.locator(season).selectOption('2026/27');
-      await page.waitForFunction(() => [...document.querySelectorAll('tbody tr')].some(r => r.getBoundingClientRect().height && r.querySelector('a[href*="spielbericht/4914525"]')));
+      await page.waitForFunction(() => [...document.querySelectorAll('tbody tr')].some(r => r.getBoundingClientRect().height && r.querySelector('a[href*="spielbericht/4914606"]')));
       const visible = await page.locator('tbody tr:visible').count();
       assert.ok(visible > 0 && (!paginated || visible <= 50));
-      const newRow = page.locator('tbody tr:visible').filter({ has: page.locator('a[href*="spielbericht/4914525"]') });
+      const newRow = page.locator('tbody tr:visible').filter({ has: page.locator('a[href*="spielbericht/4914606"]') });
       assert.ok(await newRow.count() > 0, `Új meccs kereshető: ${file}`);
       await assertTableDesign(page, `${width}/${file}/szűrve`);
       assert.deepEqual(errors, [], `${file}: böngészőhiba`);
       assert.ok(await page.locator('.tmgh-filter-jump').count() > 0);
+      if (file === 'All Players Seen Live.html') {
+        // This is the Romanian-style appearance table, not a player ranking:
+        // repeated players, non-Top-5 opponents and zero-event players remain.
+        assert.ok(visible > 1);
+        assert.equal(await page.locator('tbody tr:visible[data-player-id="859536"]').count(), visible);
+        await page.locator('#reset').click();
+        await page.locator('#club').selectOption('SK Brann');
+        const brann = seenData.appearances.filter(a => seenData.teams[a.team] === 'SK Brann');
+        assert.equal(await page.locator('tbody tr:visible').count(), brann.length);
+        const zeroEvent = brann.find(a => !a.goals && !a.assists && !a.yellow && !a.red);
+        assert.ok(zeroEvent);
+        assert.equal(await page.locator(`tbody tr:visible[data-player-id="${zeroEvent.player}"]`).count(), 1);
+        if (width === 1440 || width === 390) {
+          await page.locator('.table-card').scrollIntoViewIfNeeded();
+          await page.screenshot({ path: path.join(qa, `allplayers-${width}-table.png`) });
+          if (width === 390) {
+            await page.locator('.tmgh-filter-jump').click();
+            await page.waitForFunction(() => document.querySelector('.filter-card').getBoundingClientRect().top >= -3);
+            await page.screenshot({ path: path.join(qa, 'allplayers-390-filters.png') });
+          }
+        }
+      }
       console.log(`OK ${width}px: ${file}; keresés: ${visible} találat`);
       await page.close();
     }
   }
-  const qa = path.join(root, 'tools', '.cache', 'qa');
-  fs.mkdirSync(qa, { recursive: true });
   const uiSnapshot = () => {
     const fields = {
       select: ['.filter-card select', ['fontFamily', 'fontSize', 'minHeight', 'borderRadius', 'backgroundColor', 'color']],
@@ -215,16 +239,16 @@ try {
   }
   const hub = await browser.newPage();
   await hub.goto(base);
-  const sourceCounts = ['Player Statistics.html', 'Team Statistics.html'].reduce((n, f) => n + Number(fs.readFileSync(path.join(root, f), 'utf8').match(/data-stat-count="(\d+)"/)[1]), 4499);
+  const sourceCounts = ['Player Statistics.html', 'Team Statistics.html'].reduce((n, f) => n + Number(fs.readFileSync(path.join(root, f), 'utf8').match(/data-stat-count="(\d+)"/)[1]), cases.reduce((n, c) => n + c[4], 0));
   assert.equal(Number((await hub.locator('.summary-card strong').last().textContent()).replace(/\s/g, '')), sourceCounts);
-  assert.equal(await hub.locator('.nav-item').count(), 7);
-  assert.equal(await hub.locator('.summary-card strong').first().textContent(), '7');
-  for (const mode of ['playerstats', 'teamstats', 'matches']) {
+  assert.equal(await hub.locator('.nav-item').count(), 8);
+  assert.equal(await hub.locator('.summary-card strong').first().textContent(), '8');
+  for (const mode of ['playerstats', 'teamstats', 'allplayers', 'matches']) {
     await hub.locator(`.nav-item[data-page="${mode}"]`).click();
     await hub.locator('.loader.hidden').waitFor({ state: 'attached' });
     assert.equal(await hub.locator('.page-frame.active').count(), 1);
   }
-  console.log('OK: központ, hét mód és összesített számláló.');
+  console.log('OK: központ, nyolc mód és összesített számláló.');
 } finally {
   await browser?.close();
   await new Promise(resolve => server.close(resolve));
