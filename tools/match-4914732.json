@@ -1,0 +1,3503 @@
+{
+  "asOf": "2026-10-26",
+  "gameId": "4914732",
+  "date": "2026-10-25",
+  "score": "2:2",
+  "round": "Matchday 13",
+  "home": {
+    "id": "7769",
+    "name": "CFR Cluj"
+  },
+  "away": {
+    "id": "312",
+    "name": "FC Dinamo"
+  },
+  "stadium": "Dr. Constantin Rădulescu",
+  "cutoff": "2026-10-15",
+  "season": "2026/27",
+  "competition": "Romanian SuperLiga",
+  "historical": {
+    "312": 20830000,
+    "7769": 13850000
+  },
+  "totals": {
+    "312": {
+      "count": 22,
+      "starters": 11,
+      "played": 16,
+      "value": 16825000,
+      "unvaluedIds": [
+        "1475137"
+      ]
+    },
+    "7769": {
+      "count": 23,
+      "starters": 11,
+      "played": 15,
+      "value": 11325000,
+      "unvaluedIds": []
+    }
+  },
+  "attendance": 10112,
+  "attendanceNote": "Official SuperLiga match report: 10,112 spectators. Attendance is absent from the Transfermarkt match sheet at verification.",
+  "sources": {
+    "lineupUrl": "https://www.transfermarkt.com/-/aufstellung/spielbericht/4914732",
+    "sheetUrl": "https://www.transfermarkt.com/spielbericht/index/spielbericht/4914732",
+    "cutoffUrl": "https://www.transfermarkt.com/x/marktwerteverein/wettbewerb/RO1/stichtag/2026-10-15/plus/1",
+    "attendanceUrl": "https://www.superliga.ro/meci/superliga-26-27-regular-cfr-din?sectiune=cronica"
+  },
+  "roster": [
+    {
+      "id": "252192",
+      "nationality": "Romania",
+      "clubId": "7769",
+      "club": "CFR Cluj",
+      "starter": true,
+      "name": "Octavian Vâlceanu",
+      "url": "https://www.transfermarkt.com/octavian-valceanu/profil/spieler/252192",
+      "historySource": {
+        "date": "2026-10-26",
+        "method": "browser-verified selected points"
+      },
+      "played": true,
+      "minutes": 90,
+      "profile": {
+        "marketValueDetails": {
+          "current": {
+            "value": 350000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "350.00",
+              "suffix": "K"
+            },
+            "determined": "2026-09-22"
+          },
+          "previous": {
+            "value": 200000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "200.00",
+              "suffix": "K"
+            },
+            "determined": "2026-06-08"
+          },
+          "delta": {
+            "value": "+150.000 €",
+            "percentage": "+75,00 %",
+            "isVisible": false,
+            "type": "INCREASED"
+          },
+          "highest": {
+            "value": 900000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "900.00",
+              "suffix": "K"
+            },
+            "determined": "2021-12-22"
+          }
+        }
+      },
+      "graph": [
+        {
+          "x": 1640127600000,
+          "y": 900000,
+          "datum_mw": "22/12/2021",
+          "verein": "Gaz Metan Medias (- 2022)"
+        }
+      ],
+      "atMatch": {
+        "x": 1790028000000,
+        "y": 350000,
+        "datum_mw": "22/09/2026",
+        "verein": "CFR Cluj"
+      },
+      "top5": {},
+      "senior": [],
+      "currentClub": "CFR Cluj"
+    },
+    {
+      "id": "502669",
+      "nationality": "Georgia",
+      "clubId": "7769",
+      "club": "CFR Cluj",
+      "starter": true,
+      "name": "Iva Gelashvili",
+      "url": "https://www.transfermarkt.com/iva-gelashvili/profil/spieler/502669",
+      "historySource": {
+        "date": "2026-10-26",
+        "method": "browser-verified selected points"
+      },
+      "played": true,
+      "minutes": 90,
+      "profile": {
+        "marketValueDetails": {
+          "current": {
+            "value": 500000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "500.00",
+              "suffix": "K"
+            },
+            "determined": "2026-06-04"
+          },
+          "previous": {
+            "value": 500000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "500.00",
+              "suffix": "K"
+            },
+            "determined": "2025-12-12"
+          },
+          "delta": {
+            "value": "0 €",
+            "percentage": "0,00 %",
+            "isVisible": false,
+            "type": "UNCHANGED"
+          },
+          "highest": {
+            "value": 550000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "550.00",
+              "suffix": "K"
+            },
+            "determined": "2025-05-26"
+          }
+        }
+      },
+      "graph": [
+        {
+          "x": 1748210400000,
+          "y": 550000,
+          "datum_mw": "26/05/2025",
+          "verein": "Iberia 1999 Tbilisi"
+        }
+      ],
+      "atMatch": {
+        "x": 1780524000000,
+        "y": 500000,
+        "datum_mw": "04/06/2026",
+        "verein": "Panserraikos"
+      },
+      "top5": {},
+      "senior": [
+        {
+          "playerId": "502669",
+          "clubId": "3669",
+          "gamesPlayed": 5,
+          "goalsScored": 0,
+          "shirtNumber": 3,
+          "isCaptain": false,
+          "debut": "2023-10-12",
+          "debutCoachId": "12806",
+          "debutGameId": "4024577",
+          "lastGame": "2026-06-05",
+          "lastGameId": "4866106",
+          "careerState": "RECENT_NATIONAL_PLAYER",
+          "name": "Georgia"
+        }
+      ],
+      "currentClub": "CFR Cluj"
+    },
+    {
+      "id": "716054",
+      "nationality": "Romania",
+      "clubId": "7769",
+      "club": "CFR Cluj",
+      "starter": true,
+      "name": "Cristian Ignat",
+      "url": "https://www.transfermarkt.com/cristian-ignat/profil/spieler/716054",
+      "historySource": {
+        "date": "2026-10-26",
+        "method": "browser-verified selected points"
+      },
+      "played": true,
+      "minutes": 90,
+      "profile": {
+        "marketValueDetails": {
+          "current": {
+            "value": 700000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "700.00",
+              "suffix": "K"
+            },
+            "determined": "2026-06-08"
+          },
+          "previous": {
+            "value": 850000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "850.00",
+              "suffix": "K"
+            },
+            "determined": "2026-03-27"
+          },
+          "delta": {
+            "value": "-150.000 €",
+            "percentage": "-17,65 %",
+            "isVisible": false,
+            "type": "DECREASED"
+          },
+          "highest": {
+            "value": 1300000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "1.30",
+              "suffix": "M"
+            },
+            "determined": "2025-06-10"
+          }
+        }
+      },
+      "graph": [
+        {
+          "x": 1749506400000,
+          "y": 1300000,
+          "datum_mw": "10/06/2025",
+          "verein": "FC Rapid 1923"
+        }
+      ],
+      "atMatch": {
+        "x": 1780869600000,
+        "y": 700000,
+        "datum_mw": "08/06/2026",
+        "verein": "Petrolul Ploiesti"
+      },
+      "top5": {},
+      "senior": [],
+      "currentClub": "CFR Cluj"
+    },
+    {
+      "id": "410281",
+      "nationality": "Croatia",
+      "clubId": "7769",
+      "club": "CFR Cluj",
+      "starter": true,
+      "name": "Renato Pantalon",
+      "url": "https://www.transfermarkt.com/renato-pantalon/profil/spieler/410281",
+      "historySource": {
+        "date": "2026-10-26",
+        "method": "browser-verified selected points"
+      },
+      "played": true,
+      "minutes": 90,
+      "profile": {
+        "marketValueDetails": {
+          "current": {
+            "value": 500000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "500.00",
+              "suffix": "K"
+            },
+            "determined": "2026-05-20"
+          },
+          "previous": {
+            "value": 500000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "500.00",
+              "suffix": "K"
+            },
+            "determined": "2025-12-22"
+          },
+          "delta": {
+            "value": "0 €",
+            "percentage": "0,00 %",
+            "isVisible": false,
+            "type": "UNCHANGED"
+          },
+          "highest": {
+            "value": 800000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "800.00",
+              "suffix": "K"
+            },
+            "determined": "2024-12-19"
+          }
+        }
+      },
+      "graph": [
+        {
+          "x": 1728338400000,
+          "y": 800000,
+          "datum_mw": "08/10/2024",
+          "verein": "Rio Ave FC"
+        }
+      ],
+      "atMatch": {
+        "x": 1779228000000,
+        "y": 500000,
+        "datum_mw": "20/05/2026",
+        "verein": "FK Jablonec"
+      },
+      "top5": {},
+      "senior": [],
+      "currentClub": "CFR Cluj"
+    },
+    {
+      "id": "623425",
+      "nationality": "Romania",
+      "clubId": "7769",
+      "club": "CFR Cluj",
+      "starter": true,
+      "name": "Ovidiu Perianu",
+      "url": "https://www.transfermarkt.com/ovidiu-perianu/profil/spieler/623425",
+      "historySource": {
+        "date": "2026-10-26",
+        "method": "browser-verified selected points"
+      },
+      "played": true,
+      "minutes": 90,
+      "profile": {
+        "marketValueDetails": {
+          "current": {
+            "value": 250000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "250.00",
+              "suffix": "K"
+            },
+            "determined": "2026-09-22"
+          },
+          "previous": {
+            "value": 150000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "150.00",
+              "suffix": "K"
+            },
+            "determined": "2026-06-08"
+          },
+          "delta": {
+            "value": "+100.000 €",
+            "percentage": "+66,67 %",
+            "isVisible": false,
+            "type": "INCREASED"
+          },
+          "highest": {
+            "value": 650000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "650.00",
+              "suffix": "K"
+            },
+            "determined": "2025-06-10"
+          }
+        }
+      },
+      "graph": [
+        {
+          "x": 1749506400000,
+          "y": 650000,
+          "datum_mw": "10/06/2025",
+          "verein": "AFC Unirea 04 Slobozia"
+        }
+      ],
+      "atMatch": {
+        "x": 1790028000000,
+        "y": 250000,
+        "datum_mw": "22/09/2026",
+        "verein": "CFR Cluj"
+      },
+      "top5": {},
+      "senior": [],
+      "currentClub": "CFR Cluj"
+    },
+    {
+      "id": "531599",
+      "nationality": "Austria",
+      "clubId": "7769",
+      "club": "CFR Cluj",
+      "starter": true,
+      "name": "Ervin Omic",
+      "url": "https://www.transfermarkt.com/ervin-omic/profil/spieler/531599",
+      "historySource": {
+        "date": "2026-10-26",
+        "method": "browser-verified selected points"
+      },
+      "played": true,
+      "minutes": 62,
+      "profile": {
+        "marketValueDetails": {
+          "current": {
+            "value": 300000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "300.00",
+              "suffix": "K"
+            },
+            "determined": "2026-06-10"
+          },
+          "previous": {
+            "value": 300000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "300.00",
+              "suffix": "K"
+            },
+            "determined": "2026-03-26"
+          },
+          "delta": {
+            "value": "0 €",
+            "percentage": "0,00 %",
+            "isVisible": false,
+            "type": "UNCHANGED"
+          },
+          "highest": {
+            "value": 700000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "700.00",
+              "suffix": "K"
+            },
+            "determined": "2025-06-06"
+          }
+        }
+      },
+      "graph": [
+        {
+          "x": 1686520800000,
+          "y": 700000,
+          "datum_mw": "12/06/2023",
+          "verein": "Wolfsberger AC"
+        }
+      ],
+      "atMatch": {
+        "x": 1781042400000,
+        "y": 300000,
+        "datum_mw": "10/06/2026",
+        "verein": "Wisla Kraków"
+      },
+      "top5": {},
+      "senior": [],
+      "currentClub": "CFR Cluj"
+    },
+    {
+      "id": "1304289",
+      "nationality": "Ghana",
+      "clubId": "7769",
+      "club": "CFR Cluj",
+      "starter": true,
+      "name": "Amin Ziblim",
+      "url": "https://www.transfermarkt.com/amin-ziblim/profil/spieler/1304289",
+      "historySource": {
+        "date": "2026-10-26",
+        "method": "browser-verified selected points"
+      },
+      "played": true,
+      "minutes": 62,
+      "profile": {
+        "marketValueDetails": {
+          "current": {
+            "value": 75000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "75.00",
+              "suffix": "K"
+            },
+            "determined": "2026-06-09"
+          },
+          "previous": {
+            "value": 75000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "75.00",
+              "suffix": "K"
+            },
+            "determined": "2025-12-09"
+          },
+          "delta": {
+            "value": "0 €",
+            "percentage": "0,00 %",
+            "isVisible": false,
+            "type": "UNCHANGED"
+          },
+          "highest": {
+            "value": 125000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "125.00",
+              "suffix": "K"
+            },
+            "determined": "2024-12-27"
+          }
+        }
+      },
+      "graph": [
+        {
+          "x": 1735254000000,
+          "y": 125000,
+          "datum_mw": "27/12/2024",
+          "verein": "MSK Zilina B"
+        }
+      ],
+      "atMatch": {
+        "x": 1780956000000,
+        "y": 75000,
+        "datum_mw": "09/06/2026",
+        "verein": "AFC Campulung Muscel 2022"
+      },
+      "top5": {},
+      "senior": [],
+      "currentClub": "CFR Cluj"
+    },
+    {
+      "id": "808224",
+      "nationality": "Romania",
+      "clubId": "7769",
+      "club": "CFR Cluj",
+      "starter": true,
+      "name": "Andres Sfait",
+      "url": "https://www.transfermarkt.com/andres-sfait/profil/spieler/808224",
+      "historySource": {
+        "date": "2026-10-26",
+        "method": "browser-verified selected points"
+      },
+      "played": true,
+      "minutes": 90,
+      "profile": {
+        "marketValueDetails": {
+          "current": {
+            "value": 400000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "400.00",
+              "suffix": "K"
+            },
+            "determined": "2026-06-08"
+          },
+          "previous": {
+            "value": 400000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "400.00",
+              "suffix": "K"
+            },
+            "determined": "2025-12-19"
+          },
+          "delta": {
+            "value": "0 €",
+            "percentage": "0,00 %",
+            "isVisible": false,
+            "type": "UNCHANGED"
+          },
+          "highest": {
+            "value": 500000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "500.00",
+              "suffix": "K"
+            },
+            "determined": "2024-06-05"
+          }
+        }
+      },
+      "graph": [
+        {
+          "x": 1696975200000,
+          "y": 500000,
+          "datum_mw": "11/10/2023",
+          "verein": "US Salernitana 1919"
+        }
+      ],
+      "atMatch": {
+        "x": 1780869600000,
+        "y": 400000,
+        "datum_mw": "08/06/2026",
+        "verein": "CFR Cluj"
+      },
+      "top5": {
+        "IT1": {
+          "name": "Serie A",
+          "apps": 2,
+          "minutes": 21
+        }
+      },
+      "senior": [],
+      "currentClub": "CFR Cluj"
+    },
+    {
+      "id": "82657",
+      "nationality": "Germany",
+      "clubId": "7769",
+      "club": "CFR Cluj",
+      "starter": true,
+      "name": "Christopher Braun",
+      "url": "https://www.transfermarkt.com/christopher-braun/profil/spieler/82657",
+      "historySource": {
+        "date": "2026-10-26",
+        "method": "browser-verified selected points"
+      },
+      "played": true,
+      "minutes": 80,
+      "profile": {
+        "marketValueDetails": {
+          "current": {
+            "value": 150000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "150.00",
+              "suffix": "K"
+            },
+            "determined": "2026-06-08"
+          },
+          "previous": {
+            "value": 200000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "200.00",
+              "suffix": "K"
+            },
+            "determined": "2025-12-19"
+          },
+          "delta": {
+            "value": "-50.000 €",
+            "percentage": "-25,00 %",
+            "isVisible": false,
+            "type": "DECREASED"
+          },
+          "highest": {
+            "value": 800000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "800.00",
+              "suffix": "K"
+            },
+            "determined": "2023-12-22"
+          }
+        }
+      },
+      "graph": [
+        {
+          "x": 1648504800000,
+          "y": 800000,
+          "datum_mw": "29/03/2022",
+          "verein": "FC Botosani"
+        },
+        {
+          "x": 1671577200000,
+          "y": 800000,
+          "datum_mw": "21/12/2022",
+          "verein": "CFR Cluj"
+        },
+        {
+          "x": 1703199600000,
+          "y": 800000,
+          "datum_mw": "22/12/2023",
+          "verein": "FC Rapid 1923"
+        }
+      ],
+      "atMatch": {
+        "x": 1780869600000,
+        "y": 150000,
+        "datum_mw": "08/06/2026",
+        "verein": "CFR Cluj"
+      },
+      "top5": {},
+      "senior": [],
+      "currentClub": "CFR Cluj"
+    },
+    {
+      "id": "435712",
+      "nationality": "Romania",
+      "clubId": "7769",
+      "club": "CFR Cluj",
+      "starter": true,
+      "name": "Andrei Cordea",
+      "url": "https://www.transfermarkt.com/andrei-cordea/profil/spieler/435712",
+      "historySource": {
+        "date": "2026-10-26",
+        "method": "browser-verified selected points"
+      },
+      "played": true,
+      "minutes": 84,
+      "profile": {
+        "marketValueDetails": {
+          "current": {
+            "value": 3000000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "3.00",
+              "suffix": "M"
+            },
+            "determined": "2026-06-08"
+          },
+          "previous": {
+            "value": 2400000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "2.40",
+              "suffix": "M"
+            },
+            "determined": "2026-03-27"
+          },
+          "delta": {
+            "value": "+600.000 €",
+            "percentage": "+25,00 %",
+            "isVisible": false,
+            "type": "INCREASED"
+          },
+          "highest": {
+            "value": 3000000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "3.00",
+              "suffix": "M"
+            },
+            "determined": "2026-06-08"
+          }
+        }
+      },
+      "graph": [
+        {
+          "x": 1780869600000,
+          "y": 3000000,
+          "datum_mw": "08/06/2026",
+          "verein": "CFR Cluj"
+        }
+      ],
+      "atMatch": {
+        "x": 1780869600000,
+        "y": 3000000,
+        "datum_mw": "08/06/2026",
+        "verein": "CFR Cluj"
+      },
+      "top5": {},
+      "senior": [
+        {
+          "playerId": "435712",
+          "clubId": "3447",
+          "gamesPlayed": 5,
+          "goalsScored": 0,
+          "shirtNumber": 23,
+          "isCaptain": false,
+          "debut": "2021-09-05",
+          "debutCoachId": "40857",
+          "debutGameId": "3495294",
+          "lastGame": "2022-11-17",
+          "lastGameId": "3926443",
+          "careerState": "FORMER_NATIONAL_PLAYER",
+          "name": "Romania"
+        }
+      ],
+      "currentClub": "CFR Cluj"
+    },
+    {
+      "id": "138850",
+      "nationality": "Serbia",
+      "clubId": "7769",
+      "club": "CFR Cluj",
+      "starter": true,
+      "name": "Stefan Drazic",
+      "url": "https://www.transfermarkt.com/stefan-drazic/profil/spieler/138850",
+      "historySource": {
+        "date": "2026-10-26",
+        "method": "browser-verified selected points"
+      },
+      "played": true,
+      "minutes": 90,
+      "profile": {
+        "marketValueDetails": {
+          "current": {
+            "value": 275000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "275.00",
+              "suffix": "K"
+            },
+            "determined": "2026-06-02"
+          },
+          "previous": {
+            "value": 300000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "300.00",
+              "suffix": "K"
+            },
+            "determined": "2025-12-23"
+          },
+          "delta": {
+            "value": "-25.000 €",
+            "percentage": "-8,33 %",
+            "isVisible": false,
+            "type": "DECREASED"
+          },
+          "highest": {
+            "value": 650000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "650.00",
+              "suffix": "K"
+            },
+            "determined": "2023-12-22"
+          }
+        }
+      },
+      "graph": [
+        {
+          "x": 1686088800000,
+          "y": 650000,
+          "datum_mw": "07/06/2023",
+          "verein": "Mezőkövesd Zsóry FC"
+        }
+      ],
+      "atMatch": {
+        "x": 1780351200000,
+        "y": 275000,
+        "datum_mw": "02/06/2026",
+        "verein": "APOEL Nicosia"
+      },
+      "top5": {},
+      "senior": [],
+      "currentClub": "CFR Cluj"
+    },
+    {
+      "id": "667991",
+      "nationality": "Morocco",
+      "clubId": "312",
+      "club": "FC Dinamo",
+      "starter": true,
+      "name": "Alaa Bellaarouch",
+      "url": "https://www.transfermarkt.com/alaa-bellaarouch/profil/spieler/667991",
+      "historySource": {
+        "date": "2026-10-26",
+        "method": "browser-verified selected points"
+      },
+      "played": true,
+      "minutes": 90,
+      "profile": {
+        "marketValueDetails": {
+          "current": {
+            "value": 850000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "850.00",
+              "suffix": "K"
+            },
+            "determined": "2026-09-22"
+          },
+          "previous": {
+            "value": 400000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "400.00",
+              "suffix": "K"
+            },
+            "determined": "2026-05-28"
+          },
+          "delta": {
+            "value": "+450.000 €",
+            "percentage": "+112,50 %",
+            "isVisible": false,
+            "type": "INCREASED"
+          },
+          "highest": {
+            "value": 2000000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "2.00",
+              "suffix": "M"
+            },
+            "determined": "2024-06-03"
+          }
+        }
+      },
+      "graph": [
+        {
+          "x": 1717365600000,
+          "y": 2000000,
+          "datum_mw": "03/06/2024",
+          "verein": "RC Strasbourg Alsace"
+        }
+      ],
+      "atMatch": {
+        "x": 1790028000000,
+        "y": 850000,
+        "datum_mw": "22/09/2026",
+        "verein": "FC Dinamo 1948"
+      },
+      "top5": {
+        "FR1": {
+          "name": "Ligue 1",
+          "apps": 15,
+          "minutes": 1350
+        }
+      },
+      "senior": [],
+      "currentClub": "FC Dinamo 1948"
+    },
+    {
+      "id": "982567",
+      "nationality": "Israel",
+      "clubId": "312",
+      "club": "FC Dinamo",
+      "starter": true,
+      "name": "Nikita Stoinov",
+      "url": "https://www.transfermarkt.com/nikita-stoinov/profil/spieler/982567",
+      "historySource": {
+        "date": "2026-10-26",
+        "method": "browser-verified selected points"
+      },
+      "played": true,
+      "minutes": 90,
+      "profile": {
+        "marketValueDetails": {
+          "current": {
+            "value": 1800000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "1.80",
+              "suffix": "M"
+            },
+            "determined": "2026-09-22"
+          },
+          "previous": {
+            "value": 1500000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "1.50",
+              "suffix": "M"
+            },
+            "determined": "2026-06-08"
+          },
+          "delta": {
+            "value": "+300.000 €",
+            "percentage": "+20,00 %",
+            "isVisible": false,
+            "type": "INCREASED"
+          },
+          "highest": {
+            "value": 1800000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "1.80",
+              "suffix": "M"
+            },
+            "determined": "2026-09-22"
+          }
+        }
+      },
+      "graph": [
+        {
+          "x": 1790028000000,
+          "y": 1800000,
+          "datum_mw": "22/09/2026",
+          "verein": "FC Dinamo 1948"
+        }
+      ],
+      "atMatch": {
+        "x": 1790028000000,
+        "y": 1800000,
+        "datum_mw": "22/09/2026",
+        "verein": "FC Dinamo 1948"
+      },
+      "top5": {},
+      "senior": [
+        {
+          "playerId": "982567",
+          "clubId": "5547",
+          "gamesPlayed": 6,
+          "goalsScored": 0,
+          "shirtNumber": 13,
+          "isCaptain": false,
+          "debut": "2026-03-26",
+          "debutCoachId": "16078",
+          "debutGameId": "4845673",
+          "lastGame": "2026-10-04",
+          "lastGameId": "4825144",
+          "careerState": "CURRENT_NATIONAL_PLAYER",
+          "name": "Israel"
+        }
+      ],
+      "currentClub": "FC Dinamo 1948"
+    },
+    {
+      "id": "676121",
+      "nationality": "North Macedonia",
+      "clubId": "312",
+      "club": "FC Dinamo",
+      "starter": true,
+      "name": "Imran Fetai",
+      "url": "https://www.transfermarkt.com/imran-fetai/profil/spieler/676121",
+      "historySource": {
+        "date": "2026-10-26",
+        "method": "browser-verified selected points"
+      },
+      "played": true,
+      "minutes": 73,
+      "profile": {
+        "marketValueDetails": {
+          "current": {
+            "value": 700000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "700.00",
+              "suffix": "K"
+            },
+            "determined": "2026-06-11"
+          },
+          "previous": {
+            "value": 600000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "600.00",
+              "suffix": "K"
+            },
+            "determined": "2025-12-18"
+          },
+          "delta": {
+            "value": "+100.000 €",
+            "percentage": "+16,67 %",
+            "isVisible": false,
+            "type": "INCREASED"
+          },
+          "highest": {
+            "value": 700000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "700.00",
+              "suffix": "K"
+            },
+            "determined": "2026-06-11"
+          }
+        }
+      },
+      "graph": [
+        {
+          "x": 1781128800000,
+          "y": 700000,
+          "datum_mw": "11/06/2026",
+          "verein": "Shkendija Tetovo"
+        }
+      ],
+      "atMatch": {
+        "x": 1781128800000,
+        "y": 700000,
+        "datum_mw": "11/06/2026",
+        "verein": "Shkendija Tetovo"
+      },
+      "top5": {},
+      "senior": [
+        {
+          "playerId": "676121",
+          "clubId": "5148",
+          "gamesPlayed": 3,
+          "goalsScored": 0,
+          "shirtNumber": 13,
+          "isCaptain": false,
+          "debut": "2026-03-31",
+          "debutCoachId": "14602",
+          "debutGameId": "4852216",
+          "lastGame": "2026-06-01",
+          "lastGameId": "4874599",
+          "careerState": "RECENT_NATIONAL_PLAYER",
+          "name": "North Macedonia"
+        }
+      ],
+      "currentClub": "FC Dinamo 1948"
+    },
+    {
+      "id": "393806",
+      "nationality": "Romania",
+      "clubId": "312",
+      "club": "FC Dinamo",
+      "starter": true,
+      "name": "Raul Opruț",
+      "url": "https://www.transfermarkt.com/raul-oprut/profil/spieler/393806",
+      "historySource": {
+        "date": "2026-10-26",
+        "method": "browser-verified selected points"
+      },
+      "played": true,
+      "minutes": 90,
+      "profile": {
+        "marketValueDetails": {
+          "current": {
+            "value": 1700000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "1.70",
+              "suffix": "M"
+            },
+            "determined": "2026-06-08"
+          },
+          "previous": {
+            "value": 1700000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "1.70",
+              "suffix": "M"
+            },
+            "determined": "2025-12-19"
+          },
+          "delta": {
+            "value": "0 €",
+            "percentage": "0,00 %",
+            "isVisible": false,
+            "type": "UNCHANGED"
+          },
+          "highest": {
+            "value": 1700000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "1.70",
+              "suffix": "M"
+            },
+            "determined": "2026-06-08"
+          }
+        }
+      },
+      "graph": [
+        {
+          "x": 1766098800000,
+          "y": 1700000,
+          "datum_mw": "19/12/2025",
+          "verein": "FC Dinamo 1948"
+        },
+        {
+          "x": 1780869600000,
+          "y": 1700000,
+          "datum_mw": "08/06/2026",
+          "verein": "FC Dinamo 1948"
+        }
+      ],
+      "atMatch": {
+        "x": 1780869600000,
+        "y": 1700000,
+        "datum_mw": "08/06/2026",
+        "verein": "FC Dinamo 1948"
+      },
+      "top5": {},
+      "senior": [
+        {
+          "playerId": "393806",
+          "clubId": "3447",
+          "gamesPlayed": 5,
+          "goalsScored": 0,
+          "shirtNumber": 15,
+          "isCaptain": false,
+          "debut": "2022-11-17",
+          "debutCoachId": "22740",
+          "debutGameId": "3926443",
+          "lastGame": "2025-10-09",
+          "lastGameId": "4641705",
+          "careerState": "CURRENT_NATIONAL_PLAYER",
+          "name": "Romania"
+        }
+      ],
+      "currentClub": "FC Dinamo 1948"
+    },
+    {
+      "id": "1113720",
+      "nationality": "Romania",
+      "clubId": "312",
+      "club": "FC Dinamo",
+      "starter": true,
+      "name": "David Irimia",
+      "url": "https://www.transfermarkt.com/david-irimia/profil/spieler/1113720",
+      "historySource": {
+        "date": "2026-10-26",
+        "method": "browser-verified selected points"
+      },
+      "played": true,
+      "minutes": 73,
+      "profile": {
+        "marketValueDetails": {
+          "current": {
+            "value": 400000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "400.00",
+              "suffix": "K"
+            },
+            "determined": "2026-09-22"
+          },
+          "previous": {
+            "value": 250000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "250.00",
+              "suffix": "K"
+            },
+            "determined": "2026-06-08"
+          },
+          "delta": {
+            "value": "+150.000 €",
+            "percentage": "+60,00 %",
+            "isVisible": false,
+            "type": "INCREASED"
+          },
+          "highest": {
+            "value": 400000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "400.00",
+              "suffix": "K"
+            },
+            "determined": "2026-09-22"
+          }
+        }
+      },
+      "graph": [
+        {
+          "x": 1790028000000,
+          "y": 400000,
+          "datum_mw": "22/09/2026",
+          "verein": "FC Dinamo 1948"
+        }
+      ],
+      "atMatch": {
+        "x": 1790028000000,
+        "y": 400000,
+        "datum_mw": "22/09/2026",
+        "verein": "FC Dinamo 1948"
+      },
+      "top5": {},
+      "senior": [],
+      "currentClub": "FC Dinamo 1948"
+    },
+    {
+      "id": "547827",
+      "nationality": "Romania",
+      "clubId": "312",
+      "club": "FC Dinamo",
+      "starter": true,
+      "name": "Andrei Mărginean",
+      "url": "https://www.transfermarkt.com/andrei-marginean/profil/spieler/547827",
+      "historySource": {
+        "date": "2026-10-26",
+        "method": "browser-verified selected points"
+      },
+      "played": true,
+      "minutes": 84,
+      "profile": {
+        "marketValueDetails": {
+          "current": {
+            "value": 1000000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "1.00",
+              "suffix": "M"
+            },
+            "determined": "2026-09-22"
+          },
+          "previous": {
+            "value": 700000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "700.00",
+              "suffix": "K"
+            },
+            "determined": "2026-06-08"
+          },
+          "delta": {
+            "value": "+300.000 €",
+            "percentage": "+42,86 %",
+            "isVisible": false,
+            "type": "INCREASED"
+          },
+          "highest": {
+            "value": 1000000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "1.00",
+              "suffix": "M"
+            },
+            "determined": "2026-09-22"
+          }
+        }
+      },
+      "graph": [
+        {
+          "x": 1790028000000,
+          "y": 1000000,
+          "datum_mw": "22/09/2026",
+          "verein": "FC Dinamo 1948"
+        }
+      ],
+      "atMatch": {
+        "x": 1790028000000,
+        "y": 1000000,
+        "datum_mw": "22/09/2026",
+        "verein": "FC Dinamo 1948"
+      },
+      "top5": {},
+      "senior": [],
+      "currentClub": "FC Dinamo 1948"
+    },
+    {
+      "id": "487688",
+      "nationality": "Spain",
+      "clubId": "312",
+      "club": "FC Dinamo",
+      "starter": true,
+      "name": "Alberto Soro",
+      "url": "https://www.transfermarkt.com/alberto-soro/profil/spieler/487688",
+      "historySource": {
+        "date": "2026-10-26",
+        "method": "browser-verified selected points"
+      },
+      "played": true,
+      "minutes": 90,
+      "profile": {
+        "marketValueDetails": {
+          "current": {
+            "value": 1000000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "1.00",
+              "suffix": "M"
+            },
+            "determined": "2026-06-08"
+          },
+          "previous": {
+            "value": 700000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "700.00",
+              "suffix": "K"
+            },
+            "determined": "2026-03-27"
+          },
+          "delta": {
+            "value": "+300.000 €",
+            "percentage": "+42,86 %",
+            "isVisible": false,
+            "type": "INCREASED"
+          },
+          "highest": {
+            "value": 3000000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "3.00",
+              "suffix": "M"
+            },
+            "determined": "2021-06-10"
+          }
+        }
+      },
+      "graph": [
+        {
+          "x": 1561759200000,
+          "y": 3000000,
+          "datum_mw": "29/06/2019",
+          "verein": "Real Zaragoza"
+        }
+      ],
+      "atMatch": {
+        "x": 1780869600000,
+        "y": 1000000,
+        "datum_mw": "08/06/2026",
+        "verein": "FC Dinamo 1948"
+      },
+      "top5": {
+        "ES1": {
+          "name": "LaLiga",
+          "apps": 32,
+          "minutes": 965
+        }
+      },
+      "senior": [],
+      "currentClub": "FC Dinamo 1948"
+    },
+    {
+      "id": "225236",
+      "nationality": "Scotland",
+      "clubId": "312",
+      "club": "FC Dinamo",
+      "starter": true,
+      "name": "Danny Armstrong",
+      "url": "https://www.transfermarkt.com/danny-armstrong/profil/spieler/225236",
+      "historySource": {
+        "date": "2026-10-26",
+        "method": "browser-verified selected points"
+      },
+      "played": true,
+      "minutes": 73,
+      "profile": {
+        "marketValueDetails": {
+          "current": {
+            "value": 1000000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "1.00",
+              "suffix": "M"
+            },
+            "determined": "2026-06-08"
+          },
+          "previous": {
+            "value": 900000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "900.00",
+              "suffix": "K"
+            },
+            "determined": "2025-12-19"
+          },
+          "delta": {
+            "value": "+100.000 €",
+            "percentage": "+11,11 %",
+            "isVisible": false,
+            "type": "INCREASED"
+          },
+          "highest": {
+            "value": 1500000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "1.50",
+              "suffix": "M"
+            },
+            "determined": "2024-05-30"
+          }
+        }
+      },
+      "graph": [
+        {
+          "x": 1717020000000,
+          "y": 1500000,
+          "datum_mw": "30/05/2024",
+          "verein": "Kilmarnock FC"
+        }
+      ],
+      "atMatch": {
+        "x": 1780869600000,
+        "y": 1000000,
+        "datum_mw": "08/06/2026",
+        "verein": "FC Dinamo 1948"
+      },
+      "top5": {},
+      "senior": [],
+      "currentClub": "FC Dinamo 1948"
+    },
+    {
+      "id": "575219",
+      "nationality": "Romania",
+      "clubId": "312",
+      "club": "FC Dinamo",
+      "starter": true,
+      "name": "Cătălin Cîrjan",
+      "url": "https://www.transfermarkt.com/catalin-cirjan/profil/spieler/575219",
+      "historySource": {
+        "date": "2026-10-26",
+        "method": "browser-verified selected points"
+      },
+      "played": true,
+      "minutes": 90,
+      "profile": {
+        "marketValueDetails": {
+          "current": {
+            "value": 3500000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "3.50",
+              "suffix": "M"
+            },
+            "determined": "2026-09-22"
+          },
+          "previous": {
+            "value": 3000000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "3.00",
+              "suffix": "M"
+            },
+            "determined": "2026-06-08"
+          },
+          "delta": {
+            "value": "+500.000 €",
+            "percentage": "+16,67 %",
+            "isVisible": false,
+            "type": "INCREASED"
+          },
+          "highest": {
+            "value": 3500000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "3.50",
+              "suffix": "M"
+            },
+            "determined": "2026-09-22"
+          }
+        }
+      },
+      "graph": [
+        {
+          "x": 1790028000000,
+          "y": 3500000,
+          "datum_mw": "22/09/2026",
+          "verein": "FC Dinamo 1948"
+        }
+      ],
+      "atMatch": {
+        "x": 1790028000000,
+        "y": 3500000,
+        "datum_mw": "22/09/2026",
+        "verein": "FC Dinamo 1948"
+      },
+      "top5": {},
+      "senior": [
+        {
+          "playerId": "575219",
+          "clubId": "3447",
+          "gamesPlayed": 4,
+          "goalsScored": 0,
+          "shirtNumber": 22,
+          "isCaptain": false,
+          "debut": "2025-10-09",
+          "debutCoachId": "805",
+          "debutGameId": "4641705",
+          "lastGame": "2026-10-05",
+          "lastGameId": "4825148",
+          "careerState": "CURRENT_NATIONAL_PLAYER",
+          "name": "Romania"
+        }
+      ],
+      "currentClub": "FC Dinamo 1948"
+    },
+    {
+      "id": "646782",
+      "nationality": "France",
+      "clubId": "312",
+      "club": "FC Dinamo",
+      "starter": true,
+      "name": "Mamoudou Karamoko",
+      "url": "https://www.transfermarkt.com/mamoudou-karamoko/profil/spieler/646782",
+      "historySource": {
+        "date": "2026-10-26",
+        "method": "browser-verified selected points"
+      },
+      "played": true,
+      "minutes": 62,
+      "profile": {
+        "marketValueDetails": {
+          "current": {
+            "value": 750000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "750.00",
+              "suffix": "K"
+            },
+            "determined": "2026-06-08"
+          },
+          "previous": {
+            "value": 550000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "550.00",
+              "suffix": "K"
+            },
+            "determined": "2025-12-19"
+          },
+          "delta": {
+            "value": "+200.000 €",
+            "percentage": "+36,36 %",
+            "isVisible": false,
+            "type": "INCREASED"
+          },
+          "highest": {
+            "value": 900000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "900.00",
+              "suffix": "K"
+            },
+            "determined": "2022-06-20"
+          }
+        }
+      },
+      "graph": [
+        {
+          "x": 1639609200000,
+          "y": 900000,
+          "datum_mw": "16/12/2021",
+          "verein": "LASK"
+        }
+      ],
+      "atMatch": {
+        "x": 1780869600000,
+        "y": 750000,
+        "datum_mw": "08/06/2026",
+        "verein": "FC Dinamo 1948"
+      },
+      "top5": {
+        "L1": {
+          "name": "Bundesliga",
+          "apps": 1,
+          "minutes": 8
+        }
+      },
+      "senior": [],
+      "currentClub": "FC Dinamo 1948"
+    },
+    {
+      "id": "942790",
+      "nationality": "Netherlands",
+      "clubId": "312",
+      "club": "FC Dinamo",
+      "starter": true,
+      "name": "Dean Zandbergen",
+      "url": "https://www.transfermarkt.com/dean-zandbergen/profil/spieler/942790",
+      "historySource": {
+        "date": "2026-10-26",
+        "method": "browser-verified selected points"
+      },
+      "played": true,
+      "minutes": 90,
+      "profile": {
+        "marketValueDetails": {
+          "current": {
+            "value": 500000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "500.00",
+              "suffix": "K"
+            },
+            "determined": "2026-05-21"
+          },
+          "previous": {
+            "value": 225000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "225.00",
+              "suffix": "K"
+            },
+            "determined": "2026-03-18"
+          },
+          "delta": {
+            "value": "+275.000 €",
+            "percentage": "+122,22 %",
+            "isVisible": false,
+            "type": "INCREASED"
+          },
+          "highest": {
+            "value": 500000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "500.00",
+              "suffix": "K"
+            },
+            "determined": "2026-05-21"
+          }
+        }
+      },
+      "graph": [
+        {
+          "x": 1779314400000,
+          "y": 500000,
+          "datum_mw": "21/05/2026",
+          "verein": "VVV-Venlo"
+        }
+      ],
+      "atMatch": {
+        "x": 1779314400000,
+        "y": 500000,
+        "datum_mw": "21/05/2026",
+        "verein": "VVV-Venlo"
+      },
+      "top5": {},
+      "senior": [],
+      "currentClub": "FC Dinamo 1948"
+    },
+    {
+      "id": "675500",
+      "nationality": "Romania",
+      "clubId": "7769",
+      "club": "CFR Cluj",
+      "starter": false,
+      "name": "Rareș Gal",
+      "url": "https://www.transfermarkt.com/rares-gal/profil/spieler/675500",
+      "historySource": {
+        "date": "2026-10-26",
+        "method": "browser-verified selected points"
+      },
+      "played": false,
+      "minutes": 0,
+      "profile": {
+        "marketValueDetails": {
+          "current": {
+            "value": 50000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "50.00",
+              "suffix": "K"
+            },
+            "determined": "2026-06-08"
+          },
+          "previous": {
+            "value": 50000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "50.00",
+              "suffix": "K"
+            },
+            "determined": "2025-12-19"
+          },
+          "delta": {
+            "value": "0 €",
+            "percentage": "0,00 %",
+            "isVisible": false,
+            "type": "UNCHANGED"
+          },
+          "highest": {
+            "value": 200000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "200.00",
+              "suffix": "K"
+            },
+            "determined": "2022-06-07"
+          }
+        }
+      },
+      "graph": [
+        {
+          "x": 1654552800000,
+          "y": 200000,
+          "datum_mw": "07/06/2022",
+          "verein": "CSC 1599 Selimbar"
+        }
+      ],
+      "atMatch": {
+        "x": 1780869600000,
+        "y": 50000,
+        "datum_mw": "08/06/2026",
+        "verein": "CFR Cluj"
+      },
+      "top5": {},
+      "senior": [],
+      "currentClub": "CFR Cluj"
+    },
+    {
+      "id": "1008261",
+      "nationality": "Moldova",
+      "clubId": "7769",
+      "club": "CFR Cluj",
+      "starter": false,
+      "name": "Leo Saca",
+      "url": "https://www.transfermarkt.com/leo-saca/profil/spieler/1008261",
+      "historySource": {
+        "date": "2026-10-26",
+        "method": "browser-verified selected points"
+      },
+      "played": false,
+      "minutes": 0,
+      "profile": {
+        "marketValueDetails": {
+          "current": {
+            "value": 300000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "300.00",
+              "suffix": "K"
+            },
+            "determined": "2026-06-05"
+          },
+          "highest": {
+            "value": 300000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "300.00",
+              "suffix": "K"
+            },
+            "determined": "2026-06-05"
+          }
+        }
+      },
+      "graph": [
+        {
+          "x": 1780610400000,
+          "y": 300000,
+          "datum_mw": "05/06/2026",
+          "verein": "FC Barcelona U19"
+        }
+      ],
+      "atMatch": {
+        "x": 1780610400000,
+        "y": 300000,
+        "datum_mw": "05/06/2026",
+        "verein": "FC Barcelona U19"
+      },
+      "top5": {},
+      "senior": [
+        {
+          "playerId": "1008261",
+          "clubId": "6090",
+          "gamesPlayed": 1,
+          "goalsScored": 0,
+          "shirtNumber": 2,
+          "isCaptain": false,
+          "debut": "2026-06-05",
+          "debutCoachId": "19523",
+          "debutGameId": "4864913",
+          "lastGame": "2026-06-05",
+          "lastGameId": "4864913",
+          "careerState": "RECENT_NATIONAL_PLAYER",
+          "name": "Moldova"
+        }
+      ],
+      "currentClub": "CFR Cluj"
+    },
+    {
+      "id": "226080",
+      "nationality": "Croatia",
+      "clubId": "7769",
+      "club": "CFR Cluj",
+      "starter": false,
+      "name": "Anton Kresic",
+      "url": "https://www.transfermarkt.com/anton-kresic/profil/spieler/226080",
+      "historySource": {
+        "date": "2026-10-26",
+        "method": "browser-verified selected points"
+      },
+      "played": false,
+      "minutes": 0,
+      "profile": {
+        "marketValueDetails": {
+          "current": {
+            "value": 300000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "300.00",
+              "suffix": "K"
+            },
+            "determined": "2026-06-09"
+          },
+          "previous": {
+            "value": 350000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "350.00",
+              "suffix": "K"
+            },
+            "determined": "2025-12-19"
+          },
+          "delta": {
+            "value": "-50.000 €",
+            "percentage": "-14,29 %",
+            "isVisible": false,
+            "type": "DECREASED"
+          },
+          "highest": {
+            "value": 1300000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "1.30",
+              "suffix": "M"
+            },
+            "determined": "2024-06-05"
+          }
+        }
+      },
+      "graph": [
+        {
+          "x": 1717538400000,
+          "y": 1300000,
+          "datum_mw": "05/06/2024",
+          "verein": "CFR Cluj"
+        }
+      ],
+      "atMatch": {
+        "x": 1780956000000,
+        "y": 300000,
+        "datum_mw": "09/06/2026",
+        "verein": "KF Tirana"
+      },
+      "top5": {},
+      "senior": [],
+      "currentClub": "CFR Cluj"
+    },
+    {
+      "id": "44698",
+      "nationality": "Romania",
+      "clubId": "7769",
+      "club": "CFR Cluj",
+      "starter": false,
+      "name": "Mário Camora",
+      "url": "https://www.transfermarkt.com/mario-camora/profil/spieler/44698",
+      "historySource": {
+        "date": "2026-10-26",
+        "method": "browser-verified selected points"
+      },
+      "played": true,
+      "minutes": 10,
+      "profile": {
+        "marketValueDetails": {
+          "current": {
+            "value": 125000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "125.00",
+              "suffix": "K"
+            },
+            "determined": "2026-06-08"
+          },
+          "previous": {
+            "value": 150000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "150.00",
+              "suffix": "K"
+            },
+            "determined": "2025-12-19"
+          },
+          "delta": {
+            "value": "-25.000 €",
+            "percentage": "-16,67 %",
+            "isVisible": false,
+            "type": "DECREASED"
+          },
+          "highest": {
+            "value": 2200000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "2.20",
+              "suffix": "M"
+            },
+            "determined": "2013-06-05"
+          }
+        }
+      },
+      "graph": [
+        {
+          "x": 1355266800000,
+          "y": 2200000,
+          "datum_mw": "12/12/2012",
+          "verein": "CFR Cluj"
+        }
+      ],
+      "atMatch": {
+        "x": 1780869600000,
+        "y": 125000,
+        "datum_mw": "08/06/2026",
+        "verein": "CFR Cluj"
+      },
+      "top5": {},
+      "senior": [
+        {
+          "playerId": "44698",
+          "clubId": "3447",
+          "gamesPlayed": 10,
+          "goalsScored": 0,
+          "shirtNumber": 3,
+          "isCaptain": false,
+          "debut": "2020-10-08",
+          "debutCoachId": "40857",
+          "debutGameId": "3284033",
+          "lastGame": "2023-06-16",
+          "lastGameId": "3941627",
+          "careerState": "FORMER_NATIONAL_PLAYER",
+          "name": "Romania"
+        }
+      ],
+      "currentClub": "CFR Cluj"
+    },
+    {
+      "id": "1043574",
+      "nationality": "Romania",
+      "clubId": "7769",
+      "club": "CFR Cluj",
+      "starter": false,
+      "name": "Viktor Kun",
+      "url": "https://www.transfermarkt.com/viktor-kun/profil/spieler/1043574",
+      "historySource": {
+        "date": "2026-10-26",
+        "method": "browser-verified selected points"
+      },
+      "played": false,
+      "minutes": 0,
+      "profile": {
+        "marketValueDetails": {
+          "current": {
+            "value": 400000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "400.00",
+              "suffix": "K"
+            },
+            "determined": "2026-06-08"
+          },
+          "previous": {
+            "value": 300000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "300.00",
+              "suffix": "K"
+            },
+            "determined": "2026-03-27"
+          },
+          "delta": {
+            "value": "+100.000 €",
+            "percentage": "+33,33 %",
+            "isVisible": false,
+            "type": "INCREASED"
+          },
+          "highest": {
+            "value": 400000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "400.00",
+              "suffix": "K"
+            },
+            "determined": "2026-06-08"
+          }
+        }
+      },
+      "graph": [
+        {
+          "x": 1780869600000,
+          "y": 400000,
+          "datum_mw": "08/06/2026",
+          "verein": "CFR Cluj"
+        }
+      ],
+      "atMatch": {
+        "x": 1780869600000,
+        "y": 400000,
+        "datum_mw": "08/06/2026",
+        "verein": "CFR Cluj"
+      },
+      "top5": {},
+      "senior": [],
+      "currentClub": "CFR Cluj"
+    },
+    {
+      "id": "948255",
+      "nationality": "Spain",
+      "clubId": "7769",
+      "club": "CFR Cluj",
+      "starter": false,
+      "name": "Cristian Perea",
+      "url": "https://www.transfermarkt.com/cristian-perea/profil/spieler/948255",
+      "historySource": {
+        "date": "2026-10-26",
+        "method": "browser-verified selected points"
+      },
+      "played": false,
+      "minutes": 0,
+      "profile": {
+        "marketValueDetails": {
+          "current": {
+            "value": 500000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "500.00",
+              "suffix": "K"
+            },
+            "determined": "2026-06-23"
+          },
+          "previous": {
+            "value": 500000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "500.00",
+              "suffix": "K"
+            },
+            "determined": "2026-03-18"
+          },
+          "delta": {
+            "value": "0 €",
+            "percentage": "0,00 %",
+            "isVisible": false,
+            "type": "UNCHANGED"
+          },
+          "highest": {
+            "value": 500000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "500.00",
+              "suffix": "K"
+            },
+            "determined": "2026-06-23"
+          }
+        }
+      },
+      "graph": [
+        {
+          "x": 1760565600000,
+          "y": 500000,
+          "datum_mw": "16/10/2025",
+          "verein": "Real Madrid Castilla"
+        },
+        {
+          "x": 1782165600000,
+          "y": 500000,
+          "datum_mw": "23/06/2026",
+          "verein": "Real Madrid Castilla"
+        }
+      ],
+      "atMatch": {
+        "x": 1782165600000,
+        "y": 500000,
+        "datum_mw": "23/06/2026",
+        "verein": "Real Madrid Castilla"
+      },
+      "top5": {},
+      "senior": [],
+      "currentClub": "CFR Cluj"
+    },
+    {
+      "id": "291656",
+      "nationality": "Romania",
+      "clubId": "7769",
+      "club": "CFR Cluj",
+      "starter": false,
+      "name": "Adrian Păun",
+      "url": "https://www.transfermarkt.com/adrian-paun/profil/spieler/291656",
+      "historySource": {
+        "date": "2026-10-26",
+        "method": "browser-verified selected points"
+      },
+      "played": true,
+      "minutes": 28,
+      "profile": {
+        "marketValueDetails": {
+          "current": {
+            "value": 600000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "600.00",
+              "suffix": "K"
+            },
+            "determined": "2026-06-08"
+          },
+          "previous": {
+            "value": 500000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "500.00",
+              "suffix": "K"
+            },
+            "determined": "2025-12-19"
+          },
+          "delta": {
+            "value": "+100.000 €",
+            "percentage": "+20,00 %",
+            "isVisible": false,
+            "type": "INCREASED"
+          },
+          "highest": {
+            "value": 1800000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "1.80",
+              "suffix": "M"
+            },
+            "determined": "2021-12-22"
+          }
+        }
+      },
+      "graph": [
+        {
+          "x": 1622671200000,
+          "y": 1800000,
+          "datum_mw": "03/06/2021",
+          "verein": "CFR Cluj"
+        }
+      ],
+      "atMatch": {
+        "x": 1780869600000,
+        "y": 600000,
+        "datum_mw": "08/06/2026",
+        "verein": "CFR Cluj"
+      },
+      "top5": {},
+      "senior": [
+        {
+          "playerId": "291656",
+          "clubId": "3447",
+          "gamesPlayed": 1,
+          "goalsScored": 0,
+          "shirtNumber": 17,
+          "isCaptain": false,
+          "debut": "2021-06-06",
+          "debutCoachId": "40857",
+          "debutGameId": "3524637",
+          "lastGame": "2021-06-06",
+          "lastGameId": "3524637",
+          "careerState": "FORMER_NATIONAL_PLAYER",
+          "name": "Romania"
+        }
+      ],
+      "currentClub": "CFR Cluj"
+    },
+    {
+      "id": "332875",
+      "nationality": "Bosnia-Herzegovina",
+      "clubId": "7769",
+      "club": "CFR Cluj",
+      "starter": false,
+      "name": "Adi Nalic",
+      "url": "https://www.transfermarkt.com/adi-nalic/profil/spieler/332875",
+      "historySource": {
+        "date": "2026-10-26",
+        "method": "browser-verified selected points"
+      },
+      "played": true,
+      "minutes": 28,
+      "profile": {
+        "marketValueDetails": {
+          "current": {
+            "value": 400000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "400.00",
+              "suffix": "K"
+            },
+            "determined": "2026-06-01"
+          },
+          "previous": {
+            "value": 300000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "300.00",
+              "suffix": "K"
+            },
+            "determined": "2025-10-21"
+          },
+          "delta": {
+            "value": "+100.000 €",
+            "percentage": "+33,33 %",
+            "isVisible": false,
+            "type": "INCREASED"
+          },
+          "highest": {
+            "value": 800000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "800.00",
+              "suffix": "K"
+            },
+            "determined": "2021-12-17"
+          }
+        }
+      },
+      "graph": [
+        {
+          "x": 1639695600000,
+          "y": 800000,
+          "datum_mw": "17/12/2021",
+          "verein": "Malmö FF"
+        }
+      ],
+      "atMatch": {
+        "x": 1780264800000,
+        "y": 400000,
+        "datum_mw": "01/06/2026",
+        "verein": "HSK Zrinjski Mostar"
+      },
+      "top5": {},
+      "senior": [
+        {
+          "playerId": "332875",
+          "clubId": "3446",
+          "gamesPlayed": 9,
+          "goalsScored": 0,
+          "shirtNumber": 13,
+          "isCaptain": false,
+          "debut": "2021-06-02",
+          "debutCoachId": "21500",
+          "debutGameId": "3511187",
+          "lastGame": "2023-09-08",
+          "lastGameId": "3941669",
+          "careerState": "FORMER_NATIONAL_PLAYER",
+          "name": "Bosnia-Herzegovina"
+        }
+      ],
+      "currentClub": "CFR Cluj"
+    },
+    {
+      "id": "993687",
+      "nationality": "Romania",
+      "clubId": "7769",
+      "club": "CFR Cluj",
+      "starter": false,
+      "name": "Lorenzo Biliboc",
+      "url": "https://www.transfermarkt.com/lorenzo-biliboc/profil/spieler/993687",
+      "historySource": {
+        "date": "2026-10-26",
+        "method": "browser-verified selected points"
+      },
+      "played": false,
+      "minutes": 0,
+      "profile": {
+        "marketValueDetails": {
+          "current": {
+            "value": 1500000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "1.50",
+              "suffix": "M"
+            },
+            "determined": "2026-06-08"
+          },
+          "previous": {
+            "value": 1200000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "1.20",
+              "suffix": "M"
+            },
+            "determined": "2026-03-27"
+          },
+          "delta": {
+            "value": "+300.000 €",
+            "percentage": "+25,00 %",
+            "isVisible": false,
+            "type": "INCREASED"
+          },
+          "highest": {
+            "value": 1500000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "1.50",
+              "suffix": "M"
+            },
+            "determined": "2026-06-08"
+          }
+        }
+      },
+      "graph": [
+        {
+          "x": 1780869600000,
+          "y": 1500000,
+          "datum_mw": "08/06/2026",
+          "verein": "CFR Cluj"
+        }
+      ],
+      "atMatch": {
+        "x": 1780869600000,
+        "y": 1500000,
+        "datum_mw": "08/06/2026",
+        "verein": "CFR Cluj"
+      },
+      "top5": {},
+      "senior": [],
+      "currentClub": "CFR Cluj"
+    },
+    {
+      "id": "131589",
+      "nationality": "Algeria",
+      "clubId": "7769",
+      "club": "CFR Cluj",
+      "starter": false,
+      "name": "Billel Omrani",
+      "url": "https://www.transfermarkt.com/billel-omrani/profil/spieler/131589",
+      "historySource": {
+        "date": "2026-10-26",
+        "method": "browser-verified selected points"
+      },
+      "played": false,
+      "minutes": 0,
+      "profile": {
+        "marketValueDetails": {
+          "current": {
+            "value": 75000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "75.00",
+              "suffix": "K"
+            },
+            "determined": "2026-06-09"
+          },
+          "previous": {
+            "value": 125000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "125.00",
+              "suffix": "K"
+            },
+            "determined": "2025-12-29"
+          },
+          "delta": {
+            "value": "-50.000 €",
+            "percentage": "-40,00 %",
+            "isVisible": false,
+            "type": "DECREASED"
+          },
+          "highest": {
+            "value": 3600000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "3.60",
+              "suffix": "M"
+            },
+            "determined": "2019-12-21"
+          }
+        }
+      },
+      "graph": [
+        {
+          "x": 1576882800000,
+          "y": 3600000,
+          "datum_mw": "21/12/2019",
+          "verein": "CFR Cluj"
+        }
+      ],
+      "atMatch": {
+        "x": 1780956000000,
+        "y": 75000,
+        "datum_mw": "09/06/2026",
+        "verein": "Concordia Chiajna"
+      },
+      "top5": {
+        "FR1": {
+          "name": "Ligue 1",
+          "apps": 6,
+          "minutes": 95
+        }
+      },
+      "senior": [
+        {
+          "playerId": "131589",
+          "clubId": "3614",
+          "gamesPlayed": 1,
+          "goalsScored": 0,
+          "shirtNumber": 12,
+          "isCaptain": false,
+          "debut": "2022-06-12",
+          "debutCoachId": "14645",
+          "debutGameId": "3834273",
+          "lastGame": "2022-06-12",
+          "lastGameId": "3834273",
+          "careerState": "FORMER_NATIONAL_PLAYER",
+          "name": "Algeria"
+        }
+      ],
+      "currentClub": "CFR Cluj"
+    },
+    {
+      "id": "123671",
+      "nationality": "Romania",
+      "clubId": "7769",
+      "club": "CFR Cluj",
+      "starter": false,
+      "name": "Sergiu Buș",
+      "url": "https://www.transfermarkt.com/sergiu-bus/profil/spieler/123671",
+      "historySource": {
+        "date": "2026-10-26",
+        "method": "browser-verified selected points"
+      },
+      "played": true,
+      "minutes": 6,
+      "profile": {
+        "marketValueDetails": {
+          "current": {
+            "value": 175000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "175.00",
+              "suffix": "K"
+            },
+            "determined": "2026-06-08"
+          },
+          "previous": {
+            "value": 200000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "200.00",
+              "suffix": "K"
+            },
+            "determined": "2025-12-19"
+          },
+          "delta": {
+            "value": "-25.000 €",
+            "percentage": "-12,50 %",
+            "isVisible": false,
+            "type": "DECREASED"
+          },
+          "highest": {
+            "value": 1500000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "1.50",
+              "suffix": "M"
+            },
+            "determined": "2014-12-14"
+          }
+        }
+      },
+      "graph": [
+        {
+          "x": 1418511600000,
+          "y": 1500000,
+          "datum_mw": "14/12/2014",
+          "verein": "CSKA Sofia"
+        }
+      ],
+      "atMatch": {
+        "x": 1780869600000,
+        "y": 175000,
+        "datum_mw": "08/06/2026",
+        "verein": "FC Hermannstadt"
+      },
+      "top5": {},
+      "senior": [],
+      "currentClub": "CFR Cluj"
+    },
+    {
+      "id": "770036",
+      "nationality": "Belgium",
+      "clubId": "7769",
+      "club": "CFR Cluj",
+      "starter": false,
+      "name": "Jelani Dumas",
+      "url": "https://www.transfermarkt.com/jelani-dumas/profil/spieler/770036",
+      "historySource": {
+        "date": "2026-10-26",
+        "method": "browser-verified selected points"
+      },
+      "played": false,
+      "minutes": 0,
+      "profile": {
+        "marketValueDetails": {
+          "current": {
+            "value": 400000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "400.00",
+              "suffix": "K"
+            },
+            "determined": "2026-06-24"
+          },
+          "previous": {
+            "value": 400000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "400.00",
+              "suffix": "K"
+            },
+            "determined": "2025-12-22"
+          },
+          "delta": {
+            "value": "0 €",
+            "percentage": "0,00 %",
+            "isVisible": false,
+            "type": "UNCHANGED"
+          },
+          "highest": {
+            "value": 400000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "400.00",
+              "suffix": "K"
+            },
+            "determined": "2026-06-24"
+          }
+        }
+      },
+      "graph": [
+        {
+          "x": 1766358000000,
+          "y": 400000,
+          "datum_mw": "22/12/2025",
+          "verein": "SL Benfica B"
+        },
+        {
+          "x": 1782252000000,
+          "y": 400000,
+          "datum_mw": "24/06/2026",
+          "verein": "SL Benfica B"
+        }
+      ],
+      "atMatch": {
+        "x": 1782252000000,
+        "y": 400000,
+        "datum_mw": "24/06/2026",
+        "verein": "SL Benfica B"
+      },
+      "top5": {},
+      "senior": [],
+      "currentClub": "CFR Cluj"
+    },
+    {
+      "id": "1475137",
+      "nationality": "Romania",
+      "clubId": "312",
+      "club": "FC Dinamo",
+      "starter": false,
+      "name": "Costin Ungureanu",
+      "url": "https://www.transfermarkt.com/costin-ungureanu/profil/spieler/1475137",
+      "historySource": {
+        "date": "2026-10-26",
+        "method": "browser-verified selected points"
+      },
+      "played": false,
+      "minutes": 0,
+      "profile": {
+        "marketValueDetails": {
+          "current": {},
+          "highest": {}
+        }
+      },
+      "graph": [],
+      "atMatch": null,
+      "top5": {},
+      "senior": [],
+      "currentClub": "FC Dinamo 1948 II"
+    },
+    {
+      "id": "968921",
+      "nationality": "Romania",
+      "clubId": "312",
+      "club": "FC Dinamo",
+      "starter": false,
+      "name": "Alexandru Roșca",
+      "url": "https://www.transfermarkt.com/alexandru-rosca/profil/spieler/968921",
+      "historySource": {
+        "date": "2026-10-26",
+        "method": "browser-verified selected points"
+      },
+      "played": false,
+      "minutes": 0,
+      "profile": {
+        "marketValueDetails": {
+          "current": {
+            "value": 350000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "350.00",
+              "suffix": "K"
+            },
+            "determined": "2026-09-22"
+          },
+          "previous": {
+            "value": 450000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "450.00",
+              "suffix": "K"
+            },
+            "determined": "2026-06-08"
+          },
+          "delta": {
+            "value": "-100.000 €",
+            "percentage": "-22,22 %",
+            "isVisible": false,
+            "type": "DECREASED"
+          },
+          "highest": {
+            "value": 650000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "650.00",
+              "suffix": "K"
+            },
+            "determined": "2025-06-10"
+          }
+        }
+      },
+      "graph": [
+        {
+          "x": 1749506400000,
+          "y": 650000,
+          "datum_mw": "10/06/2025",
+          "verein": "FC Dinamo 1948"
+        }
+      ],
+      "atMatch": {
+        "x": 1790028000000,
+        "y": 350000,
+        "datum_mw": "22/09/2026",
+        "verein": "FC Dinamo 1948"
+      },
+      "top5": {},
+      "senior": [],
+      "currentClub": "FC Dinamo 1948"
+    },
+    {
+      "id": "883055",
+      "nationality": "Romania",
+      "clubId": "312",
+      "club": "FC Dinamo",
+      "starter": false,
+      "name": "Matteo Duțu",
+      "url": "https://www.transfermarkt.com/matteo-dutu/profil/spieler/883055",
+      "historySource": {
+        "date": "2026-10-26",
+        "method": "browser-verified selected points"
+      },
+      "played": true,
+      "minutes": 6,
+      "profile": {
+        "marketValueDetails": {
+          "current": {
+            "value": 300000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "300.00",
+              "suffix": "K"
+            },
+            "determined": "2026-06-08"
+          },
+          "previous": {
+            "value": 250000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "250.00",
+              "suffix": "K"
+            },
+            "determined": "2025-11-12"
+          },
+          "delta": {
+            "value": "+50.000 €",
+            "percentage": "+20,00 %",
+            "isVisible": false,
+            "type": "INCREASED"
+          },
+          "highest": {
+            "value": 300000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "300.00",
+              "suffix": "K"
+            },
+            "determined": "2026-06-08"
+          }
+        }
+      },
+      "graph": [
+        {
+          "x": 1780869600000,
+          "y": 300000,
+          "datum_mw": "08/06/2026",
+          "verein": "FC Dinamo 1948"
+        }
+      ],
+      "atMatch": {
+        "x": 1780869600000,
+        "y": 300000,
+        "datum_mw": "08/06/2026",
+        "verein": "FC Dinamo 1948"
+      },
+      "top5": {},
+      "senior": [],
+      "currentClub": "FC Dinamo 1948"
+    },
+    {
+      "id": "1163786",
+      "nationality": "Romania",
+      "clubId": "312",
+      "club": "FC Dinamo",
+      "starter": false,
+      "name": "Răzvan Radu",
+      "url": "https://www.transfermarkt.com/razvan-radu/profil/spieler/1163786",
+      "historySource": {
+        "date": "2026-10-26",
+        "method": "browser-verified selected points"
+      },
+      "played": false,
+      "minutes": 0,
+      "profile": {
+        "marketValueDetails": {
+          "current": {
+            "value": 175000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "175.00",
+              "suffix": "K"
+            },
+            "determined": "2026-06-09"
+          },
+          "previous": {
+            "value": 150000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "150.00",
+              "suffix": "K"
+            },
+            "determined": "2025-12-09"
+          },
+          "delta": {
+            "value": "+25.000 €",
+            "percentage": "+16,67 %",
+            "isVisible": false,
+            "type": "INCREASED"
+          },
+          "highest": {
+            "value": 200000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "200.00",
+              "suffix": "K"
+            },
+            "determined": "2025-06-16"
+          }
+        }
+      },
+      "graph": [
+        {
+          "x": 1750024800000,
+          "y": 200000,
+          "datum_mw": "16/06/2025",
+          "verein": "AFC Metalul Buzau"
+        }
+      ],
+      "atMatch": {
+        "x": 1780956000000,
+        "y": 175000,
+        "datum_mw": "09/06/2026",
+        "verein": "AFC Metalul Buzau"
+      },
+      "top5": {},
+      "senior": [],
+      "currentClub": "FC Dinamo 1948"
+    },
+    {
+      "id": "1195029",
+      "nationality": "Romania",
+      "clubId": "312",
+      "club": "FC Dinamo",
+      "starter": false,
+      "name": "Ștefan Opriș",
+      "url": "https://www.transfermarkt.com/stefan-opris/profil/spieler/1195029",
+      "historySource": {
+        "date": "2026-10-26",
+        "method": "browser-verified selected points"
+      },
+      "played": false,
+      "minutes": 0,
+      "profile": {
+        "marketValueDetails": {
+          "current": {
+            "value": 200000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "200.00",
+              "suffix": "K"
+            },
+            "determined": "2026-06-09"
+          },
+          "previous": {
+            "value": 175000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "175.00",
+              "suffix": "K"
+            },
+            "determined": "2025-12-09"
+          },
+          "delta": {
+            "value": "+25.000 €",
+            "percentage": "+14,29 %",
+            "isVisible": false,
+            "type": "INCREASED"
+          },
+          "highest": {
+            "value": 200000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "200.00",
+              "suffix": "K"
+            },
+            "determined": "2026-06-09"
+          }
+        }
+      },
+      "graph": [
+        {
+          "x": 1780956000000,
+          "y": 200000,
+          "datum_mw": "09/06/2026",
+          "verein": "ACSM Politehnica Iasi"
+        }
+      ],
+      "atMatch": {
+        "x": 1780956000000,
+        "y": 200000,
+        "datum_mw": "09/06/2026",
+        "verein": "ACSM Politehnica Iasi"
+      },
+      "top5": {},
+      "senior": [],
+      "currentClub": "FC Dinamo 1948"
+    },
+    {
+      "id": "711626",
+      "nationality": "Spain",
+      "clubId": "312",
+      "club": "FC Dinamo",
+      "starter": false,
+      "name": "Darío Benavides",
+      "url": "https://www.transfermarkt.com/dario-benavides/profil/spieler/711626",
+      "historySource": {
+        "date": "2026-10-26",
+        "method": "browser-verified selected points"
+      },
+      "played": false,
+      "minutes": 0,
+      "profile": {
+        "marketValueDetails": {
+          "current": {
+            "value": 400000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "400.00",
+              "suffix": "K"
+            },
+            "determined": "2026-06-04"
+          },
+          "previous": {
+            "value": 400000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "400.00",
+              "suffix": "K"
+            },
+            "determined": "2025-12-10"
+          },
+          "delta": {
+            "value": "0 €",
+            "percentage": "0,00 %",
+            "isVisible": false,
+            "type": "UNCHANGED"
+          },
+          "highest": {
+            "value": 400000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "400.00",
+              "suffix": "K"
+            },
+            "determined": "2026-06-04"
+          }
+        }
+      },
+      "graph": [
+        {
+          "x": 1765321200000,
+          "y": 400000,
+          "datum_mw": "10/12/2025",
+          "verein": "RAAL La Louvière"
+        },
+        {
+          "x": 1780524000000,
+          "y": 400000,
+          "datum_mw": "04/06/2026",
+          "verein": "RAAL La Louvière"
+        }
+      ],
+      "atMatch": {
+        "x": 1780524000000,
+        "y": 400000,
+        "datum_mw": "04/06/2026",
+        "verein": "RAAL La Louvière"
+      },
+      "top5": {
+        "ES1": {
+          "name": "LaLiga",
+          "apps": 1,
+          "minutes": 4
+        }
+      },
+      "senior": [],
+      "currentClub": "FC Dinamo 1948"
+    },
+    {
+      "id": "974722",
+      "nationality": "Romania",
+      "clubId": "312",
+      "club": "FC Dinamo",
+      "starter": false,
+      "name": "Cristian Mihai",
+      "url": "https://www.transfermarkt.com/cristian-mihai/profil/spieler/974722",
+      "historySource": {
+        "date": "2026-10-26",
+        "method": "browser-verified selected points"
+      },
+      "played": false,
+      "minutes": 0,
+      "profile": {
+        "marketValueDetails": {
+          "current": {
+            "value": 650000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "650.00",
+              "suffix": "K"
+            },
+            "determined": "2026-09-22"
+          },
+          "previous": {
+            "value": 800000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "800.00",
+              "suffix": "K"
+            },
+            "determined": "2026-06-08"
+          },
+          "delta": {
+            "value": "-150.000 €",
+            "percentage": "-18,75 %",
+            "isVisible": false,
+            "type": "DECREASED"
+          },
+          "highest": {
+            "value": 900000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "900.00",
+              "suffix": "K"
+            },
+            "determined": "2025-12-19"
+          }
+        }
+      },
+      "graph": [
+        {
+          "x": 1749506400000,
+          "y": 900000,
+          "datum_mw": "10/06/2025",
+          "verein": "UTA Arad"
+        },
+        {
+          "x": 1766098800000,
+          "y": 900000,
+          "datum_mw": "19/12/2025",
+          "verein": "FC Dinamo 1948"
+        }
+      ],
+      "atMatch": {
+        "x": 1790028000000,
+        "y": 650000,
+        "datum_mw": "22/09/2026",
+        "verein": "FC Dinamo 1948"
+      },
+      "top5": {},
+      "senior": [],
+      "currentClub": "FC Dinamo 1948"
+    },
+    {
+      "id": "462252",
+      "nationality": "Portugal",
+      "clubId": "312",
+      "club": "FC Dinamo",
+      "starter": false,
+      "name": "Diogo Pinto",
+      "url": "https://www.transfermarkt.com/diogo-pinto/profil/spieler/462252",
+      "historySource": {
+        "date": "2026-10-26",
+        "method": "browser-verified selected points"
+      },
+      "played": true,
+      "minutes": 28,
+      "profile": {
+        "marketValueDetails": {
+          "current": {
+            "value": 300000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "300.00",
+              "suffix": "K"
+            },
+            "determined": "2026-05-26"
+          },
+          "previous": {
+            "value": 300000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "300.00",
+              "suffix": "K"
+            },
+            "determined": "2025-12-10"
+          },
+          "delta": {
+            "value": "0 €",
+            "percentage": "0,00 %",
+            "isVisible": false,
+            "type": "UNCHANGED"
+          },
+          "highest": {
+            "value": 500000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "500.00",
+              "suffix": "K"
+            },
+            "determined": "2022-06-27"
+          }
+        }
+      },
+      "graph": [
+        {
+          "x": 1656280800000,
+          "y": 500000,
+          "datum_mw": "27/06/2022",
+          "verein": "CF Estrela Amadora"
+        }
+      ],
+      "atMatch": {
+        "x": 1779746400000,
+        "y": 300000,
+        "datum_mw": "26/05/2026",
+        "verein": "NK Olimpija Ljubljana"
+      },
+      "top5": {},
+      "senior": [],
+      "currentClub": "FC Dinamo 1948"
+    },
+    {
+      "id": "723835",
+      "nationality": "Romania",
+      "clubId": "312",
+      "club": "FC Dinamo",
+      "starter": false,
+      "name": "Adrian Mazilu",
+      "url": "https://www.transfermarkt.com/adrian-mazilu/profil/spieler/723835",
+      "historySource": {
+        "date": "2026-10-26",
+        "method": "browser-verified selected points"
+      },
+      "played": true,
+      "minutes": 17,
+      "profile": {
+        "marketValueDetails": {
+          "current": {
+            "value": 650000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "650.00",
+              "suffix": "K"
+            },
+            "determined": "2026-06-08"
+          },
+          "previous": {
+            "value": 800000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "800.00",
+              "suffix": "K"
+            },
+            "determined": "2025-12-19"
+          },
+          "delta": {
+            "value": "-150.000 €",
+            "percentage": "-18,75 %",
+            "isVisible": false,
+            "type": "DECREASED"
+          },
+          "highest": {
+            "value": 2500000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "2.50",
+              "suffix": "M"
+            },
+            "determined": "2024-05-31"
+          }
+        }
+      },
+      "graph": [
+        {
+          "x": 1703199600000,
+          "y": 2500000,
+          "datum_mw": "22/12/2023",
+          "verein": "FCV Farul Constanta"
+        }
+      ],
+      "atMatch": {
+        "x": 1780869600000,
+        "y": 650000,
+        "datum_mw": "08/06/2026",
+        "verein": "FC Dinamo 1948"
+      },
+      "top5": {},
+      "senior": [],
+      "currentClub": "FC Dinamo 1948"
+    },
+    {
+      "id": "938160",
+      "nationality": "Romania",
+      "clubId": "312",
+      "club": "FC Dinamo",
+      "starter": false,
+      "name": "Ianis Tarbă",
+      "url": "https://www.transfermarkt.com/ianis-tarba/profil/spieler/938160",
+      "historySource": {
+        "date": "2026-10-26",
+        "method": "browser-verified selected points"
+      },
+      "played": true,
+      "minutes": 17,
+      "profile": {
+        "marketValueDetails": {
+          "current": {
+            "value": 150000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "150.00",
+              "suffix": "K"
+            },
+            "determined": "2026-06-08"
+          },
+          "previous": {
+            "value": 50000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "50.00",
+              "suffix": "K"
+            },
+            "determined": "2025-12-30"
+          },
+          "delta": {
+            "value": "+100.000 €",
+            "percentage": "+200,00 %",
+            "isVisible": false,
+            "type": "INCREASED"
+          },
+          "highest": {
+            "value": 150000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "150.00",
+              "suffix": "K"
+            },
+            "determined": "2026-06-08"
+          }
+        }
+      },
+      "graph": [
+        {
+          "x": 1780869600000,
+          "y": 150000,
+          "datum_mw": "08/06/2026",
+          "verein": "FC Dinamo 1948"
+        }
+      ],
+      "atMatch": {
+        "x": 1780869600000,
+        "y": 150000,
+        "datum_mw": "08/06/2026",
+        "verein": "FC Dinamo 1948"
+      },
+      "top5": {},
+      "senior": [],
+      "currentClub": "FC Dinamo 1948"
+    },
+    {
+      "id": "501062",
+      "nationality": "Eritrea",
+      "clubId": "312",
+      "club": "FC Dinamo",
+      "starter": false,
+      "name": "Oliver Hintsa",
+      "url": "https://www.transfermarkt.com/oliver-hintsa/profil/spieler/501062",
+      "historySource": {
+        "date": "2026-10-26",
+        "method": "browser-verified selected points"
+      },
+      "played": true,
+      "minutes": 17,
+      "profile": {
+        "marketValueDetails": {
+          "current": {
+            "value": 450000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "450.00",
+              "suffix": "K"
+            },
+            "determined": "2026-05-29"
+          },
+          "previous": {
+            "value": 400000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "400.00",
+              "suffix": "K"
+            },
+            "determined": "2025-12-15"
+          },
+          "delta": {
+            "value": "+50.000 €",
+            "percentage": "+12,50 %",
+            "isVisible": false,
+            "type": "INCREASED"
+          },
+          "highest": {
+            "value": 450000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "450.00",
+              "suffix": "K"
+            },
+            "determined": "2026-05-29"
+          }
+        }
+      },
+      "graph": [
+        {
+          "x": 1780005600000,
+          "y": 450000,
+          "datum_mw": "29/05/2026",
+          "verein": "Sogndal IL"
+        }
+      ],
+      "atMatch": {
+        "x": 1780005600000,
+        "y": 450000,
+        "datum_mw": "29/05/2026",
+        "verein": "Sogndal IL"
+      },
+      "top5": {},
+      "senior": [
+        {
+          "playerId": "501062",
+          "clubId": "13953",
+          "gamesPlayed": 2,
+          "goalsScored": 0,
+          "shirtNumber": null,
+          "isCaptain": false,
+          "debut": "2026-03-25",
+          "debutCoachId": "154802",
+          "debutGameId": "4841190",
+          "lastGame": "2026-03-31",
+          "lastGameId": "4841196",
+          "careerState": "RECENT_NATIONAL_PLAYER",
+          "name": "Eritrea"
+        }
+      ],
+      "currentClub": "FC Dinamo 1948"
+    }
+  ],
+  "currentTeamValues": {
+    "312": 20825000,
+    "7769": 13850000
+  }
+}

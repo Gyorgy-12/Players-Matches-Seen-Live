@@ -363,11 +363,11 @@
       <div class="brand">
         <div class="eyebrow">Groundhopping hub</div>
         <h1>TM Groundhopping Központ</h1>
-        <p>A nyolc statikus HTML egyetlen, közös kezelőfelületen.</p>
+        <p>A hét statikus HTML egyetlen, közös kezelőfelületen.</p>
       </div>
       <div class="summary">
-        <div class="summary-card"><span>Oldalak</span><strong>8</strong></div>
-        <div class="summary-card"><span>Táblázatsor</span><strong>7 625</strong></div>
+        <div class="summary-card"><span>Oldalak</span><strong>7</strong></div>
+        <div class="summary-card"><span>Táblázatsor</span><strong>4 694</strong></div>
       </div>
       <div class="nav-label">Tartalom</div>
       <nav class="page-nav" id="pageNav"></nav>
@@ -399,13 +399,12 @@
   <script>
     (() => {
       const pages = [
-        { id:'matches', icon:'M', title:'Összes látott mérkőzés', description:'94 mérkőzés összehasonlító táblázata', meta:'94 mérkőzés', file:'All Seen Matches.html' },
-        { id:'top5', icon:'T5', title:'Top-5 látott játékosok', description:'Top-5 ligákban szereplő látott játékosok', meta:'423 sor', file:'TOP 5 players Seen Live.html' },
-        { id:'capped', icon:'V', title:'Válogatott játékosok', description:'Élőben látott, válogatott játékosok', meta:'1 191 sor', file:'Capped Players Seen Live.html' },
-        { id:'tournaments', icon:'EB', title:'EB/VB kerettagok', description:'Látott Európa- és világbajnoki kerettagok', meta:'284 sor', file:'Euro-WC Players Seen Live.html' },
-        { id:'romanian', icon:'RO', title:'Román klubok játékosai', description:'Román klubokban és válogatottként látott játékosok', meta:'2 551 sor', file:'Romanian Club-National Players Seen Live.html' },
-        { id:'allplayers', icon:'ÖJ', title:'Minden látott játékos', description:'Az összes csapat pályára lépett játékosai', meta:'2 885 sor', file:'All Players Seen Live.html' },
-        { id:'playerstats', icon:'J', title:'Játékosstatisztikák', description:'Gólok, gólpasszok, lapok és látott pályára lépések', meta:'147 játékos', file:'Player Statistics.html' },
+        { id:'matches', icon:'M', title:'Összes látott mérkőzés', description:'93 mérkőzés összehasonlító táblázata', meta:'93 mérkőzés', file:'All Seen Matches.html' },
+        { id:'top5', icon:'T5', title:'Top-5 látott játékosok', description:'Top-5 ligákban szereplő látott játékosok', meta:'420 sor', file:'TOP 5 players Seen Live.html' },
+        { id:'capped', icon:'V', title:'Válogatott játékosok', description:'Élőben látott, válogatott játékosok', meta:'1 183 sor', file:'Capped Players Seen Live.html' },
+        { id:'tournaments', icon:'EB', title:'EB/VB kerettagok', description:'Látott Európa- és világbajnoki kerettagok', meta:'283 sor', file:'Euro-WC Players Seen Live.html' },
+        { id:'romanian', icon:'RO', title:'Román klubok játékosai', description:'Román klubokban és válogatottként látott játékosok', meta:'2 520 sor', file:'Romanian Club-National Players Seen Live.html' },
+        { id:'playerstats', icon:'J', title:'Játékosstatisztikák', description:'Gólok, gólpasszok, lapok és látott pályára lépések', meta:'145 játékos', file:'Player Statistics.html' },
         { id:'teamstats', icon:'CS', title:'Csapatstatisztikák', description:'Lőtt és kapott gólok, lapok és büntetők', meta:'50 csapat', file:'Team Statistics.html' }
       ];
 
@@ -421,7 +420,7 @@
       const menuButton = document.getElementById('menuButton');
       const overlay = document.getElementById('overlay');
       const frames = new Map();
-      const heavyPageIds = new Set(['capped', 'romanian', 'allplayers', 'playerstats', 'teamstats']);
+      const heavyPageIds = new Set(['capped', 'romanian', 'playerstats', 'teamstats']);
       let activeId = '';
 
       const safeStore = (value) => {

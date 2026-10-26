@@ -5,6 +5,7 @@ import { normalizeFilterOptionOrder } from './normalize-filter-options.mjs';
 import { config } from './match-config.mjs';
 import { unifyTeamNames, sortRowsByPeak, rebuildRomanianSearch, updateAppsSummary } from './refresh-current-data.mjs';
 import { reconcileMetadata } from './reconcile-static-metadata.mjs';
+import { writeGenerated } from './write-generated.mjs';
 
 const root = path.resolve(import.meta.dirname, '..');
 const match = { ...config, ...JSON.parse(fs.readFileSync(path.join(import.meta.dirname, `match-${config.gameId}.json`), 'utf8')) };
@@ -67,9 +68,9 @@ for (const p of match.roster.filter(p => p.played)) {
     additions.get(files[3]).push(row);
   }
 }
-// Checked against the six userscript tournament rosters: Chipciu (EURO 2016)
-// and Lukic (WC 2026); no newly eligible participant in either Cluj fixture.
-assert.equal(additions.get(files[3]).length, 2);
+// Preserve each player's distinct, already verified tournament memberships.
+// The number is match-specific (e.g. zero for CFR–Dinamo), not always two.
+assert.equal(new Set(additions.get(files[3]).map(row => `${attr(row, 'data-player-id')}|${attr(row, 'data-tournament')}`)).size, additions.get(files[3]).length);
 for (const [file, added] of additions) {
   let html = htmls.get(file);
   // Idempotent re-import: replace only this match, never other appearances.
@@ -92,8 +93,8 @@ const attrs = { 'data-attendance': match.attendance || 0, 'data-attendance-known
 const matchRow = `<tr ${Object.entries(attrs).map(([k, v]) => `${k}="${esc(v)}"`).join(' ')}>
 ${cell('Mérkőzés / eredmény', matchInner.replace(`>${title}</a>`, `><strong>${title}</strong></a>`))}
 ${cell('Nézőszám', match.attendance ? `<strong class="value">${esc(match.attendance)}</strong>` : '')}${cell('Meccsnapi összérték', value(total))}
-${cell('Hazai akkori MV', value(match.historical[match.home.id]))}${cell('Hazai jelenlegi MV', match.currentTeamValues ? value(match.currentTeamValues[match.home.id]) : '')}
-${cell('Vendég akkori MV', value(match.historical[match.away.id]))}${cell('Vendég jelenlegi MV', match.currentTeamValues ? value(match.currentTeamValues[match.away.id]) : '')}
+${cell('Hazai akkori MV', value(match.historical[match.home.id]))}${cell('Hazai jelenlegi MV', match.currentTeamValues?.[match.home.id] > 0 ? value(match.currentTeamValues[match.home.id]) : '')}
+${cell('Vendég akkori MV', value(match.historical[match.away.id]))}${cell('Vendég jelenlegi MV', match.currentTeamValues?.[match.away.id] > 0 ? value(match.currentTeamValues[match.away.id]) : '')}
 ${cell('Verseny', strong(match.competition))}${cell('Szezon', strong(match.season))}${cell('Forduló / fázis / meccsnap', strong(match.round))}
 ${cell('Stadion / város / ország', `${strong(match.stadium)}<span>Cluj-Napoca · Romania</span>`)}</tr>`;
 let all = htmls.get(files[0]).replace(/<tr\b[^>]*data-home-club-id="\d+"[^>]*>[\s\S]*?<\/tr>/g, row => row.includes(`spielbericht/${match.gameId}`) ? '' : row);
@@ -104,7 +105,7 @@ for (const [file, original] of htmls) {
   if (file !== files[0]) html = sortRowsByPeak(html);
   if ([files[1], files[2]].includes(file)) html = updateAppsSummary(html);
   if (file === files[4]) html = html.replace(/<tr\b[^>]*data-player-id="\d+"[^>]*>[\s\S]*?<\/tr>/g, rebuildRomanianSearch);
-  fs.writeFileSync(path.join(root, file), normalizeFilterOptionOrder(html));
+  writeGenerated(path.join(root, file), normalizeFilterOptionOrder(html));
 }
 reconcileMetadata();
 console.log('Meccs importálva:', match.gameId, 'Keretösszeg:', total, 'Új meccssorok:', Object.fromEntries([...additions].map(([f, r]) => [f, r.length])));

@@ -2,12 +2,15 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { createHash } from 'node:crypto';
 
-export const AS_OF = process.env.TMGH_AS_OF || '2026-10-20';
+export const AS_OF = process.env.TMGH_AS_OF || '2026-10-26';
 export const cacheDir = path.join(import.meta.dirname, '.cache', AS_OF);
 export async function source(url, json = true, attempts = 4, { refresh = false } = {}) {
   fs.mkdirSync(cacheDir, { recursive: true });
   const file = path.join(cacheDir, createHash('sha256').update(url).digest('hex') + (json ? '.json' : '.html'));
-  if (!refresh && fs.existsSync(file)) {
+  // A full refresh may span several generators. Reuse a response only if it
+  // was fetched during this run, not merely on the same calendar day.
+  const refreshSince = Date.parse(process.env.TMGH_REFRESH_SINCE || '');
+  if (!refresh && fs.existsSync(file) && (!Number.isFinite(refreshSince) || fs.statSync(file).mtimeMs >= refreshSince)) {
     const text = fs.readFileSync(file, 'utf8');
     return json ? JSON.parse(text) : text;
   }

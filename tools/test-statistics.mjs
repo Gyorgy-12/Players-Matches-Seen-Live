@@ -5,7 +5,9 @@ import { normalizeFilterOptionOrder } from './normalize-filter-options.mjs';
 const data = JSON.parse(fs.readFileSync(new URL('./seen-statistics.json', import.meta.url), 'utf8'));
 const { aggregate } = globalThis.TMGHStatistics;
 const players = aggregate(data, 'players', { sort: 'apps' }), teams = aggregate(data, 'teams');
-assert.equal(players.length, 1136);
+assert.equal(players.length, 1141);
+assert.equal(data.matches.length, 95);
+assert.equal(data.appearances.length, 2916);
 assert.equal(teams.length, 50);
 assert.equal(players.reduce((n, r) => n + r.apps, 0), data.appearances.length);
 assert.equal(teams.reduce((n, r) => n + r.apps, 0), 2 * data.matches.length);
@@ -64,6 +66,25 @@ for (const key of ['goals', 'apps', 'assists', 'yellow', 'red', 'penaltyGoals', 
   assert.ok(rows.every((r, i) => !i || (direction === 'desc' ? rows[i - 1][key] >= r[key] : rows[i - 1][key] <= r[key])));
 }
 const game = { match: '4914525', sort: 'apps' };
+const dinamoGame = { match: '4914732', sort: 'apps' };
+const dinamoPlayers = aggregate(data, 'players', dinamoGame);
+assert.equal(dinamoPlayers.length, 31);
+assert.equal(dinamoPlayers.reduce((n, r) => n + r.goals, 0), 4);
+assert.equal(dinamoPlayers.reduce((n, r) => n + r.assists, 0), 4);
+for (const id of ['435712', '716054', '575219', '942790']) assert.equal(dinamoPlayers.find(r => r.id === id).goals, 1);
+for (const id of ['82657', '531599', '501062', '938160']) assert.equal(dinamoPlayers.find(r => r.id === id).assists, 1);
+assert.equal(aggregate(data, 'players', { ...dinamoGame, sort: 'goals' }).length, 4);
+assert.equal(aggregate(data, 'players', { ...dinamoGame, sort: 'red' }).length, 0);
+assert.equal(aggregate(data, 'players', { ...dinamoGame, sort: 'penaltyGoals' }).length, 0);
+for (const id of ['7769', '312']) {
+  const t = aggregate(data, 'teams', { ...dinamoGame, team: id })[0];
+  assert.deepEqual([t.goals, t.goalsAgainst, t.draws, t.yellow, t.red], [2, 2, 1, 4, 0]);
+  assert.ok(teamPenaltyColumns.every(k => t[k] === 0));
+}
+assert.equal(aggregate(data, 'players', { ...dinamoGame, team: '7769' }).length, 15);
+assert.equal(aggregate(data, 'players', { ...dinamoGame, team: '312' }).length, 16);
+assert.ok(data.coverage.find(c => c.match === dinamoGame.match).complete);
+assert.ok(!dinamoPlayers.some(p => p.id === '1475137'), 'Fel nem használt cserekapus nem látott játékos');
 const argesGame = { match: '4914606', sort: 'apps' };
 const argesPlayers = aggregate(data, 'players', argesGame);
 assert.equal(argesPlayers.length, 31);

@@ -7,6 +7,7 @@ import { pathToFileURL } from 'node:url';
 const { chromium } = await import(process.env.TMGH_PLAYWRIGHT ? pathToFileURL(process.env.TMGH_PLAYWRIGHT).href : 'playwright');
 const root = path.resolve(import.meta.dirname, '..');
 const seenData = JSON.parse(fs.readFileSync(path.join(root, 'tools', 'seen-statistics.json'), 'utf8'));
+const hubOnly = process.argv.includes('--hub-only');
 const qa = path.join(root, 'tools', '.cache', 'qa');
 fs.mkdirSync(qa, { recursive: true });
 // Check every row, including rows hidden by pagination: legacy wrappers and
@@ -49,15 +50,15 @@ try {
   browser = await chromium.launch({ headless: true, ...(process.env.TMGH_BROWSER_CHANNEL ? { channel: process.env.TMGH_BROWSER_CHANNEL } : {}) });
   const base = `http://127.0.0.1:${server.address().port}/`;
   const cases = [
-    ['All Seen Matches.html', '#teamSearch', 'U Cluj', '#season', 94],
-    ['TOP 5 players Seen Live.html', '#filter-player', 'Poulolo', '#filter-season', 423],
-    ['Capped Players Seen Live.html', '#filter-player', 'Poulolo', '#filter-season', 1191],
-    ['Euro-WC Players Seen Live.html', '#player-search', 'Jovo', '#season-filter', 284],
-    ['Romanian Club-National Players Seen Live.html', '#q', 'Oucasse', '#season', 2551],
-    ['All Players Seen Live.html', '#q', 'Oucasse', '#season', 2885],
+    ['All Seen Matches.html', '#teamSearch', 'CFR', '#season', 95, '4914732'],
+    ['TOP 5 players Seen Live.html', '#filter-player', 'Bellaarouch', '#filter-season', 427, '4914732'],
+    ['Capped Players Seen Live.html', '#filter-player', 'Hintsa', '#filter-season', 1201, '4914732'],
+    ['Euro-WC Players Seen Live.html', '#player-search', 'Jovo', '#season-filter', 284, '4914606'],
+    ['Romanian Club-National Players Seen Live.html', '#q', 'Cordea', '#season', 2582, '4914732'],
+    ['All Players Seen Live.html', '#q', 'Cordea', '#season', 2916, '4914732'],
   ];
-  for (const width of [1440, 820, 390]) {
-    for (const [file, input, search, season, expectedRows] of cases) {
+  for (const width of hubOnly ? [] : [1440, 820, 390]) {
+    for (const [file, input, search, season, expectedRows, expectedGame] of cases) {
       const page = await browser.newPage({ viewport: { width, height: 900 } });
       const errors = [];
       page.on('pageerror', e => errors.push(e.message));
@@ -76,19 +77,23 @@ try {
       }
       await page.locator(input).fill(search);
       await page.locator(season).selectOption('2026/27');
-      await page.waitForFunction(() => [...document.querySelectorAll('tbody tr')].some(r => r.getBoundingClientRect().height && r.querySelector('a[href*="spielbericht/4914606"]')));
+      await page.waitForFunction(game => [...document.querySelectorAll('tbody tr')].some(r => r.getBoundingClientRect().height && r.querySelector(`a[href*="spielbericht/${game}"]`)), expectedGame);
       const visible = await page.locator('tbody tr:visible').count();
       assert.ok(visible > 0 && (!paginated || visible <= 50));
-      const newRow = page.locator('tbody tr:visible').filter({ has: page.locator('a[href*="spielbericht/4914606"]') });
+      const newRow = page.locator('tbody tr:visible').filter({ has: page.locator(`a[href*="spielbericht/${expectedGame}"]`) });
       assert.ok(await newRow.count() > 0, `Új meccs kereshető: ${file}`);
       await assertTableDesign(page, `${width}/${file}/szűrve`);
+      if (file === 'All Seen Matches.html' && (width === 1440 || width === 390)) {
+        await newRow.first().scrollIntoViewIfNeeded();
+        await page.screenshot({ path: path.join(qa, `cfr-dinamo-${width}.png`) });
+      }
       assert.deepEqual(errors, [], `${file}: böngészőhiba`);
       assert.ok(await page.locator('.tmgh-filter-jump').count() > 0);
       if (file === 'All Players Seen Live.html') {
         // This is the Romanian-style appearance table, not a player ranking:
         // repeated players, non-Top-5 opponents and zero-event players remain.
         assert.ok(visible > 1);
-        assert.equal(await page.locator('tbody tr:visible[data-player-id="859536"]').count(), visible);
+        assert.equal(await page.locator('tbody tr:visible[data-player-id="435712"]').count(), visible);
         await page.locator('#reset').click();
         await page.locator('#club').selectOption('SK Brann');
         const brann = seenData.appearances.filter(a => seenData.teams[a.team] === 'SK Brann');
@@ -124,14 +129,14 @@ try {
     }));
   };
   const referenceStyles = new Map();
-  for (const width of [1440, 820, 720, 390, 320]) {
+  for (const width of hubOnly ? [] : [1440, 820, 720, 390, 320]) {
     const reference = await browser.newPage({ viewport: { width, height: 900 } });
     await reference.route('**/*', route => route.request().url().startsWith(base) ? route.continue() : route.abort());
     await reference.goto(base + encodeURIComponent('Capped Players Seen Live.html'));
     referenceStyles.set(width, await reference.evaluate(uiSnapshot));
     await reference.close();
   }
-  for (const width of [1440, 820, 720, 390, 320]) for (const [file, mode] of [['Player Statistics.html', 'players'], ['Team Statistics.html', 'teams']]) {
+  for (const width of hubOnly ? [] : [1440, 820, 720, 390, 320]) for (const [file, mode] of [['Player Statistics.html', 'players'], ['Team Statistics.html', 'teams']]) {
     const page = await browser.newPage({ viewport: { width, height: 900 } });
     const errors = [];
     page.on('pageerror', e => errors.push(e.message));
@@ -204,6 +209,12 @@ try {
       await page.locator('#sort').selectOption('red');
       assert.equal(await page.locator('#statistics-rows tr').count(), 0);
     }
+    await page.locator('#reset').click();
+    await page.locator('#match').selectOption('4914732');
+    await page.locator('#sort').selectOption('apps');
+    assert.equal(await page.locator('#statistics-rows tr').count(), mode === 'players' ? 31 : 2);
+    assert.equal((await page.locator('[data-metric="goals"]').allTextContents()).reduce((n, t) => n + Number(t), 0), 4);
+    assert.equal((await page.locator('[data-metric="yellow"]').allTextContents()).reduce((n, t) => n + Number(t), 0), 8);
     await page.locator('#reset').click();
     await page.locator('#query').fill(mode === 'players' ? 'siafa' : 'U Cluj');
     await page.locator('#sort').selectOption('apps');

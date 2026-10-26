@@ -13,16 +13,16 @@ const cell = (r, k) => r.match(new RegExp(`<td[^>]*data-label="${k}"[^>]*>([\\s\
 const game = r => r.match(/spielbericht\/(\d+)/)?.[1] || '';
 const key = r => [attr(r, 'data-player-id'), attr(r, 'data-tournament'), game(r)].join('|');
 const text = s => s.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
-const match = JSON.parse(read('tools/match-4914606.json'));
+const match = JSON.parse(read('tools/match-4914732.json'));
 const report = JSON.parse(read('tools/refresh-current-data-report.json'));
-assert.equal(report.asOf, '2026-10-20');
+assert.equal(report.asOf, '2026-10-26');
 assert.ok(['live', 'same-day-cache'].includes(report.sourceMode));
-assert.equal(report.counts.players, 1136);
-assert.equal(report.counts.performance, 1136);
-assert.equal(report.counts.national, 1136);
+assert.equal(report.counts.players, 1141);
+assert.equal(report.counts.performance, 1141);
+assert.equal(report.counts.national, 1141);
 assert.equal(report.counts.matchClubs, 50);
 for (const [name, value] of Object.entries(report.failures)) assert.equal(Array.isArray(value) ? value.length : value, 0, name);
-const expectedAdds = [1, 3, 9, 2, 31];
+const expectedAdds = [1, 4, 10, 0, 31];
 const players = new Map();
 const changes = { currentValues: new Set(), currentClubs: new Set(), peaks: new Set(), nationalStats: new Set(), top5Stats: new Set() };
 for (const [i, file] of files.entries()) {
@@ -60,9 +60,9 @@ for (const [i, file] of files.entries()) {
     }
     if (game(row) === match.gameId) {
       assert.match(cell(row, i ? 'Látott meccs / eredmény' : 'Mérkőzés / eredmény'), /2:2/);
-      assert.match(row, /2026-10-19/);
+      assert.match(row, /2026-10-25/);
       assert.equal(attr(row, 'data-season'), '2026/27');
-      assert.match(row, /Matchday 12/);
+      assert.match(row, /Matchday 13/);
       if (id) assert.ok(match.roster.some(p => p.id === id && p.played), `Nem pályára lépett játékos: ${id}`);
     }
   }
@@ -76,10 +76,13 @@ for (const [i, file] of files.entries()) {
       byPlayerDates.set(id, date);
     }
   } else {
-    assert.equal(currentRows.length, 94);
+    assert.equal(currentRows.length, 95);
     assert.equal(game(currentRows[0]), match.gameId);
-    assert.equal(attr(currentRows[0], 'data-sheet-total'), '23400000');
-    assert.equal(match.attendance, 4336);
+    assert.equal(attr(currentRows[0], 'data-sheet-total'), '28150000');
+    assert.equal(match.attendance, 10112);
+    assert.equal(match.cutoff, '2026-10-15');
+    assert.deepEqual(match.historical, { '7769': 13850000, '312': 20830000 });
+    assert.match(match.sources.attendanceUrl, /^https:\/\/www\.superliga\.ro\//);
     assert.equal(attr(currentRows[0], 'data-attendance-known'), match.attendance ? '1' : '0');
     assert.equal(Number(attr(currentRows[0], 'data-attendance')), match.attendance || 0);
     if (match.attendance) assert.equal(Number(text(cell(currentRows[0], 'Nézőszám')).replace(/\D/g, '')), match.attendance);
@@ -91,12 +94,14 @@ for (const [i, file] of files.entries()) {
   for (const [j, script] of [...html.matchAll(/<script\b[^>]*>([\s\S]*?)<\/script>/g)].entries()) new vm.Script(script[1], { filename: `${file}:script${j}` });
   console.log(`OK: ${file}: ${currentRows.length} sor`);
 }
-assert.equal(players.size, 1016);
+assert.equal(players.size, 1021);
 const allHtml = read('All Players Seen Live.html');
 const allRows = rows(allHtml);
 const stats = JSON.parse(read('tools/seen-statistics.json'));
-assert.equal(allRows.length, 2885);
-assert.equal(new Set(allRows.map(r => attr(r, 'data-player-id'))).size, 1136);
+assert.equal(allRows.length, 2916);
+assert.equal(new Set(allRows.map(r => attr(r, 'data-player-id'))).size, 1141);
+assert.equal(allRows.filter(r => game(r) === match.gameId).length, 31);
+assert.deepEqual(new Set(allRows.filter(r => game(r) === match.gameId).map(r => attr(r, 'data-player-id'))), new Set(match.roster.filter(p => p.played).map(p => p.id)));
 assert.deepEqual(new Set(allRows.map(r => `${attr(r, 'data-player-id')}|${game(r)}`)), new Set(stats.appearances.map(a => `${a.player}|${a.match}`)));
 assert.ok(allRows.some(r => attr(r, 'data-club') === 'SK Brann'));
 assert.ok(allRows.some(r => attr(r, 'data-club') === 'Tromsø IL'));
@@ -120,7 +125,10 @@ assert.deepEqual([...read('index.html').matchAll(/\{ id:'([^']+)'/g)].map(m => m
 assert.ok(!read('Capped Players Seen Live.html').match(/<span class="badge">(?:Portugal B|Romania B|.* U\d\d) ·/));
 const totalRows = files.reduce((n, f) => n + rows(read(f)).length, allRows.length) + ['Player Statistics.html', 'Team Statistics.html'].reduce((n, f) => n + Number(read(f).match(/data-stat-count="(\d+)"/)[1]), 0);
 assert.ok(read('index.html').includes(totalRows.toLocaleString('hu-HU', { useGrouping: 'always' })));
-assert.equal(Object.values(match.totals).reduce((n, t) => n + t.count, 0), 41);
+assert.equal(Object.values(match.totals).reduce((n, t) => n + t.count, 0), 45);
 assert.equal(Object.values(match.totals).reduce((n, t) => n + t.played, 0), 31);
+assert.deepEqual(match.totals['312'].unvaluedIds, ['1475137']);
+assert.equal(match.roster.reduce((n, p) => n + (p.atMatch?.y || 0), 0), 28150000, 'Mindkét kezdő és teljes cserepad értéke');
+assert.ok(match.roster.every(p => !p.atMatch || p.atMatch.x <= Date.parse(`${match.date}T23:59:59Z`)), 'Jövőbeli értékelés nem számíthat a meccsnapi összegbe');
 console.log('Frissült régi játékosadatok:', Object.fromEntries(Object.entries(changes).map(([k, v]) => [k, v.size])));
 console.log('Minden adatintegritási ellenőrzés sikeres.');

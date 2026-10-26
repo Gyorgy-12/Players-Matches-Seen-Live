@@ -4,6 +4,7 @@ import assert from 'node:assert/strict';
 import { AS_OF, source } from './source-cache.mjs';
 import { config } from './match-config.mjs';
 import { archivedSource } from './archived-source.mjs';
+import { seniorEntries } from './refresh-current-data.mjs';
 
 export const GAME = config.gameId;
 export const DATE = config.date;
@@ -28,13 +29,15 @@ const lineupUrl = `https://www.transfermarkt.com/-/aufstellung/spielbericht/${GA
 const snapshotFile = path.join(import.meta.dirname, 'sources', `match-${GAME}.json`);
 const snapshot = fs.existsSync(snapshotFile) ? JSON.parse(fs.readFileSync(snapshotFile, 'utf8')) : null;
 const sheetUrl = snapshot?.sheetUrl || (GAME === '4914525' ? 'https://www.transfermarkt.com/universitatea-cluj_rapid-bukarest/index/spielbericht/4914525' : `https://www.transfermarkt.com/spielbericht/index/spielbericht/${GAME}`);
-const cutoffUrl = 'https://www.transfermarkt.com/x/marktwerteverein/wettbewerb/RO1/stichtag/2026-10-01/plus/1';
+const cutoffDate = config.cutoff || '2026-10-01';
+const cutoffLabel = cutoffDate.split('-').reverse().join('/');
+const cutoffUrl = `https://www.transfermarkt.com/x/marktwerteverein/wettbewerb/RO1/stichtag/${cutoffDate}/plus/1`;
 const [lineup, sheet, cutoff] = snapshot ? ['', '', ''] : await Promise.all([source(lineupUrl, false), source(sheetUrl, false, 4, { refresh: true }), source(cutoffUrl, false)]);
 if (snapshot) {
   assert.equal(snapshot.gameId, GAME);
   assert.equal(snapshot.date, DATE);
   assert.equal(snapshot.score, config.score);
-  assert.equal(snapshot.cutoff, '2026-10-01');
+  assert.equal(snapshot.cutoff, cutoffDate);
 } else {
   assert.ok(strip(sheet).includes(DATE.split('-').reverse().join('/')));
   assert.ok(strip(sheet).includes(config.score));
@@ -133,16 +136,16 @@ for (let i = 0; i < clubIds.length; i += 40) {
   for (const c of data) clubs.set(String(c.id), c);
 }
 for (const p of roster) {
-  p.senior = p.nationalHistory.filter(n => Number(n.gamesPlayed) > 0 && !/\b(?:u\s?1[56789]|u\s?2[013]|under[- ]?(?:17|18|19|20|21|23)|olympic|b team|ii|a2)\b/i.test(clubs.get(String(n.clubId))?.name || '')).map(n => ({ ...n, name: clubs.get(String(n.clubId))?.name }));
+  p.senior = seniorEntries(p.nationalHistory, clubs).map(n => ({ ...n, name: clubs.get(String(n.clubId)).name }));
   p.currentClub = clubs.get(String(p.profile.clubAssignments.find(a => a.type === 'current')?.clubId))?.name || 'Free agent';
 }
 const historical = { ...snapshot?.historical };
 for (const table of elements(cutoff, 'table')) {
-  if (!/Value.*01\/10\/2026/s.test(strip(table))) continue;
+  if (!strip(table).includes(`Value ${cutoffLabel}`)) continue;
   const head = table.match(/<thead\b[^>]*>([\s\S]*?)<\/thead>/)?.[1] || '';
   const heads = elements(head, 'th').map(strip);
-  const idx = heads.findIndex(h => h === 'Value 01/10/2026');
-  assert.ok(idx >= 0, 'Nem az október 1-jei értékoszlopot találtuk');
+  const idx = heads.findIndex(h => h === `Value ${cutoffLabel}`);
+  assert.ok(idx >= 0, `Hiányzó értékoszlop: ${cutoffLabel}`);
   const body = table.match(/<tbody\b[^>]*>([\s\S]*?)<\/tbody>/)?.[1] || '';
   for (const row of elements(body, 'tr')) {
     const clubId = row.match(/\/verein\/(\d+)/)?.[1];
@@ -164,7 +167,7 @@ for (const p of roster) {
 const attendanceText = strip(sheet).match(/\bAttendance:\s*([\d][\d.,\s\u00a0]*)/i)?.[1];
 const attendance = snapshot?.attendance ?? (attendanceText ? Number(attendanceText.replace(/\D/g, '')) : null);
 if (attendance !== null) assert.ok(Number.isSafeInteger(attendance) && attendance > 0, 'Érvénytelen nézőszám');
-const report = { asOf: AS_OF, ...config, season: '2026/27', competition: 'Romanian SuperLiga', cutoff: '2026-10-01', historical, totals, attendance, attendanceNote: attendance !== null ? 'Transfermarkt match sheet: Attendance.' : 'Attendance is not present in the freshly retrieved Transfermarkt match sheet.', sources: { lineupUrl, sheetUrl, cutoffUrl }, roster };
+const report = { asOf: AS_OF, ...config, season: '2026/27', competition: 'Romanian SuperLiga', cutoff: cutoffDate, historical, totals, attendance, attendanceNote: snapshot?.attendanceNote || (attendance !== null ? 'Transfermarkt match sheet: Attendance.' : 'Attendance is not present in the freshly retrieved Transfermarkt match sheet.'), sources: { lineupUrl, sheetUrl, cutoffUrl, ...(snapshot?.attendanceUrl ? { attendanceUrl: snapshot.attendanceUrl } : {}) }, roster };
 report.currentTeamValues = Object.fromEntries(teamIds.map(id => [id, clubs.get(id)?.squadDetails?.currentMarketValue?.value ?? null]));
 fs.writeFileSync(path.join(import.meta.dirname, `match-${GAME}.json`), JSON.stringify(report, null, 2));
 console.log(JSON.stringify({ historical, totals, played: roster.filter(p => p.played).map(p => ({ id: p.id, name: p.name, top5: p.top5, senior: p.senior })) }, null, 2));

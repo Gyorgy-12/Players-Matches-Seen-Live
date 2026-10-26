@@ -1,12 +1,12 @@
 {
-  "asOf": "2026-10-20",
+  "asOf": "2026-10-26",
   "sourceMode": "same-day-cache",
   "counts": {
-    "players": 1136,
-    "clubs": 820,
+    "players": 1141,
+    "clubs": 823,
     "matchClubs": 50,
-    "national": 1136,
-    "performance": 1136
+    "national": 1141,
+    "performance": 1141
   },
   "eligibility": {
     "newTop5Ids": [],
@@ -58,8 +58,8 @@
       "source": "https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/44264"
     },
     "44698": {
-      "asOf": "2026-10-12",
-      "source": "https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/44698"
+      "asOf": "2026-10-26",
+      "source": "tools/sources/market-history-2026-10-26.json"
     },
     "45025": {
       "asOf": "2026-10-12",
@@ -202,8 +202,8 @@
       "source": "https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/81504"
     },
     "82657": {
-      "asOf": "2026-10-12",
-      "source": "https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/82657"
+      "asOf": "2026-10-26",
+      "source": "tools/sources/market-history-2026-10-26.json"
     },
     "83287": {
       "asOf": "2026-10-12",
@@ -314,8 +314,8 @@
       "source": "https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/123261"
     },
     "123671": {
-      "asOf": "2026-10-12",
-      "source": "https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/123671"
+      "asOf": "2026-10-26",
+      "source": "tools/sources/market-history-2026-10-26.json"
     },
     "125069": {
       "asOf": "2026-10-12",
@@ -370,8 +370,8 @@
       "source": "tools/sources/all-player-history-2026-10-20.json"
     },
     "131589": {
-      "asOf": "2026-10-12",
-      "source": "https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/131589"
+      "asOf": "2026-10-26",
+      "source": "tools/sources/market-history-2026-10-26.json"
     },
     "131728": {
       "asOf": "2026-10-12",
@@ -418,8 +418,8 @@
       "source": "https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/138335"
     },
     "138850": {
-      "asOf": "2026-10-12",
-      "source": "https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/138850"
+      "asOf": "2026-10-26",
+      "source": "tools/sources/market-history-2026-10-26.json"
     },
     "143039": {
       "asOf": "2026-10-12",
@@ -910,16 +910,16 @@
       "source": "https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/224892"
     },
     "225236": {
-      "asOf": "2026-10-12",
-      "source": "https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/225236"
+      "asOf": "2026-10-26",
+      "source": "tools/sources/market-history-2026-10-26.json"
     },
     "225961": {
       "asOf": "2026-10-12",
       "source": "https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/225961"
     },
     "226080": {
-      "asOf": "2026-10-12",
-      "source": "https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/226080"
+      "asOf": "2026-10-26",
+      "source": "tools/sources/market-history-2026-10-26.json"
     },
     "226090": {
       "asOf": "2026-10-12",
@@ -1114,8 +1114,8 @@
       "source": "https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/249080"
     },
     "252192": {
-      "asOf": "2026-10-12",
-      "source": "https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/252192"
+      "asOf": "2026-10-26",
+      "source": "tools/sources/market-history-2026-10-26.json"
     },
     "255440": {
       "asOf": "2026-10-20",
@@ -1318,8 +1318,8 @@
       "source": "https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/291494"
     },
     "291656": {
-      "asOf": "2026-10-12",
-      "source": "https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/291656"
+      "asOf": "2026-10-26",
+      "source": "tools/sources/market-history-2026-10-26.json"
     },
     "291976": {
       "asOf": "2026-10-12",
@@ -1586,8 +1586,8 @@
       "source": "https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/332205"
     },
     "332875": {
-      "asOf": "2026-10-12",
-      "source": "https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/332875"
+      "asOf": "2026-10-26",
+      "source": "tools/sources/market-history-2026-10-26.json"
     },
     "333376": {
       "asOf": "2026-10-12",
@@ -2022,8 +2022,8 @@
       "source": "https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/393436"
     },
     "393806": {
-      "asOf": "2026-10-12",
-      "source": "https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/393806"
+      "asOf": "2026-10-26",
+      "source": "tools/sources/market-history-2026-10-26.json"
     },
     "394300": {
       "asOf": "2026-10-12",
@@ -2134,8 +2134,8 @@
       "source": "https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/409513"
     },
     "410281": {
-      "asOf": "2026-10-12",
-      "source": "https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/410281"
+      "asOf": "2026-10-26",
+      "source": "tools/sources/market-history-2026-10-26.json"
     },
     "410557": {
       "asOf": "2026-10-12",
@@ -2298,8 +2298,8 @@
       "source": "https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/435208"
     },
     "435712": {
-      "asOf": "2026-10-12",
-      "source": "https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/435712"
+      "asOf": "2026-10-26",
+      "source": "tools/sources/market-history-2026-10-26.json"
     },
     "435718": {
       "asOf": "2026-10-12",
@@ -2392,6 +2392,10 @@
     "460939": {
       "asOf": "2026-10-12",
       "source": "https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/460939"
+    },
+    "462252": {
+      "asOf": "2026-10-26",
+      "source": "tools/sources/market-history-2026-10-26.json"
     },
     "462699": {
       "asOf": "2026-10-12",
@@ -2526,8 +2530,8 @@
       "source": "https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/486813"
     },
     "487688": {
-      "asOf": "2026-10-12",
-      "source": "https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/487688"
+      "asOf": "2026-10-26",
+      "source": "tools/sources/market-history-2026-10-26.json"
     },
     "489347": {
       "asOf": "2026-10-20",
@@ -2573,13 +2577,17 @@
       "asOf": "2026-10-20",
       "source": "tools/sources/all-player-history-2026-10-20.json"
     },
+    "501062": {
+      "asOf": "2026-10-26",
+      "source": "tools/sources/market-history-2026-10-26.json"
+    },
     "502558": {
       "asOf": "2026-10-12",
       "source": "https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/502558"
     },
     "502669": {
-      "asOf": "2026-10-12",
-      "source": "https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/502669"
+      "asOf": "2026-10-26",
+      "source": "tools/sources/market-history-2026-10-26.json"
     },
     "502671": {
       "asOf": "2026-10-12",
@@ -2670,8 +2678,8 @@
       "source": "https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/530415"
     },
     "531599": {
-      "asOf": "2026-10-12",
-      "source": "https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/531599"
+      "asOf": "2026-10-26",
+      "source": "tools/sources/market-history-2026-10-26.json"
     },
     "531909": {
       "asOf": "2026-10-12",
@@ -2778,8 +2786,8 @@
       "source": "https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/547820"
     },
     "547827": {
-      "asOf": "2026-10-12",
-      "source": "https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/547827"
+      "asOf": "2026-10-26",
+      "source": "tools/sources/market-history-2026-10-26.json"
     },
     "547853": {
       "asOf": "2026-10-12",
@@ -2902,8 +2910,8 @@
       "source": "https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/574671"
     },
     "575219": {
-      "asOf": "2026-10-12",
-      "source": "https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/575219"
+      "asOf": "2026-10-26",
+      "source": "tools/sources/market-history-2026-10-26.json"
     },
     "575220": {
       "asOf": "2026-10-12",
@@ -3106,8 +3114,8 @@
       "source": "https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/623424"
     },
     "623425": {
-      "asOf": "2026-10-12",
-      "source": "https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/623425"
+      "asOf": "2026-10-26",
+      "source": "tools/sources/market-history-2026-10-26.json"
     },
     "623764": {
       "asOf": "2026-10-12",
@@ -3194,8 +3202,8 @@
       "source": "https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/645491"
     },
     "646782": {
-      "asOf": "2026-10-12",
-      "source": "https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/646782"
+      "asOf": "2026-10-26",
+      "source": "tools/sources/market-history-2026-10-26.json"
     },
     "647125": {
       "asOf": "2026-10-12",
@@ -3265,6 +3273,10 @@
       "asOf": "2026-10-20",
       "source": "tools/sources/all-player-history-2026-10-20.json"
     },
+    "667991": {
+      "asOf": "2026-10-26",
+      "source": "tools/sources/market-history-2026-10-26.json"
+    },
     "668676": {
       "asOf": "2026-10-12",
       "source": "https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/668676"
@@ -3298,8 +3310,8 @@
       "source": "https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/674806"
     },
     "675500": {
-      "asOf": "2026-10-12",
-      "source": "https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/675500"
+      "asOf": "2026-10-26",
+      "source": "tools/sources/market-history-2026-10-26.json"
     },
     "675505": {
       "asOf": "2026-10-12",
@@ -3312,6 +3324,10 @@
     "675518": {
       "asOf": "2026-10-12",
       "source": "https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/675518"
+    },
+    "676121": {
+      "asOf": "2026-10-26",
+      "source": "tools/sources/market-history-2026-10-26.json"
     },
     "677152": {
       "asOf": "2026-10-12",
@@ -3442,8 +3458,8 @@
       "source": "https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/713071"
     },
     "716054": {
-      "asOf": "2026-10-12",
-      "source": "https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/716054"
+      "asOf": "2026-10-26",
+      "source": "tools/sources/market-history-2026-10-26.json"
     },
     "723632": {
       "asOf": "2026-10-12",
@@ -3458,8 +3474,8 @@
       "source": "https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/723826"
     },
     "723835": {
-      "asOf": "2026-10-12",
-      "source": "https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/723835"
+      "asOf": "2026-10-26",
+      "source": "tools/sources/market-history-2026-10-26.json"
     },
     "723836": {
       "asOf": "2026-10-12",
@@ -3650,8 +3666,8 @@
       "source": "https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/806193"
     },
     "808224": {
-      "asOf": "2026-10-12",
-      "source": "https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/808224"
+      "asOf": "2026-10-26",
+      "source": "tools/sources/market-history-2026-10-26.json"
     },
     "809355": {
       "asOf": "2026-10-12",
@@ -3810,8 +3826,8 @@
       "source": "https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/881610"
     },
     "883055": {
-      "asOf": "2026-10-12",
-      "source": "https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/883055"
+      "asOf": "2026-10-26",
+      "source": "tools/sources/market-history-2026-10-26.json"
     },
     "884078": {
       "asOf": "2026-10-12",
@@ -3962,8 +3978,8 @@
       "source": "https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/937066"
     },
     "938160": {
-      "asOf": "2026-10-12",
-      "source": "https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/938160"
+      "asOf": "2026-10-26",
+      "source": "tools/sources/market-history-2026-10-26.json"
     },
     "938289": {
       "asOf": "2026-10-12",
@@ -3984,6 +4000,10 @@
     "941388": {
       "asOf": "2026-10-12",
       "source": "https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/941388"
+    },
+    "942790": {
+      "asOf": "2026-10-26",
+      "source": "tools/sources/market-history-2026-10-26.json"
     },
     "947639": {
       "asOf": "2026-10-20",
@@ -4014,12 +4034,12 @@
       "source": "https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/964171"
     },
     "968921": {
-      "asOf": "2026-10-12",
-      "source": "https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/968921"
+      "asOf": "2026-10-26",
+      "source": "tools/sources/market-history-2026-10-26.json"
     },
     "974722": {
-      "asOf": "2026-10-12",
-      "source": "https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/974722"
+      "asOf": "2026-10-26",
+      "source": "tools/sources/market-history-2026-10-26.json"
     },
     "976495": {
       "asOf": "2026-10-12",
@@ -4030,8 +4050,8 @@
       "source": "https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/976856"
     },
     "982567": {
-      "asOf": "2026-10-12",
-      "source": "https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/982567"
+      "asOf": "2026-10-26",
+      "source": "tools/sources/market-history-2026-10-26.json"
     },
     "987021": {
       "asOf": "2026-10-12",
@@ -4074,8 +4094,8 @@
       "source": "https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/992848"
     },
     "993687": {
-      "asOf": "2026-10-12",
-      "source": "https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/993687"
+      "asOf": "2026-10-26",
+      "source": "tools/sources/market-history-2026-10-26.json"
     },
     "993703": {
       "asOf": "2026-10-20",
@@ -4174,8 +4194,8 @@
       "source": "https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/1042342"
     },
     "1043574": {
-      "asOf": "2026-10-12",
-      "source": "https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/1043574"
+      "asOf": "2026-10-26",
+      "source": "tools/sources/market-history-2026-10-26.json"
     },
     "1045068": {
       "asOf": "2026-10-12",
@@ -4266,8 +4286,8 @@
       "source": "https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/1112690"
     },
     "1113720": {
-      "asOf": "2026-10-12",
-      "source": "https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/1113720"
+      "asOf": "2026-10-26",
+      "source": "tools/sources/market-history-2026-10-26.json"
     },
     "1113721": {
       "asOf": "2026-10-12",
@@ -4386,8 +4406,8 @@
       "source": "tools/sources/all-player-history-2026-10-20.json"
     },
     "1304289": {
-      "asOf": "2026-10-12",
-      "source": "https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/1304289"
+      "asOf": "2026-10-26",
+      "source": "tools/sources/market-history-2026-10-26.json"
     },
     "1304982": {
       "asOf": "2026-10-12",

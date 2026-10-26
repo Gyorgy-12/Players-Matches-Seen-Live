@@ -1,0 +1,11 @@
+{
+  "verifiedAt": "2026-10-26",
+  "method": "Transfermarkt match sheets opened in browser; no Attendance field present for the five previously missing spectator counts. Missing values remain unknown, not zero.",
+  "matches": [
+    {"gameId": "4320288", "attendance": null, "url": "https://www.transfermarkt.com/spielbericht/index/spielbericht/4320288"},
+    {"gameId": "5013648", "attendance": null, "url": "https://www.transfermarkt.com/spielbericht/index/spielbericht/5013648"},
+    {"gameId": "4979913", "attendance": null, "url": "https://www.transfermarkt.com/spielbericht/index/spielbericht/4979913"},
+    {"gameId": "4969709", "attendance": null, "url": "https://www.transfermarkt.com/spielbericht/index/spielbericht/4969709"},
+    {"gameId": "3757795", "attendance": null, "url": "https://www.transfermarkt.com/spielbericht/index/spielbericht/3757795"}
+  ]
+}

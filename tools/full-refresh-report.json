@@ -1,0 +1,156 @@
+{
+  "asOf": "2026-10-26",
+  "startedAt": "2026-10-26T00:30:14.857Z",
+  "finishedAt": "2026-10-26T00:35:12.806Z",
+  "status": "complete",
+  "pages": {
+    "All Seen Matches.html": {
+      "rows": 95,
+      "addedAppearanceRows": 0,
+      "removedAppearanceRows": 0,
+      "changedEntitiesByField": {
+        "Mostani klub / státusz": [],
+        "Jelenlegi MV": [],
+        "All-time Peak MV": [],
+        "Peak MV klub": [],
+        "Top-5 liga/app": [],
+        "Válogatott / meccs / gól": [],
+        "Hazai jelenlegi MV": [],
+        "Vendég jelenlegi MV": []
+      },
+      "contentChanged": false
+    },
+    "TOP 5 players Seen Live.html": {
+      "rows": 427,
+      "addedAppearanceRows": 0,
+      "removedAppearanceRows": 0,
+      "changedEntitiesByField": {
+        "Mostani klub / státusz": [],
+        "Jelenlegi MV": [],
+        "All-time Peak MV": [],
+        "Peak MV klub": [],
+        "Top-5 liga/app": [],
+        "Válogatott / meccs / gól": [],
+        "Hazai jelenlegi MV": [],
+        "Vendég jelenlegi MV": []
+      },
+      "contentChanged": false
+    },
+    "Capped Players Seen Live.html": {
+      "rows": 1201,
+      "addedAppearanceRows": 0,
+      "removedAppearanceRows": 0,
+      "changedEntitiesByField": {
+        "Mostani klub / státusz": [],
+        "Jelenlegi MV": [],
+        "All-time Peak MV": [],
+        "Peak MV klub": [],
+        "Top-5 liga/app": [],
+        "Válogatott / meccs / gól": [],
+        "Hazai jelenlegi MV": [],
+        "Vendég jelenlegi MV": []
+      },
+      "contentChanged": false
+    },
+    "Euro-WC Players Seen Live.html": {
+      "rows": 284,
+      "addedAppearanceRows": 0,
+      "removedAppearanceRows": 0,
+      "changedEntitiesByField": {
+        "Mostani klub / státusz": [],
+        "Jelenlegi MV": [],
+        "All-time Peak MV": [],
+        "Peak MV klub": [],
+        "Top-5 liga/app": [],
+        "Válogatott / meccs / gól": [],
+        "Hazai jelenlegi MV": [],
+        "Vendég jelenlegi MV": []
+      },
+      "contentChanged": false
+    },
+    "Romanian Club-National Players Seen Live.html": {
+      "rows": 2582,
+      "addedAppearanceRows": 0,
+      "removedAppearanceRows": 0,
+      "changedEntitiesByField": {
+        "Mostani klub / státusz": [],
+        "Jelenlegi MV": [],
+        "All-time Peak MV": [],
+        "Peak MV klub": [],
+        "Top-5 liga/app": [],
+        "Válogatott / meccs / gól": [],
+        "Hazai jelenlegi MV": [],
+        "Vendég jelenlegi MV": []
+      },
+      "contentChanged": true
+    },
+    "All Players Seen Live.html": {
+      "rows": 2916,
+      "addedAppearanceRows": 0,
+      "removedAppearanceRows": 0,
+      "changedEntitiesByField": {
+        "Mostani klub / státusz": [],
+        "Jelenlegi MV": [],
+        "All-time Peak MV": [],
+        "Peak MV klub": [],
+        "Top-5 liga/app": [],
+        "Válogatott / meccs / gól": [],
+        "Hazai jelenlegi MV": [],
+        "Vendég jelenlegi MV": []
+      },
+      "contentChanged": true
+    },
+    "Player Statistics.html": {
+      "rows": 149,
+      "addedAppearanceRows": 0,
+      "removedAppearanceRows": 0,
+      "changedEntitiesByField": {
+        "Mostani klub / státusz": [],
+        "Jelenlegi MV": [],
+        "All-time Peak MV": [],
+        "Peak MV klub": [],
+        "Top-5 liga/app": [],
+        "Válogatott / meccs / gól": [],
+        "Hazai jelenlegi MV": [],
+        "Vendég jelenlegi MV": []
+      },
+      "contentChanged": false
+    },
+    "Team Statistics.html": {
+      "rows": 50,
+      "addedAppearanceRows": 0,
+      "removedAppearanceRows": 0,
+      "changedEntitiesByField": {
+        "Mostani klub / státusz": [],
+        "Jelenlegi MV": [],
+        "All-time Peak MV": [],
+        "Peak MV klub": [],
+        "Top-5 liga/app": [],
+        "Válogatott / meccs / gól": [],
+        "Hazai jelenlegi MV": [],
+        "Vendég jelenlegi MV": []
+      },
+      "contentChanged": false
+    }
+  },
+  "sourceCoverage": {
+    "profiles": 1141,
+    "nationalCareerHistories": 1141,
+    "performanceHistories": 1141,
+    "clubsIncludingNationalTeams": 823,
+    "matchClubs": 50,
+    "matchEvents": 95,
+    "recordedAppearances": 2916,
+    "allCurrentSourcesFetchedAfter": "2026-10-26T00:30:14.857Z",
+    "peakValidation": "Every career maximum compared with the fresh profile; earliest peak date/club retain their verified historical source.",
+    "failures": {
+      "missingPlayers": [],
+      "national": 0,
+      "performance": 0,
+      "marketGraphs": 0,
+      "missingClubs": []
+    }
+  },
+  "historicalPolicy": "Historical match/tournament values are preserved; current fields and recorded-match events are refreshed.",
+  "backupDirectory": "tools\\.cache\\full-refresh\\2026-10-26T00-30-14-857Z"
+}

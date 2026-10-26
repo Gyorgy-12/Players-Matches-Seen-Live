@@ -1,0 +1,42 @@
+{
+  "gameId": "4914732",
+  "verifiedAt": "2026-10-26",
+  "method": "Transfermarkt rendered line-ups, match sheet and dated club-value table; attendance from the official SuperLiga match report",
+  "date": "2026-10-25",
+  "score": "2:2",
+  "attendance": 10112,
+  "attendanceNote": "Official SuperLiga match report: 10,112 spectators. Attendance is absent from the Transfermarkt match sheet at verification.",
+  "attendanceUrl": "https://www.superliga.ro/meci/superliga-26-27-regular-cfr-din?sectiune=cronica",
+  "lineupUrl": "https://www.transfermarkt.com/-/aufstellung/spielbericht/4914732",
+  "sheetUrl": "https://www.transfermarkt.com/spielbericht/index/spielbericht/4914732",
+  "cutoffUrl": "https://www.transfermarkt.com/x/marktwerteverein/wettbewerb/RO1/stichtag/2026-10-15/plus/1",
+  "cutoff": "2026-10-15",
+  "historical": {"7769": 13850000, "312": 20830000},
+  "substituteIds": ["291656", "332875", "44698", "123671", "462252", "938160", "723835", "501062", "883055"],
+  "groups": [
+    {"clubId": "7769", "starter": true, "players": [
+      ["252192", "Romania"], ["502669", "Georgia"], ["716054", "Romania"],
+      ["410281", "Croatia"], ["623425", "Romania"], ["531599", "Austria"],
+      ["1304289", "Ghana"], ["808224", "Romania"], ["82657", "Germany"],
+      ["435712", "Romania"], ["138850", "Serbia"]
+    ]},
+    {"clubId": "312", "starter": true, "players": [
+      ["667991", "Morocco"], ["982567", "Israel"], ["676121", "North Macedonia"],
+      ["393806", "Romania"], ["1113720", "Romania"], ["547827", "Romania"],
+      ["487688", "Spain"], ["225236", "Scotland"], ["575219", "Romania"],
+      ["646782", "France"], ["942790", "Netherlands"]
+    ]},
+    {"clubId": "7769", "starter": false, "players": [
+      ["675500", "Romania"], ["1008261", "Moldova"], ["226080", "Croatia"],
+      ["44698", "Romania"], ["1043574", "Romania"], ["948255", "Spain"],
+      ["291656", "Romania"], ["332875", "Bosnia-Herzegovina"], ["993687", "Romania"],
+      ["131589", "Algeria"], ["123671", "Romania"], ["770036", "Belgium"]
+    ]},
+    {"clubId": "312", "starter": false, "players": [
+      ["1475137", "Romania"], ["968921", "Romania"], ["883055", "Romania"],
+      ["1163786", "Romania"], ["1195029", "Romania"], ["711626", "Spain"],
+      ["974722", "Romania"], ["462252", "Portugal"], ["723835", "Romania"],
+      ["938160", "Romania"], ["501062", "Eritrea"]
+    ]}
+  ]
+}
