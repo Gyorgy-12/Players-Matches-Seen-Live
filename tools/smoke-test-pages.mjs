@@ -74,11 +74,22 @@ try {
         const next = page.locator('[data-page-action="next"]').first();
         await next.click();
         assert.equal(await page.locator('[data-page-current]').first().textContent(), '2');
+        await page.waitForFunction(() => [...document.querySelectorAll('tbody tr')].find(r => r.getBoundingClientRect().height)?.querySelector('.tmgh-rank')?.textContent === '#51');
       }
       await page.locator(input).fill(search);
       await page.locator(season).selectOption('2026/27');
       await page.waitForFunction(game => [...document.querySelectorAll('tbody tr')].some(r => r.getBoundingClientRect().height && r.querySelector(`a[href*="spielbericht/${game}"]`)), expectedGame);
       const visible = await page.locator('tbody tr:visible').count();
+      await page.waitForFunction(() => {
+        const rows = [...document.querySelectorAll('tbody tr')].filter(r => !r.hidden && r.getBoundingClientRect().height);
+        return rows.length && rows.every((r, i) => r.querySelector('.tmgh-rank')?.textContent === '#' + (i + 1));
+      });
+      if (file === 'All Seen Matches.html') {
+        for (const row of await page.locator('tbody tr[data-attendance-known="1"]').all()) {
+          const raw = Number(await row.getAttribute('data-attendance'));
+          assert.equal((await row.locator('td[data-label="Nézőszám"]').textContent()).trim(), raw.toLocaleString('hu-HU', { useGrouping: 'always' }));
+        }
+      }
       assert.ok(visible > 0 && (!paginated || visible <= 50));
       const newRow = page.locator('tbody tr:visible').filter({ has: page.locator(`a[href*="spielbericht/${expectedGame}"]`) });
       assert.ok(await newRow.count() > 0, `Új meccs kereshető: ${file}`);

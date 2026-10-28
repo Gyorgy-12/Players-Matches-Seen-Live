@@ -71,6 +71,48 @@
   };
 
   const cleanCurrentStatusLabels = () => {
+    const table = document.querySelector('table:not(.statistics-table)');
+    if (table) {
+      const body = table.tBodies[0];
+      const updateRanks = () => {
+        const page = Number(document.querySelector('[data-page-current]')?.textContent) || 1;
+        const size = Number(document.querySelector('[data-page-size]')?.value) || 50;
+        let rank = (page - 1) * size;
+        for (const row of body?.rows || []) {
+          if (row.hidden || row.classList.contains('hidden') || row.style.display === 'none') continue;
+          let cell = row.querySelector('.tmgh-rank');
+          if (!cell) {
+            cell = document.createElement('span'); cell.className = 'rank tmgh-rank';
+            row.cells[0].append(cell);
+          }
+          const value = '#' + (++rank);
+          if (cell.textContent !== value) cell.textContent = value;
+        }
+        for (const cell of table.querySelectorAll('td[data-label="Nézőszám"]')) {
+          const value = Number(cell.closest('tr').dataset.attendance);
+          if (!Number.isFinite(value) || cell.closest('tr').dataset.attendanceKnown !== '1') continue;
+          const content = cell.querySelector('strong, .value') || cell;
+          const formatted = value.toLocaleString('hu-HU', { useGrouping: 'always' });
+          if (content.textContent !== formatted) content.textContent = formatted;
+        }
+      };
+      let pending = false;
+      const scheduleRanks = () => {
+        if (pending) return;
+        pending = true;
+        requestAnimationFrame(() => { pending = false; updateRanks(); });
+      };
+      new MutationObserver(changes => {
+        if (changes.some(m => m.type === 'attributes' ||
+          [...m.addedNodes, ...m.removedNodes].some(n => n.nodeName === 'TR') ||
+          m.target.parentElement?.closest('[data-page-current], [data-page-status]'))) scheduleRanks();
+      }).observe(table.closest('.table-card') || table.parentElement, {
+        subtree: true, childList: true, characterData: true, attributes: true, attributeFilter: ['hidden', 'class']
+      });
+      document.addEventListener('input', scheduleRanks);
+      document.addEventListener('change', scheduleRanks);
+      updateRanks();
+    }
     document.querySelectorAll('.current-status').forEach((label) => label.remove());
 
     document.querySelectorAll('th').forEach((header) => {

@@ -1449,3 +1449,9 @@ body .tmgh-filter-jump > span:first-child{
     padding-right:10px!important;
   }
 }
+/* Same placement as the player/team statistics ranking. */
+body table .tmgh-rank{
+  display:block!important;margin:4px 0 0!important;
+  color:var(--tmgh-muted)!important;font-size:12px!important;
+  font-variant-numeric:tabular-nums;
+}

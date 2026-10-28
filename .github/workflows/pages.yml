@@ -25,6 +25,9 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v6
 
+      - name: Check navigation and counters
+        run: node tools/check-hub.mjs
+
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v6
 

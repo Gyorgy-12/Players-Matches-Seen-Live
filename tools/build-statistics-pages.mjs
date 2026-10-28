@@ -67,7 +67,7 @@ ${pagination()}<div class="table-wrap statistics-table-wrap" tabindex="0" role="
 <script type="application/json" id="statistics-data">${json(data)}</script><script type="application/json" id="statistics-columns">${json(columns)}</script></body></html>`;
   writeGenerated(path.join(root, config.file), normalizeFilterOptionOrder(html));
 }
-let hub = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
+let hub = fs.readFileSync(path.join(root, 'TM Groundhopping Hub.html'), 'utf8');
 const hasAllPlayers = fs.existsSync(path.join(root, 'All Players Seen Live.html'));
 hub = hub.replace(/(?:Az öt|A hét|A nyolc) statikus HTML/, hasAllPlayers ? 'A nyolc statikus HTML' : 'A hét statikus HTML')
   .replace(/(<span>Oldalak<\/span><strong>)\d+(<\/strong>)/, (_, a, b) => a + (hasAllPlayers ? 8 : 7) + b);

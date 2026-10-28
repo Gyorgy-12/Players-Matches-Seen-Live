@@ -66,7 +66,9 @@ export function reconcileMetadata() {
     if (fs.existsSync(path.join(root, file))) counts[mode] = Number(fs.readFileSync(path.join(root, file), 'utf8').match(/data-stat-count="(\d+)"/)?.[1] || 0);
   }
   for (const hubFile of ['index.html', 'TM Groundhopping Hub.html']) {
-    let html = fs.readFileSync(path.join(root, hubFile), 'utf8');
+    // The descriptive hub is the canonical template, not a stale index copy.
+    let html = fs.readFileSync(path.join(root, 'TM Groundhopping Hub.html'), 'utf8');
+    html = html.replace(/description:'\d+ mérkőzés összehasonlító táblázata'/, `description:'${counts.matches} mérkőzés összehasonlító táblázata'`);
     html = html.replace(/(<span>Oldalak<\/span><strong>)\d+(<\/strong>)/, (_, a, b) => a + Object.keys(counts).length + b);
     html = html.replace(/(<div class="summary-card"><span>Táblázatsor<\/span><strong>)[\d\s]+(<\/strong>)/, (_, a, b) => a + Object.values(counts).reduce((n, c) => n + c, 0).toLocaleString('hu-HU', { useGrouping: 'always' }) + b);
     for (const [mode, n] of Object.entries(counts)) html = html.replace(new RegExp(`(id:'${mode}'[\\s\\S]*?meta:')[\\d\\s]+ (sor|mérkőzés|játékos|csapat)'`), (_, a, unit) => a + n.toLocaleString('hu-HU', { useGrouping: 'always' }) + ' ' + unit + "'");
