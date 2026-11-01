@@ -32,7 +32,7 @@
     document.querySelectorAll('[data-page-size]').forEach(el => el.value = String(pageSize));
   }
   function update() {
-    const filters = Object.fromEntries(controls.map(id => [id, byId(id).value]));
+    const filters = { ...Object.fromEntries(controls.map(id => [id, byId(id).value])), ...window.TMGHH2H?.values() };
     result = TMGHStatistics.aggregate(data, mode, filters); page = 1;
     byId('filter-summary').textContent = `${result.length} ${mode === 'players' ? 'játékos' : 'csapat'} · ${result.reduce((n, r) => n + r.apps, 0)} ${mode === 'players' ? 'pályára lépés' : 'csapatmeccs'} a szűrésben`;
     byId('partial-note').hidden = !result.some(r => r.unknown);

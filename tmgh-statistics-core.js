@@ -19,7 +19,8 @@
   }
   function aggregate(data, mode, filters = {}) {
     const playerMap = new Map(data.players.map(p => [p.id, p]));
-    const eligibleMatches = data.matches.filter(m => (!filters.season || m.season === filters.season) && (!filters.competition || m.competition === filters.competition) && (!filters.match || m.id === filters.match));
+    const a = filters.h2hA, b = filters.h2hB;
+    const eligibleMatches = data.matches.filter(m => (!a || !b || (a !== b && ((m.home === a && m.away === b) || (m.home === b && m.away === a)))) && (!filters.season || m.season === filters.season) && (!filters.competition || m.competition === filters.competition) && (!filters.match || m.id === filters.match));
     const matchIds = new Set(eligibleMatches.map(m => m.id));
     const groups = new Map();
     const init = (id, name) => ({ id, name, apps: 0, teams: new Set(), unknown: 0, missing: Object.fromEntries(metrics.map(k => [k, 0])), goalsAgainst: 0, difference: 0, wins: 0, draws: 0, losses: 0, awarded: 0, penaltyMisses: 0, penaltiesAgainst: 0, penaltyGoalsAgainst: 0, penaltyMissesAgainst: 0, ...Object.fromEntries(metrics.map(k => [k, 0])) });

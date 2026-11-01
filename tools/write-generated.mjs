@@ -1,10 +1,11 @@
 import fs from 'node:fs';
 import { normalizeMarketValueDisplay } from './market-value-display.mjs';
+import { addH2HFilter } from './h2h-export.mjs';
 
 // Do not reopen an unchanged generated file. On Windows a scanner or editor
 // may also briefly hold a recently written file; retry only sharing errors.
 export function writeGenerated(target, text) {
-  if (/\.html$/i.test(target)) text = normalizeMarketValueDisplay(text);
+  if (/\.html$/i.test(target)) text = addH2HFilter(normalizeMarketValueDisplay(text));
   if (fs.existsSync(target) && fs.readFileSync(target, 'utf8') === text) return;
   for (let attempt = 0; ; attempt++) {
     try { fs.writeFileSync(target, text, 'utf8'); return; }

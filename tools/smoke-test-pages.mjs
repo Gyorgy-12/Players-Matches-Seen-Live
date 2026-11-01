@@ -50,12 +50,12 @@ try {
   browser = await chromium.launch({ headless: true, ...(process.env.TMGH_BROWSER_CHANNEL ? { channel: process.env.TMGH_BROWSER_CHANNEL } : {}) });
   const base = `http://127.0.0.1:${server.address().port}/`;
   const cases = [
-    ['All Seen Matches.html', '#teamSearch', 'CFR', '#season', 95, '4914732'],
-    ['TOP 5 players Seen Live.html', '#filter-player', 'Bellaarouch', '#filter-season', 427, '4914732'],
-    ['Capped Players Seen Live.html', '#filter-player', 'Hintsa', '#filter-season', 1201, '4914732'],
-    ['Euro-WC Players Seen Live.html', '#player-search', 'Jovo', '#season-filter', 284, '4914606'],
-    ['Romanian Club-National Players Seen Live.html', '#q', 'Cordea', '#season', 2582, '4914732'],
-    ['All Players Seen Live.html', '#q', 'Cordea', '#season', 2916, '4914732'],
+    ['All Seen Matches.html', '#teamSearch', 'CFR', '#season', 96, '5059965'],
+    ['TOP 5 players Seen Live.html', '#filter-player', 'Sfait', '#filter-season', 431, '5059965'],
+    ['Capped Players Seen Live.html', '#filter-player', 'Nistor', '#filter-season', 1212, '5059965'],
+    ['Euro-WC Players Seen Live.html', '#player-search', 'Jovo', '#season-filter', 286, '5059965'],
+    ['Romanian Club-National Players Seen Live.html', '#q', 'Biliboc', '#season', 2614, '5059965'],
+    ['All Players Seen Live.html', '#q', 'Biliboc', '#season', 2948, '5059965'],
   ];
   for (const width of hubOnly ? [] : [1440, 820, 390]) {
     for (const [file, input, search, season, expectedRows, expectedGame] of cases) {
@@ -96,7 +96,7 @@ try {
       await assertTableDesign(page, `${width}/${file}/szűrve`);
       if (file === 'All Seen Matches.html' && (width === 1440 || width === 390)) {
         await newRow.first().scrollIntoViewIfNeeded();
-        await page.screenshot({ path: path.join(qa, `cfr-dinamo-${width}.png`) });
+        await page.screenshot({ path: path.join(qa, `cfr-u-cup-${width}.png`) });
       }
       assert.deepEqual(errors, [], `${file}: böngészőhiba`);
       assert.ok(await page.locator('.tmgh-filter-jump').count() > 0);
@@ -104,7 +104,7 @@ try {
         // This is the Romanian-style appearance table, not a player ranking:
         // repeated players, non-Top-5 opponents and zero-event players remain.
         assert.ok(visible > 1);
-        assert.equal(await page.locator('tbody tr:visible[data-player-id="435712"]').count(), visible);
+        assert.equal(await page.locator('tbody tr:visible[data-player-id="993687"]').count(), visible);
         await page.locator('#reset').click();
         await page.locator('#club').selectOption('SK Brann');
         const brann = seenData.appearances.filter(a => seenData.teams[a.team] === 'SK Brann');

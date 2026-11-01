@@ -5,6 +5,7 @@ import { AS_OF, source } from './source-cache.mjs';
 import { config } from './match-config.mjs';
 import { archivedSource } from './archived-source.mjs';
 import { seniorEntries } from './refresh-current-data.mjs';
+import { verifiedMarketHistory } from './verified-market-history.mjs';
 
 export const GAME = config.gameId;
 export const DATE = config.date;
@@ -80,6 +81,20 @@ for (const p of roster) {
 async function historyFor(p) {
   const current = profileMap.get(p.id).marketValueDetails.current;
   const peak = profileMap.get(p.id).marketValueDetails.highest;
+  // Retain verified historical/earliest peak points. A freshly fetched
+  // current valuation dated before this fixture also proves its match value.
+  try {
+    const verified = verifiedMarketHistory(p.id, profileMap.get(p.id));
+    const determined = current.determined?.slice(0, 10);
+    if (determined && determined <= DATE && Number(current.value) > 0) {
+      const list = [...verified.graph];
+      if (!list.some(point => point.x === Date.parse(determined)))
+        list.push({ x: Date.parse(determined), y: current.value, datum_mw: determined.split('-').reverse().join('/'), verein: p.club });
+      p.historySource = { date: verified.date, method: 'verified historical points and freshly verified current valuation before match', source: verified.source };
+      return { list };
+    }
+    if (!Number(peak.value)) return { list: [] };
+  } catch {}
   if (Object.hasOwn(historySnapshot, p.id)) {
     p.historySource = { date: AS_OF, method: 'browser-verified selected points' };
     return { list: historySnapshot[p.id].map(([x, y, datum_mw, verein]) => ({ x, y, datum_mw, verein })) };
@@ -169,5 +184,6 @@ const attendance = snapshot?.attendance ?? (attendanceText ? Number(attendanceTe
 if (attendance !== null) assert.ok(Number.isSafeInteger(attendance) && attendance > 0, 'Érvénytelen nézőszám');
 const report = { asOf: AS_OF, ...config, season: '2026/27', competition: 'Romanian SuperLiga', cutoff: cutoffDate, historical, totals, attendance, attendanceNote: snapshot?.attendanceNote || (attendance !== null ? 'Transfermarkt match sheet: Attendance.' : 'Attendance is not present in the freshly retrieved Transfermarkt match sheet.'), sources: { lineupUrl, sheetUrl, cutoffUrl, ...(snapshot?.attendanceUrl ? { attendanceUrl: snapshot.attendanceUrl } : {}) }, roster };
 report.currentTeamValues = Object.fromEntries(teamIds.map(id => [id, clubs.get(id)?.squadDetails?.currentMarketValue?.value ?? null]));
+report.competition = config.competition || report.competition;
 fs.writeFileSync(path.join(import.meta.dirname, `match-${GAME}.json`), JSON.stringify(report, null, 2));
 console.log(JSON.stringify({ historical, totals, played: roster.filter(p => p.played).map(p => ({ id: p.id, name: p.name, top5: p.top5, senior: p.senior })) }, null, 2));

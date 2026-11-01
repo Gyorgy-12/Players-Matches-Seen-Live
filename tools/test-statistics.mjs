@@ -5,9 +5,18 @@ import { normalizeFilterOptionOrder } from './normalize-filter-options.mjs';
 const data = JSON.parse(fs.readFileSync(new URL('./seen-statistics.json', import.meta.url), 'utf8'));
 const { aggregate } = globalThis.TMGHStatistics;
 const players = aggregate(data, 'players', { sort: 'apps' }), teams = aggregate(data, 'teams');
-assert.equal(players.length, 1141);
-assert.equal(data.matches.length, 95);
-assert.equal(data.appearances.length, 2916);
+for (const mode of ['players', 'teams']) {
+  const h2h = { h2hA: '7769', h2hB: '6429', sort: 'apps' };
+  const forward = aggregate(data, mode, h2h);
+  assert.ok(forward.length > 0);
+  assert.deepEqual(aggregate(data, mode, { ...h2h, h2hA: '6429', h2hB: '7769' }), forward, 'H2H: a hazai–vendég sorrend nem számít');
+  assert.deepEqual(aggregate(data, mode, { ...h2h, h2hB: '7769' }), [], 'H2H: két különböző csapat szükséges');
+  assert.deepEqual(aggregate(data, mode, { ...h2h, match: '4914525' }), [], 'H2H és meccsszűrő metszete');
+  assert.ok(aggregate(data, mode, { ...h2h, season: '2026/27' }).every(r => r.apps <= forward.find(p => p.id === r.id).apps));
+}
+assert.equal(players.length, 1142);
+assert.equal(data.matches.length, 96);
+assert.equal(data.appearances.length, 2948);
 assert.equal(teams.length, 50);
 assert.equal(players.reduce((n, r) => n + r.apps, 0), data.appearances.length);
 assert.equal(teams.reduce((n, r) => n + r.apps, 0), 2 * data.matches.length);
@@ -66,6 +75,22 @@ for (const key of ['goals', 'apps', 'assists', 'yellow', 'red', 'penaltyGoals', 
   assert.ok(rows.every((r, i) => !i || (direction === 'desc' ? rows[i - 1][key] >= r[key] : rows[i - 1][key] <= r[key])));
 }
 const game = { match: '4914525', sort: 'apps' };
+const cupGame = { match: '5059965', sort: 'apps' };
+const cupPlayers = aggregate(data, 'players', cupGame);
+assert.equal(cupPlayers.length, 32);
+assert.equal(cupPlayers.find(p => p.id === '457738').goals, 2);
+assert.equal(cupPlayers.find(p => p.id === '457738').penaltyGoals, 1);
+assert.equal(cupPlayers.find(p => p.id === '685795').goals, 1);
+assert.equal(cupPlayers.find(p => p.id === '123671').goals, 1);
+assert.equal(cupPlayers.find(p => p.id === '123671').penaltyGoals, 1);
+assert.equal(cupPlayers.reduce((n, p) => n + p.yellow, 0), 2);
+assert.equal(cupPlayers.reduce((n, p) => n + p.red, 0), 0);
+assert.ok(data.coverage.find(c => c.match === cupGame.match).complete);
+for (const id of ['7769', '6429']) {
+  const team = aggregate(data, 'teams', { ...cupGame, team: id })[0];
+  assert.equal(aggregate(data, 'players', { ...cupGame, team: id }).length, 16);
+  assert.deepEqual([team.awarded, team.penaltyGoals, team.penaltiesAgainst, team.penaltyGoalsAgainst], [1, 1, 1, 1]);
+}
 const dinamoGame = { match: '4914732', sort: 'apps' };
 const dinamoPlayers = aggregate(data, 'players', dinamoGame);
 assert.equal(dinamoPlayers.length, 31);

@@ -1,0 +1,11 @@
+{
+  "verifiedAt": "2026-11-01",
+  "method": "Read the rendered Transfermarkt match sheet headers; absent Attendance is unknown, not zero.",
+  "matches": [
+    {"gameId":"4320288","url":"https://www.transfermarkt.com/spielbericht/index/spielbericht/4320288","attendance":null},
+    {"gameId":"5013648","url":"https://www.transfermarkt.com/spielbericht/index/spielbericht/5013648","attendance":null},
+    {"gameId":"4979913","url":"https://www.transfermarkt.com/spielbericht/index/spielbericht/4979913","attendance":null},
+    {"gameId":"4969709","url":"https://www.transfermarkt.com/spielbericht/index/spielbericht/4969709","attendance":null},
+    {"gameId":"3757795","url":"https://www.transfermarkt.com/spielbericht/index/spielbericht/3757795","attendance":null}
+  ]
+}

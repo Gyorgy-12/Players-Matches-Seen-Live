@@ -1,12 +1,12 @@
 {
-  "asOf": "2026-10-26",
+  "asOf": "2026-11-01",
   "sourceMode": "same-day-cache",
   "counts": {
-    "players": 1141,
-    "clubs": 823,
+    "players": 1142,
+    "clubs": 822,
     "matchClubs": 50,
-    "national": 1141,
-    "performance": 1141
+    "national": 1142,
+    "performance": 1142
   },
   "eligibility": {
     "newTop5Ids": [],
@@ -3600,6 +3600,10 @@
     "769063": {
       "asOf": "2026-10-12",
       "source": "https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/769063"
+    },
+    "770036": {
+      "asOf": "2026-10-26",
+      "source": "tools/sources/market-history-2026-10-26.json"
     },
     "777203": {
       "asOf": "2026-10-12",

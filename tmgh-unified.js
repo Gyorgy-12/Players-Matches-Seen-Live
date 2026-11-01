@@ -1,4 +1,59 @@
 (() => {
+  const h2hValues = () => ({ h2hA: document.getElementById('h2h-a')?.value || '', h2hB: document.getElementById('h2h-b')?.value || '' });
+  window.TMGHH2H = {
+    values: h2hValues,
+    matches(row) {
+      const { h2hA: a, h2hB: b } = h2hValues();
+      return !a || !b || (a !== b &&
+        ((row.dataset.h2hHome === a && row.dataset.h2hAway === b) ||
+         (row.dataset.h2hHome === b && row.dataset.h2hAway === a)));
+    }
+  };
+  const initH2H = () => {
+    const first = document.getElementById('h2h-a'), second = document.getElementById('h2h-b');
+    if (!first || !second) return;
+    const help = document.getElementById('h2h-help');
+    const updateHelp = () => {
+      help.textContent = first.value && second.value
+        ? first.value === second.value ? 'Válassz két különböző csapatot.' : 'Csak a két csapat egymás elleni, általad látott meccsei. A többi szűrő is érvényes.'
+        : 'Válassz két csapatot. A hazai–vendég sorrend nem számít; a többi szűrő is érvényes.';
+    };
+    const reapply = () => {
+      updateHelp();
+      // Reuse each mode's own filtering, summary, sorting and pagination.
+      document.querySelector('#filter-season, #season-filter, #season')?.dispatchEvent(new Event('change', { bubbles: true }));
+    };
+    first.addEventListener('change', reapply);
+    second.addEventListener('change', reapply);
+    const searches = [first, second].map(select => {
+      const input = document.getElementById(select.id + '-search');
+      const status = document.getElementById(select.id + '-search-status');
+      const options = [...select.options].map(option => ({ value: option.value, label: option.textContent }));
+      const normalize = value => value.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLocaleLowerCase('hu').replace(/ø/g, 'o').replace(/ł/g, 'l').replace(/đ/g, 'd').replace(/ß/g, 'ss').replace(/\s+/g, ' ').trim();
+      const filter = () => {
+        const query = normalize(input.value), selected = select.value;
+        const matches = options.filter(option => option.value && normalize(option.label).includes(query));
+        // Keep the selected team until the user explicitly changes it. Typing
+        // narrows the choices but must not silently change the match filter.
+        const visible = options.filter(option => !option.value || option.value === selected || matches.some(match => match.value === option.value));
+        select.replaceChildren(...visible.map(option => new Option(option.label, option.value, false, option.value === selected)));
+        status.textContent = query ? matches.length ? `${matches.length} találat` : 'Nincs ilyen csapat' : '';
+      };
+      input.addEventListener('input', filter);
+      input.addEventListener('search', filter);
+      select.addEventListener('change', filter);
+      return { input, filter };
+    });
+    const clear = () => {
+      first.value = ''; second.value = '';
+      for (const search of searches) { search.input.value = ''; search.filter(); }
+      updateHelp();
+    };
+    document.addEventListener('click', event => {
+      if (event.target.closest('#reset, #reset-filters, #filter-reset')) clear();
+    }, true);
+    document.addEventListener('reset', clear, true);
+  };
   const penaltyShootouts = new Map([
     ['4897219', { matchScore:'0:0', shootoutScore:'2:4' }],
     ['4568309', { matchScore:'1:1', shootoutScore:'5:3' }]
@@ -71,6 +126,7 @@
   };
 
   const cleanCurrentStatusLabels = () => {
+    initH2H();
     const table = document.querySelector('table:not(.statistics-table)');
     if (table) {
       const body = table.tBodies[0];

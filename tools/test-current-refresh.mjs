@@ -4,9 +4,10 @@ import assert from 'node:assert/strict';
 import { createHash } from 'node:crypto';
 import { AS_OF } from './source-cache.mjs';
 import { aggregateTop5, seniorEntries } from './refresh-current-data.mjs';
+import { restoreMarketValueDisplay } from './market-value-display.mjs';
 
 const root = path.resolve(import.meta.dirname, '..');
-const read = file => fs.readFileSync(path.join(root, file), 'utf8');
+const read = file => restoreMarketValueDisplay(fs.readFileSync(path.join(root, file), 'utf8'));
 const attr = (row, key) => row.match(new RegExp(`\\b${key}="([^"]*)"`))?.[1] || '';
 const rows = file => [...read(file).matchAll(/<tr\b[^>]*data-player-id="\d+"[^>]*>[\s\S]*?<\/tr>/g)].map(m => m[0]);
 const cached = url => JSON.parse(read(`tools/.cache/${AS_OF}/${createHash('sha256').update(url).digest('hex')}.json`));

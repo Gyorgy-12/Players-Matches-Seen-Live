@@ -1,0 +1,22 @@
+{
+  "gameId": "5059965",
+  "verifiedAt": "2026-11-01",
+  "method": "Transfermarkt rendered match sheet and full line-ups; dated RO1 table and its exact plotted market-value coordinates",
+  "date": "2026-10-28",
+  "score": "1:3",
+  "attendance": 5632,
+  "attendanceNote": "Transfermarkt match sheet: Attendance: 5.632.",
+  "lineupUrl": "https://www.transfermarkt.com/cfr-cluj_fc-universitatea-cluj/aufstellung/spielbericht/5059965",
+  "sheetUrl": "https://www.transfermarkt.com/spielbericht/index/spielbericht/5059965",
+  "cutoffUrl": "https://www.transfermarkt.com/x/marktwerteverein/wettbewerb/RO1/stichtag/2026-10-15/plus/1",
+  "cutoff": "2026-10-15",
+  "historical": {"7769": 13850000, "6429": 16600000},
+  "historicalVerification": {"chartYPerMillion": 12.425, "chartTopValue": 40000000, "seriesLocalY": {"7769": 324.91375, "6429": 290.745}, "note": "The visible table rounds to €14M/€17M. Exact SVG series coordinates against the labelled linear axis recover €13.85m/€16.60m. CFR matches the previously verified October 15 snapshot."},
+  "substituteIds": ["531599", "623425", "131589", "808224", "770036", "229625", "605547", "859536", "156639", "271763"],
+  "groups": [
+    {"clubId":"7769","starter":true,"players":[["252192","Romania"],["502669","Georgia"],["226080","Croatia"],["410281","Croatia"],["44698","Romania"],["1043574","Romania"],["898351","Uruguay"],["291656","Romania"],["332875","Bosnia-Herzegovina"],["993687","Romania"],["123671","Romania"]]},
+    {"clubId":"6429","starter":true,"players":[["935015","Romania"],["600151","Martinique"],["331971","Romania"],["64126","Romania"],["1040558","Romania"],["699171","Portugal"],["220816","Romania"],["685795","Romania"],["798972","Cote d'Ivoire"],["477923","Serbia"],["457738","Bosnia-Herzegovina"]]},
+    {"clubId":"7769","starter":false,"players":[["675500","Romania"],["589753","Bosnia-Herzegovina"],["623425","Romania"],["531599","Austria"],["948255","Spain"],["1304289","Ghana"],["808224","Romania"],["131589","Algeria"],["770036","Belgium"]]},
+    {"clubId":"6429","starter":false,"players":[["935028","Romania"],["992826","Romania"],["1028313","Nigeria"],["229625","Croatia"],["605547","Romania"],["156639","Romania"],["859536","France"],["880840","Romania"],["271763","Sweden"]]}
+  ]
+}
