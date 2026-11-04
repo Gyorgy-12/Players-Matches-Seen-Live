@@ -14,9 +14,9 @@ for (const mode of ['players', 'teams']) {
   assert.deepEqual(aggregate(data, mode, { ...h2h, match: '4914525' }), [], 'H2H és meccsszűrő metszete');
   assert.ok(aggregate(data, mode, { ...h2h, season: '2026/27' }).every(r => r.apps <= forward.find(p => p.id === r.id).apps));
 }
-assert.equal(players.length, 1142);
-assert.equal(data.matches.length, 96);
-assert.equal(data.appearances.length, 2948);
+assert.equal(players.length, 1143);
+assert.equal(data.matches.length, 97);
+assert.equal(data.appearances.length, 2976);
 assert.equal(teams.length, 50);
 assert.equal(players.reduce((n, r) => n + r.apps, 0), data.appearances.length);
 assert.equal(teams.reduce((n, r) => n + r.apps, 0), 2 * data.matches.length);

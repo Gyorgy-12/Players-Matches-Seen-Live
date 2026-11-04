@@ -1,0 +1,3865 @@
+{
+  "asOf": "2026-11-04",
+  "gameId": "4914583",
+  "date": "2026-11-02",
+  "score": "1:0",
+  "round": "Matchday 14",
+  "home": {
+    "id": "6429",
+    "name": "U Cluj"
+  },
+  "away": {
+    "id": "301",
+    "name": "FCSB"
+  },
+  "stadium": "Cluj Arena",
+  "cutoff": "2026-10-15",
+  "season": "2026/27",
+  "competition": "Romanian SuperLiga",
+  "historical": {
+    "301": 24400000,
+    "6429": 16600000
+  },
+  "totals": {
+    "301": {
+      "count": 22,
+      "starters": 11,
+      "played": 15,
+      "value": 20850000,
+      "unvaluedIds": []
+    },
+    "6429": {
+      "count": 21,
+      "starters": 11,
+      "played": 13,
+      "value": 13100000,
+      "unvaluedIds": [
+        "1341647"
+      ]
+    }
+  },
+  "attendance": 16104,
+  "attendanceNote": "Transfermarkt match sheet: Attendance: 16.104.",
+  "sources": {
+    "lineupUrl": "https://www.transfermarkt.com/-/aufstellung/spielbericht/4914583",
+    "sheetUrl": "https://www.transfermarkt.com/spielbericht/index/spielbericht/4914583",
+    "cutoffUrl": "https://www.transfermarkt.com/x/marktwerteverein/wettbewerb/RO1/stichtag/2026-10-15/plus/1"
+  },
+  "roster": [
+    {
+      "id": "935015",
+      "nationality": "Romania",
+      "clubId": "6429",
+      "club": "U Cluj",
+      "starter": true,
+      "name": "Ștefan Lefter",
+      "url": "https://www.transfermarkt.com/stefan-lefter/profil/spieler/935015",
+      "historySource": {
+        "date": "2026-10-12",
+        "method": "verified historical points and freshly verified current valuation before match",
+        "source": "https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/935015"
+      },
+      "played": true,
+      "minutes": 90,
+      "profile": {
+        "marketValueDetails": {
+          "current": {
+            "value": 500000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "500.00",
+              "suffix": "K"
+            },
+            "determined": "2026-06-08"
+          },
+          "previous": {
+            "value": 400000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "400.00",
+              "suffix": "K"
+            },
+            "determined": "2025-12-19"
+          },
+          "delta": {
+            "value": "+100.000 €",
+            "percentage": "+25,00 %",
+            "isVisible": false,
+            "type": "INCREASED"
+          },
+          "highest": {
+            "value": 500000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "500.00",
+              "suffix": "K"
+            },
+            "determined": "2026-06-08"
+          }
+        }
+      },
+      "graph": [
+        {
+          "x": 1780869600000,
+          "y": 500000,
+          "mw": "€500k",
+          "datum_mw": "08/06/2026",
+          "verein": "FC Universitatea Cluj",
+          "age": "21",
+          "wappen": "https://img.a.transfermarkt.technology/wappen/profil/6429.png?lm=1789459495"
+        },
+        {
+          "x": 1780876800000,
+          "y": 500000,
+          "datum_mw": "08/06/2026",
+          "verein": "U Cluj"
+        }
+      ],
+      "atMatch": {
+        "x": 1780876800000,
+        "y": 500000,
+        "datum_mw": "08/06/2026",
+        "verein": "U Cluj"
+      },
+      "top5": {},
+      "senior": [],
+      "currentClub": "FC Universitatea Cluj"
+    },
+    {
+      "id": "600151",
+      "nationality": "Martinique",
+      "clubId": "6429",
+      "club": "U Cluj",
+      "starter": true,
+      "name": "Florent Poulolo",
+      "url": "https://www.transfermarkt.com/florent-poulolo/profil/spieler/600151",
+      "historySource": {
+        "date": "2026-10-12",
+        "method": "verified historical points and freshly verified current valuation before match",
+        "source": "https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/600151"
+      },
+      "played": true,
+      "minutes": 90,
+      "profile": {
+        "marketValueDetails": {
+          "current": {
+            "value": 800000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "800.00",
+              "suffix": "K"
+            },
+            "determined": "2026-06-08"
+          },
+          "previous": {
+            "value": 700000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "700.00",
+              "suffix": "K"
+            },
+            "determined": "2025-12-19"
+          },
+          "delta": {
+            "value": "+100.000 €",
+            "percentage": "+14,29 %",
+            "isVisible": false,
+            "type": "INCREASED"
+          },
+          "highest": {
+            "value": 800000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "800.00",
+              "suffix": "K"
+            },
+            "determined": "2026-06-08"
+          }
+        }
+      },
+      "graph": [
+        {
+          "x": 1780869600000,
+          "y": 800000,
+          "mw": "€800k",
+          "datum_mw": "08/06/2026",
+          "verein": "UTA Arad",
+          "age": "29",
+          "wappen": "https://img.a.transfermarkt.technology/wappen/profil/952.png?lm=1789459221"
+        },
+        {
+          "x": 1780876800000,
+          "y": 800000,
+          "datum_mw": "08/06/2026",
+          "verein": "U Cluj"
+        }
+      ],
+      "atMatch": {
+        "x": 1780876800000,
+        "y": 800000,
+        "datum_mw": "08/06/2026",
+        "verein": "U Cluj"
+      },
+      "top5": {
+        "ES1": {
+          "name": "LaLiga",
+          "apps": 1,
+          "minutes": 1
+        }
+      },
+      "senior": [
+        {
+          "playerId": "600151",
+          "clubId": "19758",
+          "gamesPlayed": 24,
+          "goalsScored": 0,
+          "shirtNumber": 22,
+          "isCaptain": false,
+          "debut": "2022-06-05",
+          "debutCoachId": "10945",
+          "debutGameId": "3794462",
+          "lastGame": "2026-10-03",
+          "lastGameId": "5016276",
+          "careerState": "CURRENT_NATIONAL_PLAYER",
+          "name": "Martinique"
+        }
+      ],
+      "currentClub": "FC Universitatea Cluj"
+    },
+    {
+      "id": "331971",
+      "nationality": "Romania",
+      "clubId": "6429",
+      "club": "U Cluj",
+      "starter": true,
+      "name": "Iulian Cristea",
+      "url": "https://www.transfermarkt.com/iulian-cristea/profil/spieler/331971",
+      "historySource": {
+        "date": "2026-10-12",
+        "method": "verified historical points and freshly verified current valuation before match",
+        "source": "https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/331971"
+      },
+      "played": true,
+      "minutes": 90,
+      "profile": {
+        "marketValueDetails": {
+          "current": {
+            "value": 1000000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "1.00",
+              "suffix": "M"
+            },
+            "determined": "2026-06-08"
+          },
+          "previous": {
+            "value": 1000000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "1.00",
+              "suffix": "M"
+            },
+            "determined": "2025-12-19"
+          },
+          "delta": {
+            "value": "0 €",
+            "percentage": "0,00 %",
+            "isVisible": false,
+            "type": "UNCHANGED"
+          },
+          "highest": {
+            "value": 1500000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "1.50",
+              "suffix": "M"
+            },
+            "determined": "2022-06-03"
+          }
+        }
+      },
+      "graph": [
+        {
+          "x": 1576882800000,
+          "y": 1500000,
+          "mw": "€1.50m",
+          "datum_mw": "21/12/2019",
+          "verein": "FCSB",
+          "age": "25",
+          "wappen": ""
+        },
+        {
+          "x": 1622671200000,
+          "y": 1500000,
+          "mw": "€1.50m",
+          "datum_mw": "03/06/2021",
+          "verein": "FCSB",
+          "age": "26",
+          "wappen": ""
+        },
+        {
+          "x": 1640127600000,
+          "y": 1500000,
+          "mw": "€1.50m",
+          "datum_mw": "22/12/2021",
+          "verein": "FCSB",
+          "age": "27",
+          "wappen": ""
+        },
+        {
+          "x": 1654207200000,
+          "y": 1500000,
+          "mw": "€1.50m",
+          "datum_mw": "03/06/2022",
+          "verein": "FCSB",
+          "age": "27",
+          "wappen": ""
+        }
+      ],
+      "atMatch": {
+        "x": 1780876800000,
+        "y": 1000000,
+        "datum_mw": "08/06/2026",
+        "verein": "U Cluj"
+      },
+      "top5": {},
+      "senior": [
+        {
+          "playerId": "331971",
+          "clubId": "3447",
+          "gamesPlayed": 4,
+          "goalsScored": 0,
+          "shirtNumber": 3,
+          "isCaptain": false,
+          "debut": "2019-06-10",
+          "debutCoachId": "16059",
+          "debutGameId": "3149419",
+          "lastGame": "2022-06-04",
+          "lastGameId": "3716492",
+          "careerState": "FORMER_NATIONAL_PLAYER",
+          "name": "Romania"
+        }
+      ],
+      "currentClub": "FC Universitatea Cluj"
+    },
+    {
+      "id": "64126",
+      "nationality": "Romania",
+      "clubId": "6429",
+      "club": "U Cluj",
+      "starter": true,
+      "name": "Alexandru Chipciu",
+      "url": "https://www.transfermarkt.com/alexandru-chipciu/profil/spieler/64126",
+      "historySource": {
+        "date": "2026-10-12",
+        "method": "verified historical points and freshly verified current valuation before match",
+        "source": "https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/64126"
+      },
+      "played": true,
+      "minutes": 90,
+      "profile": {
+        "marketValueDetails": {
+          "current": {
+            "value": 275000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "275.00",
+              "suffix": "K"
+            },
+            "determined": "2026-06-08"
+          },
+          "previous": {
+            "value": 300000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "300.00",
+              "suffix": "K"
+            },
+            "determined": "2025-12-19"
+          },
+          "delta": {
+            "value": "-25.000 €",
+            "percentage": "-8,33 %",
+            "isVisible": false,
+            "type": "DECREASED"
+          },
+          "highest": {
+            "value": 4000000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "4.00",
+              "suffix": "M"
+            },
+            "determined": "2014-12-15"
+          }
+        }
+      },
+      "graph": [
+        {
+          "x": 1402524000000,
+          "y": 4000000,
+          "mw": "€4.00m",
+          "datum_mw": "12/06/2014",
+          "verein": "Steaua Bucharest",
+          "age": "25",
+          "wappen": ""
+        },
+        {
+          "x": 1418598000000,
+          "y": 4000000,
+          "mw": "€4.00m",
+          "datum_mw": "15/12/2014",
+          "verein": "Steaua Bucharest",
+          "age": "25",
+          "wappen": ""
+        }
+      ],
+      "atMatch": {
+        "x": 1780876800000,
+        "y": 275000,
+        "datum_mw": "08/06/2026",
+        "verein": "U Cluj"
+      },
+      "top5": {},
+      "senior": [
+        {
+          "playerId": "64126",
+          "clubId": "3447",
+          "gamesPlayed": 51,
+          "goalsScored": 6,
+          "shirtNumber": 8,
+          "isCaptain": false,
+          "debut": "2011-08-10",
+          "debutCoachId": "3702",
+          "debutGameId": "1142574",
+          "lastGame": "2025-11-15",
+          "lastGameId": "4510765",
+          "careerState": "RECENT_NATIONAL_PLAYER",
+          "name": "Romania"
+        }
+      ],
+      "currentClub": "FC Universitatea Cluj"
+    },
+    {
+      "id": "229625",
+      "nationality": "Croatia",
+      "clubId": "6429",
+      "club": "U Cluj",
+      "starter": true,
+      "name": "Dino Mikanovic",
+      "url": "https://www.transfermarkt.com/dino-mikanovic/profil/spieler/229625",
+      "historySource": {
+        "date": "2026-10-12",
+        "method": "verified historical points and freshly verified current valuation before match",
+        "source": "https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/229625"
+      },
+      "played": true,
+      "minutes": 90,
+      "profile": {
+        "marketValueDetails": {
+          "current": {
+            "value": 300000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "300.00",
+              "suffix": "K"
+            },
+            "determined": "2026-06-08"
+          },
+          "previous": {
+            "value": 300000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "300.00",
+              "suffix": "K"
+            },
+            "determined": "2025-12-19"
+          },
+          "delta": {
+            "value": "0 €",
+            "percentage": "0,00 %",
+            "isVisible": false,
+            "type": "UNCHANGED"
+          },
+          "highest": {
+            "value": 2000000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "2.00",
+              "suffix": "M"
+            },
+            "determined": "2021-06-11"
+          }
+        }
+      },
+      "graph": [
+        {
+          "x": 1607641200000,
+          "y": 2000000,
+          "mw": "€2.00m",
+          "datum_mw": "11/12/2020",
+          "verein": "Kairat Almaty",
+          "age": "26",
+          "wappen": ""
+        },
+        {
+          "x": 1623362400000,
+          "y": 2000000,
+          "mw": "€2.00m",
+          "datum_mw": "11/06/2021",
+          "verein": "Kairat Almaty",
+          "age": "27",
+          "wappen": ""
+        }
+      ],
+      "atMatch": {
+        "x": 1780876800000,
+        "y": 300000,
+        "datum_mw": "08/06/2026",
+        "verein": "U Cluj"
+      },
+      "top5": {},
+      "senior": [],
+      "currentClub": "FC Universitatea Cluj"
+    },
+    {
+      "id": "699171",
+      "nationality": "Portugal",
+      "clubId": "6429",
+      "club": "U Cluj",
+      "starter": true,
+      "name": "Pedro Pinho",
+      "url": "https://www.transfermarkt.com/pedro-pinho/profil/spieler/699171",
+      "historySource": {
+        "date": "2026-10-12",
+        "method": "verified historical points and freshly verified current valuation before match",
+        "source": "https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/699171"
+      },
+      "played": true,
+      "minutes": 90,
+      "profile": {
+        "marketValueDetails": {
+          "current": {
+            "value": 850000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "850.00",
+              "suffix": "K"
+            },
+            "determined": "2026-06-24"
+          },
+          "previous": {
+            "value": 850000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "850.00",
+              "suffix": "K"
+            },
+            "determined": "2025-12-22"
+          },
+          "delta": {
+            "value": "0 €",
+            "percentage": "0,00 %",
+            "isVisible": false,
+            "type": "UNCHANGED"
+          },
+          "highest": {
+            "value": 850000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "850.00",
+              "suffix": "K"
+            },
+            "determined": "2026-06-24"
+          }
+        }
+      },
+      "graph": [
+        {
+          "x": 1766358000000,
+          "y": 850000,
+          "mw": "€850k",
+          "datum_mw": "22/12/2025",
+          "verein": "GD Chaves",
+          "age": "25",
+          "wappen": ""
+        },
+        {
+          "x": 1782252000000,
+          "y": 850000,
+          "mw": "€850k",
+          "datum_mw": "24/06/2026",
+          "verein": "GD Chaves",
+          "age": "26",
+          "wappen": "https://img.a.transfermarkt.technology/wappen/profil/3325.png?lm=1789459343"
+        },
+        {
+          "x": 1782259200000,
+          "y": 850000,
+          "datum_mw": "24/06/2026",
+          "verein": "U Cluj"
+        }
+      ],
+      "atMatch": {
+        "x": 1782259200000,
+        "y": 850000,
+        "datum_mw": "24/06/2026",
+        "verein": "U Cluj"
+      },
+      "top5": {},
+      "senior": [],
+      "currentClub": "FC Universitatea Cluj"
+    },
+    {
+      "id": "220816",
+      "nationality": "Romania",
+      "clubId": "6429",
+      "club": "U Cluj",
+      "starter": true,
+      "name": "Ovidiu Bic",
+      "url": "https://www.transfermarkt.com/ovidiu-bic/profil/spieler/220816",
+      "historySource": {
+        "date": "2026-10-12",
+        "method": "verified historical points and freshly verified current valuation before match",
+        "source": "https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/220816"
+      },
+      "played": true,
+      "minutes": 90,
+      "profile": {
+        "marketValueDetails": {
+          "current": {
+            "value": 800000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "800.00",
+              "suffix": "K"
+            },
+            "determined": "2026-06-08"
+          },
+          "previous": {
+            "value": 1000000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "1.00",
+              "suffix": "M"
+            },
+            "determined": "2025-12-19"
+          },
+          "delta": {
+            "value": "-200.000 €",
+            "percentage": "-20,00 %",
+            "isVisible": false,
+            "type": "DECREASED"
+          },
+          "highest": {
+            "value": 1200000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "1.20",
+              "suffix": "M"
+            },
+            "determined": "2025-06-10"
+          }
+        }
+      },
+      "graph": [
+        {
+          "x": 1734562800000,
+          "y": 1200000,
+          "mw": "€1.20m",
+          "datum_mw": "19/12/2024",
+          "verein": "FC Universitatea Cluj",
+          "age": "30",
+          "wappen": ""
+        },
+        {
+          "x": 1749506400000,
+          "y": 1200000,
+          "mw": "€1.20m",
+          "datum_mw": "10/06/2025",
+          "verein": "FC Universitatea Cluj",
+          "age": "31",
+          "wappen": ""
+        }
+      ],
+      "atMatch": {
+        "x": 1780876800000,
+        "y": 800000,
+        "datum_mw": "08/06/2026",
+        "verein": "U Cluj"
+      },
+      "top5": {},
+      "senior": [],
+      "currentClub": "FC Universitatea Cluj"
+    },
+    {
+      "id": "798972",
+      "nationality": "Cote d'Ivoire",
+      "clubId": "6429",
+      "club": "U Cluj",
+      "starter": true,
+      "name": "Issouf Macalou",
+      "url": "https://www.transfermarkt.com/issouf-macalou/profil/spieler/798972",
+      "historySource": {
+        "date": "2026-10-12",
+        "method": "verified historical points and freshly verified current valuation before match",
+        "source": "https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/798972"
+      },
+      "played": true,
+      "minutes": 90,
+      "profile": {
+        "marketValueDetails": {
+          "current": {
+            "value": 1200000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "1.20",
+              "suffix": "M"
+            },
+            "determined": "2026-06-08"
+          },
+          "previous": {
+            "value": 900000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "900.00",
+              "suffix": "K"
+            },
+            "determined": "2026-03-27"
+          },
+          "delta": {
+            "value": "+300.000 €",
+            "percentage": "+33,33 %",
+            "isVisible": false,
+            "type": "INCREASED"
+          },
+          "highest": {
+            "value": 1200000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "1.20",
+              "suffix": "M"
+            },
+            "determined": "2026-06-08"
+          }
+        }
+      },
+      "graph": [
+        {
+          "x": 1780869600000,
+          "y": 1200000,
+          "mw": "€1.20m",
+          "datum_mw": "08/06/2026",
+          "verein": "FC Universitatea Cluj",
+          "age": "27",
+          "wappen": "https://img.a.transfermarkt.technology/wappen/profil/6429.png?lm=1789459495"
+        },
+        {
+          "x": 1780876800000,
+          "y": 1200000,
+          "datum_mw": "08/06/2026",
+          "verein": "U Cluj"
+        }
+      ],
+      "atMatch": {
+        "x": 1780876800000,
+        "y": 1200000,
+        "datum_mw": "08/06/2026",
+        "verein": "U Cluj"
+      },
+      "top5": {},
+      "senior": [],
+      "currentClub": "FC Universitatea Cluj"
+    },
+    {
+      "id": "477923",
+      "nationality": "Serbia",
+      "clubId": "6429",
+      "club": "U Cluj",
+      "starter": true,
+      "name": "Jug Stanojev",
+      "url": "https://www.transfermarkt.com/jug-stanojev/profil/spieler/477923",
+      "historySource": {
+        "date": "2026-10-12",
+        "method": "verified historical points and freshly verified current valuation before match",
+        "source": "https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/477923"
+      },
+      "played": true,
+      "minutes": 72,
+      "profile": {
+        "marketValueDetails": {
+          "current": {
+            "value": 850000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "850.00",
+              "suffix": "K"
+            },
+            "determined": "2026-06-08"
+          },
+          "previous": {
+            "value": 700000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "700.00",
+              "suffix": "K"
+            },
+            "determined": "2025-11-06"
+          },
+          "delta": {
+            "value": "+150.000 €",
+            "percentage": "+21,43 %",
+            "isVisible": false,
+            "type": "INCREASED"
+          },
+          "highest": {
+            "value": 850000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "850.00",
+              "suffix": "K"
+            },
+            "determined": "2026-06-08"
+          }
+        }
+      },
+      "graph": [
+        {
+          "x": 1780869600000,
+          "y": 850000,
+          "mw": "€850k",
+          "datum_mw": "08/06/2026",
+          "verein": "FC Universitatea Cluj",
+          "age": "26",
+          "wappen": "https://img.a.transfermarkt.technology/wappen/profil/6429.png?lm=1789459495"
+        },
+        {
+          "x": 1780876800000,
+          "y": 850000,
+          "datum_mw": "08/06/2026",
+          "verein": "U Cluj"
+        }
+      ],
+      "atMatch": {
+        "x": 1780876800000,
+        "y": 850000,
+        "datum_mw": "08/06/2026",
+        "verein": "U Cluj"
+      },
+      "top5": {},
+      "senior": [],
+      "currentClub": "FC Universitatea Cluj"
+    },
+    {
+      "id": "685795",
+      "nationality": "Romania",
+      "clubId": "6429",
+      "club": "U Cluj",
+      "starter": true,
+      "name": "Marius Ștefănescu",
+      "url": "https://www.transfermarkt.com/marius-stefanescu/profil/spieler/685795",
+      "historySource": {
+        "date": "2026-10-12",
+        "method": "verified historical points and freshly verified current valuation before match",
+        "source": "https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/685795"
+      },
+      "played": true,
+      "minutes": 56,
+      "profile": {
+        "marketValueDetails": {
+          "current": {
+            "value": 500000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "500.00",
+              "suffix": "K"
+            },
+            "determined": "2026-05-21"
+          },
+          "previous": {
+            "value": 700000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "700.00",
+              "suffix": "K"
+            },
+            "determined": "2026-03-05"
+          },
+          "delta": {
+            "value": "-200.000 €",
+            "percentage": "-28,57 %",
+            "isVisible": false,
+            "type": "DECREASED"
+          },
+          "highest": {
+            "value": 1700000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "1.70",
+              "suffix": "M"
+            },
+            "determined": "2024-06-05"
+          }
+        }
+      },
+      "graph": [
+        {
+          "x": 1717538400000,
+          "y": 1700000,
+          "mw": "€1.70m",
+          "datum_mw": "05/06/2024",
+          "verein": "Sepsi OSK Sf. Gheorghe",
+          "age": "25",
+          "wappen": ""
+        }
+      ],
+      "atMatch": {
+        "x": 1779321600000,
+        "y": 500000,
+        "datum_mw": "21/05/2026",
+        "verein": "U Cluj"
+      },
+      "top5": {},
+      "senior": [
+        {
+          "playerId": "685795",
+          "clubId": "3447",
+          "gamesPlayed": 2,
+          "goalsScored": 0,
+          "shirtNumber": 8,
+          "isCaptain": false,
+          "debut": "2022-06-14",
+          "debutCoachId": "22740",
+          "debutGameId": "3716515",
+          "lastGame": "2022-11-20",
+          "lastGameId": "3889560",
+          "careerState": "FORMER_NATIONAL_PLAYER",
+          "name": "Romania"
+        }
+      ],
+      "currentClub": "FC Universitatea Cluj"
+    },
+    {
+      "id": "457738",
+      "nationality": "Bosnia-Herzegovina",
+      "clubId": "6429",
+      "club": "U Cluj",
+      "starter": true,
+      "name": "Jovo Lukić",
+      "url": "https://www.transfermarkt.com/jovo-lukic/profil/spieler/457738",
+      "historySource": {
+        "date": "2026-10-12",
+        "method": "verified historical points and freshly verified current valuation before match",
+        "source": "https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/457738"
+      },
+      "played": true,
+      "minutes": 90,
+      "profile": {
+        "marketValueDetails": {
+          "current": {
+            "value": 2200000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "2.20",
+              "suffix": "M"
+            },
+            "determined": "2026-06-05"
+          },
+          "previous": {
+            "value": 1500000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "1.50",
+              "suffix": "M"
+            },
+            "determined": "2026-03-27"
+          },
+          "delta": {
+            "value": "+700.000 €",
+            "percentage": "+46,67 %",
+            "isVisible": false,
+            "type": "INCREASED"
+          },
+          "highest": {
+            "value": 2200000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "2.20",
+              "suffix": "M"
+            },
+            "determined": "2026-06-05"
+          }
+        }
+      },
+      "graph": [
+        {
+          "x": 1780610400000,
+          "y": 2200000,
+          "mw": "€2.20m",
+          "datum_mw": "05/06/2026",
+          "verein": "FC Universitatea Cluj",
+          "age": "27",
+          "wappen": "https://img.a.transfermarkt.technology/wappen/profil/6429.png?lm=1789459495"
+        },
+        {
+          "x": 1780617600000,
+          "y": 2200000,
+          "datum_mw": "05/06/2026",
+          "verein": "U Cluj"
+        }
+      ],
+      "atMatch": {
+        "x": 1780617600000,
+        "y": 2200000,
+        "datum_mw": "05/06/2026",
+        "verein": "U Cluj"
+      },
+      "top5": {},
+      "senior": [
+        {
+          "playerId": "457738",
+          "clubId": "3446",
+          "gamesPlayed": 9,
+          "goalsScored": 1,
+          "shirtNumber": 19,
+          "isCaptain": false,
+          "debut": "2021-12-19",
+          "debutCoachId": "21500",
+          "debutGameId": "3695871",
+          "lastGame": "2026-10-05",
+          "lastGameId": "4825150",
+          "careerState": "CURRENT_NATIONAL_PLAYER",
+          "name": "Bosnia-Herzegovina"
+        }
+      ],
+      "currentClub": "FC Universitatea Cluj"
+    },
+    {
+      "id": "568544",
+      "nationality": "Romania",
+      "clubId": "301",
+      "club": "FCSB",
+      "starter": true,
+      "name": "Ștefan Târnovanu",
+      "url": "https://www.transfermarkt.com/stefan-tarnovanu/profil/spieler/568544",
+      "historySource": {
+        "date": "2026-10-12",
+        "method": "verified historical points and freshly verified current valuation before match",
+        "source": "https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/568544"
+      },
+      "played": true,
+      "minutes": 90,
+      "profile": {
+        "marketValueDetails": {
+          "current": {
+            "value": 2300000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "2.30",
+              "suffix": "M"
+            },
+            "determined": "2026-09-22"
+          },
+          "previous": {
+            "value": 3000000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "3.00",
+              "suffix": "M"
+            },
+            "determined": "2026-06-08"
+          },
+          "delta": {
+            "value": "-700.000 €",
+            "percentage": "-23,33 %",
+            "isVisible": false,
+            "type": "DECREASED"
+          },
+          "highest": {
+            "value": 5000000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "5.00",
+              "suffix": "M"
+            },
+            "determined": "2025-06-10"
+          }
+        }
+      },
+      "graph": [
+        {
+          "x": 1749506400000,
+          "y": 5000000,
+          "mw": "€5.00m",
+          "datum_mw": "10/06/2025",
+          "verein": "FCSB",
+          "age": "25",
+          "wappen": ""
+        }
+      ],
+      "atMatch": {
+        "x": 1790035200000,
+        "y": 2300000,
+        "datum_mw": "22/09/2026",
+        "verein": "FCSB"
+      },
+      "top5": {},
+      "senior": [
+        {
+          "playerId": "568544",
+          "clubId": "3447",
+          "gamesPlayed": 5,
+          "goalsScored": 0,
+          "shirtNumber": 1,
+          "isCaptain": false,
+          "debut": "2022-11-20",
+          "debutCoachId": "22740",
+          "debutGameId": "3889560",
+          "lastGame": "2026-06-06",
+          "lastGameId": "4884500",
+          "careerState": "RECENT_NATIONAL_PLAYER",
+          "name": "Romania"
+        }
+      ],
+      "currentClub": "FCSB"
+    },
+    {
+      "id": "588095",
+      "nationality": "Portugal",
+      "clubId": "301",
+      "club": "FCSB",
+      "starter": true,
+      "name": "André Duarte",
+      "url": "https://www.transfermarkt.com/andre-duarte/profil/spieler/588095",
+      "historySource": {
+        "date": "2026-10-12",
+        "method": "verified historical points and freshly verified current valuation before match",
+        "source": "https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/588095"
+      },
+      "played": true,
+      "minutes": 90,
+      "profile": {
+        "marketValueDetails": {
+          "current": {
+            "value": 700000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "700.00",
+              "suffix": "K"
+            },
+            "determined": "2026-06-08"
+          },
+          "previous": {
+            "value": 800000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "800.00",
+              "suffix": "K"
+            },
+            "determined": "2025-12-08"
+          },
+          "delta": {
+            "value": "-100.000 €",
+            "percentage": "-12,50 %",
+            "isVisible": false,
+            "type": "DECREASED"
+          },
+          "highest": {
+            "value": 1500000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "1.50",
+              "suffix": "M"
+            },
+            "determined": "2024-06-04"
+          }
+        }
+      },
+      "graph": [
+        {
+          "x": 1717452000000,
+          "y": 1500000,
+          "mw": "€1.50m",
+          "datum_mw": "04/06/2024",
+          "verein": "NK Osijek",
+          "age": "26",
+          "wappen": ""
+        }
+      ],
+      "atMatch": {
+        "x": 1780876800000,
+        "y": 700000,
+        "datum_mw": "08/06/2026",
+        "verein": "FCSB"
+      },
+      "top5": {},
+      "senior": [],
+      "currentClub": "FCSB"
+    },
+    {
+      "id": "569743",
+      "nationality": "Cameroon",
+      "clubId": "301",
+      "club": "FCSB",
+      "starter": true,
+      "name": "Joyskim Dawa",
+      "url": "https://www.transfermarkt.com/joyskim-dawa/profil/spieler/569743",
+      "historySource": {
+        "date": "2026-10-12",
+        "method": "verified historical points and freshly verified current valuation before match",
+        "source": "https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/569743"
+      },
+      "played": true,
+      "minutes": 90,
+      "profile": {
+        "marketValueDetails": {
+          "current": {
+            "value": 1800000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "1.80",
+              "suffix": "M"
+            },
+            "determined": "2026-06-08"
+          },
+          "previous": {
+            "value": 2000000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "2.00",
+              "suffix": "M"
+            },
+            "determined": "2026-03-27"
+          },
+          "delta": {
+            "value": "-200.000 €",
+            "percentage": "-10,00 %",
+            "isVisible": false,
+            "type": "DECREASED"
+          },
+          "highest": {
+            "value": 3000000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "3.00",
+              "suffix": "M"
+            },
+            "determined": "2025-06-10"
+          }
+        }
+      },
+      "graph": [
+        {
+          "x": 1749506400000,
+          "y": 3000000,
+          "mw": "€3.00m",
+          "datum_mw": "10/06/2025",
+          "verein": "FCSB",
+          "age": "29",
+          "wappen": ""
+        }
+      ],
+      "atMatch": {
+        "x": 1780876800000,
+        "y": 1800000,
+        "datum_mw": "08/06/2026",
+        "verein": "FCSB"
+      },
+      "top5": {},
+      "senior": [
+        {
+          "playerId": "569743",
+          "clubId": "3434",
+          "gamesPlayed": 10,
+          "goalsScored": 0,
+          "shirtNumber": 21,
+          "isCaptain": false,
+          "debut": "2018-10-16",
+          "debutCoachId": "32998",
+          "debutGameId": "3112938",
+          "lastGame": "2025-03-19",
+          "lastGameId": "4575430",
+          "careerState": "FORMER_NATIONAL_PLAYER",
+          "name": "Cameroon"
+        }
+      ],
+      "currentClub": "FCSB"
+    },
+    {
+      "id": "992848",
+      "nationality": "Romania",
+      "clubId": "301",
+      "club": "FCSB",
+      "starter": true,
+      "name": "Ricardo Pădurariu",
+      "url": "https://www.transfermarkt.com/ricardo-padurariu/profil/spieler/992848",
+      "historySource": {
+        "date": "2026-10-12",
+        "method": "verified historical points and freshly verified current valuation before match",
+        "source": "https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/992848"
+      },
+      "played": true,
+      "minutes": 90,
+      "profile": {
+        "marketValueDetails": {
+          "current": {
+            "value": 700000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "700.00",
+              "suffix": "K"
+            },
+            "determined": "2026-09-22"
+          },
+          "previous": {
+            "value": 550000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "550.00",
+              "suffix": "K"
+            },
+            "determined": "2026-06-09"
+          },
+          "delta": {
+            "value": "+150.000 €",
+            "percentage": "+27,27 %",
+            "isVisible": false,
+            "type": "INCREASED"
+          },
+          "highest": {
+            "value": 700000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "700.00",
+              "suffix": "K"
+            },
+            "determined": "2026-09-22"
+          }
+        }
+      },
+      "graph": [
+        {
+          "x": 1790028000000,
+          "y": 700000,
+          "mw": "€700k",
+          "datum_mw": "22/09/2026",
+          "verein": "FCSB",
+          "age": "19",
+          "wappen": "https://img.a.transfermarkt.technology/wappen/profil/301.png?lm=1789459183"
+        },
+        {
+          "x": 1790035200000,
+          "y": 700000,
+          "datum_mw": "22/09/2026",
+          "verein": "FCSB"
+        }
+      ],
+      "atMatch": {
+        "x": 1790035200000,
+        "y": 700000,
+        "datum_mw": "22/09/2026",
+        "verein": "FCSB"
+      },
+      "top5": {},
+      "senior": [],
+      "currentClub": "FCSB"
+    },
+    {
+      "id": "79507",
+      "nationality": "Romania",
+      "clubId": "301",
+      "club": "FCSB",
+      "starter": true,
+      "name": "Valentin Crețu",
+      "url": "https://www.transfermarkt.com/valentin-cretu/profil/spieler/79507",
+      "historySource": {
+        "date": "2026-10-12",
+        "method": "verified historical points and freshly verified current valuation before match",
+        "source": "https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/79507"
+      },
+      "played": true,
+      "minutes": 90,
+      "profile": {
+        "marketValueDetails": {
+          "current": {
+            "value": 100000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "100.00",
+              "suffix": "K"
+            },
+            "determined": "2026-06-08"
+          },
+          "previous": {
+            "value": 150000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "150.00",
+              "suffix": "K"
+            },
+            "determined": "2025-12-19"
+          },
+          "delta": {
+            "value": "-50.000 €",
+            "percentage": "-33,33 %",
+            "isVisible": false,
+            "type": "DECREASED"
+          },
+          "highest": {
+            "value": 900000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "900.00",
+              "suffix": "K"
+            },
+            "determined": "2020-12-18"
+          }
+        }
+      },
+      "graph": [
+        {
+          "x": 1608246000000,
+          "y": 900000,
+          "mw": "€900k",
+          "datum_mw": "18/12/2020",
+          "verein": "FCSB",
+          "age": "31",
+          "wappen": ""
+        }
+      ],
+      "atMatch": {
+        "x": 1780876800000,
+        "y": 100000,
+        "datum_mw": "08/06/2026",
+        "verein": "FCSB"
+      },
+      "top5": {},
+      "senior": [
+        {
+          "playerId": "79507",
+          "clubId": "3447",
+          "gamesPlayed": 2,
+          "goalsScored": 0,
+          "shirtNumber": 14,
+          "isCaptain": false,
+          "debut": "2020-11-11",
+          "debutCoachId": "40857",
+          "debutGameId": "3486161",
+          "lastGame": "2020-11-18",
+          "lastGameId": "3330678",
+          "careerState": "FORMER_NATIONAL_PLAYER",
+          "name": "Romania"
+        }
+      ],
+      "currentClub": "FCSB"
+    },
+    {
+      "id": "144339",
+      "nationality": "Montenegro",
+      "clubId": "301",
+      "club": "FCSB",
+      "starter": true,
+      "name": "Risto Radunovic",
+      "url": "https://www.transfermarkt.com/risto-radunovic/profil/spieler/144339",
+      "historySource": {
+        "date": "2026-10-12",
+        "method": "verified historical points and freshly verified current valuation before match",
+        "source": "https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/144339"
+      },
+      "played": true,
+      "minutes": 90,
+      "profile": {
+        "marketValueDetails": {
+          "current": {
+            "value": 400000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "400.00",
+              "suffix": "K"
+            },
+            "determined": "2026-09-22"
+          },
+          "previous": {
+            "value": 550000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "550.00",
+              "suffix": "K"
+            },
+            "determined": "2026-06-08"
+          },
+          "delta": {
+            "value": "-150.000 €",
+            "percentage": "-27,27 %",
+            "isVisible": false,
+            "type": "DECREASED"
+          },
+          "highest": {
+            "value": 1500000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "1.50",
+              "suffix": "M"
+            },
+            "determined": "2022-06-03"
+          }
+        }
+      },
+      "graph": [
+        {
+          "x": 1654207200000,
+          "y": 1500000,
+          "mw": "€1.50m",
+          "datum_mw": "03/06/2022",
+          "verein": "FCSB",
+          "age": "30",
+          "wappen": ""
+        }
+      ],
+      "atMatch": {
+        "x": 1790035200000,
+        "y": 400000,
+        "datum_mw": "22/09/2026",
+        "verein": "FCSB"
+      },
+      "top5": {},
+      "senior": [
+        {
+          "playerId": "144339",
+          "clubId": "11953",
+          "gamesPlayed": 45,
+          "goalsScored": 1,
+          "shirtNumber": 3,
+          "isCaptain": false,
+          "debut": "2018-10-14",
+          "debutCoachId": "4481",
+          "debutGameId": "2996545",
+          "lastGame": "2026-10-02",
+          "lastGameId": "4825175",
+          "careerState": "CURRENT_NATIONAL_PLAYER",
+          "name": "Montenegro"
+        }
+      ],
+      "currentClub": "FCSB"
+    },
+    {
+      "id": "388042",
+      "nationality": "Croatia",
+      "clubId": "301",
+      "club": "FCSB",
+      "starter": true,
+      "name": "Karlo Muhar",
+      "url": "https://www.transfermarkt.com/karlo-muhar/profil/spieler/388042",
+      "historySource": {
+        "date": "2026-10-12",
+        "method": "verified historical points and freshly verified current valuation before match",
+        "source": "https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/388042"
+      },
+      "played": true,
+      "minutes": 90,
+      "profile": {
+        "marketValueDetails": {
+          "current": {
+            "value": 1200000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "1.20",
+              "suffix": "M"
+            },
+            "determined": "2026-06-08"
+          },
+          "previous": {
+            "value": 1200000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "1.20",
+              "suffix": "M"
+            },
+            "determined": "2025-12-19"
+          },
+          "delta": {
+            "value": "0 €",
+            "percentage": "0,00 %",
+            "isVisible": false,
+            "type": "UNCHANGED"
+          },
+          "highest": {
+            "value": 2000000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "2.00",
+              "suffix": "M"
+            },
+            "determined": "2024-06-05"
+          }
+        }
+      },
+      "graph": [
+        {
+          "x": 1717538400000,
+          "y": 2000000,
+          "mw": "€2.00m",
+          "datum_mw": "05/06/2024",
+          "verein": "CFR Cluj",
+          "age": "28",
+          "wappen": ""
+        }
+      ],
+      "atMatch": {
+        "x": 1780876800000,
+        "y": 1200000,
+        "datum_mw": "08/06/2026",
+        "verein": "FCSB"
+      },
+      "top5": {},
+      "senior": [],
+      "currentClub": "FCSB"
+    },
+    {
+      "id": "412024",
+      "nationality": "Kosovo",
+      "clubId": "301",
+      "club": "FCSB",
+      "starter": true,
+      "name": "Meriton Korenica",
+      "url": "https://www.transfermarkt.com/meriton-korenica/profil/spieler/412024",
+      "historySource": {
+        "date": "2026-10-12",
+        "method": "verified historical points and freshly verified current valuation before match",
+        "source": "https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/412024"
+      },
+      "played": true,
+      "minutes": 45,
+      "profile": {
+        "marketValueDetails": {
+          "current": {
+            "value": 2500000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "2.50",
+              "suffix": "M"
+            },
+            "determined": "2026-09-22"
+          },
+          "previous": {
+            "value": 3000000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "3.00",
+              "suffix": "M"
+            },
+            "determined": "2026-06-08"
+          },
+          "delta": {
+            "value": "-500.000 €",
+            "percentage": "-16,67 %",
+            "isVisible": false,
+            "type": "DECREASED"
+          },
+          "highest": {
+            "value": 3000000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "3.00",
+              "suffix": "M"
+            },
+            "determined": "2026-06-08"
+          }
+        }
+      },
+      "graph": [
+        {
+          "x": 1774566000000,
+          "y": 3000000,
+          "mw": "€3.00m",
+          "datum_mw": "27/03/2026",
+          "verein": "CFR Cluj",
+          "age": "29",
+          "wappen": ""
+        },
+        {
+          "x": 1780869600000,
+          "y": 3000000,
+          "mw": "€3.00m",
+          "datum_mw": "08/06/2026",
+          "verein": "CFR Cluj",
+          "age": "29",
+          "wappen": ""
+        }
+      ],
+      "atMatch": {
+        "x": 1790035200000,
+        "y": 2500000,
+        "datum_mw": "22/09/2026",
+        "verein": "FCSB"
+      },
+      "top5": {},
+      "senior": [
+        {
+          "playerId": "412024",
+          "clubId": "53982",
+          "gamesPlayed": 7,
+          "goalsScored": 0,
+          "shirtNumber": 7,
+          "isCaptain": false,
+          "debut": "2023-09-09",
+          "debutCoachId": "6607",
+          "debutGameId": "3941612",
+          "lastGame": "2026-10-04",
+          "lastGameId": "4825147",
+          "careerState": "CURRENT_NATIONAL_PLAYER",
+          "name": "Kosovo"
+        }
+      ],
+      "currentClub": "FCSB"
+    },
+    {
+      "id": "163999",
+      "nationality": "Italy",
+      "clubId": "301",
+      "club": "FCSB",
+      "starter": true,
+      "name": "Juri Cisotti",
+      "url": "https://www.transfermarkt.com/juri-cisotti/profil/spieler/163999",
+      "historySource": {
+        "date": "2026-10-12",
+        "method": "verified historical points and freshly verified current valuation before match",
+        "source": "https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/163999"
+      },
+      "played": true,
+      "minutes": 32,
+      "profile": {
+        "marketValueDetails": {
+          "current": {
+            "value": 700000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "700.00",
+              "suffix": "K"
+            },
+            "determined": "2026-06-08"
+          },
+          "previous": {
+            "value": 800000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "800.00",
+              "suffix": "K"
+            },
+            "determined": "2025-12-19"
+          },
+          "delta": {
+            "value": "-100.000 €",
+            "percentage": "-12,50 %",
+            "isVisible": false,
+            "type": "DECREASED"
+          },
+          "highest": {
+            "value": 800000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "800.00",
+              "suffix": "K"
+            },
+            "determined": "2025-12-19"
+          }
+        }
+      },
+      "graph": [
+        {
+          "x": 1742943600000,
+          "y": 800000,
+          "mw": "€800k",
+          "datum_mw": "26/03/2025",
+          "verein": "FCSB",
+          "age": "31",
+          "wappen": "https://img.a.transfermarkt.technology/wappen/profil/301.png?lm=1789459183"
+        },
+        {
+          "x": 1749506400000,
+          "y": 800000,
+          "mw": "€800k",
+          "datum_mw": "10/06/2025",
+          "verein": "FCSB",
+          "age": "32",
+          "wappen": ""
+        },
+        {
+          "x": 1766098800000,
+          "y": 800000,
+          "mw": "€800k",
+          "datum_mw": "19/12/2025",
+          "verein": "FCSB",
+          "age": "32",
+          "wappen": ""
+        }
+      ],
+      "atMatch": {
+        "x": 1780876800000,
+        "y": 700000,
+        "datum_mw": "08/06/2026",
+        "verein": "FCSB"
+      },
+      "top5": {},
+      "senior": [],
+      "currentClub": "FCSB"
+    },
+    {
+      "id": "730580",
+      "nationality": "Algeria",
+      "clubId": "301",
+      "club": "FCSB",
+      "starter": true,
+      "name": "Aymen Boutoutaou",
+      "url": "https://www.transfermarkt.com/aymen-boutoutaou/profil/spieler/730580",
+      "historySource": {
+        "date": "2026-10-12",
+        "method": "verified historical points and freshly verified current valuation before match",
+        "source": "https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/730580"
+      },
+      "played": true,
+      "minutes": 67,
+      "profile": {
+        "marketValueDetails": {
+          "current": {
+            "value": 800000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "800.00",
+              "suffix": "K"
+            },
+            "determined": "2026-05-25"
+          },
+          "previous": {
+            "value": 600000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "600.00",
+              "suffix": "K"
+            },
+            "determined": "2026-03-23"
+          },
+          "delta": {
+            "value": "+200.000 €",
+            "percentage": "+33,33 %",
+            "isVisible": false,
+            "type": "INCREASED"
+          },
+          "highest": {
+            "value": 1200000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "1.20",
+              "suffix": "M"
+            },
+            "determined": "2023-12-13"
+          }
+        }
+      },
+      "graph": [
+        {
+          "x": 1698357600000,
+          "y": 1200000,
+          "mw": "€1.20m",
+          "datum_mw": "27/10/2023",
+          "verein": "Valenciennes FC",
+          "age": "22",
+          "wappen": ""
+        },
+        {
+          "x": 1702422000000,
+          "y": 1200000,
+          "mw": "€1.20m",
+          "datum_mw": "13/12/2023",
+          "verein": "Valenciennes FC",
+          "age": "22",
+          "wappen": ""
+        }
+      ],
+      "atMatch": {
+        "x": 1779667200000,
+        "y": 800000,
+        "datum_mw": "25/05/2026",
+        "verein": "FCSB"
+      },
+      "top5": {},
+      "senior": [],
+      "currentClub": "FCSB"
+    },
+    {
+      "id": "614800",
+      "nationality": "Romania",
+      "clubId": "301",
+      "club": "FCSB",
+      "starter": true,
+      "name": "David Miculescu",
+      "url": "https://www.transfermarkt.com/david-miculescu/profil/spieler/614800",
+      "historySource": {
+        "date": "2026-10-12",
+        "method": "verified historical points and freshly verified current valuation before match",
+        "source": "https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/614800"
+      },
+      "played": true,
+      "minutes": 81,
+      "profile": {
+        "marketValueDetails": {
+          "current": {
+            "value": 2300000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "2.30",
+              "suffix": "M"
+            },
+            "determined": "2026-06-08"
+          },
+          "previous": {
+            "value": 2500000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "2.50",
+              "suffix": "M"
+            },
+            "determined": "2025-12-19"
+          },
+          "delta": {
+            "value": "-200.000 €",
+            "percentage": "-8,00 %",
+            "isVisible": false,
+            "type": "DECREASED"
+          },
+          "highest": {
+            "value": 2500000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "2.50",
+              "suffix": "M"
+            },
+            "determined": "2025-12-19"
+          }
+        }
+      },
+      "graph": [
+        {
+          "x": 1749506400000,
+          "y": 2500000,
+          "mw": "€2.50m",
+          "datum_mw": "10/06/2025",
+          "verein": "FCSB",
+          "age": "24",
+          "wappen": ""
+        },
+        {
+          "x": 1766098800000,
+          "y": 2500000,
+          "mw": "€2.50m",
+          "datum_mw": "19/12/2025",
+          "verein": "FCSB",
+          "age": "24",
+          "wappen": ""
+        }
+      ],
+      "atMatch": {
+        "x": 1780876800000,
+        "y": 2300000,
+        "datum_mw": "08/06/2026",
+        "verein": "FCSB"
+      },
+      "top5": {},
+      "senior": [
+        {
+          "playerId": "614800",
+          "clubId": "3447",
+          "gamesPlayed": 8,
+          "goalsScored": 0,
+          "shirtNumber": 17,
+          "isCaptain": false,
+          "debut": "2025-06-07",
+          "debutCoachId": "805",
+          "debutGameId": "4510677",
+          "lastGame": "2026-03-31",
+          "lastGameId": "4854410",
+          "careerState": "RECENT_NATIONAL_PLAYER",
+          "name": "Romania"
+        }
+      ],
+      "currentClub": "FCSB"
+    },
+    {
+      "id": "935028",
+      "nationality": "Romania",
+      "clubId": "6429",
+      "club": "U Cluj",
+      "starter": false,
+      "name": "Denis Moldovan",
+      "url": "https://www.transfermarkt.com/denis-moldovan/profil/spieler/935028",
+      "historySource": {
+        "date": "2026-10-12",
+        "method": "verified historical points and freshly verified current valuation before match",
+        "source": "https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/935028"
+      },
+      "played": false,
+      "minutes": 0,
+      "profile": {
+        "marketValueDetails": {
+          "current": {
+            "value": 75000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "75.00",
+              "suffix": "K"
+            },
+            "determined": "2026-06-09"
+          },
+          "previous": {
+            "value": 75000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "75.00",
+              "suffix": "K"
+            },
+            "determined": "2025-12-09"
+          },
+          "delta": {
+            "value": "0 €",
+            "percentage": "0,00 %",
+            "isVisible": false,
+            "type": "UNCHANGED"
+          },
+          "highest": {
+            "value": 75000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "75.00",
+              "suffix": "K"
+            },
+            "determined": "2026-06-09"
+          }
+        }
+      },
+      "graph": [
+        {
+          "x": 1765234800000,
+          "y": 75000,
+          "mw": "€75k",
+          "datum_mw": "09/12/2025",
+          "verein": "CS Dinamo Bucuresti",
+          "age": "21",
+          "wappen": "https://img.a.transfermarkt.technology/wappen/profil/102149.png?lm=1789466082"
+        },
+        {
+          "x": 1780956000000,
+          "y": 75000,
+          "mw": "€75k",
+          "datum_mw": "09/06/2026",
+          "verein": "CS Dinamo Bucuresti",
+          "age": "21",
+          "wappen": "https://img.a.transfermarkt.technology/wappen/profil/102149.png?lm=1789466082"
+        },
+        {
+          "x": 1780963200000,
+          "y": 75000,
+          "datum_mw": "09/06/2026",
+          "verein": "U Cluj"
+        }
+      ],
+      "atMatch": {
+        "x": 1780963200000,
+        "y": 75000,
+        "datum_mw": "09/06/2026",
+        "verein": "U Cluj"
+      },
+      "top5": {},
+      "senior": [],
+      "currentClub": "FC Universitatea Cluj"
+    },
+    {
+      "id": "416359",
+      "nationality": "Cyprus",
+      "clubId": "6429",
+      "club": "U Cluj",
+      "starter": false,
+      "name": "Neofytos Michail",
+      "url": "https://www.transfermarkt.com/neofytos-michail/profil/spieler/416359",
+      "historySource": {
+        "date": "2026-10-12",
+        "method": "verified historical points and freshly verified current valuation before match",
+        "source": "https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/416359"
+      },
+      "played": false,
+      "minutes": 0,
+      "profile": {
+        "marketValueDetails": {
+          "current": {
+            "value": 325000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "325.00",
+              "suffix": "K"
+            },
+            "determined": "2026-06-02"
+          },
+          "previous": {
+            "value": 325000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "325.00",
+              "suffix": "K"
+            },
+            "determined": "2025-12-23"
+          },
+          "delta": {
+            "value": "0 €",
+            "percentage": "0,00 %",
+            "isVisible": false,
+            "type": "UNCHANGED"
+          },
+          "highest": {
+            "value": 500000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "500.00",
+              "suffix": "K"
+            },
+            "determined": "2022-06-20"
+          }
+        }
+      },
+      "graph": [
+        {
+          "x": 1655676000000,
+          "y": 500000,
+          "mw": "€500k",
+          "datum_mw": "20/06/2022",
+          "verein": "APOEL Nicosia",
+          "age": "28",
+          "wappen": ""
+        }
+      ],
+      "atMatch": {
+        "x": 1780358400000,
+        "y": 325000,
+        "datum_mw": "02/06/2026",
+        "verein": "U Cluj"
+      },
+      "top5": {},
+      "senior": [
+        {
+          "playerId": "416359",
+          "clubId": "3668",
+          "gamesPlayed": 17,
+          "goalsScored": 0,
+          "shirtNumber": 22,
+          "isCaptain": false,
+          "debut": "2019-11-19",
+          "debutCoachId": "16078",
+          "debutGameId": "3149814",
+          "lastGame": "2026-03-26",
+          "lastGameId": "4803848",
+          "careerState": "CURRENT_NATIONAL_PLAYER",
+          "name": "Cyprus"
+        }
+      ],
+      "currentClub": "FC Universitatea Cluj"
+    },
+    {
+      "id": "992826",
+      "nationality": "Romania",
+      "clubId": "6429",
+      "club": "U Cluj",
+      "starter": false,
+      "name": "Alin Techereș",
+      "url": "https://www.transfermarkt.com/alin-techeres/profil/spieler/992826",
+      "historySource": {
+        "date": "2026-10-12",
+        "method": "verified historical points and freshly verified current valuation before match",
+        "source": "https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/992826"
+      },
+      "played": false,
+      "minutes": 0,
+      "profile": {
+        "marketValueDetails": {
+          "current": {
+            "value": 400000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "400.00",
+              "suffix": "K"
+            },
+            "determined": "2026-06-09"
+          },
+          "previous": {
+            "value": 250000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "250.00",
+              "suffix": "K"
+            },
+            "determined": "2026-03-27"
+          },
+          "delta": {
+            "value": "+150.000 €",
+            "percentage": "+60,00 %",
+            "isVisible": false,
+            "type": "INCREASED"
+          },
+          "highest": {
+            "value": 400000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "400.00",
+              "suffix": "K"
+            },
+            "determined": "2026-06-09"
+          }
+        }
+      },
+      "graph": [
+        {
+          "x": 1780956000000,
+          "y": 400000,
+          "mw": "€400k",
+          "datum_mw": "09/06/2026",
+          "verein": "Sepsi OSK Sf. Gheorghe",
+          "age": "19",
+          "wappen": "https://img.a.transfermarkt.technology/wappen/profil/54585.png?lm=1789462625"
+        },
+        {
+          "x": 1780963200000,
+          "y": 400000,
+          "datum_mw": "09/06/2026",
+          "verein": "U Cluj"
+        }
+      ],
+      "atMatch": {
+        "x": 1780963200000,
+        "y": 400000,
+        "datum_mw": "09/06/2026",
+        "verein": "U Cluj"
+      },
+      "top5": {},
+      "senior": [],
+      "currentClub": "FC Universitatea Cluj"
+    },
+    {
+      "id": "1040558",
+      "nationality": "Romania",
+      "clubId": "6429",
+      "club": "U Cluj",
+      "starter": false,
+      "name": "Alin Chinteș",
+      "url": "https://www.transfermarkt.com/alin-chintes/profil/spieler/1040558",
+      "historySource": {
+        "date": "2026-10-12",
+        "method": "verified historical points and freshly verified current valuation before match",
+        "source": "https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/1040558"
+      },
+      "played": false,
+      "minutes": 0,
+      "profile": {
+        "marketValueDetails": {
+          "current": {
+            "value": 250000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "250.00",
+              "suffix": "K"
+            },
+            "determined": "2026-06-08"
+          },
+          "previous": {
+            "value": 100000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "100.00",
+              "suffix": "K"
+            },
+            "determined": "2025-12-19"
+          },
+          "delta": {
+            "value": "+150.000 €",
+            "percentage": "+150,00 %",
+            "isVisible": false,
+            "type": "INCREASED"
+          },
+          "highest": {
+            "value": 250000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "250.00",
+              "suffix": "K"
+            },
+            "determined": "2026-06-08"
+          }
+        }
+      },
+      "graph": [
+        {
+          "x": 1750024800000,
+          "y": 250000,
+          "mw": "€250k",
+          "datum_mw": "16/06/2025",
+          "verein": "CS Unirea Ungheni",
+          "age": "19",
+          "wappen": ""
+        },
+        {
+          "x": 1780869600000,
+          "y": 250000,
+          "mw": "€250k",
+          "datum_mw": "08/06/2026",
+          "verein": "FC Universitatea Cluj",
+          "age": "20",
+          "wappen": "https://img.a.transfermarkt.technology/wappen/profil/6429.png?lm=1789459495"
+        },
+        {
+          "x": 1780876800000,
+          "y": 250000,
+          "datum_mw": "08/06/2026",
+          "verein": "U Cluj"
+        }
+      ],
+      "atMatch": {
+        "x": 1780876800000,
+        "y": 250000,
+        "datum_mw": "08/06/2026",
+        "verein": "U Cluj"
+      },
+      "top5": {},
+      "senior": [],
+      "currentClub": "FC Universitatea Cluj"
+    },
+    {
+      "id": "1028313",
+      "nationality": "Nigeria",
+      "clubId": "6429",
+      "club": "U Cluj",
+      "starter": false,
+      "name": "Friday Adams",
+      "url": "https://www.transfermarkt.com/friday-adams/profil/spieler/1028313",
+      "historySource": {
+        "date": "2026-10-12",
+        "method": "verified historical points and freshly verified current valuation before match",
+        "source": "https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/1028313"
+      },
+      "played": true,
+      "minutes": 18,
+      "profile": {
+        "marketValueDetails": {
+          "current": {
+            "value": 450000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "450.00",
+              "suffix": "K"
+            },
+            "determined": "2026-06-08"
+          },
+          "previous": {
+            "value": 400000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "400.00",
+              "suffix": "K"
+            },
+            "determined": "2025-12-19"
+          },
+          "delta": {
+            "value": "+50.000 €",
+            "percentage": "+12,50 %",
+            "isVisible": false,
+            "type": "INCREASED"
+          },
+          "highest": {
+            "value": 550000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "550.00",
+              "suffix": "K"
+            },
+            "determined": "2025-06-10"
+          }
+        }
+      },
+      "graph": [
+        {
+          "x": 1749506400000,
+          "y": 550000,
+          "mw": "€550k",
+          "datum_mw": "10/06/2025",
+          "verein": "FC Botosani",
+          "age": "22",
+          "wappen": ""
+        }
+      ],
+      "atMatch": {
+        "x": 1780876800000,
+        "y": 450000,
+        "datum_mw": "08/06/2026",
+        "verein": "U Cluj"
+      },
+      "top5": {},
+      "senior": [],
+      "currentClub": "FC Universitatea Cluj"
+    },
+    {
+      "id": "156639",
+      "nationality": "Romania",
+      "clubId": "6429",
+      "club": "U Cluj",
+      "starter": false,
+      "name": "Dan Nistor",
+      "url": "https://www.transfermarkt.com/dan-nistor/profil/spieler/156639",
+      "historySource": {
+        "date": "2026-10-12",
+        "method": "verified historical points and freshly verified current valuation before match",
+        "source": "https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/156639"
+      },
+      "played": false,
+      "minutes": 0,
+      "profile": {
+        "marketValueDetails": {
+          "current": {
+            "value": 275000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "275.00",
+              "suffix": "K"
+            },
+            "determined": "2026-06-08"
+          },
+          "previous": {
+            "value": 300000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "300.00",
+              "suffix": "K"
+            },
+            "determined": "2025-12-19"
+          },
+          "delta": {
+            "value": "-25.000 €",
+            "percentage": "-8,33 %",
+            "isVisible": false,
+            "type": "DECREASED"
+          },
+          "highest": {
+            "value": 1800000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "1.80",
+              "suffix": "M"
+            },
+            "determined": "2013-05-02"
+          }
+        }
+      },
+      "graph": [
+        {
+          "x": 1367445600000,
+          "y": 1800000,
+          "mw": "€1.80m",
+          "datum_mw": "02/05/2013",
+          "verein": "Pandurii Targu Jiu (- 2022)",
+          "age": "24",
+          "wappen": ""
+        }
+      ],
+      "atMatch": {
+        "x": 1780876800000,
+        "y": 275000,
+        "datum_mw": "08/06/2026",
+        "verein": "U Cluj"
+      },
+      "top5": {
+        "FR1": {
+          "name": "Ligue 1",
+          "apps": 6,
+          "minutes": 123
+        }
+      },
+      "senior": [
+        {
+          "playerId": "156639",
+          "clubId": "3447",
+          "gamesPlayed": 7,
+          "goalsScored": 0,
+          "shirtNumber": 8,
+          "isCaptain": false,
+          "debut": "2012-11-14",
+          "debutCoachId": "3702",
+          "debutGameId": "2280729",
+          "lastGame": "2020-11-18",
+          "lastGameId": "3330678",
+          "careerState": "FORMER_NATIONAL_PLAYER",
+          "name": "Romania"
+        }
+      ],
+      "currentClub": "FC Universitatea Cluj"
+    },
+    {
+      "id": "859536",
+      "nationality": "France",
+      "clubId": "6429",
+      "club": "U Cluj",
+      "starter": false,
+      "name": "Oucasse Mendy",
+      "url": "https://www.transfermarkt.com/oucasse-mendy/profil/spieler/859536",
+      "historySource": {
+        "date": "2026-10-12",
+        "method": "verified historical points and freshly verified current valuation before match",
+        "source": "https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/859536"
+      },
+      "played": true,
+      "minutes": 34,
+      "profile": {
+        "marketValueDetails": {
+          "current": {
+            "value": 1000000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "1.00",
+              "suffix": "M"
+            },
+            "determined": "2026-06-08"
+          },
+          "previous": {
+            "value": 750000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "750.00",
+              "suffix": "K"
+            },
+            "determined": "2026-03-27"
+          },
+          "delta": {
+            "value": "+250.000 €",
+            "percentage": "+33,33 %",
+            "isVisible": false,
+            "type": "INCREASED"
+          },
+          "highest": {
+            "value": 1000000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "1.00",
+              "suffix": "M"
+            },
+            "determined": "2026-06-08"
+          }
+        }
+      },
+      "graph": [
+        {
+          "x": 1780869600000,
+          "y": 1000000,
+          "mw": "€1.00m",
+          "datum_mw": "08/06/2026",
+          "verein": "FC Universitatea Cluj",
+          "age": "25",
+          "wappen": "https://img.a.transfermarkt.technology/wappen/profil/6429.png?lm=1789459495"
+        },
+        {
+          "x": 1780876800000,
+          "y": 1000000,
+          "datum_mw": "08/06/2026",
+          "verein": "U Cluj"
+        }
+      ],
+      "atMatch": {
+        "x": 1780876800000,
+        "y": 1000000,
+        "datum_mw": "08/06/2026",
+        "verein": "U Cluj"
+      },
+      "top5": {},
+      "senior": [],
+      "currentClub": "FC Universitatea Cluj"
+    },
+    {
+      "id": "880840",
+      "nationality": "Romania",
+      "clubId": "6429",
+      "club": "U Cluj",
+      "starter": false,
+      "name": "Andrei Gheorghiță",
+      "url": "https://www.transfermarkt.com/andrei-gheorghita/profil/spieler/880840",
+      "historySource": {
+        "date": "2026-10-12",
+        "method": "verified historical points and freshly verified current valuation before match",
+        "source": "https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/880840"
+      },
+      "played": false,
+      "minutes": 0,
+      "profile": {
+        "marketValueDetails": {
+          "current": {
+            "value": 400000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "400.00",
+              "suffix": "K"
+            },
+            "determined": "2026-09-22"
+          },
+          "previous": {
+            "value": 500000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "500.00",
+              "suffix": "K"
+            },
+            "determined": "2026-06-08"
+          },
+          "delta": {
+            "value": "-100.000 €",
+            "percentage": "-20,00 %",
+            "isVisible": false,
+            "type": "DECREASED"
+          },
+          "highest": {
+            "value": 700000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "700.00",
+              "suffix": "K"
+            },
+            "determined": "2025-06-10"
+          }
+        }
+      },
+      "graph": [
+        {
+          "x": 1742943600000,
+          "y": 700000,
+          "mw": "€700k",
+          "datum_mw": "26/03/2025",
+          "verein": "FCSB",
+          "age": "22",
+          "wappen": "https://img.a.transfermarkt.technology/wappen/profil/301.png?lm=1789459183"
+        },
+        {
+          "x": 1749506400000,
+          "y": 700000,
+          "mw": "€700k",
+          "datum_mw": "10/06/2025",
+          "verein": "FCSB",
+          "age": "22",
+          "wappen": ""
+        }
+      ],
+      "atMatch": {
+        "x": 1790035200000,
+        "y": 400000,
+        "datum_mw": "22/09/2026",
+        "verein": "U Cluj"
+      },
+      "top5": {},
+      "senior": [],
+      "currentClub": "FC Universitatea Cluj"
+    },
+    {
+      "id": "1341647",
+      "nationality": "Romania",
+      "clubId": "6429",
+      "club": "U Cluj",
+      "starter": false,
+      "name": "Eduardo Bodnar",
+      "url": "https://www.transfermarkt.com/eduardo-bodnar/profil/spieler/1341647",
+      "played": false,
+      "minutes": 0,
+      "profile": {
+        "marketValueDetails": {
+          "current": {},
+          "highest": {}
+        }
+      },
+      "graph": [],
+      "atMatch": null,
+      "top5": {},
+      "senior": [],
+      "currentClub": "Universitatea Cluj Youth"
+    },
+    {
+      "id": "271763",
+      "nationality": "Sweden",
+      "clubId": "6429",
+      "club": "U Cluj",
+      "starter": false,
+      "name": "Alibek Aliev",
+      "url": "https://www.transfermarkt.com/alibek-aliev/profil/spieler/271763",
+      "historySource": {
+        "date": "2026-10-12",
+        "method": "verified historical points and freshly verified current valuation before match",
+        "source": "https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/271763"
+      },
+      "played": false,
+      "minutes": 0,
+      "profile": {
+        "marketValueDetails": {
+          "current": {
+            "value": 650000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "650.00",
+              "suffix": "K"
+            },
+            "determined": "2026-06-08"
+          },
+          "previous": {
+            "value": 500000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "500.00",
+              "suffix": "K"
+            },
+            "determined": "2026-03-27"
+          },
+          "delta": {
+            "value": "+150.000 €",
+            "percentage": "+30,00 %",
+            "isVisible": false,
+            "type": "INCREASED"
+          },
+          "highest": {
+            "value": 650000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "650.00",
+              "suffix": "K"
+            },
+            "determined": "2026-06-08"
+          }
+        }
+      },
+      "graph": [
+        {
+          "x": 1780869600000,
+          "y": 650000,
+          "mw": "€650k",
+          "datum_mw": "08/06/2026",
+          "verein": "CFR Cluj",
+          "age": "29",
+          "wappen": "https://img.a.transfermarkt.technology/wappen/profil/7769.png?lm=1789459570"
+        },
+        {
+          "x": 1780876800000,
+          "y": 650000,
+          "datum_mw": "08/06/2026",
+          "verein": "U Cluj"
+        }
+      ],
+      "atMatch": {
+        "x": 1780876800000,
+        "y": 650000,
+        "datum_mw": "08/06/2026",
+        "verein": "U Cluj"
+      },
+      "top5": {},
+      "senior": [],
+      "currentClub": "FC Universitatea Cluj"
+    },
+    {
+      "id": "1350595",
+      "nationality": "Romania",
+      "clubId": "301",
+      "club": "FCSB",
+      "starter": false,
+      "name": "Matei Popa",
+      "url": "https://www.transfermarkt.com/matei-popa/profil/spieler/1350595",
+      "historySource": {
+        "date": "2026-10-12",
+        "method": "verified historical points and freshly verified current valuation before match",
+        "source": "https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/1350595"
+      },
+      "played": false,
+      "minutes": 0,
+      "profile": {
+        "marketValueDetails": {
+          "current": {
+            "value": 300000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "300.00",
+              "suffix": "K"
+            },
+            "determined": "2026-06-08"
+          },
+          "previous": {
+            "value": 250000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "250.00",
+              "suffix": "K"
+            },
+            "determined": "2026-03-27"
+          },
+          "delta": {
+            "value": "+50.000 €",
+            "percentage": "+20,00 %",
+            "isVisible": false,
+            "type": "INCREASED"
+          },
+          "highest": {
+            "value": 300000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "300.00",
+              "suffix": "K"
+            },
+            "determined": "2026-06-08"
+          }
+        }
+      },
+      "graph": [
+        {
+          "x": 1780869600000,
+          "y": 300000,
+          "mw": "€300k",
+          "datum_mw": "08/06/2026",
+          "verein": "FCSB",
+          "age": "19",
+          "wappen": "https://img.a.transfermarkt.technology/wappen/profil/301.png?lm=1789459183"
+        },
+        {
+          "x": 1780876800000,
+          "y": 300000,
+          "datum_mw": "08/06/2026",
+          "verein": "FCSB"
+        }
+      ],
+      "atMatch": {
+        "x": 1780876800000,
+        "y": 300000,
+        "datum_mw": "08/06/2026",
+        "verein": "FCSB"
+      },
+      "top5": {},
+      "senior": [],
+      "currentClub": "FCSB"
+    },
+    {
+      "id": "361537",
+      "nationality": "Romania",
+      "clubId": "301",
+      "club": "FCSB",
+      "starter": false,
+      "name": "Mihai Popescu",
+      "url": "https://www.transfermarkt.com/mihai-popescu/profil/spieler/361537",
+      "historySource": {
+        "date": "2026-10-12",
+        "method": "verified historical points and freshly verified current valuation before match",
+        "source": "https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/361537"
+      },
+      "played": false,
+      "minutes": 0,
+      "profile": {
+        "marketValueDetails": {
+          "current": {
+            "value": 650000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "650.00",
+              "suffix": "K"
+            },
+            "determined": "2026-06-08"
+          },
+          "previous": {
+            "value": 800000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "800.00",
+              "suffix": "K"
+            },
+            "determined": "2025-12-19"
+          },
+          "delta": {
+            "value": "-150.000 €",
+            "percentage": "-18,75 %",
+            "isVisible": false,
+            "type": "DECREASED"
+          },
+          "highest": {
+            "value": 1000000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "1.00",
+              "suffix": "M"
+            },
+            "determined": "2025-06-10"
+          }
+        }
+      },
+      "graph": [
+        {
+          "x": 1686780000000,
+          "y": 1000000,
+          "mw": "€1.00m",
+          "datum_mw": "15/06/2023",
+          "verein": "FCV Farul Constanta",
+          "age": "30",
+          "wappen": ""
+        },
+        {
+          "x": 1742943600000,
+          "y": 1000000,
+          "mw": "€1.00m",
+          "datum_mw": "26/03/2025",
+          "verein": "FCSB",
+          "age": "31",
+          "wappen": ""
+        },
+        {
+          "x": 1749506400000,
+          "y": 1000000,
+          "mw": "€1.00m",
+          "datum_mw": "10/06/2025",
+          "verein": "FCSB",
+          "age": "32",
+          "wappen": ""
+        }
+      ],
+      "atMatch": {
+        "x": 1780876800000,
+        "y": 650000,
+        "datum_mw": "08/06/2026",
+        "verein": "FCSB"
+      },
+      "top5": {},
+      "senior": [
+        {
+          "playerId": "361537",
+          "clubId": "3447",
+          "gamesPlayed": 8,
+          "goalsScored": 1,
+          "shirtNumber": 3,
+          "isCaptain": false,
+          "debut": "2025-03-21",
+          "debutCoachId": "805",
+          "debutGameId": "4510776",
+          "lastGame": "2026-06-06",
+          "lastGameId": "4884500",
+          "careerState": "RECENT_NATIONAL_PLAYER",
+          "name": "Romania"
+        }
+      ],
+      "currentClub": "FCSB"
+    },
+    {
+      "id": "289432",
+      "nationality": "DR Congo",
+      "clubId": "301",
+      "club": "FCSB",
+      "starter": false,
+      "name": "Dylan Batubinsika",
+      "url": "https://www.transfermarkt.com/dylan-batubinsika/profil/spieler/289432",
+      "historySource": {
+        "date": "2026-10-12",
+        "method": "verified historical points and freshly verified current valuation before match",
+        "source": "https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/289432"
+      },
+      "played": false,
+      "minutes": 0,
+      "profile": {
+        "marketValueDetails": {
+          "current": {
+            "value": 600000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "600.00",
+              "suffix": "K"
+            },
+            "determined": "2026-06-04"
+          },
+          "previous": {
+            "value": 700000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "700.00",
+              "suffix": "K"
+            },
+            "determined": "2025-12-11"
+          },
+          "delta": {
+            "value": "-100.000 €",
+            "percentage": "-14,29 %",
+            "isVisible": false,
+            "type": "DECREASED"
+          },
+          "highest": {
+            "value": 2500000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "2.50",
+              "suffix": "M"
+            },
+            "determined": "2024-12-10"
+          }
+        }
+      },
+      "graph": [
+        {
+          "x": 1733785200000,
+          "y": 2500000,
+          "mw": "€2.50m",
+          "datum_mw": "10/12/2024",
+          "verein": "AS Saint-Étienne",
+          "age": "28",
+          "wappen": ""
+        }
+      ],
+      "atMatch": {
+        "x": 1780531200000,
+        "y": 600000,
+        "datum_mw": "04/06/2026",
+        "verein": "FCSB"
+      },
+      "top5": {
+        "FR1": {
+          "name": "Ligue 1",
+          "apps": 25,
+          "minutes": 2017
+        }
+      },
+      "senior": [
+        {
+          "playerId": "289432",
+          "clubId": "3854",
+          "gamesPlayed": 15,
+          "goalsScored": 1,
+          "shirtNumber": null,
+          "isCaptain": false,
+          "debut": "2023-06-14",
+          "debutCoachId": "28090",
+          "debutGameId": "4087657",
+          "lastGame": "2025-09-09",
+          "lastGameId": "4715299",
+          "careerState": "RECENT_NATIONAL_PLAYER",
+          "name": "Democratic Republic of the Congo"
+        }
+      ],
+      "currentClub": "FCSB"
+    },
+    {
+      "id": "1229554",
+      "nationality": "Romania",
+      "clubId": "301",
+      "club": "FCSB",
+      "starter": false,
+      "name": "Luca Stancu",
+      "url": "https://www.transfermarkt.com/luca-stancu/profil/spieler/1229554",
+      "historySource": {
+        "date": "2026-10-12",
+        "method": "verified historical points and freshly verified current valuation before match",
+        "source": "https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/1229554"
+      },
+      "played": false,
+      "minutes": 0,
+      "profile": {
+        "marketValueDetails": {
+          "current": {
+            "value": 300000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "300.00",
+              "suffix": "K"
+            },
+            "determined": "2026-06-08"
+          },
+          "previous": {
+            "value": 250000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "250.00",
+              "suffix": "K"
+            },
+            "determined": "2026-03-27"
+          },
+          "delta": {
+            "value": "+50.000 €",
+            "percentage": "+20,00 %",
+            "isVisible": false,
+            "type": "INCREASED"
+          },
+          "highest": {
+            "value": 300000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "300.00",
+              "suffix": "K"
+            },
+            "determined": "2026-06-08"
+          }
+        }
+      },
+      "graph": [
+        {
+          "x": 1780869600000,
+          "y": 300000,
+          "mw": "€300k",
+          "datum_mw": "08/06/2026",
+          "verein": "FC Hermannstadt",
+          "age": "21",
+          "wappen": "https://img.a.transfermarkt.technology/wappen/profil/58049.png?lm=1789462881"
+        },
+        {
+          "x": 1780876800000,
+          "y": 300000,
+          "datum_mw": "08/06/2026",
+          "verein": "FCSB"
+        }
+      ],
+      "atMatch": {
+        "x": 1780876800000,
+        "y": 300000,
+        "datum_mw": "08/06/2026",
+        "verein": "FCSB"
+      },
+      "top5": {},
+      "senior": [],
+      "currentClub": "FCSB"
+    },
+    {
+      "id": "562175",
+      "nationality": "Martinique",
+      "clubId": "301",
+      "club": "FCSB",
+      "starter": false,
+      "name": "Ronny Labonne",
+      "url": "https://www.transfermarkt.com/ronny-labonne/profil/spieler/562175",
+      "played": false,
+      "minutes": 0,
+      "profile": {
+        "marketValueDetails": {
+          "current": {
+            "value": 250000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "250.00",
+              "suffix": "K"
+            },
+            "determined": "2026-05-25"
+          },
+          "previous": {
+            "value": 200000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "200.00",
+              "suffix": "K"
+            },
+            "determined": "2025-12-08"
+          },
+          "delta": {
+            "value": "+50.000 €",
+            "percentage": "+25,00 %",
+            "isVisible": false,
+            "type": "INCREASED"
+          },
+          "highest": {
+            "value": 600000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "600.00",
+              "suffix": "K"
+            },
+            "determined": "2023-06-16"
+          }
+        }
+      },
+      "graph": [
+        {
+          "x": 1686866400000,
+          "y": 600000,
+          "mw": "€600.0K",
+          "datum_mw": "16/06/2023",
+          "verein": "Nîmes Olympique",
+          "age": "25",
+          "wappen": ""
+        }
+      ],
+      "atMatch": {
+        "x": 1779660000000,
+        "y": 250000,
+        "mw": "€250.0K",
+        "datum_mw": "25/05/2026",
+        "verein": "SM Caen",
+        "age": "28",
+        "wappen": "https://img.a.transfermarkt.technology/wappen/profil/1162.png?lm=1789459236"
+      },
+      "top5": {},
+      "senior": [
+        {
+          "playerId": "562175",
+          "clubId": "19758",
+          "gamesPlayed": 9,
+          "goalsScored": 0,
+          "shirtNumber": 17,
+          "isCaptain": false,
+          "debut": "2023-06-10",
+          "debutCoachId": "10945",
+          "debutGameId": "4113267",
+          "lastGame": "2026-10-03",
+          "lastGameId": "5016276",
+          "careerState": "CURRENT_NATIONAL_PLAYER",
+          "name": "Martinique"
+        }
+      ],
+      "currentClub": "FCSB"
+    },
+    {
+      "id": "623965",
+      "nationality": "Cape Verde",
+      "clubId": "301",
+      "club": "FCSB",
+      "starter": false,
+      "name": "João Paulo",
+      "url": "https://www.transfermarkt.com/joao-paulo/profil/spieler/623965",
+      "historySource": {
+        "date": "2026-10-12",
+        "method": "verified historical points and freshly verified current valuation before match",
+        "source": "https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/623965"
+      },
+      "played": true,
+      "minutes": 45,
+      "profile": {
+        "marketValueDetails": {
+          "current": {
+            "value": 1000000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "1.00",
+              "suffix": "M"
+            },
+            "determined": "2026-09-22"
+          },
+          "previous": {
+            "value": 900000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "900.00",
+              "suffix": "K"
+            },
+            "determined": "2026-06-05"
+          },
+          "delta": {
+            "value": "+100.000 €",
+            "percentage": "+11,11 %",
+            "isVisible": false,
+            "type": "INCREASED"
+          },
+          "highest": {
+            "value": 1000000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "1.00",
+              "suffix": "M"
+            },
+            "determined": "2026-09-22"
+          }
+        }
+      },
+      "graph": [
+        {
+          "x": 1790028000000,
+          "y": 1000000,
+          "mw": "€1.00m",
+          "datum_mw": "22/09/2026",
+          "verein": "FCSB",
+          "age": "28",
+          "wappen": "https://img.a.transfermarkt.technology/wappen/profil/301.png?lm=1789459183"
+        },
+        {
+          "x": 1790035200000,
+          "y": 1000000,
+          "datum_mw": "22/09/2026",
+          "verein": "FCSB"
+        }
+      ],
+      "atMatch": {
+        "x": 1790035200000,
+        "y": 1000000,
+        "datum_mw": "22/09/2026",
+        "verein": "FCSB"
+      },
+      "top5": {},
+      "senior": [
+        {
+          "playerId": "623965",
+          "clubId": "4311",
+          "gamesPlayed": 43,
+          "goalsScored": 1,
+          "shirtNumber": 8,
+          "isCaptain": false,
+          "debut": "2021-06-08",
+          "debutCoachId": "84856",
+          "debutGameId": "3577690",
+          "lastGame": "2026-06-27",
+          "lastGameId": "4776662",
+          "careerState": "CURRENT_NATIONAL_PLAYER",
+          "name": "Cape Verde"
+        }
+      ],
+      "currentClub": "FCSB"
+    },
+    {
+      "id": "200495",
+      "nationality": "Israel",
+      "clubId": "301",
+      "club": "FCSB",
+      "starter": false,
+      "name": "Ofri Arad",
+      "url": "https://www.transfermarkt.com/ofri-arad/profil/spieler/200495",
+      "played": false,
+      "minutes": 0,
+      "profile": {
+        "marketValueDetails": {
+          "current": {
+            "value": 900000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "900.00",
+              "suffix": "K"
+            },
+            "determined": "2026-06-08"
+          },
+          "previous": {
+            "value": 1200000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "1.20",
+              "suffix": "M"
+            },
+            "determined": "2025-11-06"
+          },
+          "delta": {
+            "value": "-300.000 €",
+            "percentage": "-25,00 %",
+            "isVisible": false,
+            "type": "DECREASED"
+          },
+          "highest": {
+            "value": 1200000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "1.20",
+              "suffix": "M"
+            },
+            "determined": "2025-11-06"
+          }
+        }
+      },
+      "graph": [
+        {
+          "x": 1762383600000,
+          "y": 1200000,
+          "mw": "€1.20M",
+          "datum_mw": "06/11/2025",
+          "verein": "Kairat Almaty",
+          "age": "27",
+          "wappen": ""
+        }
+      ],
+      "atMatch": {
+        "x": 1780869600000,
+        "y": 900000,
+        "mw": "€900.0K",
+        "datum_mw": "08/06/2026",
+        "verein": "FCSB",
+        "age": "27",
+        "wappen": "https://img.a.transfermarkt.technology/wappen/profil/301.png?lm=1789459183"
+      },
+      "top5": {},
+      "senior": [
+        {
+          "playerId": "200495",
+          "clubId": "5547",
+          "gamesPlayed": 10,
+          "goalsScored": 0,
+          "shirtNumber": 4,
+          "isCaptain": false,
+          "debut": "2020-10-14",
+          "debutCoachId": "2465",
+          "debutGameId": "3330662",
+          "lastGame": "2024-06-08",
+          "lastGameId": "4345779",
+          "careerState": "FORMER_NATIONAL_PLAYER",
+          "name": "Israel"
+        }
+      ],
+      "currentClub": "FCSB"
+    },
+    {
+      "id": "470152",
+      "nationality": "Romania",
+      "clubId": "301",
+      "club": "FCSB",
+      "starter": false,
+      "name": "Dennis Politic",
+      "url": "https://www.transfermarkt.com/dennis-politic/profil/spieler/470152",
+      "historySource": {
+        "date": "2026-10-12",
+        "method": "verified historical points and freshly verified current valuation before match",
+        "source": "https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/470152"
+      },
+      "played": true,
+      "minutes": 9,
+      "profile": {
+        "marketValueDetails": {
+          "current": {
+            "value": 650000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "650.00",
+              "suffix": "K"
+            },
+            "determined": "2026-06-08"
+          },
+          "previous": {
+            "value": 900000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "900.00",
+              "suffix": "K"
+            },
+            "determined": "2026-03-27"
+          },
+          "delta": {
+            "value": "-250.000 €",
+            "percentage": "-27,78 %",
+            "isVisible": false,
+            "type": "DECREASED"
+          },
+          "highest": {
+            "value": 1500000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "1.50",
+              "suffix": "M"
+            },
+            "determined": "2025-06-10"
+          }
+        }
+      },
+      "graph": [
+        {
+          "x": 1749506400000,
+          "y": 1500000,
+          "mw": "€1.50m",
+          "datum_mw": "10/06/2025",
+          "verein": "FC Dinamo 1948",
+          "age": "25",
+          "wappen": ""
+        }
+      ],
+      "atMatch": {
+        "x": 1780876800000,
+        "y": 650000,
+        "datum_mw": "08/06/2026",
+        "verein": "FCSB"
+      },
+      "top5": {},
+      "senior": [
+        {
+          "playerId": "470152",
+          "clubId": "3447",
+          "gamesPlayed": 1,
+          "goalsScored": 0,
+          "shirtNumber": 17,
+          "isCaptain": false,
+          "debut": "2025-03-24",
+          "debutCoachId": "805",
+          "debutGameId": "4510773",
+          "lastGame": "2025-03-24",
+          "lastGameId": "4510773",
+          "careerState": "FORMER_NATIONAL_PLAYER",
+          "name": "Romania"
+        }
+      ],
+      "currentClub": "FCSB"
+    },
+    {
+      "id": "992832",
+      "nationality": "Romania",
+      "clubId": "301",
+      "club": "FCSB",
+      "starter": false,
+      "name": "David Popa",
+      "url": "https://www.transfermarkt.com/david-popa/profil/spieler/992832",
+      "played": false,
+      "minutes": 0,
+      "profile": {
+        "marketValueDetails": {
+          "current": {
+            "value": 150000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "150.00",
+              "suffix": "K"
+            },
+            "determined": "2026-06-08"
+          },
+          "previous": {
+            "value": 50000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "50.00",
+              "suffix": "K"
+            },
+            "determined": "2025-12-19"
+          },
+          "delta": {
+            "value": "+100.000 €",
+            "percentage": "+200,00 %",
+            "isVisible": false,
+            "type": "INCREASED"
+          },
+          "highest": {
+            "value": 150000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "150.00",
+              "suffix": "K"
+            },
+            "determined": "2026-06-08"
+          }
+        }
+      },
+      "graph": [
+        {
+          "x": 1780869600000,
+          "y": 150000,
+          "mw": "€150.0K",
+          "datum_mw": "08/06/2026",
+          "verein": "FCSB",
+          "age": "19",
+          "wappen": "https://img.a.transfermarkt.technology/wappen/profil/301.png?lm=1789459183"
+        }
+      ],
+      "atMatch": {
+        "x": 1780869600000,
+        "y": 150000,
+        "mw": "€150.0K",
+        "datum_mw": "08/06/2026",
+        "verein": "FCSB",
+        "age": "19",
+        "wappen": "https://img.a.transfermarkt.technology/wappen/profil/301.png?lm=1789459183"
+      },
+      "top5": {},
+      "senior": [],
+      "currentClub": "FCSB"
+    },
+    {
+      "id": "405399",
+      "nationality": "Romania",
+      "clubId": "301",
+      "club": "FCSB",
+      "starter": false,
+      "name": "Denis Drăguș",
+      "url": "https://www.transfermarkt.com/denis-dragus/profil/spieler/405399",
+      "played": true,
+      "minutes": 23,
+      "profile": {
+        "marketValueDetails": {
+          "current": {
+            "value": 2000000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "2.00",
+              "suffix": "M"
+            },
+            "determined": "2026-05-21"
+          },
+          "previous": {
+            "value": 2500000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "2.50",
+              "suffix": "M"
+            },
+            "determined": "2026-03-05"
+          },
+          "delta": {
+            "value": "-500.000 €",
+            "percentage": "-20,00 %",
+            "isVisible": false,
+            "type": "DECREASED"
+          },
+          "highest": {
+            "value": 4000000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "4.00",
+              "suffix": "M"
+            },
+            "determined": "2024-12-23"
+          }
+        }
+      },
+      "graph": [
+        {
+          "x": 1717106400000,
+          "y": 4000000,
+          "mw": "€4.00M",
+          "datum_mw": "31/05/2024",
+          "verein": "Gaziantep FK",
+          "age": "24",
+          "wappen": ""
+        },
+        {
+          "x": 1727992800000,
+          "y": 4000000,
+          "mw": "€4.00M",
+          "datum_mw": "04/10/2024",
+          "verein": "Trabzonspor",
+          "age": "25",
+          "wappen": "https://img.a.transfermarkt.technology/wappen/profil/449.png?lm=1787748980"
+        },
+        {
+          "x": 1734908400000,
+          "y": 4000000,
+          "mw": "€4.00M",
+          "datum_mw": "23/12/2024",
+          "verein": "Trabzonspor",
+          "age": "25",
+          "wappen": ""
+        }
+      ],
+      "atMatch": {
+        "x": 1779314400000,
+        "y": 2000000,
+        "mw": "€2.00M",
+        "datum_mw": "21/05/2026",
+        "verein": "Trabzonspor",
+        "age": "26",
+        "wappen": "https://img.a.transfermarkt.technology/wappen/profil/449.png?lm=1787748980"
+      },
+      "top5": {
+        "IT1": {
+          "name": "Serie A",
+          "apps": 9,
+          "minutes": 171
+        }
+      },
+      "senior": [
+        {
+          "playerId": "405399",
+          "clubId": "3447",
+          "gamesPlayed": 28,
+          "goalsScored": 7,
+          "shirtNumber": 7,
+          "isCaptain": false,
+          "debut": "2018-09-10",
+          "debutCoachId": "16059",
+          "debutGameId": "2996531",
+          "lastGame": "2026-06-06",
+          "lastGameId": "4884500",
+          "careerState": "RECENT_NATIONAL_PLAYER",
+          "name": "Romania"
+        }
+      ],
+      "currentClub": "FCSB"
+    },
+    {
+      "id": "992823",
+      "nationality": "Romania",
+      "clubId": "301",
+      "club": "FCSB",
+      "starter": false,
+      "name": "Alexandru Stoian",
+      "url": "https://www.transfermarkt.com/alexandru-stoian/profil/spieler/992823",
+      "historySource": {
+        "date": "2026-10-12",
+        "method": "verified historical points and freshly verified current valuation before match",
+        "source": "https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/992823"
+      },
+      "played": true,
+      "minutes": 58,
+      "profile": {
+        "marketValueDetails": {
+          "current": {
+            "value": 550000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "550.00",
+              "suffix": "K"
+            },
+            "determined": "2026-06-08"
+          },
+          "previous": {
+            "value": 650000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "650.00",
+              "suffix": "K"
+            },
+            "determined": "2025-12-19"
+          },
+          "delta": {
+            "value": "-100.000 €",
+            "percentage": "-15,38 %",
+            "isVisible": false,
+            "type": "DECREASED"
+          },
+          "highest": {
+            "value": 650000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "650.00",
+              "suffix": "K"
+            },
+            "determined": "2025-12-19"
+          }
+        }
+      },
+      "graph": [
+        {
+          "x": 1766098800000,
+          "y": 650000,
+          "mw": "€650k",
+          "datum_mw": "19/12/2025",
+          "verein": "FCSB",
+          "age": "18",
+          "wappen": ""
+        }
+      ],
+      "atMatch": {
+        "x": 1780876800000,
+        "y": 550000,
+        "datum_mw": "08/06/2026",
+        "verein": "FCSB"
+      },
+      "top5": {},
+      "senior": [],
+      "currentClub": "FCSB"
+    }
+  ],
+  "currentTeamValues": {
+    "301": 24400000,
+    "6429": 16600000
+  }
+}

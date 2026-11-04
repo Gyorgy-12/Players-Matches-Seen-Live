@@ -1,0 +1,223 @@
+{
+  "gameId": "4914583",
+  "verifiedAt": "2026-11-04",
+  "method": "Transfermarkt rendered match sheet and full line-ups; dated RO1 table and verified attendance",
+  "date": "2026-11-02",
+  "score": "1:0",
+  "attendance": 16104,
+  "attendanceNote": "Transfermarkt match sheet: Attendance: 16.104.",
+  "lineupUrl": "https://www.transfermarkt.com/-/aufstellung/spielbericht/4914583",
+  "sheetUrl": "https://www.transfermarkt.com/spielbericht/index/spielbericht/4914583",
+  "cutoffUrl": "https://www.transfermarkt.com/x/marktwerteverein/wettbewerb/RO1/stichtag/2026-10-15/plus/1",
+  "cutoff": "2026-10-15",
+  "historical": {
+    "301": 24400000,
+    "6429": 16600000
+  },
+  "substituteIds": [
+    "470152",
+    "1028313",
+    "405399",
+    "859536",
+    "623965",
+    "992823"
+  ],
+  "groups": [
+    {
+      "clubId": "6429",
+      "starter": true,
+      "players": [
+        [
+          "935015",
+          "Romania"
+        ],
+        [
+          "600151",
+          "Martinique"
+        ],
+        [
+          "331971",
+          "Romania"
+        ],
+        [
+          "64126",
+          "Romania"
+        ],
+        [
+          "229625",
+          "Croatia"
+        ],
+        [
+          "699171",
+          "Portugal"
+        ],
+        [
+          "220816",
+          "Romania"
+        ],
+        [
+          "798972",
+          "Cote d'Ivoire"
+        ],
+        [
+          "477923",
+          "Serbia"
+        ],
+        [
+          "685795",
+          "Romania"
+        ],
+        [
+          "457738",
+          "Bosnia-Herzegovina"
+        ]
+      ]
+    },
+    {
+      "clubId": "301",
+      "starter": true,
+      "players": [
+        [
+          "568544",
+          "Romania"
+        ],
+        [
+          "588095",
+          "Portugal"
+        ],
+        [
+          "569743",
+          "Cameroon"
+        ],
+        [
+          "992848",
+          "Romania"
+        ],
+        [
+          "79507",
+          "Romania"
+        ],
+        [
+          "144339",
+          "Montenegro"
+        ],
+        [
+          "388042",
+          "Croatia"
+        ],
+        [
+          "412024",
+          "Kosovo"
+        ],
+        [
+          "163999",
+          "Italy"
+        ],
+        [
+          "730580",
+          "Algeria"
+        ],
+        [
+          "614800",
+          "Romania"
+        ]
+      ]
+    },
+    {
+      "clubId": "6429",
+      "starter": false,
+      "players": [
+        [
+          "935028",
+          "Romania"
+        ],
+        [
+          "416359",
+          "Cyprus"
+        ],
+        [
+          "992826",
+          "Romania"
+        ],
+        [
+          "1040558",
+          "Romania"
+        ],
+        [
+          "1028313",
+          "Nigeria"
+        ],
+        [
+          "156639",
+          "Romania"
+        ],
+        [
+          "859536",
+          "France"
+        ],
+        [
+          "880840",
+          "Romania"
+        ],
+        [
+          "1341647",
+          "Romania"
+        ],
+        [
+          "271763",
+          "Sweden"
+        ]
+      ]
+    },
+    {
+      "clubId": "301",
+      "starter": false,
+      "players": [
+        [
+          "1350595",
+          "Romania"
+        ],
+        [
+          "361537",
+          "Romania"
+        ],
+        [
+          "289432",
+          "DR Congo"
+        ],
+        [
+          "1229554",
+          "Romania"
+        ],
+        [
+          "562175",
+          "Martinique"
+        ],
+        [
+          "623965",
+          "Cape Verde"
+        ],
+        [
+          "200495",
+          "Israel"
+        ],
+        [
+          "470152",
+          "Romania"
+        ],
+        [
+          "992832",
+          "Romania"
+        ],
+        [
+          "405399",
+          "Romania"
+        ],
+        [
+          "992823",
+          "Romania"
+        ]
+      ]
+    }
+  ]
+}
