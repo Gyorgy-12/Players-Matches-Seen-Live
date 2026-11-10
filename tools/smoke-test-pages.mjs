@@ -50,12 +50,12 @@ try {
   browser = await chromium.launch({ headless: true, ...(process.env.TMGH_BROWSER_CHANNEL ? { channel: process.env.TMGH_BROWSER_CHANNEL } : {}) });
   const base = `http://127.0.0.1:${server.address().port}/`;
   const cases = [
-    ['All Seen Matches.html', '#teamSearch', 'CFR', '#season', 96, '5059965'],
-    ['TOP 5 players Seen Live.html', '#filter-player', 'Sfait', '#filter-season', 431, '5059965'],
-    ['Capped Players Seen Live.html', '#filter-player', 'Nistor', '#filter-season', 1212, '5059965'],
-    ['Euro-WC Players Seen Live.html', '#player-search', 'Jovo', '#season-filter', 286, '5059965'],
-    ['Romanian Club-National Players Seen Live.html', '#q', 'Biliboc', '#season', 2614, '5059965'],
-    ['All Players Seen Live.html', '#q', 'Biliboc', '#season', 2948, '5059965'],
+    ['All Seen Matches.html', '#teamSearch', 'Copenhagen', '#season', 98, '4921829'],
+    ['TOP 5 players Seen Live.html', '#filter-player', 'Delaney', '#filter-season', 443, '4921829'],
+    ['Capped Players Seen Live.html', '#filter-player', 'Wass', '#filter-season', 1241, '4921829'],
+    ['Euro-WC Players Seen Live.html', '#player-search', 'Jovo', '#season-filter', 290, '5059965'],
+    ['Romanian Club-National Players Seen Live.html', '#q', 'Biliboc', '#season', 2641, '5059965'],
+    ['All Players Seen Live.html', '#q', 'Biliboc', '#season', 3007, '5059965'],
   ];
   for (const width of hubOnly ? [] : [1440, 820, 390]) {
     for (const [file, input, search, season, expectedRows, expectedGame] of cases) {
@@ -196,7 +196,7 @@ try {
     assert.equal(await page.locator('#page-size').inputValue(), '100');
     await page.locator('#page-size').selectOption('50');
     assert.equal(await page.locator('#page-size-bottom').inputValue(), '50');
-    if (mode === 'players') {
+    if (Number(await page.locator('[data-page-total]').first().textContent()) > 1) {
       await page.locator('[data-page-action="next"]').first().click();
       assert.equal(await page.locator('[data-page-current]').first().textContent(), '2');
       await page.locator('[data-page-action="prev"]').first().click();

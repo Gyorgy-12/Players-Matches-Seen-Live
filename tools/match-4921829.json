@@ -1,0 +1,3834 @@
+{
+  "asOf": "2026-11-11",
+  "gameId": "4921829",
+  "date": "2026-11-08",
+  "score": "1:0",
+  "round": "Matchday 14",
+  "competition": "Danish Superliga",
+  "home": {
+    "id": "190",
+    "name": "FC Copenhagen"
+  },
+  "away": {
+    "id": "206",
+    "name": "Brøndby IF"
+  },
+  "stadium": "Parken",
+  "city": "Copenhagen",
+  "country": "Denmark",
+  "leagueId": "DK1",
+  "cutoff": "2026-11-01",
+  "attendance": 34348,
+  "attendanceUrl": "https://www.fck.dk/nyhed/kampreferat-clems-droemmemaal-afgjorde-derby-efter-staerk-holdindsats",
+  "season": "2026/27",
+  "historical": {
+    "190": 64050000,
+    "206": 44475000
+  },
+  "totals": {
+    "190": {
+      "count": 20,
+      "starters": 11,
+      "played": 15,
+      "value": 57250000,
+      "unvaluedIds": []
+    },
+    "206": {
+      "count": 20,
+      "starters": 11,
+      "played": 16,
+      "value": 38925000,
+      "unvaluedIds": []
+    }
+  },
+  "attendanceNote": "Official club match report; preferred over discrepant Transfermarkt attendance.",
+  "sources": {
+    "lineupUrl": "https://www.transfermarkt.com/-/aufstellung/spielbericht/4921829",
+    "sheetUrl": "https://www.transfermarkt.com/spielbericht/index/spielbericht/4921829",
+    "cutoffUrl": "https://www.transfermarkt.com/x/marktwerteverein/wettbewerb/DK1/stichtag/2026-11-01/plus/1",
+    "attendanceUrl": "https://www.fck.dk/nyhed/kampreferat-clems-droemmemaal-afgjorde-derby-efter-staerk-holdindsats"
+  },
+  "roster": [
+    {
+      "id": "448705",
+      "name": "Diant Ramaj",
+      "url": "https://www.transfermarkt.com/diant-ramaj/profil/spieler/448705",
+      "nationality": "Germany",
+      "clubId": "190",
+      "club": "FC Copenhagen",
+      "starter": true,
+      "lineupValue": 6500000,
+      "historySource": {
+        "date": "2026-11-11",
+        "method": "verified historical points and freshly verified current valuation before match",
+        "source": "https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/448705"
+      },
+      "played": true,
+      "minutes": 90,
+      "profile": {
+        "marketValueDetails": {
+          "current": {
+            "value": 6500000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "6.50",
+              "suffix": "M"
+            },
+            "determined": "2026-10-02"
+          },
+          "previous": {
+            "value": 7000000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "7.00",
+              "suffix": "M"
+            },
+            "determined": "2026-05-27"
+          },
+          "delta": {
+            "value": "-500.000 €",
+            "percentage": "-7,14 %",
+            "isVisible": false,
+            "type": "DECREASED"
+          },
+          "highest": {
+            "value": 18000000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "18.00",
+              "suffix": "M"
+            },
+            "determined": "2024-05-31"
+          }
+        }
+      },
+      "graph": [
+        {
+          "x": 1717106400000,
+          "y": 18000000,
+          "mw": "€18.00M",
+          "datum_mw": "31/05/2024",
+          "verein": "Ajax Amsterdam",
+          "age": "22",
+          "wappen": ""
+        }
+      ],
+      "atMatch": {
+        "x": 1790899200000,
+        "y": 6500000,
+        "datum_mw": "02/10/2026",
+        "verein": "FC Copenhagen"
+      },
+      "top5": {
+        "L1": {
+          "name": "Bundesliga",
+          "apps": 33,
+          "minutes": 2970
+        }
+      },
+      "senior": [],
+      "currentClub": "FC Copenhagen"
+    },
+    {
+      "id": "1123192",
+      "name": "Ákos Markgráf",
+      "url": "https://www.transfermarkt.com/akos-markgraf/profil/spieler/1123192",
+      "nationality": "Hungary",
+      "clubId": "190",
+      "club": "FC Copenhagen",
+      "starter": true,
+      "lineupValue": 1200000,
+      "historySource": {
+        "date": "2026-11-11",
+        "method": "verified historical points and freshly verified current valuation before match",
+        "source": "https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/1123192"
+      },
+      "played": true,
+      "minutes": 84,
+      "profile": {
+        "marketValueDetails": {
+          "current": {
+            "value": 1200000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "1.20",
+              "suffix": "M"
+            },
+            "determined": "2026-10-02"
+          },
+          "previous": {
+            "value": 800000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "800.00",
+              "suffix": "K"
+            },
+            "determined": "2026-05-19"
+          },
+          "delta": {
+            "value": "+400.000 €",
+            "percentage": "+50,00 %",
+            "isVisible": false,
+            "type": "INCREASED"
+          },
+          "highest": {
+            "value": 1200000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "1.20",
+              "suffix": "M"
+            },
+            "determined": "2026-10-02"
+          }
+        }
+      },
+      "graph": [
+        {
+          "x": 1790892000000,
+          "y": 1200000,
+          "mw": "€1.20M",
+          "datum_mw": "02/10/2026",
+          "verein": "FC Copenhagen",
+          "age": "21",
+          "wappen": "https://img.a.transfermarkt.technology/wappen/profil/190.png?lm=1789459176"
+        },
+        {
+          "x": 1790899200000,
+          "y": 1200000,
+          "datum_mw": "02/10/2026",
+          "verein": "FC Copenhagen"
+        }
+      ],
+      "atMatch": {
+        "x": 1790899200000,
+        "y": 1200000,
+        "datum_mw": "02/10/2026",
+        "verein": "FC Copenhagen"
+      },
+      "top5": {},
+      "senior": [
+        {
+          "playerId": "1123192",
+          "clubId": "3468",
+          "gamesPlayed": 1,
+          "goalsScored": 0,
+          "shirtNumber": null,
+          "isCaptain": false,
+          "debut": "2026-06-09",
+          "debutCoachId": "16090",
+          "debutGameId": "4824922",
+          "lastGame": "2026-06-09",
+          "lastGameId": "4824922",
+          "careerState": "CURRENT_NATIONAL_PLAYER",
+          "name": "Hungary"
+        }
+      ],
+      "currentClub": "FC Copenhagen"
+    },
+    {
+      "id": "322293",
+      "name": "Felix Beijmo",
+      "url": "https://www.transfermarkt.com/felix-beijmo/profil/spieler/322293",
+      "nationality": "Sweden",
+      "clubId": "190",
+      "club": "FC Copenhagen",
+      "starter": true,
+      "lineupValue": 3000000,
+      "historySource": {
+        "date": "2026-11-11",
+        "method": "verified historical points and freshly verified current valuation before match",
+        "source": "https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/322293"
+      },
+      "played": true,
+      "minutes": 90,
+      "profile": {
+        "marketValueDetails": {
+          "current": {
+            "value": 3000000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "3.00",
+              "suffix": "M"
+            },
+            "determined": "2026-05-25"
+          },
+          "previous": {
+            "value": 2500000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "2.50",
+              "suffix": "M"
+            },
+            "determined": "2025-12-15"
+          },
+          "delta": {
+            "value": "+500.000 €",
+            "percentage": "+20,00 %",
+            "isVisible": false,
+            "type": "INCREASED"
+          },
+          "highest": {
+            "value": 3000000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "3.00",
+              "suffix": "M"
+            },
+            "determined": "2026-05-25"
+          }
+        }
+      },
+      "graph": [
+        {
+          "x": 1534888800000,
+          "y": 3000000,
+          "mw": "€3.00M",
+          "datum_mw": "22/08/2018",
+          "verein": "SV Werder Bremen",
+          "age": "20",
+          "wappen": "https://img.a.transfermarkt.technology/wappen/profil/86_1677770404.png?lm=1789459169"
+        },
+        {
+          "x": 1779660000000,
+          "y": 3000000,
+          "mw": "€3.00M",
+          "datum_mw": "25/05/2026",
+          "verein": "Aarhus GF",
+          "age": "28",
+          "wappen": "https://img.a.transfermarkt.technology/wappen/profil/678.png?lm=1789459206"
+        },
+        {
+          "x": 1779667200000,
+          "y": 3000000,
+          "datum_mw": "25/05/2026",
+          "verein": "FC Copenhagen"
+        }
+      ],
+      "atMatch": {
+        "x": 1779667200000,
+        "y": 3000000,
+        "datum_mw": "25/05/2026",
+        "verein": "FC Copenhagen"
+      },
+      "top5": {},
+      "senior": [
+        {
+          "playerId": "322293",
+          "clubId": "3557",
+          "gamesPlayed": 1,
+          "goalsScored": 0,
+          "shirtNumber": null,
+          "isCaptain": false,
+          "debut": "2026-10-05",
+          "debutCoachId": "23954",
+          "debutGameId": "4825148",
+          "lastGame": "2026-10-05",
+          "lastGameId": "4825148",
+          "careerState": "CURRENT_NATIONAL_PLAYER",
+          "name": "Sweden"
+        }
+      ],
+      "currentClub": "FC Copenhagen"
+    },
+    {
+      "id": "260846",
+      "name": "Asger Sørensen",
+      "url": "https://www.transfermarkt.com/asger-sorensen/profil/spieler/260846",
+      "nationality": "Denmark",
+      "clubId": "190",
+      "club": "FC Copenhagen",
+      "starter": true,
+      "lineupValue": 1500000,
+      "historySource": {
+        "date": "2026-11-11",
+        "method": "verified historical points and freshly verified current valuation before match",
+        "source": "https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/260846"
+      },
+      "played": true,
+      "minutes": 90,
+      "profile": {
+        "marketValueDetails": {
+          "current": {
+            "value": 1500000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "1.50",
+              "suffix": "M"
+            },
+            "determined": "2026-10-02"
+          },
+          "previous": {
+            "value": 2000000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "2.00",
+              "suffix": "M"
+            },
+            "determined": "2026-05-20"
+          },
+          "delta": {
+            "value": "-500.000 €",
+            "percentage": "-25,00 %",
+            "isVisible": false,
+            "type": "DECREASED"
+          },
+          "highest": {
+            "value": 3000000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "3.00",
+              "suffix": "M"
+            },
+            "determined": "2024-12-20"
+          }
+        }
+      },
+      "graph": [
+        {
+          "x": 1717538400000,
+          "y": 3000000,
+          "mw": "€3.00M",
+          "datum_mw": "05/06/2024",
+          "verein": "AC Sparta Praha",
+          "age": "28",
+          "wappen": ""
+        },
+        {
+          "x": 1734649200000,
+          "y": 3000000,
+          "mw": "€3.00M",
+          "datum_mw": "20/12/2024",
+          "verein": "AC Sparta Praha",
+          "age": "28",
+          "wappen": ""
+        }
+      ],
+      "atMatch": {
+        "x": 1790899200000,
+        "y": 1500000,
+        "datum_mw": "02/10/2026",
+        "verein": "FC Copenhagen"
+      },
+      "top5": {},
+      "senior": [],
+      "currentClub": "FC Copenhagen"
+    },
+    {
+      "id": "805054",
+      "name": "William Clem",
+      "url": "https://www.transfermarkt.com/william-clem/profil/spieler/805054",
+      "nationality": "Denmark",
+      "clubId": "190",
+      "club": "FC Copenhagen",
+      "starter": true,
+      "lineupValue": 5000000,
+      "historySource": {
+        "date": "2026-11-11",
+        "method": "verified historical points and freshly verified current valuation before match",
+        "source": "https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/805054"
+      },
+      "played": true,
+      "minutes": 71,
+      "profile": {
+        "marketValueDetails": {
+          "current": {
+            "value": 5000000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "5.00",
+              "suffix": "M"
+            },
+            "determined": "2026-10-02"
+          },
+          "previous": {
+            "value": 3500000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "3.50",
+              "suffix": "M"
+            },
+            "determined": "2026-05-25"
+          },
+          "delta": {
+            "value": "+1.500.000 €",
+            "percentage": "+42,86 %",
+            "isVisible": false,
+            "type": "INCREASED"
+          },
+          "highest": {
+            "value": 5000000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "5.00",
+              "suffix": "M"
+            },
+            "determined": "2026-10-02"
+          }
+        }
+      },
+      "graph": [
+        {
+          "x": 1790892000000,
+          "y": 5000000,
+          "mw": "€5.00M",
+          "datum_mw": "02/10/2026",
+          "verein": "FC Copenhagen",
+          "age": "22",
+          "wappen": "https://img.a.transfermarkt.technology/wappen/profil/190.png?lm=1789459176"
+        },
+        {
+          "x": 1790899200000,
+          "y": 5000000,
+          "datum_mw": "02/10/2026",
+          "verein": "FC Copenhagen"
+        }
+      ],
+      "atMatch": {
+        "x": 1790899200000,
+        "y": 5000000,
+        "datum_mw": "02/10/2026",
+        "verein": "FC Copenhagen"
+      },
+      "top5": {},
+      "senior": [],
+      "currentClub": "FC Copenhagen"
+    },
+    {
+      "id": "422950",
+      "name": "Mads Emil Madsen",
+      "url": "https://www.transfermarkt.com/mads-emil-madsen/profil/spieler/422950",
+      "nationality": "Denmark",
+      "clubId": "190",
+      "club": "FC Copenhagen",
+      "starter": true,
+      "lineupValue": 2500000,
+      "historySource": {
+        "date": "2026-11-11",
+        "method": "verified historical points and freshly verified current valuation before match",
+        "source": "https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/422950"
+      },
+      "played": true,
+      "minutes": 90,
+      "profile": {
+        "marketValueDetails": {
+          "current": {
+            "value": 2500000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "2.50",
+              "suffix": "M"
+            },
+            "determined": "2026-05-25"
+          },
+          "previous": {
+            "value": 2500000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "2.50",
+              "suffix": "M"
+            },
+            "determined": "2025-12-15"
+          },
+          "delta": {
+            "value": "0 €",
+            "percentage": "0,00 %",
+            "isVisible": false,
+            "type": "UNCHANGED"
+          },
+          "highest": {
+            "value": 2500000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "2.50",
+              "suffix": "M"
+            },
+            "determined": "2026-05-25"
+          }
+        }
+      },
+      "graph": [
+        {
+          "x": 1765753200000,
+          "y": 2500000,
+          "mw": "€2.50M",
+          "datum_mw": "15/12/2025",
+          "verein": "FC Copenhagen",
+          "age": "27",
+          "wappen": "https://img.a.transfermarkt.technology/wappen/profil/190.png?lm=1789459176"
+        },
+        {
+          "x": 1779660000000,
+          "y": 2500000,
+          "mw": "€2.50M",
+          "datum_mw": "25/05/2026",
+          "verein": "FC Copenhagen",
+          "age": "28",
+          "wappen": "https://img.a.transfermarkt.technology/wappen/profil/190.png?lm=1789459176"
+        },
+        {
+          "x": 1779667200000,
+          "y": 2500000,
+          "datum_mw": "25/05/2026",
+          "verein": "FC Copenhagen"
+        }
+      ],
+      "atMatch": {
+        "x": 1779667200000,
+        "y": 2500000,
+        "datum_mw": "25/05/2026",
+        "verein": "FC Copenhagen"
+      },
+      "top5": {},
+      "senior": [],
+      "currentClub": "FC Copenhagen"
+    },
+    {
+      "id": "668529",
+      "name": "Rodrigo Huescas",
+      "url": "https://www.transfermarkt.com/rodrigo-huescas/profil/spieler/668529",
+      "nationality": "Mexico",
+      "clubId": "190",
+      "club": "FC Copenhagen",
+      "starter": true,
+      "lineupValue": 6000000,
+      "historySource": {
+        "date": "2026-11-11",
+        "method": "verified historical points and freshly verified current valuation before match",
+        "source": "https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/668529"
+      },
+      "played": true,
+      "minutes": 90,
+      "profile": {
+        "marketValueDetails": {
+          "current": {
+            "value": 6000000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "6.00",
+              "suffix": "M"
+            },
+            "determined": "2026-05-25"
+          },
+          "previous": {
+            "value": 6000000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "6.00",
+              "suffix": "M"
+            },
+            "determined": "2025-12-15"
+          },
+          "delta": {
+            "value": "0 €",
+            "percentage": "0,00 %",
+            "isVisible": false,
+            "type": "UNCHANGED"
+          },
+          "highest": {
+            "value": 6000000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "6.00",
+              "suffix": "M"
+            },
+            "determined": "2026-05-25"
+          }
+        }
+      },
+      "graph": [
+        {
+          "x": 1718316000000,
+          "y": 6000000,
+          "mw": "€6.00M",
+          "datum_mw": "14/06/2024",
+          "verein": "CD Cruz Azul",
+          "age": "20",
+          "wappen": ""
+        },
+        {
+          "x": 1750024800000,
+          "y": 6000000,
+          "mw": "€6.00M",
+          "datum_mw": "16/06/2025",
+          "verein": "FC Copenhagen",
+          "age": "21",
+          "wappen": ""
+        },
+        {
+          "x": 1765753200000,
+          "y": 6000000,
+          "mw": "€6.00M",
+          "datum_mw": "15/12/2025",
+          "verein": "FC Copenhagen",
+          "age": "22",
+          "wappen": ""
+        },
+        {
+          "x": 1779660000000,
+          "y": 6000000,
+          "mw": "€6.00M",
+          "datum_mw": "25/05/2026",
+          "verein": "FC Copenhagen",
+          "age": "22",
+          "wappen": "https://img.a.transfermarkt.technology/wappen/profil/190.png?lm=1789459176"
+        },
+        {
+          "x": 1779667200000,
+          "y": 6000000,
+          "datum_mw": "25/05/2026",
+          "verein": "FC Copenhagen"
+        }
+      ],
+      "atMatch": {
+        "x": 1779667200000,
+        "y": 6000000,
+        "datum_mw": "25/05/2026",
+        "verein": "FC Copenhagen"
+      },
+      "top5": {},
+      "senior": [
+        {
+          "playerId": "668529",
+          "clubId": "6303",
+          "gamesPlayed": 3,
+          "goalsScored": 0,
+          "shirtNumber": 19,
+          "isCaptain": false,
+          "debut": "2024-06-01",
+          "debutCoachId": "45986",
+          "debutGameId": "4353408",
+          "lastGame": "2025-09-10",
+          "lastGameId": "4718900",
+          "careerState": "CURRENT_NATIONAL_PLAYER",
+          "name": "Mexico"
+        }
+      ],
+      "currentClub": "FC Copenhagen"
+    },
+    {
+      "id": "282250",
+      "name": "Birger Meling",
+      "url": "https://www.transfermarkt.com/birger-meling/profil/spieler/282250",
+      "nationality": "Norway",
+      "clubId": "190",
+      "club": "FC Copenhagen",
+      "starter": true,
+      "lineupValue": 900000,
+      "historySource": {
+        "date": "2026-11-11",
+        "method": "verified historical points and freshly verified current valuation before match",
+        "source": "https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/282250"
+      },
+      "played": true,
+      "minutes": 90,
+      "profile": {
+        "marketValueDetails": {
+          "current": {
+            "value": 900000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "900.00",
+              "suffix": "K"
+            },
+            "determined": "2026-05-25"
+          },
+          "previous": {
+            "value": 1500000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "1.50",
+              "suffix": "M"
+            },
+            "determined": "2025-12-15"
+          },
+          "delta": {
+            "value": "-600.000 €",
+            "percentage": "-40,00 %",
+            "isVisible": false,
+            "type": "DECREASED"
+          },
+          "highest": {
+            "value": 7000000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "7.00",
+              "suffix": "M"
+            },
+            "determined": "2022-05-30"
+          }
+        }
+      },
+      "graph": [
+        {
+          "x": 1653861600000,
+          "y": 7000000,
+          "mw": "€7.00M",
+          "datum_mw": "30/05/2022",
+          "verein": "Stade Rennais FC",
+          "age": "27",
+          "wappen": ""
+        }
+      ],
+      "atMatch": {
+        "x": 1779667200000,
+        "y": 900000,
+        "datum_mw": "25/05/2026",
+        "verein": "FC Copenhagen"
+      },
+      "top5": {
+        "FR1": {
+          "name": "Ligue 1",
+          "apps": 85,
+          "minutes": 5369
+        }
+      },
+      "senior": [
+        {
+          "playerId": "282250",
+          "clubId": "3440",
+          "gamesPlayed": 39,
+          "goalsScored": 0,
+          "shirtNumber": 5,
+          "isCaptain": false,
+          "debut": "2017-10-05",
+          "debutCoachId": "2540",
+          "debutGameId": "2643547",
+          "lastGame": "2023-10-15",
+          "lastGameId": "3941391",
+          "careerState": "FORMER_NATIONAL_PLAYER",
+          "name": "Norway"
+        }
+      ],
+      "currentClub": "FC Copenhagen"
+    },
+    {
+      "id": "1084714",
+      "name": "Robert",
+      "url": "https://www.transfermarkt.com/robert/profil/spieler/1084714",
+      "nationality": "Brazil",
+      "clubId": "190",
+      "club": "FC Copenhagen",
+      "starter": true,
+      "lineupValue": 3000000,
+      "historySource": {
+        "date": "2026-11-11",
+        "method": "verified historical points and freshly verified current valuation before match",
+        "source": "https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/1084714"
+      },
+      "played": true,
+      "minutes": 71,
+      "profile": {
+        "marketValueDetails": {
+          "current": {
+            "value": 3000000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "3.00",
+              "suffix": "M"
+            },
+            "determined": "2026-10-02"
+          },
+          "previous": {
+            "value": 2500000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "2.50",
+              "suffix": "M"
+            },
+            "determined": "2026-05-25"
+          },
+          "delta": {
+            "value": "+500.000 €",
+            "percentage": "+20,00 %",
+            "isVisible": false,
+            "type": "INCREASED"
+          },
+          "highest": {
+            "value": 3000000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "3.00",
+              "suffix": "M"
+            },
+            "determined": "2026-10-02"
+          }
+        }
+      },
+      "graph": [
+        {
+          "x": 1790892000000,
+          "y": 3000000,
+          "mw": "€3.00M",
+          "datum_mw": "02/10/2026",
+          "verein": "FC Copenhagen",
+          "age": "21",
+          "wappen": "https://img.a.transfermarkt.technology/wappen/profil/190.png?lm=1789459176"
+        },
+        {
+          "x": 1790899200000,
+          "y": 3000000,
+          "datum_mw": "02/10/2026",
+          "verein": "FC Copenhagen"
+        }
+      ],
+      "atMatch": {
+        "x": 1790899200000,
+        "y": 3000000,
+        "datum_mw": "02/10/2026",
+        "verein": "FC Copenhagen"
+      },
+      "top5": {},
+      "senior": [],
+      "currentClub": "FC Copenhagen"
+    },
+    {
+      "id": "186644",
+      "name": "Mohamed Elyounoussi",
+      "url": "https://www.transfermarkt.com/mohamed-elyounoussi/profil/spieler/186644",
+      "nationality": "Norway",
+      "clubId": "190",
+      "club": "FC Copenhagen",
+      "starter": true,
+      "lineupValue": 4000000,
+      "historySource": {
+        "date": "2026-11-11",
+        "method": "verified historical points and freshly verified current valuation before match",
+        "source": "https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/186644"
+      },
+      "played": true,
+      "minutes": 90,
+      "profile": {
+        "marketValueDetails": {
+          "current": {
+            "value": 4000000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "4.00",
+              "suffix": "M"
+            },
+            "determined": "2026-05-25"
+          },
+          "previous": {
+            "value": 4500000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "4.50",
+              "suffix": "M"
+            },
+            "determined": "2025-12-15"
+          },
+          "delta": {
+            "value": "-500.000 €",
+            "percentage": "-11,11 %",
+            "isVisible": false,
+            "type": "DECREASED"
+          },
+          "highest": {
+            "value": 15000000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "15.00",
+              "suffix": "M"
+            },
+            "determined": "2019-06-13"
+          }
+        }
+      },
+      "graph": [
+        {
+          "x": 1534111200000,
+          "y": 15000000,
+          "mw": "€15.00M",
+          "datum_mw": "13/08/2018",
+          "verein": "Southampton FC",
+          "age": "24",
+          "wappen": "https://img.a.transfermarkt.technology/wappen/profil/180.png?lm=1789459176"
+        },
+        {
+          "x": 1545174000000,
+          "y": 15000000,
+          "mw": "€15.00M",
+          "datum_mw": "19/12/2018",
+          "verein": "Southampton FC",
+          "age": "24",
+          "wappen": ""
+        },
+        {
+          "x": 1560376800000,
+          "y": 15000000,
+          "mw": "€15.00M",
+          "datum_mw": "13/06/2019",
+          "verein": "Southampton FC",
+          "age": "24",
+          "wappen": ""
+        }
+      ],
+      "atMatch": {
+        "x": 1779667200000,
+        "y": 4000000,
+        "datum_mw": "25/05/2026",
+        "verein": "FC Copenhagen"
+      },
+      "top5": {
+        "GB1": {
+          "name": "Premier League",
+          "apps": 79,
+          "minutes": 5014
+        }
+      },
+      "senior": [
+        {
+          "playerId": "186644",
+          "clubId": "3440",
+          "gamesPlayed": 55,
+          "goalsScored": 10,
+          "shirtNumber": 11,
+          "isCaptain": false,
+          "debut": "2014-01-18",
+          "debutCoachId": "2643",
+          "debutGameId": "2384569",
+          "lastGame": "2024-03-26",
+          "lastGameId": "4319861",
+          "careerState": "FORMER_NATIONAL_PLAYER",
+          "name": "Norway"
+        }
+      ],
+      "currentClub": "FC Copenhagen"
+    },
+    {
+      "id": "203412",
+      "name": "Andreas Cornelius",
+      "url": "https://www.transfermarkt.com/andreas-cornelius/profil/spieler/203412",
+      "nationality": "Denmark",
+      "clubId": "190",
+      "club": "FC Copenhagen",
+      "starter": true,
+      "lineupValue": 250000,
+      "historySource": {
+        "date": "2026-11-11",
+        "method": "verified historical points and freshly verified current valuation before match",
+        "source": "https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/203412"
+      },
+      "played": true,
+      "minutes": 84,
+      "profile": {
+        "marketValueDetails": {
+          "current": {
+            "value": 250000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "250.00",
+              "suffix": "K"
+            },
+            "determined": "2026-05-25"
+          },
+          "previous": {
+            "value": 400000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "400.00",
+              "suffix": "K"
+            },
+            "determined": "2025-12-15"
+          },
+          "delta": {
+            "value": "-150.000 €",
+            "percentage": "-37,50 %",
+            "isVisible": false,
+            "type": "DECREASED"
+          },
+          "highest": {
+            "value": 12000000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "12.00",
+              "suffix": "M"
+            },
+            "determined": "2020-08-25"
+          }
+        }
+      },
+      "graph": [
+        {
+          "x": 1598306400000,
+          "y": 12000000,
+          "mw": "€12.00M",
+          "datum_mw": "25/08/2020",
+          "verein": "Parma Calcio 1913",
+          "age": "27",
+          "wappen": ""
+        }
+      ],
+      "atMatch": {
+        "x": 1779667200000,
+        "y": 250000,
+        "datum_mw": "25/05/2026",
+        "verein": "FC Copenhagen"
+      },
+      "top5": {
+        "IT1": {
+          "name": "Serie A",
+          "apps": 78,
+          "minutes": 4318
+        },
+        "FR1": {
+          "name": "Ligue 1",
+          "apps": 20,
+          "minutes": 780
+        },
+        "GB1": {
+          "name": "Premier League",
+          "apps": 8,
+          "minutes": 107
+        }
+      },
+      "senior": [
+        {
+          "playerId": "203412",
+          "clubId": "3436",
+          "gamesPlayed": 46,
+          "goalsScored": 13,
+          "shirtNumber": 21,
+          "isCaptain": false,
+          "debut": "2012-09-08",
+          "debutCoachId": "179",
+          "debutGameId": "2262579",
+          "lastGame": "2022-11-30",
+          "lastGameId": "3788890",
+          "careerState": "FORMER_NATIONAL_PLAYER",
+          "name": "Denmark"
+        }
+      ],
+      "currentClub": "FC Copenhagen"
+    },
+    {
+      "id": "223972",
+      "name": "Patrick Pentz",
+      "url": "https://www.transfermarkt.com/patrick-pentz/profil/spieler/223972",
+      "nationality": "Austria",
+      "clubId": "206",
+      "club": "Brøndby IF",
+      "starter": true,
+      "lineupValue": 2000000,
+      "historySource": {
+        "date": "2026-11-11",
+        "method": "verified historical points and freshly verified current valuation before match",
+        "source": "https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/223972"
+      },
+      "played": true,
+      "minutes": 90,
+      "profile": {
+        "marketValueDetails": {
+          "current": {
+            "value": 2000000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "2.00",
+              "suffix": "M"
+            },
+            "determined": "2026-10-02"
+          },
+          "previous": {
+            "value": 2200000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "2.20",
+              "suffix": "M"
+            },
+            "determined": "2026-05-25"
+          },
+          "delta": {
+            "value": "-200.000 €",
+            "percentage": "-9,09 %",
+            "isVisible": false,
+            "type": "DECREASED"
+          },
+          "highest": {
+            "value": 3000000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "3.00",
+              "suffix": "M"
+            },
+            "determined": "2024-12-09"
+          }
+        }
+      },
+      "graph": [
+        {
+          "x": 1717970400000,
+          "y": 3000000,
+          "mw": "€3.00M",
+          "datum_mw": "10/06/2024",
+          "verein": "Bröndby IF",
+          "age": "27",
+          "wappen": ""
+        },
+        {
+          "x": 1733698800000,
+          "y": 3000000,
+          "mw": "€3.00M",
+          "datum_mw": "09/12/2024",
+          "verein": "Bröndby IF",
+          "age": "27",
+          "wappen": ""
+        }
+      ],
+      "atMatch": {
+        "x": 1790899200000,
+        "y": 2000000,
+        "datum_mw": "02/10/2026",
+        "verein": "Brøndby IF"
+      },
+      "top5": {
+        "FR1": {
+          "name": "Ligue 1",
+          "apps": 7,
+          "minutes": 630
+        }
+      },
+      "senior": [
+        {
+          "playerId": "223972",
+          "clubId": "3383",
+          "gamesPlayed": 18,
+          "goalsScored": 0,
+          "shirtNumber": 13,
+          "isCaptain": false,
+          "debut": "2022-03-29",
+          "debutCoachId": "2450",
+          "debutGameId": "3777969",
+          "lastGame": "2026-03-31",
+          "lastGameId": "4808133",
+          "careerState": "RECENT_NATIONAL_PLAYER",
+          "name": "Austria"
+        }
+      ],
+      "currentClub": "Bröndby IF"
+    },
+    {
+      "id": "471004",
+      "name": "Luis Binks",
+      "url": "https://www.transfermarkt.com/luis-binks/profil/spieler/471004",
+      "nationality": "Scotland",
+      "clubId": "206",
+      "club": "Brøndby IF",
+      "starter": true,
+      "lineupValue": 4000000,
+      "historySource": {
+        "date": "2026-11-11",
+        "method": "verified historical points and freshly verified current valuation before match",
+        "source": "https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/471004"
+      },
+      "played": true,
+      "minutes": 90,
+      "profile": {
+        "marketValueDetails": {
+          "current": {
+            "value": 4000000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "4.00",
+              "suffix": "M"
+            },
+            "determined": "2026-10-02"
+          },
+          "previous": {
+            "value": 3500000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "3.50",
+              "suffix": "M"
+            },
+            "determined": "2026-05-25"
+          },
+          "delta": {
+            "value": "+500.000 €",
+            "percentage": "+14,29 %",
+            "isVisible": false,
+            "type": "INCREASED"
+          },
+          "highest": {
+            "value": 4000000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "4.00",
+              "suffix": "M"
+            },
+            "determined": "2026-10-02"
+          }
+        }
+      },
+      "graph": [
+        {
+          "x": 1790892000000,
+          "y": 4000000,
+          "mw": "€4.00M",
+          "datum_mw": "02/10/2026",
+          "verein": "Bröndby IF",
+          "age": "25",
+          "wappen": "https://img.a.transfermarkt.technology/wappen/profil/206.png?lm=1788504922"
+        },
+        {
+          "x": 1790899200000,
+          "y": 4000000,
+          "datum_mw": "02/10/2026",
+          "verein": "Brøndby IF"
+        }
+      ],
+      "atMatch": {
+        "x": 1790899200000,
+        "y": 4000000,
+        "datum_mw": "02/10/2026",
+        "verein": "Brøndby IF"
+      },
+      "top5": {
+        "IT1": {
+          "name": "Serie A",
+          "apps": 15,
+          "minutes": 641
+        }
+      },
+      "senior": [
+        {
+          "playerId": "471004",
+          "clubId": "3380",
+          "gamesPlayed": 3,
+          "goalsScored": 0,
+          "shirtNumber": null,
+          "isCaptain": false,
+          "debut": "2026-09-29",
+          "debutCoachId": "94759",
+          "debutGameId": "4824841",
+          "lastGame": "2026-10-06",
+          "lastGameId": "4825138",
+          "careerState": "CURRENT_NATIONAL_PLAYER",
+          "name": "Scotland"
+        }
+      ],
+      "currentClub": "Bröndby IF"
+    },
+    {
+      "id": "542690",
+      "name": "Frederik Alves",
+      "url": "https://www.transfermarkt.com/frederik-alves/profil/spieler/542690",
+      "nationality": "Denmark",
+      "clubId": "206",
+      "club": "Brøndby IF",
+      "starter": true,
+      "lineupValue": 2500000,
+      "historySource": {
+        "date": "2026-11-11",
+        "method": "verified historical points and freshly verified current valuation before match",
+        "source": "https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/542690"
+      },
+      "played": true,
+      "minutes": 90,
+      "profile": {
+        "marketValueDetails": {
+          "current": {
+            "value": 2500000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "2.50",
+              "suffix": "M"
+            },
+            "determined": "2026-10-02"
+          },
+          "previous": {
+            "value": 2800000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "2.80",
+              "suffix": "M"
+            },
+            "determined": "2026-05-25"
+          },
+          "delta": {
+            "value": "-300.000 €",
+            "percentage": "-10,71 %",
+            "isVisible": false,
+            "type": "DECREASED"
+          },
+          "highest": {
+            "value": 2800000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "2.80",
+              "suffix": "M"
+            },
+            "determined": "2026-05-25"
+          }
+        }
+      },
+      "graph": [
+        {
+          "x": 1765753200000,
+          "y": 2800000,
+          "mw": "€2.80M",
+          "datum_mw": "15/12/2025",
+          "verein": "Bröndby IF",
+          "age": "26",
+          "wappen": ""
+        },
+        {
+          "x": 1779660000000,
+          "y": 2800000,
+          "mw": "€2.80M",
+          "datum_mw": "25/05/2026",
+          "verein": "Bröndby IF",
+          "age": "26",
+          "wappen": ""
+        }
+      ],
+      "atMatch": {
+        "x": 1790899200000,
+        "y": 2500000,
+        "datum_mw": "02/10/2026",
+        "verein": "Brøndby IF"
+      },
+      "top5": {},
+      "senior": [],
+      "currentClub": "Bröndby IF"
+    },
+    {
+      "id": "515613",
+      "name": "Marko Divković",
+      "url": "https://www.transfermarkt.com/marko-divkovic/profil/spieler/515613",
+      "nationality": "Croatia",
+      "clubId": "206",
+      "club": "Brøndby IF",
+      "starter": true,
+      "lineupValue": 2500000,
+      "historySource": {
+        "date": "2026-11-11",
+        "method": "verified historical points and freshly verified current valuation before match",
+        "source": "https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/515613"
+      },
+      "played": true,
+      "minutes": 90,
+      "profile": {
+        "marketValueDetails": {
+          "current": {
+            "value": 2500000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "2.50",
+              "suffix": "M"
+            },
+            "determined": "2026-10-02"
+          },
+          "previous": {
+            "value": 2700000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "2.70",
+              "suffix": "M"
+            },
+            "determined": "2026-05-25"
+          },
+          "delta": {
+            "value": "-200.000 €",
+            "percentage": "-7,41 %",
+            "isVisible": false,
+            "type": "DECREASED"
+          },
+          "highest": {
+            "value": 2700000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "2.70",
+              "suffix": "M"
+            },
+            "determined": "2026-05-25"
+          }
+        }
+      },
+      "graph": [
+        {
+          "x": 1779660000000,
+          "y": 2700000,
+          "mw": "€2.70M",
+          "datum_mw": "25/05/2026",
+          "verein": "Bröndby IF",
+          "age": "26",
+          "wappen": ""
+        }
+      ],
+      "atMatch": {
+        "x": 1790899200000,
+        "y": 2500000,
+        "datum_mw": "02/10/2026",
+        "verein": "Brøndby IF"
+      },
+      "top5": {},
+      "senior": [],
+      "currentClub": "Bröndby IF"
+    },
+    {
+      "id": "842217",
+      "name": "Christopher Olivier",
+      "url": "https://www.transfermarkt.com/christopher-olivier/profil/spieler/842217",
+      "nationality": "Austria",
+      "clubId": "206",
+      "club": "Brøndby IF",
+      "starter": true,
+      "lineupValue": 1200000,
+      "historySource": {
+        "date": "2026-11-11",
+        "method": "verified historical points and freshly verified current valuation before match",
+        "source": "https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/842217"
+      },
+      "played": true,
+      "minutes": 74,
+      "profile": {
+        "marketValueDetails": {
+          "current": {
+            "value": 1200000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "1.20",
+              "suffix": "M"
+            },
+            "determined": "2026-05-29"
+          },
+          "previous": {
+            "value": 1000000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "1.00",
+              "suffix": "M"
+            },
+            "determined": "2026-03-19"
+          },
+          "delta": {
+            "value": "+200.000 €",
+            "percentage": "+20,00 %",
+            "isVisible": false,
+            "type": "INCREASED"
+          },
+          "highest": {
+            "value": 1200000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "1.20",
+              "suffix": "M"
+            },
+            "determined": "2026-05-29"
+          }
+        }
+      },
+      "graph": [
+        {
+          "x": 1780005600000,
+          "y": 1200000,
+          "mw": "€1.20M",
+          "datum_mw": "29/05/2026",
+          "verein": "VfB Stuttgart II",
+          "age": "20",
+          "wappen": "https://img.a.transfermarkt.technology/wappen/profil/102.png?lm=1789459169"
+        },
+        {
+          "x": 1780012800000,
+          "y": 1200000,
+          "datum_mw": "29/05/2026",
+          "verein": "Brøndby IF"
+        }
+      ],
+      "atMatch": {
+        "x": 1780012800000,
+        "y": 1200000,
+        "datum_mw": "29/05/2026",
+        "verein": "Brøndby IF"
+      },
+      "top5": {},
+      "senior": [],
+      "currentClub": "Bröndby IF"
+    },
+    {
+      "id": "382429",
+      "name": "Bartosz Slisz",
+      "url": "https://www.transfermarkt.com/bartosz-slisz/profil/spieler/382429",
+      "nationality": "Poland",
+      "clubId": "206",
+      "club": "Brøndby IF",
+      "starter": true,
+      "lineupValue": 3500000,
+      "historySource": {
+        "date": "2026-11-11",
+        "method": "verified historical points and freshly verified current valuation before match",
+        "source": "https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/382429"
+      },
+      "played": true,
+      "minutes": 90,
+      "profile": {
+        "marketValueDetails": {
+          "current": {
+            "value": 3500000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "3.50",
+              "suffix": "M"
+            },
+            "determined": "2026-05-25"
+          },
+          "previous": {
+            "value": 4000000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "4.00",
+              "suffix": "M"
+            },
+            "determined": "2025-12-11"
+          },
+          "delta": {
+            "value": "-500.000 €",
+            "percentage": "-12,50 %",
+            "isVisible": false,
+            "type": "DECREASED"
+          },
+          "highest": {
+            "value": 6000000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "6.00",
+              "suffix": "M"
+            },
+            "determined": "2023-12-29"
+          }
+        }
+      },
+      "graph": [
+        {
+          "x": 1703804400000,
+          "y": 6000000,
+          "mw": "€6.00M",
+          "datum_mw": "29/12/2023",
+          "verein": "Legia Warszawa",
+          "age": "24",
+          "wappen": ""
+        }
+      ],
+      "atMatch": {
+        "x": 1779667200000,
+        "y": 3500000,
+        "datum_mw": "25/05/2026",
+        "verein": "Brøndby IF"
+      },
+      "top5": {},
+      "senior": [
+        {
+          "playerId": "382429",
+          "clubId": "3442",
+          "gamesPlayed": 26,
+          "goalsScored": 1,
+          "shirtNumber": 6,
+          "isCaptain": false,
+          "debut": "2021-09-05",
+          "debutCoachId": "8369",
+          "debutGameId": "3495292",
+          "lastGame": "2026-10-02",
+          "lastGameId": "4825149",
+          "careerState": "RECENT_NATIONAL_PLAYER",
+          "name": "Poland"
+        }
+      ],
+      "currentClub": "Bröndby IF"
+    },
+    {
+      "id": "741931",
+      "name": "Max Ejdum",
+      "url": "https://www.transfermarkt.com/max-ejdum/profil/spieler/741931",
+      "nationality": "Denmark",
+      "clubId": "206",
+      "club": "Brøndby IF",
+      "starter": true,
+      "lineupValue": 3500000,
+      "historySource": {
+        "date": "2026-11-11",
+        "method": "verified historical points and freshly verified current valuation before match",
+        "source": "https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/741931"
+      },
+      "played": true,
+      "minutes": 90,
+      "profile": {
+        "marketValueDetails": {
+          "current": {
+            "value": 3500000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "3.50",
+              "suffix": "M"
+            },
+            "determined": "2026-10-02"
+          },
+          "previous": {
+            "value": 2000000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "2.00",
+              "suffix": "M"
+            },
+            "determined": "2026-05-25"
+          },
+          "delta": {
+            "value": "+1.500.000 €",
+            "percentage": "+75,00 %",
+            "isVisible": false,
+            "type": "INCREASED"
+          },
+          "highest": {
+            "value": 3500000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "3.50",
+              "suffix": "M"
+            },
+            "determined": "2026-10-02"
+          }
+        }
+      },
+      "graph": [
+        {
+          "x": 1790892000000,
+          "y": 3500000,
+          "mw": "€3.50M",
+          "datum_mw": "02/10/2026",
+          "verein": "Bröndby IF",
+          "age": "21",
+          "wappen": "https://img.a.transfermarkt.technology/wappen/profil/206.png?lm=1788504922"
+        },
+        {
+          "x": 1790899200000,
+          "y": 3500000,
+          "datum_mw": "02/10/2026",
+          "verein": "Brøndby IF"
+        }
+      ],
+      "atMatch": {
+        "x": 1790899200000,
+        "y": 3500000,
+        "datum_mw": "02/10/2026",
+        "verein": "Brøndby IF"
+      },
+      "top5": {},
+      "senior": [],
+      "currentClub": "Bröndby IF"
+    },
+    {
+      "id": "533632",
+      "name": "Mads Frøkjær",
+      "url": "https://www.transfermarkt.com/mads-frokjaer/profil/spieler/533632",
+      "nationality": "Denmark",
+      "clubId": "206",
+      "club": "Brøndby IF",
+      "starter": true,
+      "lineupValue": 2000000,
+      "historySource": {
+        "date": "2026-11-11",
+        "method": "verified historical points and freshly verified current valuation before match",
+        "source": "https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/533632"
+      },
+      "played": true,
+      "minutes": 86,
+      "profile": {
+        "marketValueDetails": {
+          "current": {
+            "value": 2000000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "2.00",
+              "suffix": "M"
+            },
+            "determined": "2026-10-02"
+          },
+          "previous": {
+            "value": 2500000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "2.50",
+              "suffix": "M"
+            },
+            "determined": "2026-05-25"
+          },
+          "delta": {
+            "value": "-500.000 €",
+            "percentage": "-20,00 %",
+            "isVisible": false,
+            "type": "DECREASED"
+          },
+          "highest": {
+            "value": 3500000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "3.50",
+              "suffix": "M"
+            },
+            "determined": "2025-05-27"
+          }
+        }
+      },
+      "graph": [
+        {
+          "x": 1748296800000,
+          "y": 3500000,
+          "mw": "€3.50M",
+          "datum_mw": "27/05/2025",
+          "verein": "Preston North End",
+          "age": "25",
+          "wappen": ""
+        }
+      ],
+      "atMatch": {
+        "x": 1790899200000,
+        "y": 2000000,
+        "datum_mw": "02/10/2026",
+        "verein": "Brøndby IF"
+      },
+      "top5": {},
+      "senior": [],
+      "currentClub": "Bröndby IF"
+    },
+    {
+      "id": "1034532",
+      "name": "Olti Hyseni",
+      "url": "https://www.transfermarkt.com/olti-hyseni/profil/spieler/1034532",
+      "nationality": "Denmark",
+      "clubId": "206",
+      "club": "Brøndby IF",
+      "starter": true,
+      "lineupValue": 4000000,
+      "historySource": {
+        "date": "2026-11-11",
+        "method": "verified historical points and freshly verified current valuation before match",
+        "source": "https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/1034532"
+      },
+      "played": true,
+      "minutes": 74,
+      "profile": {
+        "marketValueDetails": {
+          "current": {
+            "value": 4000000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "4.00",
+              "suffix": "M"
+            },
+            "determined": "2026-10-02"
+          },
+          "previous": {
+            "value": 2500000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "2.50",
+              "suffix": "M"
+            },
+            "determined": "2026-05-25"
+          },
+          "delta": {
+            "value": "+1.500.000 €",
+            "percentage": "+60,00 %",
+            "isVisible": false,
+            "type": "INCREASED"
+          },
+          "highest": {
+            "value": 4000000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "4.00",
+              "suffix": "M"
+            },
+            "determined": "2026-10-02"
+          }
+        }
+      },
+      "graph": [
+        {
+          "x": 1790892000000,
+          "y": 4000000,
+          "mw": "€4.00M",
+          "datum_mw": "02/10/2026",
+          "verein": "Bröndby IF",
+          "age": "19",
+          "wappen": "https://img.a.transfermarkt.technology/wappen/profil/206.png?lm=1788504922"
+        },
+        {
+          "x": 1790899200000,
+          "y": 4000000,
+          "datum_mw": "02/10/2026",
+          "verein": "Brøndby IF"
+        }
+      ],
+      "atMatch": {
+        "x": 1790899200000,
+        "y": 4000000,
+        "datum_mw": "02/10/2026",
+        "verein": "Brøndby IF"
+      },
+      "top5": {},
+      "senior": [],
+      "currentClub": "Bröndby IF"
+    },
+    {
+      "id": "685145",
+      "name": "Filip Bundgaard",
+      "url": "https://www.transfermarkt.com/filip-bundgaard/profil/spieler/685145",
+      "nationality": "Denmark",
+      "clubId": "206",
+      "club": "Brøndby IF",
+      "starter": true,
+      "lineupValue": 2500000,
+      "historySource": {
+        "date": "2026-11-11",
+        "method": "verified historical points and freshly verified current valuation before match",
+        "source": "https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/685145"
+      },
+      "played": true,
+      "minutes": 63,
+      "profile": {
+        "marketValueDetails": {
+          "current": {
+            "value": 2500000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "2.50",
+              "suffix": "M"
+            },
+            "determined": "2026-05-25"
+          },
+          "previous": {
+            "value": 2500000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "2.50",
+              "suffix": "M"
+            },
+            "determined": "2025-12-15"
+          },
+          "delta": {
+            "value": "0 €",
+            "percentage": "0,00 %",
+            "isVisible": false,
+            "type": "UNCHANGED"
+          },
+          "highest": {
+            "value": 2500000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "2.50",
+              "suffix": "M"
+            },
+            "determined": "2026-05-25"
+          }
+        }
+      },
+      "graph": [
+        {
+          "x": 1765753200000,
+          "y": 2500000,
+          "mw": "€2.50M",
+          "datum_mw": "15/12/2025",
+          "verein": "Bröndby IF",
+          "age": "21",
+          "wappen": ""
+        },
+        {
+          "x": 1779660000000,
+          "y": 2500000,
+          "mw": "€2.50M",
+          "datum_mw": "25/05/2026",
+          "verein": "Bröndby IF",
+          "age": "21",
+          "wappen": "https://img.a.transfermarkt.technology/wappen/profil/206_1788502813.png?lm=1788504922"
+        },
+        {
+          "x": 1779667200000,
+          "y": 2500000,
+          "datum_mw": "25/05/2026",
+          "verein": "Brøndby IF"
+        }
+      ],
+      "atMatch": {
+        "x": 1779667200000,
+        "y": 2500000,
+        "datum_mw": "25/05/2026",
+        "verein": "Brøndby IF"
+      },
+      "top5": {},
+      "senior": [],
+      "currentClub": "Bröndby IF"
+    },
+    {
+      "id": "1030382",
+      "name": "Jacob Ambæk",
+      "url": "https://www.transfermarkt.com/jacob-ambaek/profil/spieler/1030382",
+      "nationality": "Denmark",
+      "clubId": "206",
+      "club": "Brøndby IF",
+      "starter": true,
+      "lineupValue": 4000000,
+      "historySource": {
+        "date": "2026-11-11",
+        "method": "verified historical points and freshly verified current valuation before match",
+        "source": "https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/1030382"
+      },
+      "played": true,
+      "minutes": 63,
+      "profile": {
+        "marketValueDetails": {
+          "current": {
+            "value": 4000000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "4.00",
+              "suffix": "M"
+            },
+            "determined": "2026-05-25"
+          },
+          "previous": {
+            "value": 1000000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "1.00",
+              "suffix": "M"
+            },
+            "determined": "2025-12-15"
+          },
+          "delta": {
+            "value": "+3.000.000 €",
+            "percentage": "+300,00 %",
+            "isVisible": false,
+            "type": "INCREASED"
+          },
+          "highest": {
+            "value": 4000000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "4.00",
+              "suffix": "M"
+            },
+            "determined": "2026-05-25"
+          }
+        }
+      },
+      "graph": [
+        {
+          "x": 1779660000000,
+          "y": 4000000,
+          "mw": "€4.00M",
+          "datum_mw": "25/05/2026",
+          "verein": "Bröndby IF",
+          "age": "18",
+          "wappen": "https://img.a.transfermarkt.technology/wappen/profil/206_1788502813.png?lm=1788504922"
+        },
+        {
+          "x": 1779667200000,
+          "y": 4000000,
+          "datum_mw": "25/05/2026",
+          "verein": "Brøndby IF"
+        }
+      ],
+      "atMatch": {
+        "x": 1779667200000,
+        "y": 4000000,
+        "datum_mw": "25/05/2026",
+        "verein": "Brøndby IF"
+      },
+      "top5": {},
+      "senior": [],
+      "currentClub": "Bröndby IF"
+    },
+    {
+      "id": "205657",
+      "name": "Rúnar Alex Rúnarsson",
+      "url": "https://www.transfermarkt.com/runar-alex-runarsson/profil/spieler/205657",
+      "nationality": "Iceland",
+      "clubId": "190",
+      "club": "FC Copenhagen",
+      "starter": false,
+      "lineupValue": 300000,
+      "historySource": {
+        "date": "2026-11-11",
+        "method": "verified historical points and freshly verified current valuation before match",
+        "source": "https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/205657"
+      },
+      "played": false,
+      "minutes": 0,
+      "profile": {
+        "marketValueDetails": {
+          "current": {
+            "value": 300000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "300.00",
+              "suffix": "K"
+            },
+            "determined": "2026-10-02"
+          },
+          "previous": {
+            "value": 350000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "350.00",
+              "suffix": "K"
+            },
+            "determined": "2026-05-25"
+          },
+          "delta": {
+            "value": "-50.000 €",
+            "percentage": "-14,29 %",
+            "isVisible": false,
+            "type": "DECREASED"
+          },
+          "highest": {
+            "value": 4500000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "4.50",
+              "suffix": "M"
+            },
+            "determined": "2018-12-17"
+          }
+        }
+      },
+      "graph": [
+        {
+          "x": 1540332000000,
+          "y": 4500000,
+          "mw": "€4.50M",
+          "datum_mw": "24/10/2018",
+          "verein": "Dijon FCO",
+          "age": "23",
+          "wappen": ""
+        },
+        {
+          "x": 1545001200000,
+          "y": 4500000,
+          "mw": "€4.50M",
+          "datum_mw": "17/12/2018",
+          "verein": "Dijon FCO",
+          "age": "23",
+          "wappen": ""
+        }
+      ],
+      "atMatch": {
+        "x": 1790899200000,
+        "y": 300000,
+        "datum_mw": "02/10/2026",
+        "verein": "FC Copenhagen"
+      },
+      "top5": {
+        "GB1": {
+          "name": "Premier League",
+          "apps": 1,
+          "minutes": 15
+        },
+        "FR1": {
+          "name": "Ligue 1",
+          "apps": 36,
+          "minutes": 3150
+        }
+      },
+      "senior": [
+        {
+          "playerId": "205657",
+          "clubId": "3574",
+          "gamesPlayed": 27,
+          "goalsScored": 0,
+          "shirtNumber": 1,
+          "isCaptain": false,
+          "debut": "2017-11-08",
+          "debutCoachId": "11268",
+          "debutGameId": "2951012",
+          "lastGame": "2023-10-13",
+          "lastGameId": "3941676",
+          "careerState": "CURRENT_NATIONAL_PLAYER",
+          "name": "Iceland"
+        }
+      ],
+      "currentClub": "FC Copenhagen"
+    },
+    {
+      "id": "848856",
+      "name": "Junnosuke Suzuki",
+      "url": "https://www.transfermarkt.com/junnosuke-suzuki/profil/spieler/848856",
+      "nationality": "Japan",
+      "clubId": "190",
+      "club": "FC Copenhagen",
+      "starter": false,
+      "lineupValue": 3500000,
+      "historySource": {
+        "date": "2026-11-11",
+        "method": "verified historical points and freshly verified current valuation before match",
+        "source": "https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/848856"
+      },
+      "played": true,
+      "minutes": 6,
+      "profile": {
+        "marketValueDetails": {
+          "current": {
+            "value": 3500000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "3.50",
+              "suffix": "M"
+            },
+            "determined": "2026-05-25"
+          },
+          "previous": {
+            "value": 2000000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "2.00",
+              "suffix": "M"
+            },
+            "determined": "2025-12-15"
+          },
+          "delta": {
+            "value": "+1.500.000 €",
+            "percentage": "+75,00 %",
+            "isVisible": false,
+            "type": "INCREASED"
+          },
+          "highest": {
+            "value": 3500000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "3.50",
+              "suffix": "M"
+            },
+            "determined": "2026-05-25"
+          }
+        }
+      },
+      "graph": [
+        {
+          "x": 1779660000000,
+          "y": 3500000,
+          "mw": "€3.50M",
+          "datum_mw": "25/05/2026",
+          "verein": "FC Copenhagen",
+          "age": "22",
+          "wappen": "https://img.a.transfermarkt.technology/wappen/profil/190.png?lm=1789459176"
+        },
+        {
+          "x": 1779667200000,
+          "y": 3500000,
+          "datum_mw": "25/05/2026",
+          "verein": "FC Copenhagen"
+        }
+      ],
+      "atMatch": {
+        "x": 1779667200000,
+        "y": 3500000,
+        "datum_mw": "25/05/2026",
+        "verein": "FC Copenhagen"
+      },
+      "top5": {},
+      "senior": [
+        {
+          "playerId": "848856",
+          "clubId": "3435",
+          "gamesPlayed": 12,
+          "goalsScored": 0,
+          "shirtNumber": 25,
+          "isCaptain": false,
+          "debut": "2025-06-10",
+          "debutCoachId": "21905",
+          "debutGameId": "4430740",
+          "lastGame": "2026-10-05",
+          "lastGameId": "5072319",
+          "careerState": "CURRENT_NATIONAL_PLAYER",
+          "name": "Japan"
+        }
+      ],
+      "currentClub": "FC Copenhagen"
+    },
+    {
+      "id": "432175",
+      "name": "Marcos López",
+      "url": "https://www.transfermarkt.com/marcos-lopez/profil/spieler/432175",
+      "nationality": "Peru",
+      "clubId": "190",
+      "club": "FC Copenhagen",
+      "starter": false,
+      "lineupValue": 4000000,
+      "historySource": {
+        "date": "2026-11-11",
+        "method": "verified historical points and freshly verified current valuation before match",
+        "source": "https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/432175"
+      },
+      "played": false,
+      "minutes": 0,
+      "profile": {
+        "marketValueDetails": {
+          "current": {
+            "value": 4000000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "4.00",
+              "suffix": "M"
+            },
+            "determined": "2026-05-25"
+          },
+          "previous": {
+            "value": 3500000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "3.50",
+              "suffix": "M"
+            },
+            "determined": "2025-12-15"
+          },
+          "delta": {
+            "value": "+500.000 €",
+            "percentage": "+14,29 %",
+            "isVisible": false,
+            "type": "INCREASED"
+          },
+          "highest": {
+            "value": 4000000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "4.00",
+              "suffix": "M"
+            },
+            "determined": "2026-05-25"
+          }
+        }
+      },
+      "graph": [
+        {
+          "x": 1687471200000,
+          "y": 4000000,
+          "mw": "€4.00M",
+          "datum_mw": "23/06/2023",
+          "verein": "Feyenoord Rotterdam",
+          "age": "23",
+          "wappen": ""
+        },
+        {
+          "x": 1702594800000,
+          "y": 4000000,
+          "mw": "€4.00M",
+          "datum_mw": "15/12/2023",
+          "verein": "Feyenoord Rotterdam",
+          "age": "24",
+          "wappen": ""
+        },
+        {
+          "x": 1779660000000,
+          "y": 4000000,
+          "mw": "€4.00M",
+          "datum_mw": "25/05/2026",
+          "verein": "FC Copenhagen",
+          "age": "26",
+          "wappen": "https://img.a.transfermarkt.technology/wappen/profil/190.png?lm=1789459176"
+        },
+        {
+          "x": 1779667200000,
+          "y": 4000000,
+          "datum_mw": "25/05/2026",
+          "verein": "FC Copenhagen"
+        }
+      ],
+      "atMatch": {
+        "x": 1779667200000,
+        "y": 4000000,
+        "datum_mw": "25/05/2026",
+        "verein": "FC Copenhagen"
+      },
+      "top5": {},
+      "senior": [
+        {
+          "playerId": "432175",
+          "clubId": "3584",
+          "gamesPlayed": 57,
+          "goalsScored": 0,
+          "shirtNumber": 4,
+          "isCaptain": false,
+          "debut": "2018-09-09",
+          "debutCoachId": "7628",
+          "debutGameId": "3094886",
+          "lastGame": "2026-10-07",
+          "lastGameId": "5052883",
+          "careerState": "CURRENT_NATIONAL_PLAYER",
+          "name": "Peru"
+        }
+      ],
+      "currentClub": "FC Copenhagen"
+    },
+    {
+      "id": "91849",
+      "name": "Thomas Delaney",
+      "url": "https://www.transfermarkt.com/thomas-delaney/profil/spieler/91849",
+      "nationality": "Denmark",
+      "clubId": "190",
+      "club": "FC Copenhagen",
+      "starter": false,
+      "lineupValue": 400000,
+      "historySource": {
+        "date": "2026-11-11",
+        "method": "verified historical points and freshly verified current valuation before match",
+        "source": "https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/91849"
+      },
+      "played": true,
+      "minutes": 19,
+      "profile": {
+        "marketValueDetails": {
+          "current": {
+            "value": 400000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "400.00",
+              "suffix": "K"
+            },
+            "determined": "2026-10-02"
+          },
+          "previous": {
+            "value": 500000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "500.00",
+              "suffix": "K"
+            },
+            "determined": "2026-05-25"
+          },
+          "delta": {
+            "value": "-100.000 €",
+            "percentage": "-20,00 %",
+            "isVisible": false,
+            "type": "DECREASED"
+          },
+          "highest": {
+            "value": 27000000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "27.00",
+              "suffix": "M"
+            },
+            "determined": "2019-06-05"
+          }
+        }
+      },
+      "graph": [
+        {
+          "x": 1545087600000,
+          "y": 27000000,
+          "mw": "€27.00M",
+          "datum_mw": "18/12/2018",
+          "verein": "Borussia Dortmund",
+          "age": "27",
+          "wappen": ""
+        },
+        {
+          "x": 1559685600000,
+          "y": 27000000,
+          "mw": "€27.00M",
+          "datum_mw": "05/06/2019",
+          "verein": "Borussia Dortmund",
+          "age": "27",
+          "wappen": ""
+        }
+      ],
+      "atMatch": {
+        "x": 1790899200000,
+        "y": 400000,
+        "datum_mw": "02/10/2026",
+        "verein": "FC Copenhagen"
+      },
+      "top5": {
+        "L1": {
+          "name": "Bundesliga",
+          "apps": 113,
+          "minutes": 8442
+        },
+        "ES1": {
+          "name": "LaLiga",
+          "apps": 34,
+          "minutes": 1850
+        }
+      },
+      "senior": [
+        {
+          "playerId": "91849",
+          "clubId": "3436",
+          "gamesPlayed": 81,
+          "goalsScored": 8,
+          "shirtNumber": 8,
+          "isCaptain": false,
+          "debut": "2013-10-15",
+          "debutCoachId": "179",
+          "debutGameId": "2262606",
+          "lastGame": "2024-06-29",
+          "lastGameId": "4359329",
+          "careerState": "RETIRED_NATIONAL_PLAYER",
+          "name": "Denmark"
+        }
+      ],
+      "currentClub": "FC Copenhagen"
+    },
+    {
+      "id": "1123210",
+      "name": "Hunor Németh",
+      "url": "https://www.transfermarkt.com/hunor-nemeth/profil/spieler/1123210",
+      "nationality": "Hungary",
+      "clubId": "190",
+      "club": "FC Copenhagen",
+      "starter": false,
+      "lineupValue": 700000,
+      "historySource": {
+        "date": "2026-11-11",
+        "method": "verified historical points and freshly verified current valuation before match",
+        "source": "https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/1123210"
+      },
+      "played": false,
+      "minutes": 0,
+      "profile": {
+        "marketValueDetails": {
+          "current": {
+            "value": 700000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "700.00",
+              "suffix": "K"
+            },
+            "determined": "2026-05-19"
+          },
+          "previous": {
+            "value": 500000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "500.00",
+              "suffix": "K"
+            },
+            "determined": "2025-12-08"
+          },
+          "delta": {
+            "value": "+200.000 €",
+            "percentage": "+40,00 %",
+            "isVisible": false,
+            "type": "INCREASED"
+          },
+          "highest": {
+            "value": 700000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "700.00",
+              "suffix": "K"
+            },
+            "determined": "2026-05-19"
+          }
+        }
+      },
+      "graph": [
+        {
+          "x": 1779141600000,
+          "y": 700000,
+          "mw": "€700.0K",
+          "datum_mw": "19/05/2026",
+          "verein": "MTK Budapest",
+          "age": "19",
+          "wappen": "https://img.a.transfermarkt.technology/wappen/profil/634.png?lm=1789459205"
+        },
+        {
+          "x": 1779148800000,
+          "y": 700000,
+          "datum_mw": "19/05/2026",
+          "verein": "FC Copenhagen"
+        }
+      ],
+      "atMatch": {
+        "x": 1779148800000,
+        "y": 700000,
+        "datum_mw": "19/05/2026",
+        "verein": "FC Copenhagen"
+      },
+      "top5": {},
+      "senior": [],
+      "currentClub": "FC Copenhagen"
+    },
+    {
+      "id": "337333",
+      "name": "Alex Král",
+      "url": "https://www.transfermarkt.com/alex-kral/profil/spieler/337333",
+      "nationality": "Czech Republic",
+      "clubId": "190",
+      "club": "FC Copenhagen",
+      "starter": false,
+      "lineupValue": 2500000,
+      "historySource": {
+        "date": "2026-11-11",
+        "method": "verified historical points and freshly verified current valuation before match",
+        "source": "https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/337333"
+      },
+      "played": true,
+      "minutes": 19,
+      "profile": {
+        "marketValueDetails": {
+          "current": {
+            "value": 2500000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "2.50",
+              "suffix": "M"
+            },
+            "determined": "2026-05-27"
+          },
+          "previous": {
+            "value": 2500000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "2.50",
+              "suffix": "M"
+            },
+            "determined": "2026-03-20"
+          },
+          "delta": {
+            "value": "0 €",
+            "percentage": "0,00 %",
+            "isVisible": false,
+            "type": "UNCHANGED"
+          },
+          "highest": {
+            "value": 10000000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "10.00",
+              "suffix": "M"
+            },
+            "determined": "2023-10-18"
+          }
+        }
+      },
+      "graph": [
+        {
+          "x": 1622152800000,
+          "y": 10000000,
+          "mw": "€10.00M",
+          "datum_mw": "28/05/2021",
+          "verein": "Spartak Moscow",
+          "age": "23",
+          "wappen": ""
+        },
+        {
+          "x": 1697580000000,
+          "y": 10000000,
+          "mw": "€10.00M",
+          "datum_mw": "18/10/2023",
+          "verein": "1.FC Union Berlin",
+          "age": "25",
+          "wappen": "https://img.a.transfermarkt.technology/wappen/profil/89.png?lm=1789459169"
+        }
+      ],
+      "atMatch": {
+        "x": 1779840000000,
+        "y": 2500000,
+        "datum_mw": "27/05/2026",
+        "verein": "FC Copenhagen"
+      },
+      "top5": {
+        "L1": {
+          "name": "Bundesliga",
+          "apps": 73,
+          "minutes": 4165
+        },
+        "ES1": {
+          "name": "LaLiga",
+          "apps": 37,
+          "minutes": 2711
+        },
+        "GB1": {
+          "name": "Premier League",
+          "apps": 1,
+          "minutes": 1
+        }
+      },
+      "senior": [
+        {
+          "playerId": "337333",
+          "clubId": "3445",
+          "gamesPlayed": 52,
+          "goalsScored": 2,
+          "shirtNumber": 21,
+          "isCaptain": false,
+          "debut": "2019-03-26",
+          "debutCoachId": "3354",
+          "debutGameId": "3172358",
+          "lastGame": "2026-10-06",
+          "lastGameId": "4825112",
+          "careerState": "CURRENT_NATIONAL_PLAYER",
+          "name": "Czechia"
+        }
+      ],
+      "currentClub": "FC Copenhagen"
+    },
+    {
+      "id": "1162160",
+      "name": "Maher Carrizo",
+      "url": "https://www.transfermarkt.com/maher-carrizo/profil/spieler/1162160",
+      "nationality": "Argentina",
+      "clubId": "190",
+      "club": "FC Copenhagen",
+      "starter": false,
+      "lineupValue": 7500000,
+      "historySource": {
+        "date": "2026-11-11",
+        "method": "verified historical points and freshly verified current valuation before match",
+        "source": "https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/1162160"
+      },
+      "played": false,
+      "minutes": 0,
+      "profile": {
+        "marketValueDetails": {
+          "current": {
+            "value": 7500000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "7.50",
+              "suffix": "M"
+            },
+            "determined": "2026-10-02"
+          },
+          "previous": {
+            "value": 8000000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "8.00",
+              "suffix": "M"
+            },
+            "determined": "2026-05-28"
+          },
+          "delta": {
+            "value": "-500.000 €",
+            "percentage": "-6,25 %",
+            "isVisible": false,
+            "type": "DECREASED"
+          },
+          "highest": {
+            "value": 10000000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "10.00",
+              "suffix": "M"
+            },
+            "determined": "2025-12-17"
+          }
+        }
+      },
+      "graph": [
+        {
+          "x": 1758664800000,
+          "y": 10000000,
+          "mw": "€10.00M",
+          "datum_mw": "24/09/2025",
+          "verein": "CA Vélez Sarsfield",
+          "age": "19",
+          "wappen": ""
+        },
+        {
+          "x": 1765926000000,
+          "y": 10000000,
+          "mw": "€10.00M",
+          "datum_mw": "17/12/2025",
+          "verein": "CA Vélez Sarsfield",
+          "age": "19",
+          "wappen": ""
+        }
+      ],
+      "atMatch": {
+        "x": 1790899200000,
+        "y": 7500000,
+        "datum_mw": "02/10/2026",
+        "verein": "FC Copenhagen"
+      },
+      "top5": {},
+      "senior": [],
+      "currentClub": "FC Copenhagen"
+    },
+    {
+      "id": "1072751",
+      "name": "Viktor Dadason",
+      "url": "https://www.transfermarkt.com/viktor-dadason/profil/spieler/1072751",
+      "nationality": "Iceland",
+      "clubId": "190",
+      "club": "FC Copenhagen",
+      "starter": false,
+      "lineupValue": 4000000,
+      "historySource": {
+        "date": "2026-11-11",
+        "method": "verified historical points and freshly verified current valuation before match",
+        "source": "https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/1072751"
+      },
+      "played": true,
+      "minutes": 6,
+      "profile": {
+        "marketValueDetails": {
+          "current": {
+            "value": 4000000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "4.00",
+              "suffix": "M"
+            },
+            "determined": "2026-05-25"
+          },
+          "previous": {
+            "value": 3000000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "3.00",
+              "suffix": "M"
+            },
+            "determined": "2025-12-15"
+          },
+          "delta": {
+            "value": "+1.000.000 €",
+            "percentage": "+33,33 %",
+            "isVisible": false,
+            "type": "INCREASED"
+          },
+          "highest": {
+            "value": 4000000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "4.00",
+              "suffix": "M"
+            },
+            "determined": "2026-05-25"
+          }
+        }
+      },
+      "graph": [
+        {
+          "x": 1779660000000,
+          "y": 4000000,
+          "mw": "€4.00M",
+          "datum_mw": "25/05/2026",
+          "verein": "FC Copenhagen",
+          "age": "17",
+          "wappen": "https://img.a.transfermarkt.technology/wappen/profil/190.png?lm=1789459176"
+        },
+        {
+          "x": 1779667200000,
+          "y": 4000000,
+          "datum_mw": "25/05/2026",
+          "verein": "FC Copenhagen"
+        }
+      ],
+      "atMatch": {
+        "x": 1779667200000,
+        "y": 4000000,
+        "datum_mw": "25/05/2026",
+        "verein": "FC Copenhagen"
+      },
+      "top5": {},
+      "senior": [],
+      "currentClub": "FC Copenhagen"
+    },
+    {
+      "id": "1489163",
+      "name": "Geovanni Vianney Ndjee",
+      "url": "https://www.transfermarkt.com/geovanni-vianney-ndjee/profil/spieler/1489163",
+      "nationality": "Cameroon",
+      "clubId": "190",
+      "club": "FC Copenhagen",
+      "starter": false,
+      "lineupValue": 500000,
+      "historySource": {
+        "date": "2026-11-11",
+        "method": "verified historical points and freshly verified current valuation before match",
+        "source": "https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/1489163"
+      },
+      "played": false,
+      "minutes": 0,
+      "profile": {
+        "marketValueDetails": {
+          "current": {
+            "value": 500000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "500.00",
+              "suffix": "K"
+            },
+            "determined": "2026-10-02"
+          },
+          "previous": {
+            "value": 350000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "350.00",
+              "suffix": "K"
+            },
+            "determined": "2026-05-25"
+          },
+          "delta": {
+            "value": "+150.000 €",
+            "percentage": "+42,86 %",
+            "isVisible": false,
+            "type": "INCREASED"
+          },
+          "highest": {
+            "value": 500000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "500.00",
+              "suffix": "K"
+            },
+            "determined": "2026-10-02"
+          }
+        }
+      },
+      "graph": [
+        {
+          "x": 1790892000000,
+          "y": 500000,
+          "mw": "€500.0K",
+          "datum_mw": "02/10/2026",
+          "verein": "FC Copenhagen",
+          "age": "19",
+          "wappen": "https://img.a.transfermarkt.technology/wappen/profil/190.png?lm=1789459176"
+        },
+        {
+          "x": 1790899200000,
+          "y": 500000,
+          "datum_mw": "02/10/2026",
+          "verein": "FC Copenhagen"
+        }
+      ],
+      "atMatch": {
+        "x": 1790899200000,
+        "y": 500000,
+        "datum_mw": "02/10/2026",
+        "verein": "FC Copenhagen"
+      },
+      "top5": {},
+      "senior": [],
+      "currentClub": "FC Copenhagen"
+    },
+    {
+      "id": "905032",
+      "name": "William Sonne-Schmidt",
+      "url": "https://www.transfermarkt.com/william-sonne-schmidt/profil/spieler/905032",
+      "nationality": "Denmark",
+      "clubId": "206",
+      "club": "Brøndby IF",
+      "starter": false,
+      "lineupValue": 25000,
+      "historySource": {
+        "date": "2026-11-11",
+        "method": "verified historical points and freshly verified current valuation before match",
+        "source": "https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/905032"
+      },
+      "played": false,
+      "minutes": 0,
+      "profile": {
+        "marketValueDetails": {
+          "current": {
+            "value": 25000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "25.00",
+              "suffix": "K"
+            },
+            "determined": "2026-10-02"
+          },
+          "highest": {
+            "value": 25000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "25.00",
+              "suffix": "K"
+            },
+            "determined": "2026-10-02"
+          }
+        }
+      },
+      "graph": [
+        {
+          "x": 1790892000000,
+          "y": 25000,
+          "mw": "€25.0K",
+          "datum_mw": "02/10/2026",
+          "verein": "Bröndby IF",
+          "age": "19",
+          "wappen": "https://img.a.transfermarkt.technology/wappen/profil/206.png?lm=1788504922"
+        },
+        {
+          "x": 1790899200000,
+          "y": 25000,
+          "datum_mw": "02/10/2026",
+          "verein": "Brøndby IF"
+        }
+      ],
+      "atMatch": {
+        "x": 1790899200000,
+        "y": 25000,
+        "datum_mw": "02/10/2026",
+        "verein": "Brøndby IF"
+      },
+      "top5": {},
+      "senior": [],
+      "currentClub": "Bröndby IF"
+    },
+    {
+      "id": "235275",
+      "name": "Jordi Vanlerberghe",
+      "url": "https://www.transfermarkt.com/jordi-vanlerberghe/profil/spieler/235275",
+      "nationality": "Belgium",
+      "clubId": "206",
+      "club": "Brøndby IF",
+      "starter": false,
+      "lineupValue": 1200000,
+      "historySource": {
+        "date": "2026-11-11",
+        "method": "verified historical points and freshly verified current valuation before match",
+        "source": "https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/235275"
+      },
+      "played": false,
+      "minutes": 0,
+      "profile": {
+        "marketValueDetails": {
+          "current": {
+            "value": 1200000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "1.20",
+              "suffix": "M"
+            },
+            "determined": "2026-05-25"
+          },
+          "previous": {
+            "value": 1200000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "1.20",
+              "suffix": "M"
+            },
+            "determined": "2025-12-15"
+          },
+          "delta": {
+            "value": "0 €",
+            "percentage": "0,00 %",
+            "isVisible": false,
+            "type": "UNCHANGED"
+          },
+          "highest": {
+            "value": 2000000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "2.00",
+              "suffix": "M"
+            },
+            "determined": "2025-06-16"
+          }
+        }
+      },
+      "graph": [
+        {
+          "x": 1717970400000,
+          "y": 2000000,
+          "mw": "€2.00M",
+          "datum_mw": "10/06/2024",
+          "verein": "Bröndby IF",
+          "age": "27",
+          "wappen": "https://img.a.transfermarkt.technology/wappen/profil/206_1788502813.png?lm=1788504922"
+        },
+        {
+          "x": 1733698800000,
+          "y": 2000000,
+          "mw": "€2.00M",
+          "datum_mw": "09/12/2024",
+          "verein": "Bröndby IF",
+          "age": "28",
+          "wappen": ""
+        },
+        {
+          "x": 1750024800000,
+          "y": 2000000,
+          "mw": "€2.00M",
+          "datum_mw": "16/06/2025",
+          "verein": "Bröndby IF",
+          "age": "28",
+          "wappen": ""
+        }
+      ],
+      "atMatch": {
+        "x": 1779667200000,
+        "y": 1200000,
+        "datum_mw": "25/05/2026",
+        "verein": "Brøndby IF"
+      },
+      "top5": {},
+      "senior": [],
+      "currentClub": "Bröndby IF"
+    },
+    {
+      "id": "1152320",
+      "name": "Raphael Canut",
+      "url": "https://www.transfermarkt.com/raphael-canut/profil/spieler/1152320",
+      "nationality": "Denmark",
+      "clubId": "206",
+      "club": "Brøndby IF",
+      "starter": false,
+      "lineupValue": 300000,
+      "historySource": {
+        "date": "2026-11-11",
+        "method": "verified historical points and freshly verified current valuation before match",
+        "source": "https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/1152320"
+      },
+      "played": false,
+      "minutes": 0,
+      "profile": {
+        "marketValueDetails": {
+          "current": {
+            "value": 300000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "300.00",
+              "suffix": "K"
+            },
+            "determined": "2026-10-02"
+          },
+          "previous": {
+            "value": 150000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "150.00",
+              "suffix": "K"
+            },
+            "determined": "2026-05-25"
+          },
+          "delta": {
+            "value": "+150.000 €",
+            "percentage": "+100,00 %",
+            "isVisible": false,
+            "type": "INCREASED"
+          },
+          "highest": {
+            "value": 300000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "300.00",
+              "suffix": "K"
+            },
+            "determined": "2026-10-02"
+          }
+        }
+      },
+      "graph": [
+        {
+          "x": 1790892000000,
+          "y": 300000,
+          "mw": "€300.0K",
+          "datum_mw": "02/10/2026",
+          "verein": "Bröndby IF",
+          "age": "17",
+          "wappen": "https://img.a.transfermarkt.technology/wappen/profil/206.png?lm=1788504922"
+        },
+        {
+          "x": 1790899200000,
+          "y": 300000,
+          "datum_mw": "02/10/2026",
+          "verein": "Brøndby IF"
+        }
+      ],
+      "atMatch": {
+        "x": 1790899200000,
+        "y": 300000,
+        "datum_mw": "02/10/2026",
+        "verein": "Brøndby IF"
+      },
+      "top5": {},
+      "senior": [],
+      "currentClub": "Bröndby IF"
+    },
+    {
+      "id": "462838",
+      "name": "Oliver Villadsen",
+      "url": "https://www.transfermarkt.com/oliver-villadsen/profil/spieler/462838",
+      "nationality": "Denmark",
+      "clubId": "206",
+      "club": "Brøndby IF",
+      "starter": false,
+      "lineupValue": 1500000,
+      "historySource": {
+        "date": "2026-11-11",
+        "method": "verified historical points and freshly verified current valuation before match",
+        "source": "https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/462838"
+      },
+      "played": true,
+      "minutes": 16,
+      "profile": {
+        "marketValueDetails": {
+          "current": {
+            "value": 1500000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "1.50",
+              "suffix": "M"
+            },
+            "determined": "2026-10-02"
+          },
+          "previous": {
+            "value": 1200000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "1.20",
+              "suffix": "M"
+            },
+            "determined": "2026-05-25"
+          },
+          "delta": {
+            "value": "+300.000 €",
+            "percentage": "+25,00 %",
+            "isVisible": false,
+            "type": "INCREASED"
+          },
+          "highest": {
+            "value": 3000000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "3.00",
+              "suffix": "M"
+            },
+            "determined": "2024-06-10"
+          }
+        }
+      },
+      "graph": [
+        {
+          "x": 1717970400000,
+          "y": 3000000,
+          "mw": "€3.00M",
+          "datum_mw": "10/06/2024",
+          "verein": "FC Nordsjælland",
+          "age": "22",
+          "wappen": ""
+        }
+      ],
+      "atMatch": {
+        "x": 1790899200000,
+        "y": 1500000,
+        "datum_mw": "02/10/2026",
+        "verein": "Brøndby IF"
+      },
+      "top5": {},
+      "senior": [],
+      "currentClub": "Bröndby IF"
+    },
+    {
+      "id": "63463",
+      "name": "Daniel Wass",
+      "url": "https://www.transfermarkt.com/daniel-wass/profil/spieler/63463",
+      "nationality": "Denmark",
+      "clubId": "206",
+      "club": "Brøndby IF",
+      "starter": false,
+      "lineupValue": 300000,
+      "historySource": {
+        "date": "2026-11-11",
+        "method": "verified historical points and freshly verified current valuation before match",
+        "source": "https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/63463"
+      },
+      "played": true,
+      "minutes": 4,
+      "profile": {
+        "marketValueDetails": {
+          "current": {
+            "value": 300000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "300.00",
+              "suffix": "K"
+            },
+            "determined": "2026-10-02"
+          },
+          "previous": {
+            "value": 400000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "400.00",
+              "suffix": "K"
+            },
+            "determined": "2026-05-25"
+          },
+          "delta": {
+            "value": "-100.000 €",
+            "percentage": "-25,00 %",
+            "isVisible": false,
+            "type": "DECREASED"
+          },
+          "highest": {
+            "value": 15000000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "15.00",
+              "suffix": "M"
+            },
+            "determined": "2018-12-21"
+          }
+        }
+      },
+      "graph": [
+        {
+          "x": 1521673200000,
+          "y": 15000000,
+          "mw": "€15.00M",
+          "datum_mw": "22/03/2018",
+          "verein": "Celta de Vigo",
+          "age": "28",
+          "wappen": ""
+        },
+        {
+          "x": 1527631200000,
+          "y": 15000000,
+          "mw": "€15.00M",
+          "datum_mw": "30/05/2018",
+          "verein": "Celta de Vigo",
+          "age": "28",
+          "wappen": ""
+        },
+        {
+          "x": 1545346800000,
+          "y": 15000000,
+          "mw": "€15.00M",
+          "datum_mw": "21/12/2018",
+          "verein": "Valencia CF",
+          "age": "29",
+          "wappen": "https://img.a.transfermarkt.technology/wappen/profil/1049.png?lm=1789459228"
+        }
+      ],
+      "atMatch": {
+        "x": 1790899200000,
+        "y": 300000,
+        "datum_mw": "02/10/2026",
+        "verein": "Brøndby IF"
+      },
+      "top5": {
+        "ES1": {
+          "name": "LaLiga",
+          "apps": 225,
+          "minutes": 17762
+        },
+        "FR1": {
+          "name": "Ligue 1",
+          "apps": 133,
+          "minutes": 11039
+        }
+      },
+      "senior": [
+        {
+          "playerId": "63463",
+          "clubId": "3436",
+          "gamesPlayed": 44,
+          "goalsScored": 1,
+          "shirtNumber": 18,
+          "isCaptain": false,
+          "debut": "2011-02-09",
+          "debutCoachId": "179",
+          "debutGameId": "1078900",
+          "lastGame": "2022-09-22",
+          "lastGameId": "3716470",
+          "careerState": "FORMER_NATIONAL_PLAYER",
+          "name": "Denmark"
+        }
+      ],
+      "currentClub": "Bröndby IF"
+    },
+    {
+      "id": "627936",
+      "name": "Casper Winther",
+      "url": "https://www.transfermarkt.com/casper-winther/profil/spieler/627936",
+      "nationality": "Denmark",
+      "clubId": "206",
+      "club": "Brøndby IF",
+      "starter": false,
+      "lineupValue": 1500000,
+      "historySource": {
+        "date": "2026-11-11",
+        "method": "verified historical points and freshly verified current valuation before match",
+        "source": "https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/627936"
+      },
+      "played": false,
+      "minutes": 0,
+      "profile": {
+        "marketValueDetails": {
+          "current": {
+            "value": 1500000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "1.50",
+              "suffix": "M"
+            },
+            "determined": "2026-05-27"
+          },
+          "previous": {
+            "value": 1500000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "1.50",
+              "suffix": "M"
+            },
+            "determined": "2025-12-18"
+          },
+          "delta": {
+            "value": "0 €",
+            "percentage": "0,00 %",
+            "isVisible": false,
+            "type": "UNCHANGED"
+          },
+          "highest": {
+            "value": 1500000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "1.50",
+              "suffix": "M"
+            },
+            "determined": "2026-05-27"
+          }
+        }
+      },
+      "graph": [
+        {
+          "x": 1766012400000,
+          "y": 1500000,
+          "mw": "€1.50M",
+          "datum_mw": "18/12/2025",
+          "verein": "Lyngby Boldklub",
+          "age": "22",
+          "wappen": ""
+        },
+        {
+          "x": 1779832800000,
+          "y": 1500000,
+          "mw": "€1.50M",
+          "datum_mw": "27/05/2026",
+          "verein": "Lyngby Boldklub",
+          "age": "23",
+          "wappen": "https://img.a.transfermarkt.technology/wappen/profil/369.png?lm=1789459189"
+        },
+        {
+          "x": 1779840000000,
+          "y": 1500000,
+          "datum_mw": "27/05/2026",
+          "verein": "Brøndby IF"
+        }
+      ],
+      "atMatch": {
+        "x": 1779840000000,
+        "y": 1500000,
+        "datum_mw": "27/05/2026",
+        "verein": "Brøndby IF"
+      },
+      "top5": {},
+      "senior": [],
+      "currentClub": "Bröndby IF"
+    },
+    {
+      "id": "634859",
+      "name": "Sho Fukuda",
+      "url": "https://www.transfermarkt.com/sho-fukuda/profil/spieler/634859",
+      "nationality": "Japan",
+      "clubId": "206",
+      "club": "Brøndby IF",
+      "starter": false,
+      "lineupValue": 1200000,
+      "historySource": {
+        "date": "2026-11-11",
+        "method": "verified historical points and freshly verified current valuation before match",
+        "source": "https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/634859"
+      },
+      "played": true,
+      "minutes": 27,
+      "profile": {
+        "marketValueDetails": {
+          "current": {
+            "value": 1200000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "1.20",
+              "suffix": "M"
+            },
+            "determined": "2026-05-25"
+          },
+          "previous": {
+            "value": 1200000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "1.20",
+              "suffix": "M"
+            },
+            "determined": "2025-12-15"
+          },
+          "delta": {
+            "value": "0 €",
+            "percentage": "0,00 %",
+            "isVisible": false,
+            "type": "UNCHANGED"
+          },
+          "highest": {
+            "value": 1200000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "1.20",
+              "suffix": "M"
+            },
+            "determined": "2026-05-25"
+          }
+        }
+      },
+      "graph": [
+        {
+          "x": 1765753200000,
+          "y": 1200000,
+          "mw": "€1.20M",
+          "datum_mw": "15/12/2025",
+          "verein": "Bröndby IF",
+          "age": "24",
+          "wappen": "https://img.a.transfermarkt.technology/wappen/profil/206_1788502813.png?lm=1788504922"
+        },
+        {
+          "x": 1779660000000,
+          "y": 1200000,
+          "mw": "€1.20M",
+          "datum_mw": "25/05/2026",
+          "verein": "Bröndby IF",
+          "age": "25",
+          "wappen": "https://img.a.transfermarkt.technology/wappen/profil/206_1788502813.png?lm=1788504922"
+        },
+        {
+          "x": 1779667200000,
+          "y": 1200000,
+          "datum_mw": "25/05/2026",
+          "verein": "Brøndby IF"
+        }
+      ],
+      "atMatch": {
+        "x": 1779667200000,
+        "y": 1200000,
+        "datum_mw": "25/05/2026",
+        "verein": "Brøndby IF"
+      },
+      "top5": {},
+      "senior": [],
+      "currentClub": "Bröndby IF"
+    },
+    {
+      "id": "69511",
+      "name": "Patrick Mortensen",
+      "url": "https://www.transfermarkt.com/patrick-mortensen/profil/spieler/69511",
+      "nationality": "Denmark",
+      "clubId": "206",
+      "club": "Brøndby IF",
+      "starter": false,
+      "lineupValue": 200000,
+      "historySource": {
+        "date": "2026-11-11",
+        "method": "verified historical points and freshly verified current valuation before match",
+        "source": "https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/69511"
+      },
+      "played": true,
+      "minutes": 16,
+      "profile": {
+        "marketValueDetails": {
+          "current": {
+            "value": 200000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "200.00",
+              "suffix": "K"
+            },
+            "determined": "2026-05-25"
+          },
+          "previous": {
+            "value": 300000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "300.00",
+              "suffix": "K"
+            },
+            "determined": "2025-12-15"
+          },
+          "delta": {
+            "value": "-100.000 €",
+            "percentage": "-33,33 %",
+            "isVisible": false,
+            "type": "DECREASED"
+          },
+          "highest": {
+            "value": 700000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "700.00",
+              "suffix": "K"
+            },
+            "determined": "2021-12-28"
+          }
+        }
+      },
+      "graph": [
+        {
+          "x": 1608678000000,
+          "y": 700000,
+          "mw": "€700.0K",
+          "datum_mw": "23/12/2020",
+          "verein": "Aarhus GF",
+          "age": "31",
+          "wappen": ""
+        },
+        {
+          "x": 1622757600000,
+          "y": 700000,
+          "mw": "€700.0K",
+          "datum_mw": "04/06/2021",
+          "verein": "Aarhus GF",
+          "age": "31",
+          "wappen": ""
+        },
+        {
+          "x": 1640646000000,
+          "y": 700000,
+          "mw": "€700.0K",
+          "datum_mw": "28/12/2021",
+          "verein": "Aarhus GF",
+          "age": "32",
+          "wappen": ""
+        }
+      ],
+      "atMatch": {
+        "x": 1779667200000,
+        "y": 200000,
+        "datum_mw": "25/05/2026",
+        "verein": "Brøndby IF"
+      },
+      "top5": {},
+      "senior": [],
+      "currentClub": "Bröndby IF"
+    },
+    {
+      "id": "448854",
+      "name": "Emmanuel Dennis",
+      "url": "https://www.transfermarkt.com/emmanuel-dennis/profil/spieler/448854",
+      "nationality": "Nigeria",
+      "clubId": "206",
+      "club": "Brøndby IF",
+      "starter": false,
+      "lineupValue": 1000000,
+      "historySource": {
+        "date": "2026-11-11",
+        "method": "verified historical points and freshly verified current valuation before match",
+        "source": "https://www.transfermarkt.com/ceapi/marketValueDevelopment/graph/448854"
+      },
+      "played": true,
+      "minutes": 27,
+      "profile": {
+        "marketValueDetails": {
+          "current": {
+            "value": 1000000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "1.00",
+              "suffix": "M"
+            },
+            "determined": "2026-10-02"
+          },
+          "previous": {
+            "value": 1200000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "1.20",
+              "suffix": "M"
+            },
+            "determined": "2026-05-25"
+          },
+          "delta": {
+            "value": "-200.000 €",
+            "percentage": "-16,67 %",
+            "isVisible": false,
+            "type": "DECREASED"
+          },
+          "highest": {
+            "value": 17000000,
+            "currency": "EUR",
+            "compact": {
+              "prefix": "€",
+              "content": "17.00",
+              "suffix": "M"
+            },
+            "determined": "2020-03-30"
+          }
+        }
+      },
+      "graph": [
+        {
+          "x": 1585519200000,
+          "y": 17000000,
+          "mw": "€17.00M",
+          "datum_mw": "30/03/2020",
+          "verein": "Club Brugge KV",
+          "age": "22",
+          "wappen": ""
+        }
+      ],
+      "atMatch": {
+        "x": 1790899200000,
+        "y": 1000000,
+        "datum_mw": "02/10/2026",
+        "verein": "Brøndby IF"
+      },
+      "top5": {
+        "GB1": {
+          "name": "Premier League",
+          "apps": 52,
+          "minutes": 3306
+        },
+        "L1": {
+          "name": "Bundesliga",
+          "apps": 9,
+          "minutes": 473
+        }
+      },
+      "senior": [
+        {
+          "playerId": "448854",
+          "clubId": "3444",
+          "gamesPlayed": 8,
+          "goalsScored": 1,
+          "shirtNumber": 15,
+          "isCaptain": false,
+          "debut": "2019-09-10",
+          "debutCoachId": "824",
+          "debutGameId": "3256369",
+          "lastGame": "2022-11-17",
+          "lastGameId": "3926444",
+          "careerState": "FORMER_NATIONAL_PLAYER",
+          "name": "Nigeria"
+        }
+      ],
+      "currentClub": "Bröndby IF"
+    }
+  ],
+  "currentTeamValues": {
+    "190": 64050000,
+    "206": 44475000
+  }
+}

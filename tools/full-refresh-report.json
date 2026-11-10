@@ -1,11 +1,11 @@
 {
-  "asOf": "2026-11-01",
-  "startedAt": "2026-11-01T12:14:44.962Z",
-  "finishedAt": "2026-11-01T12:17:37.790Z",
+  "asOf": "2026-11-11",
+  "startedAt": "2026-11-10T23:22:39.204Z",
+  "finishedAt": "2026-11-10T23:25:25.950Z",
   "status": "complete",
   "pages": {
     "All Seen Matches.html": {
-      "rows": 96,
+      "rows": 98,
       "addedAppearanceRows": 0,
       "removedAppearanceRows": 0,
       "changedEntitiesByField": {
@@ -21,7 +21,7 @@
       "contentChanged": false
     },
     "TOP 5 players Seen Live.html": {
-      "rows": 431,
+      "rows": 443,
       "addedAppearanceRows": 0,
       "removedAppearanceRows": 0,
       "changedEntitiesByField": {
@@ -37,7 +37,7 @@
       "contentChanged": false
     },
     "Capped Players Seen Live.html": {
-      "rows": 1212,
+      "rows": 1241,
       "addedAppearanceRows": 0,
       "removedAppearanceRows": 0,
       "changedEntitiesByField": {
@@ -53,7 +53,7 @@
       "contentChanged": false
     },
     "Euro-WC Players Seen Live.html": {
-      "rows": 286,
+      "rows": 290,
       "addedAppearanceRows": 0,
       "removedAppearanceRows": 0,
       "changedEntitiesByField": {
@@ -69,7 +69,7 @@
       "contentChanged": false
     },
     "Romanian Club-National Players Seen Live.html": {
-      "rows": 2614,
+      "rows": 2641,
       "addedAppearanceRows": 0,
       "removedAppearanceRows": 0,
       "changedEntitiesByField": {
@@ -85,7 +85,7 @@
       "contentChanged": false
     },
     "All Players Seen Live.html": {
-      "rows": 2948,
+      "rows": 3007,
       "addedAppearanceRows": 0,
       "removedAppearanceRows": 0,
       "changedEntitiesByField": {
@@ -101,7 +101,7 @@
       "contentChanged": false
     },
     "Player Statistics.html": {
-      "rows": 150,
+      "rows": 151,
       "addedAppearanceRows": 0,
       "removedAppearanceRows": 0,
       "changedEntitiesByField": {
@@ -117,7 +117,7 @@
       "contentChanged": false
     },
     "Team Statistics.html": {
-      "rows": 50,
+      "rows": 52,
       "addedAppearanceRows": 0,
       "removedAppearanceRows": 0,
       "changedEntitiesByField": {
@@ -134,14 +134,14 @@
     }
   },
   "sourceCoverage": {
-    "profiles": 1142,
-    "nationalCareerHistories": 1142,
-    "performanceHistories": 1142,
-    "clubsIncludingNationalTeams": 822,
-    "matchClubs": 50,
-    "matchEvents": 96,
-    "recordedAppearances": 2948,
-    "allCurrentSourcesFetchedAfter": "2026-11-01T12:14:44.962Z",
+    "profiles": 1174,
+    "nationalCareerHistories": 1174,
+    "performanceHistories": 1174,
+    "clubsIncludingNationalTeams": 842,
+    "matchClubs": 52,
+    "matchEvents": 98,
+    "recordedAppearances": 3007,
+    "allCurrentSourcesFetchedAfter": "2026-11-10T23:22:39.204Z",
     "peakValidation": "Every career maximum compared with the fresh profile; earliest peak date/club retain their verified historical source.",
     "failures": {
       "missingPlayers": [],
@@ -152,5 +152,5 @@
     }
   },
   "historicalPolicy": "Historical match/tournament values are preserved; current fields and recorded-match events are refreshed.",
-  "backupDirectory": "tools\\.cache\\full-refresh\\2026-11-01T12-14-44-962Z"
+  "backupDirectory": "tools\\.cache\\full-refresh\\2026-11-10T23-22-39-204Z"
 }

@@ -8,8 +8,9 @@
   "attendanceNote": "Transfermarkt match sheet: Attendance: 16.104.",
   "lineupUrl": "https://www.transfermarkt.com/-/aufstellung/spielbericht/4914583",
   "sheetUrl": "https://www.transfermarkt.com/spielbericht/index/spielbericht/4914583",
-  "cutoffUrl": "https://www.transfermarkt.com/x/marktwerteverein/wettbewerb/RO1/stichtag/2026-10-15/plus/1",
-  "cutoff": "2026-10-15",
+  "cutoffUrl": "https://www.transfermarkt.com/x/marktwerteverein/wettbewerb/RO1/stichtag/2026-11-01/plus/1",
+  "cutoff": "2026-11-01",
+  "cutoffVerifiedAt": "2026-11-11",
   "historical": {
     "301": 24400000,
     "6429": 16600000

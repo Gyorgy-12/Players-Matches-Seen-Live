@@ -23,7 +23,7 @@ export function elements(html, tag) {
 }
 const money = text => {
   const m = strip(text).match(/€\s*([\d.,]+)\s*(m|k|bn)?/i);
-  return m ? Math.round(Number(m[1].replace(/,/g, '')) * ({ m: 1e6, k: 1e3, bn: 1e9 }[m[2]] || 1)) : null;
+  return m ? Math.round(Number(m[1].replace(/,/g, '')) * ({ m: 1e6, k: 1e3, bn: 1e9 }[m[2]?.toLowerCase()] || 1)) : null;
 };
 const leagueNames = { GB1: 'Premier League', ES1: 'LaLiga', IT1: 'Serie A', L1: 'Bundesliga', FR1: 'Ligue 1' };
 const lineupUrl = `https://www.transfermarkt.com/-/aufstellung/spielbericht/${GAME}`;
@@ -32,7 +32,7 @@ const snapshot = fs.existsSync(snapshotFile) ? JSON.parse(fs.readFileSync(snapsh
 const sheetUrl = snapshot?.sheetUrl || (GAME === '4914525' ? 'https://www.transfermarkt.com/universitatea-cluj_rapid-bukarest/index/spielbericht/4914525' : `https://www.transfermarkt.com/spielbericht/index/spielbericht/${GAME}`);
 const cutoffDate = config.cutoff || '2026-10-01';
 const cutoffLabel = cutoffDate.split('-').reverse().join('/');
-const cutoffUrl = `https://www.transfermarkt.com/x/marktwerteverein/wettbewerb/RO1/stichtag/${cutoffDate}/plus/1`;
+const cutoffUrl = `https://www.transfermarkt.com/x/marktwerteverein/wettbewerb/${config.leagueId || 'RO1'}/stichtag/${cutoffDate}/plus/1`;
 const [lineup, sheet, cutoff] = snapshot ? ['', '', ''] : await Promise.all([source(lineupUrl, false), source(sheetUrl, false, 4, { refresh: true }), source(cutoffUrl, false)]);
 if (snapshot) {
   assert.equal(snapshot.gameId, GAME);
@@ -168,6 +168,10 @@ for (const table of elements(cutoff, 'table')) {
     historical[clubId] = money(elements(row, 'td')[idx]);
   }
 }
+// Transfermarkt rounds the table labels; the first chart point retains the exact cutoff value.
+for (const [, value, clubId] of cutoff.matchAll(/'data':\[\{'marktwert_gesamt':'(\d+)','y':\d+,'marker':\{'symbol':'[^']*?tiny\\x2F(\d+)\.png/g)) {
+  if (teamIds.includes(clubId)) historical[clubId] = Number(value);
+}
 assert.ok(teamIds.every(id => historical[id] > 0), 'Hiányzó cutoff érték');
 const totals = {};
 for (const clubId of teamIds) {
@@ -180,10 +184,14 @@ for (const p of roster) {
   delete p.nationalHistory;
 }
 const attendanceText = strip(sheet).match(/\bAttendance:\s*([\d][\d.,\s\u00a0]*)/i)?.[1];
-const attendance = snapshot?.attendance ?? (attendanceText ? Number(attendanceText.replace(/\D/g, '')) : null);
+const attendance = config.attendance ?? snapshot?.attendance ?? (attendanceText ? Number(attendanceText.replace(/\D/g, '')) : null);
 if (attendance !== null) assert.ok(Number.isSafeInteger(attendance) && attendance > 0, 'Érvénytelen nézőszám');
 const report = { asOf: AS_OF, ...config, season: '2026/27', competition: 'Romanian SuperLiga', cutoff: cutoffDate, historical, totals, attendance, attendanceNote: snapshot?.attendanceNote || (attendance !== null ? 'Transfermarkt match sheet: Attendance.' : 'Attendance is not present in the freshly retrieved Transfermarkt match sheet.'), sources: { lineupUrl, sheetUrl, cutoffUrl, ...(snapshot?.attendanceUrl ? { attendanceUrl: snapshot.attendanceUrl } : {}) }, roster };
 report.currentTeamValues = Object.fromEntries(teamIds.map(id => [id, clubs.get(id)?.squadDetails?.currentMarketValue?.value ?? null]));
 report.competition = config.competition || report.competition;
+if (config.attendanceUrl) {
+  report.sources.attendanceUrl = config.attendanceUrl;
+  report.attendanceNote = 'Official club match report; preferred over discrepant Transfermarkt attendance.';
+}
 fs.writeFileSync(path.join(import.meta.dirname, `match-${GAME}.json`), JSON.stringify(report, null, 2));
 console.log(JSON.stringify({ historical, totals, played: roster.filter(p => p.played).map(p => ({ id: p.id, name: p.name, top5: p.top5, senior: p.senior })) }, null, 2));
