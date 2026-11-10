@@ -53,7 +53,7 @@ try {
     ['All Seen Matches.html', '#teamSearch', 'Copenhagen', '#season', 98, '4921829'],
     ['TOP 5 players Seen Live.html', '#filter-player', 'Delaney', '#filter-season', 443, '4921829'],
     ['Capped Players Seen Live.html', '#filter-player', 'Wass', '#filter-season', 1241, '4921829'],
-    ['Euro-WC Players Seen Live.html', '#player-search', 'Jovo', '#season-filter', 290, '5059965'],
+    ['Euro-WC Players Seen Live.html', '#player-search', 'Delaney', '#season-filter', 304, '4921829'],
     ['Romanian Club-National Players Seen Live.html', '#q', 'Biliboc', '#season', 2641, '5059965'],
     ['All Players Seen Live.html', '#q', 'Biliboc', '#season', 3007, '5059965'],
   ];

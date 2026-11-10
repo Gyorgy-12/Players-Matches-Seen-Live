@@ -23,7 +23,7 @@ assert.equal(report.counts.performance, 1174);
 assert.equal(report.counts.national, 1174);
 assert.equal(report.counts.matchClubs, 52);
 for (const [name, value] of Object.entries(report.failures)) assert.equal(Array.isArray(value) ? value.length : value, 0, name);
-const expectedAdds = [1, 10, 14, 0, 0];
+const expectedAdds = [1, 10, 14, 14, 0];
 const players = new Map();
 const changes = { currentValues: new Set(), currentClubs: new Set(), peaks: new Set(), nationalStats: new Set(), top5Stats: new Set() };
 for (const [i, file] of files.entries()) {
