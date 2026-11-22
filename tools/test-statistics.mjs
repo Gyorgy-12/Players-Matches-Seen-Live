@@ -5,6 +5,21 @@ import { normalizeFilterOptionOrder } from './normalize-filter-options.mjs';
 const data = JSON.parse(fs.readFileSync(new URL('./seen-statistics.json', import.meta.url), 'utf8'));
 const { aggregate } = globalThis.TMGHStatistics;
 const players = aggregate(data, 'players', { sort: 'apps' }), teams = aggregate(data, 'teams');
+const hatTricks = (dataset, filters = {}) => aggregate(dataset, 'players', { sort: 'hatTricks', ...filters });
+assert.deepEqual(hatTricks(data).map(p => p.name).sort(), ['Isak Dahlqvist', 'Jovo Lukić']);
+assert.deepEqual(hatTricks(data, { match: '4973733' }).map(p => p.hatTrickMatches), [[{ id: '4973733', goals: 3 }]]);
+assert.deepEqual(hatTricks(data, { match: '4921829' }), []);
+const derbyFixture = {
+  ...data, players: [{ id: 'a', name: 'A' }, { id: 'b', name: 'B' }],
+  appearances: [
+    { player: 'a', match: '4973733', team: '1293', goals: 4, ownGoals: 1, penaltyGoals: 1, known: true },
+    { player: 'a', match: '4649129', team: '6429', goals: 3, known: true },
+    { player: 'b', match: '4973733', team: '7769', goals: 2, ownGoals: 1, known: true },
+    { player: 'b', match: '4649129', team: '6429', goals: 1, known: true },
+  ],
+};
+assert.deepEqual(hatTricks(derbyFixture).map(p => [p.id, p.hatTricks]), [['a', 2]]);
+assert.deepEqual(hatTricks(derbyFixture, { team: '1293' })[0].hatTrickMatches, [{ id: '4973733', goals: 4 }]);
 for (const mode of ['players', 'teams']) {
   const h2h = { h2hA: '7769', h2hB: '6429', sort: 'apps' };
   const forward = aggregate(data, mode, h2h);

@@ -29,10 +29,16 @@
         if (!matchIds.has(a.match) || (filters.team && a.team !== filters.team)) continue;
         const p = playerMap.get(a.player);
         if (!p) continue;
-        if (!groups.has(p.id)) groups.set(p.id, init(p.id, p.name));
+        if (!groups.has(p.id)) groups.set(p.id, { ...init(p.id, p.name), hatTricks: 0, hatTrickMatches: [] });
         const row = groups.get(p.id);
         row.apps++; row.teams.add(data.teams[a.team]); row.unknown += Number(!a.known);
         for (const k of metrics) { row[k] += Number(a[k]) || 0; row.missing[k] += Number(a[k] == null); }
+        // goals excludes ownGoals and shootout conversions in the source data.
+        if (Number(a.goals) >= 3) {
+          row.hatTricks++;
+          row.hatTrickMatches.push({ id: a.match, goals: Number(a.goals) });
+        }
+        row.missing.hatTricks = row.missing.goals;
       }
     } else {
       const events = new Map();

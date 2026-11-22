@@ -8,6 +8,7 @@
   let page = 1, pageSize = 50, result = [];
   const escape = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
   const exact = new Set(['apps', 'goalsAgainst', 'difference', 'wins', 'draws', 'losses']);
+  const matches = new Map(data.matches.map(m => [m.id, m]));
   if (mode === 'teams') exact.add('goals');
   function render() {
     const size = pageSize, pages = Math.max(1, Math.ceil(result.length / size));
@@ -21,6 +22,10 @@
         const partial = !exact.has(key) && (mode === 'teams' ? r.unknown > 0 : r.missing[key] > 0);
         const unknown = mode === 'players' && r.missing[key] === r.apps;
         value = `<strong class="${key === byId('sort').value ? 'selected-metric' : ''}">${unknown ? '—' : r[key].toLocaleString('hu-HU')}${partial ? '<sup title="Hiányos meccsadat: ez a rögzített részösszeg">*</sup>' : ''}</strong>`;
+        if (key === 'hatTricks' && byId('sort').value === 'hatTricks') for (const streak of r.hatTrickMatches) {
+          const match = matches.get(streak.id);
+          value += `<a class="stat-hat-trick" href="https://www.transfermarkt.com/spielbericht/index/spielbericht/${encodeURIComponent(match.id)}" target="_blank" rel="noopener">${escape(`${match.homeName} – ${match.awayName} · ${match.date} · ${streak.goals} gól`)}</a>`;
+        }
       }
       return `<td data-label="${label}" data-metric="${key}">${value}</td>`;
     }).join('')}</tr>`).join('');

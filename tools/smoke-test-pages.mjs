@@ -203,6 +203,15 @@ try {
       assert.equal(await page.locator('[data-page-current]').first().textContent(), '1');
     } else assert.equal(await page.locator('[data-page-action="next"]').first().isDisabled(), true);
     await page.locator('#match').selectOption('4914525');
+    if (mode === 'players') {
+      await page.locator('#sort').selectOption('hatTricks');
+      await page.locator('#match').selectOption('4973733');
+      assert.equal(await page.locator('#statistics-rows tr').count(), 1);
+      assert.match(await page.locator('#statistics-rows').textContent(), /Isak Dahlqvist/);
+      assert.match(await page.locator('.stat-hat-trick').textContent(), /CFR Cluj – Tromsø IL.*3 gól/);
+      await page.locator('#match').selectOption('4914525');
+      assert.equal(await page.locator('#statistics-rows tr').count(), 0);
+    }
     await page.locator('#sort').selectOption('apps');
     await assertTableDesign(page, `${width}/${mode}/meccsszám szerinti kiemelés`);
     await page.locator('#page-size').selectOption('50');
