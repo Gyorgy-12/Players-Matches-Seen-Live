@@ -37,6 +37,24 @@ async function assertTableDesign(page, context) {
   assert.ok(audit.checked > 0, `${context}: nincs ellenőrizhető kiemelt érték`);
   assert.deepEqual(audit.issues, [], `${context}: eltérő táblázatformázás`);
 }
+async function assertMobileLayout(page, context) {
+  const issues = await page.evaluate(() => {
+    const issues = [];
+    if (document.documentElement.scrollWidth > innerWidth + 1) issues.push('Oldalszintű vízszintes túlcsordulás');
+    for (const el of document.querySelectorAll('.filter-card select, .filter-card input:not([type="checkbox"]):not([type="radio"]), .league-strip button')) {
+      const box = el.getBoundingClientRect();
+      if (box.height && (box.left < 0 || box.right > innerWidth + 1 || box.height < 40)) issues.push('Szűrőméret: ' + el.id);
+    }
+    const rows = [...document.querySelectorAll('tbody tr')].filter(row => row.getBoundingClientRect().height).slice(0, 4);
+    for (const cell of rows.flatMap(row => [...row.cells])) {
+      if (cell.clientWidth && cell.scrollWidth > cell.clientWidth + 1) issues.push('Kilógó cella: ' + cell.dataset.label);
+      if (cell.matches('[data-label="Verseny"],[data-label^="Forduló"],[data-label="Mérkőzés / eredmény"]') &&
+          getComputedStyle(cell).gridTemplateColumns.split(' ').length > 1) issues.push('A hosszú mező nem teljes szélességű: ' + cell.dataset.label);
+    }
+    return issues;
+  });
+  assert.deepEqual(issues, [], context);
+}
 const server = http.createServer((req, res) => {
   const rel = decodeURIComponent(new URL(req.url, 'http://localhost').pathname).replace(/^\/+/, '') || 'index.html';
   const file = path.resolve(root, rel);
@@ -57,7 +75,7 @@ try {
     ['Romanian Club-National Players Seen Live.html', '#q', 'Biliboc', '#season', 2641, '5059965'],
     ['All Players Seen Live.html', '#q', 'Biliboc', '#season', 3007, '5059965'],
   ];
-  for (const width of hubOnly ? [] : [1440, 820, 390]) {
+  for (const width of hubOnly ? [] : [1440, 820, 390, 320]) {
     for (const [file, input, search, season, expectedRows, expectedGame] of cases) {
       const page = await browser.newPage({ viewport: { width, height: 900 } });
       const errors = [];
@@ -67,6 +85,7 @@ try {
       assert.equal(await page.locator('tbody tr').count(), expectedRows);
       await page.waitForFunction(() => !document.body.classList.contains('tmgh-paginated-pending'));
       await assertTableDesign(page, `${width}/${file}`);
+      if (width <= 720) await assertMobileLayout(page, `${width}/${file}: mobil elrendezés`);
       assert.deepEqual(errors, [], `${file}: betöltési hiba`);
       const paginated = await page.locator('[data-page-action="next"]').count() > 0;
       if (paginated) {
@@ -187,6 +206,7 @@ try {
       await page.locator('#reset').click();
     }
     assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), `${width}/${mode}: oldalszélesség`);
+    if (width <= 720) await assertMobileLayout(page, `${width}/${mode}: mobil elrendezés`);
     for (const control of await page.locator('.filter-card input,.filter-card select').all()) {
       const box = await control.boundingBox();
       assert.ok(box.width > 150 && box.height >= 40, `${mode}: szűrőméret`);
@@ -209,6 +229,19 @@ try {
       assert.equal(await page.locator('#statistics-rows tr').count(), 1);
       assert.match(await page.locator('#statistics-rows').textContent(), /Isak Dahlqvist/);
       assert.match(await page.locator('.stat-hat-trick').textContent(), /CFR Cluj – Tromsø IL.*3 gól/);
+      const hatTrickLayout = await page.locator('.stat-hat-trick').evaluate(link => ({
+        fontSize: getComputedStyle(link).fontSize,
+        column: getComputedStyle(link).gridColumn,
+        scrollWidth: link.scrollWidth,
+        clientWidth: link.clientWidth,
+        height: link.getBoundingClientRect().height,
+      }));
+      assert.equal(hatTrickLayout.fontSize, '15px');
+      assert.ok(hatTrickLayout.scrollWidth <= hatTrickLayout.clientWidth + 1);
+      if (width <= 720) {
+        assert.equal(hatTrickLayout.column, '1 / -1');
+        assert.ok(hatTrickLayout.height >= 44);
+      }
       await page.locator('#match').selectOption('4914525');
       assert.equal(await page.locator('#statistics-rows tr').count(), 0);
     }

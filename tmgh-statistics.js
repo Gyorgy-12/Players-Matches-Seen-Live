@@ -24,7 +24,7 @@
         value = `<strong class="${key === byId('sort').value ? 'selected-metric' : ''}">${unknown ? '—' : r[key].toLocaleString('hu-HU')}${partial ? '<sup title="Hiányos meccsadat: ez a rögzített részösszeg">*</sup>' : ''}</strong>`;
         if (key === 'hatTricks' && byId('sort').value === 'hatTricks') for (const streak of r.hatTrickMatches) {
           const match = matches.get(streak.id);
-          value += `<a class="stat-hat-trick" href="https://www.transfermarkt.com/spielbericht/index/spielbericht/${encodeURIComponent(match.id)}" target="_blank" rel="noopener">${escape(`${match.homeName} – ${match.awayName} · ${match.date} · ${streak.goals} gól`)}</a>`;
+          value += `<a class="stat-hat-trick" href="https://www.transfermarkt.com/spielbericht/index/spielbericht/${encodeURIComponent(match.id)}" target="_blank" rel="noopener"><span class="stat-hat-trick-teams">${escape(`${match.homeName} – ${match.awayName}`)}</span> <span class="stat-hat-trick-meta"><time datetime="${escape(match.date)}">${escape(match.date)}</time> <span class="stat-hat-trick-goals">${streak.goals} gól</span></span></a>`;
         }
       }
       return `<td data-label="${label}" data-metric="${key}">${value}</td>`;

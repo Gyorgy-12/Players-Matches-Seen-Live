@@ -125,7 +125,42 @@
     });
   };
 
+  const showClippedSelections = () => {
+    const selects = [...document.querySelectorAll('.filter-card select')];
+    if (!selects.length) return;
+    const mobile = window.matchMedia('(max-width:720px)');
+    const ctx = document.createElement('canvas').getContext('2d');
+    if (!ctx) return;
+    const captions = selects.map(select => {
+      const caption = document.createElement('span');
+      caption.className = 'tmgh-selected-label';
+      caption.hidden = true;
+      caption.setAttribute('aria-hidden', 'true');
+      select.after(caption);
+      return { select, caption };
+    });
+    const update = () => {
+      for (const {select, caption} of captions) {
+        const text = select.selectedOptions[0]?.textContent.trim() || '';
+        const style = getComputedStyle(select);
+        ctx.font = `${style.fontWeight} ${style.fontSize} ${style.fontFamily}`;
+        const space = select.clientWidth - parseFloat(style.paddingLeft) - parseFloat(style.paddingRight) - 20;
+        caption.hidden = !mobile.matches || space <= 0 || ctx.measureText(text).width <= space;
+        if (!caption.hidden) caption.textContent = text;
+      }
+    };
+    let frame = 0;
+    const schedule = () => {
+      if (!frame) frame = requestAnimationFrame(() => { frame = 0; update(); });
+    };
+    window.addEventListener('resize', schedule, { passive: true });
+    const filters = document.querySelector('.filter-card');
+    for (const event of ['change', 'click', 'reset']) filters.addEventListener(event, schedule);
+    schedule();
+  };
+
   const cleanCurrentStatusLabels = () => {
+    showClippedSelections();
     initH2H();
     const table = document.querySelector('table:not(.statistics-table)');
     if (table) {

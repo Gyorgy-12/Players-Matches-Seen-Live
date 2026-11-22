@@ -1472,3 +1472,57 @@ body .tmgh-h2h p{margin:10px 0 0;color:var(--tmgh-muted);font-size:12px;line-hei
   body .tmgh-h2h{margin:12px 10px;padding:12px}
   body .tmgh-h2h-grid{grid-template-columns:minmax(0,1fr)}
 }
+
+/* All eight mobile views: wrap at word boundaries and let longer fields
+   use the full card width, keeping compact numeric fields side by side. */
+@media(max-width:720px){
+  body .filter-card label,
+  body .filter-card .multi-select summary > span,
+  body .filter-card .multi-option > span,
+  body .filter-card button,
+  body .table-title,
+  body tbody td::before,
+  body tbody td > *{
+    white-space:normal!important;
+    word-break:normal!important;
+    overflow-wrap:anywhere!important;
+  }
+  body .filter-card .multi-select summary > span,
+  body .filter-card .multi-option > span{min-width:0!important}
+  body .filter-card input:not([type="checkbox"]):not([type="radio"]),
+  body .filter-card select{font-size:16px!important;max-width:100%!important}
+  body .tmgh-h2h-grid > div{display:grid;gap:5px}
+  body .tmgh-h2h .tmgh-h2h-search{margin:0!important}
+  body .filter-card .tmgh-selected-label{
+    display:block;margin:0;color:var(--tmgh-muted);font-size:12px;
+    line-height:1.4;white-space:normal;overflow-wrap:anywhere;
+  }
+  body .filter-card .tmgh-selected-label[hidden]{display:none}
+  body tbody td:is(.match-cell,[data-label="Mérkőzés / eredmény"],[data-label="Stadion / város / ország"],[data-label="Verseny"],[data-label^="Forduló"],[data-metric="teams"]){
+    grid-template-columns:minmax(0,1fr)!important;
+  }
+  body tbody td:is(.match-cell,[data-label="Mérkőzés / eredmény"],[data-label="Stadion / város / ország"],[data-label="Verseny"],[data-label^="Forduló"],[data-metric="teams"]) > *{grid-column:1!important}
+  body tbody td:is([data-label="Szezon"],[data-label="Nézőszám"]) > *,
+  body tbody td > :is(.score,.value),
+  body tbody .tmgh-score-note{
+    white-space:nowrap!important;
+    overflow-wrap:normal!important;
+  }
+  body tbody :is(.tmgh-match-title,.tmgh-team-name){
+    white-space:normal!important;
+    word-break:normal!important;
+    overflow-wrap:anywhere!important;
+  }
+  body tbody td.match-cell > a{display:block!important;margin-right:0!important}
+}
+@media(min-width:721px){body .tmgh-selected-label{display:none}}
+@media(max-width:540px){
+  body .league-strip{
+    display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    overflow:visible!important;scroll-snap-type:none!important;
+  }
+  body .league-strip > :is(.league-chip,.tournament-chip){
+    min-width:0!important;width:100%!important;
+    white-space:normal!important;word-break:normal!important;overflow-wrap:anywhere!important;
+  }
+}
