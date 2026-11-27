@@ -10,7 +10,7 @@ assert.equal(pages.length, 8, 'Nyolc menüpont szükséges');
 let total = 0;
 for (const [, id, label, file] of pages) {
   const html = read(file);
-  const count = id.endsWith('stats') ? Number(html.match(/data-stat-count="(\d+)"/)[1]) : [...html.matchAll(id === 'matches' ? /<tr\b[^>]*data-home-club-id="\d+"/g : /<tr\b[^>]*data-player-id="\d+"/g)].length;
+  const count = id.endsWith('stats') ? Number(html.match(/data-stat-count="(\d+)"/)[1]) : [...html.matchAll(id === 'matches' ? /<tr\b[^>]*data-home-club-id="[^"]+"/g : /<tr\b[^>]*data-player-id="\d+"/g)].length;
   assert.equal(Number(label.replace(/\s/g, '')), count, `${id}: elavult menüszámláló`);
   total += count;
 }

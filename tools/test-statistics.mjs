@@ -29,10 +29,15 @@ for (const mode of ['players', 'teams']) {
   assert.deepEqual(aggregate(data, mode, { ...h2h, match: '4914525' }), [], 'H2H és meccsszűrő metszete');
   assert.ok(aggregate(data, mode, { ...h2h, season: '2026/27' }).every(r => r.apps <= forward.find(p => p.id === r.id).apps));
 }
-assert.equal(players.length, 1174);
-assert.equal(data.matches.length, 98);
-assert.equal(data.appearances.length, 3007);
-assert.equal(teams.length, 52);
+assert.equal(players.length, 1175);
+assert.equal(data.matches.length, 104);
+assert.equal(data.appearances.length, 3040);
+assert.equal(teams.length, 57);
+const sepsiToday = aggregate(data, 'players', { match: 'local-2026-11-27-u-cluj-sepsi', sort: 'apps' });
+assert.equal(sepsiToday.length, 30);
+assert.equal(sepsiToday.find(p => p.id === '806193').goals, 1);
+assert.equal(sepsiToday.find(p => p.id === '823719').assists, 1);
+assert.deepEqual(aggregate(data, 'teams', { match: 'local-2025-04-18-gheorgheni-ciucas', team: '113127' }).map(t => [t.goals, t.goalsAgainst]), [[9, 0]]);
 const derby = aggregate(data, 'players', { match: '4921829', sort: 'apps' });
 assert.equal(derby.length, 31);
 assert.equal(derby.find(p => p.id === '805054').goals, 1);
@@ -170,7 +175,7 @@ for (const id of ['4897219', '4568309']) {
 }
 assert.ok(!data.appearances.some(a => a.player === '457738' && a.match === '4843516'), 'Lukic itt csak cserepadon ült');
 assert.equal(data.appearances.find(a => a.player === '863574' && a.match === '4979913').goals, 1);
-assert.equal(data.coverage.filter(c => !c.complete).length, 1);
+assert.equal(data.coverage.filter(c => !c.complete).length, 7);
 const siafa = players.find(p => /siafa/i.test(p.name));
 assert.ok(siafa.apps >= 2);
 assert.equal(aggregate(data, 'players', { match: '4914525', sort: 'goals' }).length, 6);

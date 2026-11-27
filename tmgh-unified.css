@@ -1526,3 +1526,12 @@ body .tmgh-h2h p{margin:10px 0 0;color:var(--tmgh-muted);font-size:12px;line-hei
     white-space:normal!important;word-break:normal!important;overflow-wrap:anywhere!important;
   }
 }
+body .tmgh-fixture-detail{
+  display:block;margin-top:6px;color:var(--tmgh-muted);
+  font-size:12px;line-height:1.45;white-space:normal;overflow-wrap:anywhere;
+}
+body .tmgh-fixture-detail a{color:var(--tmgh-cyan,#70d8ff)}
+@media(max-width:720px){
+  body tbody td .tmgh-fixture-detail{grid-column:1 / -1!important}
+  body tbody td .tmgh-fixture-detail a{display:inline!important}
+}

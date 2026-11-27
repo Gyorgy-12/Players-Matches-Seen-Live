@@ -11,7 +11,7 @@ export function addH2HFilter(html) {
   const matches = new Map(data.matches.map(m => [m.id, m]));
   const games = new Set();
   html = html.replace(/<tr\b[^>]*>[\s\S]*?<\/tr>/g, row => {
-    const id = row.match(/spielbericht\/(\d+)/)?.[1];
+    const id = row.match(/\bdata-match-id="([^"]+)"/)?.[1] || row.match(/spielbericht\/(\d+)/)?.[1];
     const match = matches.get(id);
     if (!match) return row;
     games.add(id);

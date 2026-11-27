@@ -9,17 +9,25 @@ const read = file => fs.readFileSync(path.join(root, file), 'utf8');
 const decode = s => String(s || '').replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/&#0*39;/g, "'").replace(/&nbsp;/g, ' ');
 const strip = s => decode(String(s || '').replace(/<[^>]*>/g, ' ')).replace(/\s+/g, ' ').trim();
 const attr = (s, k) => decode(s.match(new RegExp(`\\b${k}="([^"]*)"`))?.[1]);
-const matches = [...read('All Seen Matches.html').matchAll(/<tr\b[^>]*data-home-club-id="\d+"[^>]*>[\s\S]*?<\/tr>/g)].map(([row]) => {
-  const names = strip(row.match(/<a\b[^>]*href="[^"]*spielbericht\/\d+"[^>]*>([\s\S]*?)<\/a>/)?.[1]).split(/\s+-\s+/);
+const matches = [...read('All Seen Matches.html').matchAll(/<tr\b[^>]*data-home-club-id="[^"]+"[^>]*>[\s\S]*?<\/tr>/g)].map(([row]) => {
+  const names = strip(row.match(/<td[^>]*data-label="Mérkőzés \/ eredmény"[^>]*>\s*<a\b[^>]*>([\s\S]*?)<\/a>/)?.[1]).split(/\s+-\s+/);
   assert.equal(names.length, 2);
   const score = row.match(/class="score"[^>]*>(\d+):(\d+)/);
   assert.ok(score, 'Hiányzó meccseredmény');
-  return { id: row.match(/spielbericht\/(\d+)/)[1], date: new Date(Number(attr(row, 'data-date'))).toISOString().slice(0, 10), season: attr(row, 'data-season'), competition: attr(row, 'data-competition'), home: attr(row, 'data-home-club-id'), away: attr(row, 'data-away-club-id'), homeName: names[0], awayName: names[1], goalsHome: Number(score[1]), goalsAway: Number(score[2]) };
+  return { id: attr(row, 'data-match-id') || row.match(/spielbericht\/(\d+)/)?.[1], date: new Date(Number(attr(row, 'data-date'))).toISOString().slice(0, 10), season: attr(row, 'data-season'), competition: attr(row, 'data-competition'), home: attr(row, 'data-home-club-id'), away: attr(row, 'data-away-club-id'), homeName: names[0], awayName: names[1], goalsHome: Number(score[1]), goalsAway: Number(score[2]), ...(attr(row, 'data-source-url') ? { sourceUrl: attr(row, 'data-source-url') } : {}) };
 });
 // Shootout conversions are not match goals, nor match-time penalty attempts.
 for (const m of matches) if (m.id === '4897219') [m.goalsHome, m.goalsAway] = [0, 0]; else if (m.id === '4568309') [m.goalsHome, m.goalsAway] = [1, 1];
 const matchMap = new Map(matches.map(m => [m.id, m]));
+// Source-backed fixtures without Transfermarkt match IDs retain their audited
+// player appearances across a future full refresh of Transfermarkt data.
+const previousStatistics = JSON.parse(read('tools/seen-statistics.json'));
+const localAppearances = previousStatistics.appearances.filter(a => a.match.startsWith('local-') && matchMap.has(a.match));
 const candidates = new Map();
+for (const appearance of localAppearances) {
+  const player = previousStatistics.players.find(p => p.id === appearance.player);
+  if (player) candidates.set(player.id, player);
+}
 const fallback = new Map();
 for (const file of ['TOP 5 players Seen Live.html', 'Capped Players Seen Live.html', 'Euro-WC Players Seen Live.html', 'Romanian Club-National Players Seen Live.html']) {
   for (const [row] of read(file).matchAll(/<tr\b[^>]*data-player-id="\d+"[^>]*>[\s\S]*?<\/tr>/g)) {
@@ -45,6 +53,7 @@ async function parallel(items, fn, label, limit = 8) {
   return out;
 }
 await parallel(matches, async m => {
+  if (m.id.startsWith('local-')) return;
   const snapshotPath = path.join(import.meta.dirname, 'sources', `match-${m.id}.json`);
   if (fs.existsSync(snapshotPath)) {
     const snapshot = JSON.parse(fs.readFileSync(snapshotPath, 'utf8'));
@@ -96,6 +105,7 @@ for (const record of fallback.values()) {
   assert.ok(record.team, `Ismeretlen látáskori csapat: ${JSON.stringify(record)}`);
   appearances.push({ ...record, minutes: null, known: false, goals: null, assists: null, ownGoals: null, yellow: null, red: null, secondYellow: null, penalties: null, penaltyGoals: null, penaltiesWon: null, penaltiesCaused: null });
 }
+for (const record of localAppearances) if (!appearances.some(a => a.player === record.player && a.match === record.match)) appearances.push(record);
 assert.equal(new Set(appearances.map(p => `${p.player}|${p.match}`)).size, appearances.length);
 const actualIds = [...new Set([...appearances, ...benchCards].map(p => p.player))];
 const profilesNeeded = actualIds.filter(id => !candidates.get(id)?.name);

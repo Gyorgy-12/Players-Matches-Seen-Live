@@ -9,9 +9,9 @@ const root = path.resolve(import.meta.dirname, '..');
 const files = ['All Seen Matches.html', 'TOP 5 players Seen Live.html', 'Capped Players Seen Live.html', 'Euro-WC Players Seen Live.html', 'Romanian Club-National Players Seen Live.html'];
 const read = f => restoreMarketValueDisplay(fs.readFileSync(path.join(root, f), 'utf8'));
 const attr = (r, k) => r.match(new RegExp(`\\b${k}="([^"]*)"`))?.[1] || '';
-const rows = h => [...h.matchAll(/<tr\b[^>]*data-(?:player-id|home-club-id)="\d+"[^>]*>[\s\S]*?<\/tr>/g)].map(m => m[0]);
+const rows = h => [...h.matchAll(/<tr\b[^>]*data-(?:player-id|home-club-id)="[^"]+"[^>]*>[\s\S]*?<\/tr>/g)].map(m => m[0]);
 const cell = (r, k) => restoreMarketValueDisplay(r.match(new RegExp(`<td[^>]*data-label="${k}"[^>]*>([\\s\\S]*?)<\\/td>`))?.[1] || '');
-const game = r => r.match(/spielbericht\/(\d+)/)?.[1] || '';
+const game = r => attr(r, 'data-match-id') || r.match(/spielbericht\/(\d+)/)?.[1] || '';
 const key = r => [attr(r, 'data-player-id'), attr(r, 'data-tournament'), game(r)].join('|');
 const text = s => s.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
 const match = JSON.parse(read('tools/match-4921829.json'));
@@ -79,20 +79,22 @@ for (const [i, file] of files.entries()) {
       byPlayerDates.set(id, date);
     }
   } else {
-    assert.equal(currentRows.length, 98);
-    assert.equal(game(currentRows[0]), match.gameId);
-    assert.equal(attr(currentRows[0], 'data-sheet-total'), '96175000');
-    assert.equal(attr(currentRows[0], 'data-location'), 'foreign');
-    assert.equal(attr(currentRows[0], 'data-country'), 'denmark');
+    assert.equal(currentRows.length, 104);
+    assert.equal(game(currentRows[0]), 'local-2026-11-27-u-cluj-sepsi');
+    const copenhagenRow = currentRows.find(row => game(row) === match.gameId);
+    assert.equal(attr(copenhagenRow, 'data-sheet-total'), '96175000');
+    assert.equal(attr(copenhagenRow, 'data-location'), 'foreign');
+    assert.equal(attr(copenhagenRow, 'data-country'), 'denmark');
     assert.equal(match.attendance, 34348);
     assert.equal(match.cutoff, '2026-11-01');
     assert.deepEqual(match.historical, { '190': 64050000, '206': 44475000 });
     assert.match(match.sources.sheetUrl, /spielbericht\/4921829$/);
-    assert.equal(attr(currentRows[0], 'data-attendance-known'), match.attendance ? '1' : '0');
-    assert.equal(Number(attr(currentRows[0], 'data-attendance')), match.attendance || 0);
-    if (match.attendance) assert.equal(Number(text(cell(currentRows[0], 'Nézőszám')).replace(/\D/g, '')), match.attendance);
+    assert.equal(attr(copenhagenRow, 'data-attendance-known'), match.attendance ? '1' : '0');
+    assert.equal(Number(attr(copenhagenRow, 'data-attendance')), match.attendance || 0);
+    if (match.attendance) assert.equal(Number(text(cell(copenhagenRow, 'Nézőszám')).replace(/\D/g, '')), match.attendance);
     for (const row of currentRows.slice(1)) {
       const old = oldRows.get(key(row));
+      if (!old) continue;
       for (const label of ['Meccsnapi összérték', 'Hazai akkori MV', 'Vendég akkori MV']) assert.equal(cell(row, label), cell(old, label));
     }
   }
@@ -103,8 +105,8 @@ assert.ok(players.size >= 1038);
 const allHtml = read('All Players Seen Live.html');
 const allRows = rows(allHtml);
 const stats = JSON.parse(read('tools/seen-statistics.json'));
-assert.equal(allRows.length, 3007);
-assert.equal(new Set(allRows.map(r => attr(r, 'data-player-id'))).size, 1174);
+assert.equal(allRows.length, 3040);
+assert.equal(new Set(allRows.map(r => attr(r, 'data-player-id'))).size, 1175);
 assert.equal(allRows.filter(r => game(r) === match.gameId).length, 31);
 assert.deepEqual(new Set(allRows.filter(r => game(r) === match.gameId).map(r => attr(r, 'data-player-id'))), new Set(match.roster.filter(p => p.played).map(p => p.id)));
 assert.deepEqual(new Set(allRows.map(r => `${attr(r, 'data-player-id')}|${game(r)}`)), new Set(stats.appearances.map(a => `${a.player}|${a.match}`)));

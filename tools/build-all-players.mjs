@@ -29,7 +29,7 @@ for (const name of ['Romanian Club-National Players Seen Live.html', 'Capped Pla
     if (!old.has(id)) old.set(id, row);
   }
 }
-const matchRows = new Map([...read('All Seen Matches.html').matchAll(/<tr\b[^>]*data-home-club-id="\d+"[^>]*>[\s\S]*?<\/tr>/g)].map(([r]) => [r.match(/spielbericht\/(\d+)/)[1], r]));
+const matchRows = new Map([...read('All Seen Matches.html').matchAll(/<tr\b[^>]*data-home-club-id="[^"]+"[^>]*>[\s\S]*?<\/tr>/g)].map(([r]) => [attr(r, 'data-match-id') || r.match(/spielbericht\/(\d+)/)?.[1], r]));
 const matchMap = new Map(data.matches.map(m => [m.id, m]));
 const people = new Map(data.players.map(p => [p.id, p]));
 const ids = [...new Set(data.appearances.map(a => a.player))].sort((a, b) => Number(a) - Number(b));
@@ -45,6 +45,7 @@ function elements(html, tag) {
   return result;
 }
 for (const m of data.matches) {
+  if (m.id.startsWith('local-')) continue;
   const html = archivedSource(`https://www.transfermarkt.com/-/aufstellung/spielbericht/${m.id}`, false, AS_OF)?.data;
   if (!html) continue;
   for (const row of elements(html, 'tr')) {

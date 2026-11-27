@@ -65,7 +65,7 @@
   };
 
   const decorateMatchCells = () => {
-    document.querySelectorAll('tbody td a[href*="spielbericht/"]').forEach((link) => {
+    document.querySelectorAll('tbody td[data-label="Mérkőzés / eredmény"] > a, tbody td[data-label="Látott meccs / eredmény"] > a').forEach((link) => {
       const title =
         link.querySelector(':scope > .match-title') ||
         link.querySelector(':scope > strong') ||

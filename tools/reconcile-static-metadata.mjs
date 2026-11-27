@@ -29,7 +29,7 @@ export function reconcileMetadata() {
   const seenStatistics = fs.existsSync(statisticsPath) ? JSON.parse(fs.readFileSync(statisticsPath, 'utf8')) : null;
   for (const [mode, file] of Object.entries(files)) {
     let html = fs.readFileSync(path.join(root, file), 'utf8');
-    const rows = mode === 'matches' ? [...html.matchAll(/<tr\b[^>]*data-home-club-id="\d+"[^>]*>[\s\S]*?<\/tr>/g)].map(m => m[0]) : playerRows(html);
+    const rows = mode === 'matches' ? [...html.matchAll(/<tr\b[^>]*data-home-club-id="[^"]+"[^>]*>[\s\S]*?<\/tr>/g)].map(m => m[0]) : playerRows(html);
     const players = distinct(rows, 'data-player-id').size;
     counts[mode] = rows.length;
     html = html.replace(/(data-page-status\b[^>]*>)[\s\S]*?(<\/div>)/g, (_, a, b) => `${a}1–${Math.min(50, rows.length)} / ${rows.length} sor${b}`)

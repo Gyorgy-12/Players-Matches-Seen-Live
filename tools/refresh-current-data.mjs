@@ -551,7 +551,7 @@ function seniorEntries(history, clubs) {
 }
 
 function addMissingAppearances(html, allHtml, eligibleIds, convert) {
-  const key = row => `${getAttr(rowOpen(row), 'data-player-id')}|${row.match(/spielbericht\/(\d+)/)?.[1]}`;
+  const key = row => `${getAttr(rowOpen(row), 'data-player-id')}|${getAttr(rowOpen(row), 'data-match-id') || row.match(/spielbericht\/(\d+)/)?.[1]}`;
   const existing = new Set(playerRows(html).map(key));
   const eligible = new Set(eligibleIds);
   const added = playerRows(allHtml).filter(row => eligible.has(getAttr(rowOpen(row), 'data-player-id')) && !existing.has(key(row))).map(convert);
@@ -683,7 +683,7 @@ const removedIneligibleRows = [];
 for (const name of PLAYER_FILES) {
   let html = htmlByFile.get(name);
   html = updateRows(html, (row, id) => {
-    const game = row.match(/spielbericht\/(\d+)/)?.[1];
+    const game = getAttr(rowOpen(row), 'data-match-id') || row.match(/spielbericht\/(\d+)/)?.[1];
     if (unusedAppearances.has(`${id}|${game}`)) {
       removedUnusedRows.push({ file: name, player: id, match: game });
       return '';

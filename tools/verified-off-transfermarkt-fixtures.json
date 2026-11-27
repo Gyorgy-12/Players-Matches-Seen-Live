@@ -1,0 +1,37 @@
+[
+  {
+    "id": "local-2026-11-27-u-cluj-sepsi", "date": "2026-11-27", "season": "2026/27", "competition": "Romanian SuperLiga", "round": "Matchday 17", "home": "6429", "away": "54585", "homeName": "U Cluj", "awayName": "Sepsi OSK", "goalsHome": 0, "goalsAway": 1, "stadium": "Cluj Arena", "city": "Cluj-Napoca", "country": "Romania",
+    "sourceUrl": "https://cluj24.ro/u-cluj-dus-rece-pe-cluj-arena-esec-la-limita-cu-sepsi-osk-312316.html",
+    "appearanceSourceUrl": "https://www.fotmob.com/ro/matches/universitatea-cluj-vs-sepsi-osk/2vyaekei",
+    "goals": "Doru Andrei (60., Sepsi)",
+    "scorers": [{"name":"Doru Andrei","url":"https://www.transfermarkt.com/doru-andrei/profil/spieler/806193"}],
+    "lineupHome": "Lefter – Mikanović, Poulolo, I. Cristea, Chipciu – Codrea, Pinho – Macalou, Bic, Ștefănescu – Lukić",
+    "lineupAway": "D. Lazar – Cascardo, D. Vîrtej, S. Karamoko, Vianna – N. Păun, R. Cîmpean – R. Silaghi, Doru Andrei, Oberlin – Cmiljanic"
+  },
+  {
+    "id": "local-2026-09-23-gheorgheni-onesti", "date": "2026-09-23", "season": "2026/27", "competition": "Romanian Liga 3", "round": "Regular season", "home": "113127", "away": "local-onești", "homeName": "CS Gheorgheni", "awayName": "Viitorul Onești", "goalsHome": 2, "goalsAway": 0, "stadium": "Municipal Gheorgheni", "city": "Gheorgheni", "country": "Romania",
+    "sourceUrl": "https://vskgyergyo.com/cs-gheorgheni-victorie-importanta-cu-viitorul-onesti-vsk-gyergyo-fontos-gyozelem-a-viitorul-onesti-ellen/",
+    "goals": "Jakab Krisztián (24.), Simó Csongor (67.)",
+    "scorers": [{"name":"Csongor Simó","url":"https://www.transfermarkt.com/csongor-simo/profil/spieler/703147"}]
+  },
+  {
+    "id": "local-2026-05-01-sanatatea-poli", "date": "2026-05-01", "season": "2025/26", "competition": "Romanian Liga 3 - Championship Group", "round": "Play-off · Matchday 5", "home": "34972", "away": "39835", "homeName": "Sanatatea Cluj", "awayName": "Poli Timisoara", "goalsHome": 0, "goalsAway": 1, "stadium": null, "city": "Cluj-Napoca", "country": "Romania",
+    "sourceUrl": "https://renasterea.ro/alb-violetii-ca-si-promovati-in-liga-a-ii-a-sanatatea-cluj-poli-timisoara-0-1/",
+    "goals": "Cornel Ene (29., Poli Timișoara)",
+    "scorers": [{"name":"Cornel Ene","url":"https://www.transfermarkt.com/cornel-ene/profil/spieler/224170"}]
+  },
+  {
+    "id": "local-2025-04-18-gheorgheni-ciucas", "date": "2025-04-18", "season": "2024/25", "competition": "Romanian Liga 3 - Relegation Group", "round": "Play-out", "home": "113127", "away": "local-ciucas", "homeName": "CS Gheorgheni", "awayName": "Ciucaș Tărlungeni", "goalsHome": 9, "goalsAway": 0, "stadium": "Municipal Gheorgheni", "city": "Gheorgheni", "country": "Romania",
+    "sourceUrl": "https://www.sport.ro/fotbal-intern/pacate-in-vinerea-mare-rezultate-ciudate-in-liga-3-4-8-2-7-9-0-sau-4-4.html"
+  },
+  {
+    "id": "local-2024-09-07-gheorgheni-breaza", "date": "2024-09-07", "season": "2024/25", "competition": "Romanian Liga 3", "round": "Regular season", "home": "113127", "away": "local-breaza", "homeName": "CS Gheorgheni", "awayName": "Tricolorul Breaza", "goalsHome": 0, "goalsAway": 0, "stadium": "Municipal Gheorgheni", "city": "Gheorgheni", "country": "Romania",
+    "sourceUrl": "https://www.frf-cca.ro/arbitru/2212"
+  },
+  {
+    "id": "local-2022-06-25-gheorgheni-mse", "date": "2022-06-25", "season": "2021/22", "competition": "Romanian Liga 3 Promotion Play-off", "round": "Second leg", "home": "113127", "away": "local-mse-1898", "homeName": "CS Gheorgheni", "awayName": "MSE 1898 Târgu Mureș", "goalsHome": 3, "goalsAway": 6, "stadium": "Municipal Gheorgheni", "city": "Gheorgheni", "country": "Romania",
+    "sourceUrl": "https://www.e-nepujsag.ro/storage/pdf/2022/06/junius27hetfo2022.pdf",
+    "goals": "Gyergyó: Andrei Țepeș, Czimbalmos Zalán (2); MSE: Oprea, Moldován Tamás, Bujor (2), Andrei Moldovan, Gliga. Țepeș kihagyott egy 11-est; Mihály Zoltánt kiállították.",
+    "scorers": [{"name":"Andrei Țepeș","url":"https://www.transfermarkt.com/andrei-tepes/profil/spieler/97532"}]
+  }
+]

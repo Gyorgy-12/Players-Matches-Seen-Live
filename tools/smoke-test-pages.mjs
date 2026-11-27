@@ -68,12 +68,12 @@ try {
   browser = await chromium.launch({ headless: true, ...(process.env.TMGH_BROWSER_CHANNEL ? { channel: process.env.TMGH_BROWSER_CHANNEL } : {}) });
   const base = `http://127.0.0.1:${server.address().port}/`;
   const cases = [
-    ['All Seen Matches.html', '#teamSearch', 'Copenhagen', '#season', 98, '4921829'],
-    ['TOP 5 players Seen Live.html', '#filter-player', 'Delaney', '#filter-season', 443, '4921829'],
-    ['Capped Players Seen Live.html', '#filter-player', 'Wass', '#filter-season', 1241, '4921829'],
-    ['Euro-WC Players Seen Live.html', '#player-search', 'Delaney', '#season-filter', 304, '4921829'],
-    ['Romanian Club-National Players Seen Live.html', '#q', 'Biliboc', '#season', 2641, '5059965'],
-    ['All Players Seen Live.html', '#q', 'Biliboc', '#season', 3007, '5059965'],
+    ['All Seen Matches.html', '#teamSearch', 'Copenhagen', '#season', 104, '4921829'],
+    ['TOP 5 players Seen Live.html', '#filter-player', 'Delaney', '#filter-season', 446, '4921829'],
+    ['Capped Players Seen Live.html', '#filter-player', 'Wass', '#filter-season', 1250, '4921829'],
+    ['Euro-WC Players Seen Live.html', '#player-search', 'Delaney', '#season-filter', 306, '4921829'],
+    ['Romanian Club-National Players Seen Live.html', '#q', 'Biliboc', '#season', 2674, '5059965'],
+    ['All Players Seen Live.html', '#q', 'Biliboc', '#season', 3040, '5059965'],
   ];
   for (const width of hubOnly ? [] : [1440, 820, 390, 320]) {
     for (const [file, input, search, season, expectedRows, expectedGame] of cases) {
@@ -86,6 +86,13 @@ try {
       await page.waitForFunction(() => !document.body.classList.contains('tmgh-paginated-pending'));
       await assertTableDesign(page, `${width}/${file}`);
       if (width <= 720) await assertMobileLayout(page, `${width}/${file}: mobil elrendezés`);
+      if (file === 'All Seen Matches.html' && width === 320) {
+        await page.locator('#competition').selectOption('Romanian Liga 3 Promotion Play-off');
+        await page.waitForFunction(() => [...document.querySelectorAll('tbody tr')].filter(r => r.getBoundingClientRect().height).length === 1);
+        assert.match(await page.locator('tbody tr:visible').textContent(), /MSE 1898 Târgu Mureș/);
+        await assertMobileLayout(page, '320px/2022-es hosszú meccsnév');
+        await page.locator('#competition').selectOption('');
+      }
       assert.deepEqual(errors, [], `${file}: betöltési hiba`);
       const paginated = await page.locator('[data-page-action="next"]').count() > 0;
       if (paginated) {
